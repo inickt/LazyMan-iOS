@@ -9,19 +9,33 @@
 import UIKit
 import FSCalendar
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FSCalendarDataSource, FSCalendarDelegate {
 
+    let games: [Game] = [Game(homeTeam: NHLTeam.blueJackets, awayTeam: NHLTeam.blackhawks)]
+    
     @IBOutlet weak var leagueControl: UISegmentedControl!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
+    @IBOutlet weak var gameTableView: UITableView!
+    
+    override func loadView() {
+        super.loadView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.calendar.select(Date(), scrollToDate: false)
-        
         self.calendar.scope = .week
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let selectionIndexPath = self.gameTableView.indexPathForSelectedRow {
+            self.gameTableView.deselectRow(at: selectionIndexPath, animated: animated)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +58,29 @@ class MainViewController: UIViewController {
         self.calendarHeight.constant = bounds.height
         self.view.layoutIfNeeded()
     }
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.games.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: GameTableViewCell = tableView.dequeueReusableCell(withIdentifier: "GameCell"/*Identifier*/, for: indexPath) as! GameTableViewCell
+        cell.updateGameInfo(game: self.games[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("cell at #\(indexPath.row) is selected!")
+        
+        if let destinationViewController:GameViewController = navigationController?.storyboard?.instantiateViewController(withIdentifier: "GameView") as? GameViewController {
+            
+            destinationViewController.game = self.games[indexPath.row]
+            
+            //Then just push the controller into the view hierarchy
+            navigationController?.pushViewController(destinationViewController, animated: true)
+        }
+    }
+    
     @IBAction func test(_ sender: Any) {
         
         if calendar.scope == .month {

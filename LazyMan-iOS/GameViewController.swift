@@ -18,8 +18,9 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     
     private var webView: WKWebView!
     
+    var game: Game?
     
-    let url = URL(string: "http://hlslive-akc.med2.med.nhl.com/hdnts=exp=1519563186~acl=/*~id=nhlGatewayId:4475557~data=57762303~hmac=bd9c1e62461445224f21f85ca2791000a310e858f58ddffc9152c7cce9628a1c/6ca55d366915a77de9a6b3ce316b3456/ls03/nhl/2018/02/24/NHL_GAME_VIDEO_SJSCHI_M2_HOME_20180224_1518626402843/master_wired60.m3u8")
+    let url = URL(string: "http://hlslive-akc.med2.med.nhl.com/hdnts=exp=1519619493~acl=/*~id=nhlGatewayId:4475557~data=57770903~hmac=e98ba0444ddff6651a72e8248e4306b6b4a7f231c69c9d2117d8d755b1a0c7cf/88514ea6992584d84a28bedec0b62f39/ls03/nhl/2018/02/25/NHL_GAME_VIDEO_CHICBJ_M2_VISIT_20180225_1518627735893/master_wired60.m3u8")
     
     override func loadView() {
         super.loadView()
@@ -47,6 +48,10 @@ class GameViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         self.refreshButton.isEnabled = false
+        
+        if let awayShort = self.game?.awayTeam.shortName, let homeShort = self.game?.homeTeam.shortName {
+            self.navigation.title = awayShort + " at " + homeShort
+        }
     }
 
     override func didReceiveMemoryWarning() {

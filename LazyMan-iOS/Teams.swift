@@ -15,7 +15,6 @@ enum Leage {
 
 protocol Team {
 //    static var allTeams: [String : Self] { get }
-    
     var location: String { get }
     var shortName: String { get }
     var fullName: String { get }
@@ -32,9 +31,14 @@ final class NHLTeam: Team {
     let abbreviation: String
     let logo: UIImage
     
+    static let avalanche = NHLTeam(location: "Colorado", shortName: "Avalanche", abbreviation: "COL", logo: #imageLiteral(resourceName: "avalanche"))
     static let blackhawks = NHLTeam(location: "Chicago", shortName: "Blackhawks", abbreviation: "CHI", logo: #imageLiteral(resourceName: "blackhawks"))
+    static let blueJackets = NHLTeam(location: "Columbus", shortName: "Blue Jackets", abbreviation: "CBJ", logo: #imageLiteral(resourceName: "blue-jackets"))
     
-    static var allTeams: [String : NHLTeam] = [:]
+    private static var teams: [String : NHLTeam] = [:]
+    static var allTeams: [String : NHLTeam] {
+        return NHLTeam.teams
+    }
     static let league: Leage = Leage.NHL
     
     private init(location: String, shortName: String, abbreviation: String, logo: UIImage) {
@@ -44,7 +48,7 @@ final class NHLTeam: Team {
         self.abbreviation = abbreviation
         self.logo = logo
         
-        NHLTeam.allTeams[shortName.lowercased()] = self
+        NHLTeam.teams[shortName.lowercased()] = self
         
     }
 }
@@ -60,7 +64,7 @@ final class MLBTeam: Team {
     private init(location: String, shortName: String, abbreviation: String, logo: UIImage) {
         self.location = location
         self.shortName = shortName
-        self.fullName = location + " " + shortName
+        self.fullName = location + "1ST 17:32" + shortName
         self.abbreviation = abbreviation
         self.logo = logo
         
@@ -73,10 +77,15 @@ final class MLBTeam: Team {
 //
 //}
 
+
 class Game {
     
     let homeTeam: Team
     let awayTeam: Team
+    
+    var time: String {
+        return "FINAL"
+    }
     
     init(homeTeam: NHLTeam, awayTeam: NHLTeam) {
         self.homeTeam = homeTeam
