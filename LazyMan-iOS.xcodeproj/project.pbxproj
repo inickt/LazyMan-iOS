@@ -17,6 +17,8 @@
 		01434A742040D3FF0094E221 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01434A732040D3FF0094E221 /* GameTableViewCell.swift */; };
 		01434A762040DAA70094E221 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01434A752040DAA70094E221 /* GameViewController.swift */; };
 		019EA59B203E6FF8000149A3 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EA59A203E6FF8000149A3 /* Teams.swift */; };
+		01E593CA204B03F800CE338A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E593C9204B03F800CE338A /* GameManager.swift */; };
+		01E593CE204B07E400CE338A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E593CD204B07E400CE338A /* Game.swift */; };
 		2DBB500360049A35282D0F72 /* Pods_LazyMan_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6692BA5DC5F8089A7F24FDEC /* Pods_LazyMan_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		01434A732040D3FF0094E221 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		01434A752040DAA70094E221 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		019EA59A203E6FF8000149A3 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
+		01E593C9204B03F800CE338A /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		01E593CD204B07E400CE338A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		6692BA5DC5F8089A7F24FDEC /* Pods_LazyMan_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyMan_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4E0BF11AC215B0A921B72A /* Pods-LazyMan-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyMan-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyMan-iOS/Pods-LazyMan-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C2466E3CA23A454708E0B525 /* Pods-LazyMan-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyMan-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LazyMan-iOS/Pods-LazyMan-iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 				01434A732040D3FF0094E221 /* GameTableViewCell.swift */,
 				01434A752040DAA70094E221 /* GameViewController.swift */,
 				010DB56620423DF300DFB4A0 /* Logos.xcassets */,
+				01E593C9204B03F800CE338A /* GameManager.swift */,
+				01E593CD204B07E400CE338A /* Game.swift */,
 			);
 			path = "LazyMan-iOS";
 			sourceTree = "<group>";
@@ -235,6 +241,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				01434A762040DAA70094E221 /* GameViewController.swift in Sources */,
+				01E593CA204B03F800CE338A /* GameManager.swift in Sources */,
+				01E593CE204B07E400CE338A /* Game.swift in Sources */,
 				019EA59B203E6FF8000149A3 /* Teams.swift in Sources */,
 				012CB8AF203A3E7C00E76740 /* AppDelegate.swift in Sources */,
 				010E4584203A6964001EF46C /* MainViewController.swift in Sources */,

@@ -11,7 +11,7 @@ import FSCalendar
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FSCalendarDataSource, FSCalendarDelegate {
 
-    let games: [Game] = [Game(homeTeam: NHLTeam.blueJackets, awayTeam: NHLTeam.blackhawks)]
+    let games: [Game] = []
     
     @IBOutlet weak var leagueControl: UISegmentedControl!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
