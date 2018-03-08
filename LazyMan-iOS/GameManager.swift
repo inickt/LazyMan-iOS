@@ -7,44 +7,94 @@
 //
 
 import Foundation
+import SwiftyJSON
+
+protocol GameDataDelegate
+{
+    func updateGames(nhlGames: [Game]?, mlbGames: [Game]?)
+}
 
 class GameManager
 {
+    static let manager = GameManager()
     
+    var delegate: GameDataDelegate?
     
+    private var nhlGames = [String : [Game]]()
+    private var mlbGames = [String : [Game]]()
     
-    private var games: (nhlGames: [Date : [Game]], mlbGames: [Date : [Game]]) = (nhlGames: [:], mlbGames: [:])
+    private let nhlFormatURL = "https://statsapi.web.nhl.com/api/v1/schedule?date=%@&expand=schedule.teams,schedule.linescore,schedule.game.content.media.epg"
     
-    func getGames(date: Date) -> (nhlGames: [Game]?, mlbGames: [Game]?)
+    func requestGames(date: String)
     {
-        if let nhlGames = self.games.nhlGames[date], let mlbGames = self.games.mlbGames[date]
+        if self.nhlGames[date] != nil //, let mlbGames = self.games.mlbGames[date]
         {
-            return (nhlGames: nhlGames, mlbGames: mlbGames)
+            self.updateDelegate(date: date)
         }
         else
         {
-            return self.reloadGames(date: date)
+            self.reloadGames(date: date)
         }
     }
     
-    func reloadGames(date: Date) -> (nhlGames: [Game]?, mlbGames: [Game]?)
+    func reloadGames(date: String)
     {
-        return (nhlGames: self.getNHLGames(date: date), mlbGames: self.getMLBGames(date: date))
+        self.getNHLGames(date: date)
     }
     
-    private func getNHLGames(date: Date) -> [Game]?
+    private func getNHLGames(date: String)
     {
-        let dateFormatter = DateFormatter()
+        let nhlStatsURL = String(format: self.nhlFormatURL, date)
         
-        dateFormatter.string(from: date)
+        var newGames: [Game] = []
         
-        return nil
+        if let url = URL(string: nhlStatsURL)
+        {
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                
+                let j = try! JSON(data: data!).dictionaryValue
+                
+                if let numGames = j["totalItems"]?.int
+                {
+                    if numGames > 0, let dates = j["dates"]?.array
+                    {
+                        if dates.count > 0, let jsonGames = dates[0].dictionaryValue["games"]?.array
+                        {
+                            for jsonGame in jsonGames
+                            {
+                                let homeTeam = TeamManager.nhlTeams[jsonGame["teams"]["home"]["team"]["teamName"].stringValue]
+                                let awayTeam = TeamManager.nhlTeams[jsonGame["teams"]["away"]["team"]["teamName"].stringValue]
+
+                                if let homeTeam = homeTeam, let awayTeam = awayTeam {
+                                    newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: Date(), gameState: jsonGame["linescore"]["currentPeriodOrdinal"].stringValue + " – " + jsonGame["linescore"]["currentPeriodTimeRemaining"].stringValue, feeds: []))
+                                }
+                            }
+                            self.nhlGames[date] = newGames
+                            self.updateDelegate(date: date)
+                        }
+                    }
+                    else
+                    {
+                        print("error")
+                    }
+                }
+                else {
+                    print("error")
+                }
+            }).resume()
+        }
     }
     
-    private func getMLBGames(date: Date) -> [Game]?
+    private func getMLBGames(date: Date)
     {
-        return nil
+        
     }
     
+    private func updateDelegate(date: String)
+    {
+        DispatchQueue.main.async {
+            self.delegate?.updateGames(nhlGames: self.nhlGames[date], mlbGames: nil)
+        }
+    }
 }
 

@@ -40,9 +40,19 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Drg-wo-ri7" customClass="FSCalendar">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday  September 30, 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwF-fL-qzp">
+                                        <rect key="frame" x="60" y="11" width="255" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="DwF-fL-qzp" firstAttribute="top" secondItem="Drg-wo-ri7" secondAttribute="top" constant="11" id="4nn-jg-MCC"/>
                                     <constraint firstAttribute="height" constant="300" id="Tmg-lo-bvy"/>
+                                    <constraint firstItem="DwF-fL-qzp" firstAttribute="centerX" secondItem="Drg-wo-ri7" secondAttribute="centerX" id="le0-0W-GiG"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
@@ -85,7 +95,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="100" id="tW5-qq-sVL" customClass="GameTableViewCell" customModule="LazyMan_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="100" id="tW5-qq-sVL" customClass="GameTableViewCell" customModule="LazyMan_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tW5-qq-sVL" id="Zrk-bL-Sm2">
@@ -102,7 +112,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3RD 20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-5g-fYB">
                                                     <rect key="frame" x="265" y="39.666666666666664" width="100" height="20.333333333333336"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="lWI-Yq-XDk"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="lWI-Yq-XDk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -192,9 +202,9 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Games" id="XYB-Zb-Jkz" userLabel="Controls">
                         <barButtonItem key="backBarButtonItem" title=" " id="uvY-IT-L6n"/>
-                        <barButtonItem key="leftBarButtonItem" image="settings" landscapeImage="settings" style="plain" id="945-AL-Xbm">
+                        <barButtonItem key="leftBarButtonItem" title="Today" id="aXN-gm-JkR">
                             <connections>
-                                <action selector="test:" destination="DiW-Fz-1X3" id="dhK-oe-RH7"/>
+                                <action selector="todayPressed:" destination="DiW-Fz-1X3" id="c9M-ea-Djs"/>
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="uAA-1T-MzU">
@@ -207,7 +217,7 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="23P-Ii-JyX">
                             <connections>
-                                <segue destination="nvE-ai-EfG" kind="show" id="svt-9f-WGA"/>
+                                <action selector="refreshPressed:" destination="DiW-Fz-1X3" id="eco-wR-1HZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -216,9 +226,10 @@
                     <connections>
                         <outlet property="calendar" destination="Drg-wo-ri7" id="qCm-U8-NHN"/>
                         <outlet property="calendarHeight" destination="Tmg-lo-bvy" id="1Gl-bu-t63"/>
+                        <outlet property="dateLabel" destination="DwF-fL-qzp" id="Po4-EN-asd"/>
                         <outlet property="gameTableView" destination="gcH-Lu-ECC" id="SZ2-TG-XFL"/>
                         <outlet property="leagueControl" destination="uAA-1T-MzU" id="d7R-VK-JcH"/>
-                        <outlet property="settingsButton" destination="945-AL-Xbm" id="yYV-LL-c7X"/>
+                        <outlet property="todayButton" destination="aXN-gm-JkR" id="o0O-5C-43k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XiW-32-OGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,21 +245,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Si-tW-BTf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="210.66666666666666"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6Si-tW-BTf" secondAttribute="height" multiplier="16:9" id="Ene-tr-IsK"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIq-IQ-asq">
-                                <rect key="frame" x="171" y="89" width="33" height="33"/>
+                                <rect key="frame" x="171" y="89.333333333333343" width="33" height="33"/>
                                 <state key="normal" image="circled_play"/>
                                 <connections>
                                     <action selector="playPressed:" destination="nvE-ai-EfG" eventType="touchUpInside" id="eoN-rg-nqA"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vzu-DO-pTs">
-                                <rect key="frame" x="0.0" y="210.66666666666671" width="375" height="479.33333333333326"/>
+                                <rect key="frame" x="0.0" y="211" width="375" height="479"/>
                                 <connections>
                                     <segue destination="6Y3-Wu-FR1" kind="embed" id="JcX-Dg-hEJ"/>
                                 </connections>
@@ -292,7 +303,7 @@
             <objects>
                 <tableViewController id="6Y3-Wu-FR1" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="nUo-tD-lBX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="479.33333333333326"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="479"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
@@ -370,9 +381,5 @@
         <image name="blackhawks" width="500" height="500"/>
         <image name="capitals" width="500" height="500"/>
         <image name="circled_play" width="33" height="33"/>
-        <image name="settings" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="svt-9f-WGA"/>
-    </inferredMetricsTieBreakers>
 </document>

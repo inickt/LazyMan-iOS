@@ -9,25 +9,70 @@
 import UIKit
 import FSCalendar
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FSCalendarDataSource, FSCalendarDelegate {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GameDataDelegate, FSCalendarDataSource, FSCalendarDelegate {
+    
+    
 
-    let games: [Game] = []
+    var games: [Game] = []
     
     @IBOutlet weak var leagueControl: UISegmentedControl!
-    @IBOutlet weak var settingsButton: UIBarButtonItem!
+
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var gameTableView: UITableView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var todayButton: UIBarButtonItem!
+    
+    @IBAction func todayPressed(_ sender: Any) {
+        self.selectedDate = Date()
+        self.calendar.select(self.selectedDate, scrollToDate: true)
+    }
+    
+    private var selectedDate: Date = Date()
+    {
+        didSet {
+            if oldValue != selectedDate
+            {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "EEEE  MMMM d, yyyy"
+                
+                let formatter2 = DateFormatter()
+                formatter2.dateFormat = "yyyy-MM-dd"
+                
+                GameManager.manager.reloadGames(date: formatter2.string(from: self.selectedDate))
+                
+                if self.calendar.scope == .week {
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.dateLabel.alpha = 0.2
+                    }) { (finished) in
+                        self.dateLabel.text = formatter.string(from: self.selectedDate)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.dateLabel.alpha = 1.0
+                        })
+                    }
+                }
+                else {
+                    self.dateLabel.text = formatter.string(from: self.selectedDate)
+                }
+            }
+        }
+    }
     
     override func loadView() {
         super.loadView()
+        self.selectedDate = Date()
+        self.calendar.select(Date(), scrollToDate: false)
+        self.calendar.scope = .week
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.calendar.select(Date(), scrollToDate: false)
-        self.calendar.scope = .week
+        GameManager.manager.delegate = self
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = Locale.current
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +86,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateGames(nhlGames: [Game]?, mlbGames: [Game]?)
+    {
+        if let goodGames = nhlGames
+        {
+            self.games = goodGames
+            self.gameTableView.reloadData()
+        }
     }
     
 
@@ -57,6 +111,25 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         self.calendarHeight.constant = bounds.height
         self.view.layoutIfNeeded()
+        
+        if calendar.scope == .week {
+            calendar.appearance.headerTitleColor = UIColor.clear
+            UIView.animate(withDuration: 0.1, animations: {
+                self.dateLabel.alpha = 1.0
+            })
+        }
+        else {
+            UIView.animate(withDuration: 0.001, animations: {
+                self.dateLabel.alpha = 0.0
+            }, completion: { (_) in
+                calendar.appearance.headerTitleColor = UIColor.white
+            })
+        }
+    }
+
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition)
+    {
+        self.selectedDate = date
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,13 +154,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    @IBAction func test(_ sender: Any) {
-        
-        if calendar.scope == .month {
-            self.calendar.setScope(.week, animated: true)
-        }
-        else {
-            self.calendar.setScope(.month, animated: true)
-        }
+    @IBAction func refreshPressed(_ sender: Any) {
+//        if let goodGames = manager.getGames(date: self.selectedDate).nhlGames
+//        {
+//            self.games = goodGames
+//        }
+//        self.gameTableView.reloadData()
     }
 }
+
+
+
+

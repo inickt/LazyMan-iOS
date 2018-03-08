@@ -8,31 +8,50 @@
 
 import UIKit
 
-class Game: NSObject
+class Game
 {
     let homeTeam: Team
     let awayTeam: Team
+    let startTime: Date
+    let feeds: [Feed]
     
-    
-    var time: String {
+    var time: String
+    {
         return "FINAL"
     }
     
-    private init(homeTeam: Team, awayTeam: Team)
+    init(homeTeam: Team, awayTeam: Team, startTime: Date, gameState: String, feeds: [Feed])
     {
         self.homeTeam = homeTeam
         self.awayTeam = awayTeam
+        self.startTime = startTime
+        self.feeds = feeds
     }
     
+}
+
+class Feed
+{
+    private let feedType: String
+    private let callLetters: String
+    private let feedName: String
+    private let playbackID: Int
     
-    convenience init(homeTeam: NHLTeam, awayTeam: NHLTeam)
+    init(feedType: String, callLetters: String, feedName: String, playbackID: Int)
     {
-        self.init(homeTeam: homeTeam, awayTeam: awayTeam)
+        self.feedType = feedType
+        self.callLetters = callLetters
+        self.feedName = feedName
+        self.playbackID = playbackID
     }
     
-    convenience init(homeTeam: MLBTeam, awayTeam: MLBTeam)
+    func getDisplayName() -> String
     {
-        self.init(homeTeam: homeTeam, awayTeam: awayTeam)
+        return ""
     }
     
+    func getURL()
+    {
+        
+    }
 }

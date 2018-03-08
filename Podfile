@@ -6,5 +6,6 @@ target 'LazyMan-iOS' do
   use_frameworks!
 
   # Pods for LazyMan-iOS
-  pod 'FSCalendar'
+  pod 'FSCalendar', :inhibit_warnings => true
+  pod 'SwiftyJSON'
 end
