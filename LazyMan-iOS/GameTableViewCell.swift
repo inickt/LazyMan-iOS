@@ -32,6 +32,6 @@ class GameTableViewCell: UITableViewCell {
         self.awayTeamLabel.text = self.game?.awayTeam.fullName
         self.homeTeamLabel.text = self.game?.homeTeam.fullName
         
-        self.timeLabel.text = self.game?.time
+        self.timeLabel.text = self.game?.gameState
     }
 }

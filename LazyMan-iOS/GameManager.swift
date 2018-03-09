@@ -64,9 +64,39 @@ class GameManager
                             {
                                 let homeTeam = TeamManager.nhlTeams[jsonGame["teams"]["home"]["team"]["teamName"].stringValue]
                                 let awayTeam = TeamManager.nhlTeams[jsonGame["teams"]["away"]["team"]["teamName"].stringValue]
-
-                                if let homeTeam = homeTeam, let awayTeam = awayTeam {
-                                    newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: Date(), gameState: jsonGame["linescore"]["currentPeriodOrdinal"].stringValue + " – " + jsonGame["linescore"]["currentPeriodTimeRemaining"].stringValue, feeds: []))
+                                
+                                let formatter = DateFormatter()
+                                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+                                formatter.timeZone = TimeZone(secondsFromGMT: 0)
+                                formatter.locale = Locale(identifier: "en_US_POSIX")
+                                let gameDate = formatter.date(from: jsonGame["gameDate"].stringValue)
+                                
+                                if let homeTeam = homeTeam, let awayTeam = awayTeam, let gameDate = gameDate {
+                                    let gameState: String
+                                    
+                                    switch jsonGame["status"]["abstractGameState"].stringValue
+                                    {
+                                    case "Preview":
+                                        let timeFormatter = DateFormatter()
+                                        timeFormatter.dateFormat = "h:mm a"
+                                        gameState = timeFormatter.string(from: gameDate)
+                                        break
+                                        
+                                    case "Live":
+                                        gameState = jsonGame["linescore"]["currentPeriodOrdinal"].stringValue + " – " + jsonGame["linescore"]["currentPeriodTimeRemaining"].stringValue
+                                        break
+                                        
+                                    case "Final":
+                                        gameState = "Final"
+                                        break
+                                        
+                                    default:
+                                        gameState = ""
+                                        print("error")
+                                        break
+                                    }
+                                    
+                                    newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, feeds: []))
                                 }
                             }
                             self.nhlGames[date] = newGames

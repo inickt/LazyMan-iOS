@@ -27,6 +27,9 @@ print(dict)
 
 
 
+
+
+
 let nhlStatsURL = "https://statsapi.web.nhl.com/api/v1/schedule?Date=" + dateFormatter.string(from: date) + "&expand=schedule.teams,schedule.linescore,schedule.game.content.media.epg"
 
 
@@ -44,9 +47,41 @@ if let url = URL(string: nhlStatsURL)
                 {
                     for game in games
                     {
+                        
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+                        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+                        formatter.locale = Locale(identifier: "en_US_POSIX")
+                        let date3 = formatter.date(from: game["gameDate"].stringValue)
+                        
+                        
+                        let dateFormatter2 = DateFormatter()
+                        dateFormatter2.dateFormat = "MM-dd-yyyy  h:mm a"
+                        
+                        
                         print(game["teams"]["away"]["team"]["teamName"].stringValue + " at " + game["teams"]["home"]["team"]["teamName"].stringValue)
                         
-                        print(game["linescore"]["currentPeriodOrdinal"].stringValue + " – " + game["linescore"]["currentPeriodTimeRemaining"].stringValue)
+                        
+                        switch game["status"]["abstractGameState"].stringValue
+                        {
+                        case "Preview":
+                            print(dateFormatter2.string(from: date3!))
+                            break
+                            
+                        case "Live":
+                            print(game["linescore"]["currentPeriodOrdinal"].stringValue + " – " + game["linescore"]["currentPeriodTimeRemaining"].stringValue)
+                            break
+                            
+                        case "Final":
+                            print("Final")
+                            break
+                            
+                        default:
+                            print("error")
+                            break
+                        }
+                        
+                        
                         
                         print()
                     }
