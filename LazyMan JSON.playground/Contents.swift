@@ -83,6 +83,14 @@ if let url = URL(string: nhlStatsURL)
                         
                         
                         
+                        if let mediaJSON = game["content"]["media"]["epg"].array, mediaJSON.count > 0
+                        {
+                            for feedJSON in mediaJSON[0]["items"].arrayValue
+                            {
+                                print(feedJSON["mediaFeedType"].stringValue + " " + feedJSON["mediaPlaybackId"].stringValue)
+                            }
+                        }
+                        
                         print()
                     }
                 }
@@ -142,4 +150,6 @@ if let url = URL(string: nhlStatsURL)
 //        }
 //    })
 }
+
+
 PlaygroundPage.current.needsIndefiniteExecution = true

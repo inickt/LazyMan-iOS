@@ -71,6 +71,20 @@ class GameManager
                                 formatter.locale = Locale(identifier: "en_US_POSIX")
                                 let gameDate = formatter.date(from: jsonGame["gameDate"].stringValue)
                                 
+                                
+                                var gameFeeds = [Feed]()
+                                
+                                if let jsonMedia = jsonGame["content"]["media"]["epg"].array, jsonMedia.count > 0
+                                {
+                                    for jsonFeed in jsonMedia[0]["items"].arrayValue
+                                    {
+                                        if let feedType = jsonFeed["mediaFeedType"].string, let playbakcID = jsonFeed["callLetters"].int
+                                        {
+                                            gameFeeds.append(Feed(feedType: feedType, callLetters: jsonFeed["callLetters"].string, feedName: jsonFeed["feedName"].string, playbackID: playbakcID, league: League.NHL))
+                                        }
+                                    }
+                                }
+                                
                                 if let homeTeam = homeTeam, let awayTeam = awayTeam, let gameDate = gameDate {
                                     let gameState: String
                                     
@@ -96,7 +110,7 @@ class GameManager
                                         break
                                     }
                                     
-                                    newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, feeds: []))
+                                    newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, feeds: gameFeeds))
                                 }
                             }
                             self.nhlGames[date] = newGames
