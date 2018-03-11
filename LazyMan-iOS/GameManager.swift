@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import Pantomime
 
 protocol GameDataDelegate
 {
@@ -40,6 +41,15 @@ class GameManager
     func reloadGames(date: String)
     {
         self.getNHLGames(date: date)
+    }
+    
+    func getM3U8(feedURL: URL)
+    {
+        
+
+        
+        
+        
     }
     
     private func getNHLGames(date: String)
@@ -78,9 +88,9 @@ class GameManager
                                 {
                                     for jsonFeed in jsonMedia[0]["items"].arrayValue
                                     {
-                                        if let feedType = jsonFeed["mediaFeedType"].string, let playbakcID = jsonFeed["callLetters"].int
+                                        if let feedType = jsonFeed["mediaFeedType"].string
                                         {
-                                            gameFeeds.append(Feed(feedType: feedType, callLetters: jsonFeed["callLetters"].string, feedName: jsonFeed["feedName"].string, playbackID: playbakcID, league: League.NHL))
+                                            gameFeeds.append(Feed(feedType: feedType, callLetters: jsonFeed["callLetters"].string, feedName: jsonFeed["feedName"].string, playbackID: jsonFeed["mediaPlaybackId"].intValue, league: League.NHL))
                                         }
                                     }
                                 }

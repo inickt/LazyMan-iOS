@@ -4,6 +4,7 @@ import UIKit
 import SwiftyJSON
 import FSCalendar
 import PlaygroundSupport
+import Pantomime
 
 
 let date = Date()
@@ -26,9 +27,44 @@ dict[date2!] = "date2"
 print(dict)
 
 
+let feedURL = URL(string: "http://nhl.freegamez.ga/m3u8/2018-03-10/5854446203akc")!
+
+do {
+var gameURL = try String(contentsOf: feedURL)
+    
+    let masterPlaylistURL = URL(string: gameURL)!
+    
+    print(gameURL)
+    
+    let m = ManifestBuilder()
+    let mp = m.parse(masterPlaylistURL)
+    
+    print(mp.path)
+    
+    for index in 0..<mp.getPlaylistCount()
+    {
+        if let playlist = mp.getPlaylist(index)
+        {
+            print(playlist.path)
+            print(playlist.programId)
+            let pp = playlist.path!
+            
+            print(masterPlaylistURL.URLByReplacingLastPathComponent(pp))
+            
+            print(playlist.bandwidth)
+            
+            
+        }
+    }
+}
+catch {
+    print("error")
+}
 
 
 
+print()
+print()
 
 let nhlStatsURL = "https://statsapi.web.nhl.com/api/v1/schedule?Date=" + dateFormatter.string(from: date) + "&expand=schedule.teams,schedule.linescore,schedule.game.content.media.epg"
 

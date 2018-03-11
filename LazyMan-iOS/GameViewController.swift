@@ -20,8 +20,6 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     
     var game: Game?
     
-    let url = URL(string: "http://hlslive-akc.med2.med.nhl.com/hdnts=exp=1519619493~acl=/*~id=nhlGatewayId:4475557~data=57770903~hmac=e98ba0444ddff6651a72e8248e4306b6b4a7f231c69c9d2117d8d755b1a0c7cf/88514ea6992584d84a28bedec0b62f39/ls03/nhl/2018/02/25/NHL_GAME_VIDEO_CHICBJ_M2_VISIT_20180225_1518627735893/master_wired60.m3u8")
-    
     override func loadView() {
         super.loadView()
         
@@ -81,7 +79,8 @@ class GameViewController: UIViewController, WKNavigationDelegate {
         }
         
         
-        if let validURL = self.url {
+        if let validURL = self.game?.feeds[0].getURL(gameDate: (self.game?.startTime)!, cdn: CDN.Akamai)
+        {
             self.webView.load(URLRequest(url: validURL))
         }
         

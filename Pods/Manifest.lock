@@ -1,15 +1,28 @@
 PODS:
   - FSCalendar (2.7.9)
+  - Pantomime (0.1.4)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - FSCalendar
+  - Pantomime (from `https://github.com/thomaschristensen/Pantomime.git`, branch `master`)
   - SwiftyJSON
+
+EXTERNAL SOURCES:
+  Pantomime:
+    :branch: master
+    :git: https://github.com/thomaschristensen/Pantomime.git
+
+CHECKOUT OPTIONS:
+  Pantomime:
+    :commit: f54f9a6cceee8e2222464d43e2a8ac46d7264a19
+    :git: https://github.com/thomaschristensen/Pantomime.git
 
 SPEC CHECKSUMS:
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
+  Pantomime: 907ad7597247b3f0ea17975cce83c6004bee6632
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: efef2ccf4b3375287096cd5d7f5b6debb2388158
+PODFILE CHECKSUM: 6105a6551bb94de6392fec1bdc2cefa4740abbcc
 
 COCOAPODS: 1.4.0

@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum CDN: String
+{
+    case Level3 = "l3c", Akamai = "akc"
+}
+
 class Feed
 {
     private let feedType: String
@@ -30,15 +35,37 @@ class Feed
         return ""
     }
     
-    func getURL(gameDate: Date)
+    func getURL(gameDate: Date, cdn: CDN) -> URL?
     {
-        if Calendar.current.isDateInToday(gameDate)
-        {
-            
-        }
-        else
-        {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
         
+        let baseFeedURLString = "http://nhl.freegamez.ga/m3u8/" + formatter.string(from: gameDate) + "/"
+        
+        switch self.league {
+        case .NHL:
+            
+            if Calendar.current.isDateInToday(gameDate)
+            {
+                do
+                {
+                    let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
+                    return URL(string: s)
+
+                }
+                catch
+                {
+                    return URL(string: "")
+                }
+            }
+            else
+            {
+                return URL(string: baseFeedURLString + String(self.playbackID))
+            }
+        case .MLB:
+            return URL(string: "")
         }
     }
 }
