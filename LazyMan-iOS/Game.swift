@@ -24,5 +24,4 @@ class Game
         self.gameState = gameState
         self.feeds = feeds
     }
-    
 }

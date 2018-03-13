@@ -9,7 +9,8 @@
 import UIKit
 import WebKit
 
-class GameViewController: UIViewController, WKNavigationDelegate {
+class GameViewController: UIViewController, WKNavigationDelegate
+{
     
     @IBOutlet weak var navigation: UINavigationItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
@@ -18,7 +19,7 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     
     private var webView: WKWebView!
     
-    var game: Game?
+    var game: Game!
     
     override func loadView() {
         super.loadView()
@@ -42,7 +43,8 @@ class GameViewController: UIViewController, WKNavigationDelegate {
         self.webViewContainer.addSubview(self.webView)
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         self.refreshButton.isEnabled = false
@@ -58,15 +60,21 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "gameOptions"
+        {
+            let options = segue.destination as? GameSettingsViewController
+            options?.game = self.game
+        }
     }
-    */
+ 
 
     @IBAction func playPressed(_ sender: Any) {
         self.refreshButton.isEnabled = true
@@ -91,8 +99,16 @@ class GameViewController: UIViewController, WKNavigationDelegate {
         
     }
     
-    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+    // MARK: - WKNavigationDelegate
+    
+    /**
+     Allows iOS to play the nonsecure stream from broken
+     */
+    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+    {
         let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
         completionHandler(.useCredential, cred)
     }
+    
 }
+

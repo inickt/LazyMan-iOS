@@ -36,13 +36,18 @@ open class ManifestBuilder {
 
                 } else if line.hasPrefix("#EXT-X-STREAM-INF") {
                     // #EXT-X-STREAM-INF:PROGRAM-ID=1, BANDWIDTH=200000
+                    // #EXT-X-STREAM-INF:RESOLUTION=1280x720,BANDWIDTH=6600000,FRAME-RATE=59.94,CODECS="avc1.640028,mp4a.40.2",CLOSED-CAPTIONS="captions",AUDIO="audio"
                     currentMediaPlaylist = MediaPlaylist()
                     do {
                         let programIdString = try line.replace("(.*)=(\\d+),(.*)", replacement: "$2")
-                        let bandwidthString = try line.replace("(.*),(.*)=(\\d+)(.*)", replacement: "$3")
+                        let resolutionString = try line.replace("(.*)RESOLUTION=(.*?),(.*)", replacement: "$2")
+                        let bandwidthString = try line.replace("(.*)BANDWIDTH=(.*?),(.*)", replacement: "$2")
+                        let framerateString = try line.replace("(.*)FRAME-RATE=(.*?),(.*)", replacement: "$2")
                         if let currentMediaPlaylistExist = currentMediaPlaylist {
                             currentMediaPlaylistExist.programId = Int(programIdString)!
                             currentMediaPlaylistExist.bandwidth = Int(bandwidthString)!
+                            currentMediaPlaylistExist.framerate = Float(framerateString)
+                            currentMediaPlaylistExist.resolution = resolutionString
                         }
                     } catch {
                         print("Failed to parse program-id and bandwidth on master playlist. Line = \(line)")

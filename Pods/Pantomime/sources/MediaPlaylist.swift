@@ -10,6 +10,8 @@ open class MediaPlaylist {
 
     open var programId: Int = 0
     open var bandwidth: Int = 0
+    open var resolution: String?
+    open var framerate: Float?
     open var path: String?
     open var version: Int?
     open var targetDuration: Int?

@@ -8,31 +8,50 @@
 
 import UIKit
 
-enum CDN: String
+
+protocol GameOptionCellText
 {
-    case Level3 = "l3c", Akamai = "akc"
+    func getTitle() -> String
+    func getDetail() -> String
 }
 
-class Feed
+
+enum CDN: String, GameOptionCellText
+{
+    case Level3 = "l3c", Akamai = "akc"
+    
+    func getTitle() -> String
+    {
+        switch self
+        {
+        case .Level3:
+            return "Level 3"
+        case .Akamai:
+            return "Akamai"
+        }
+    }
+    
+    func getDetail() -> String
+    {
+        return ""
+    }
+}
+
+class Feed: GameOptionCellText
 {
     private let feedType: String
-    private let callLetters: String?
-    private let feedName: String?
+    private let callLetters: String
+    private let feedName: String
     private let playbackID: Int
     private let league: League
     
-    init(feedType: String, callLetters: String?, feedName: String?, playbackID: Int, league: League)
+    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League)
     {
         self.feedType = feedType
         self.callLetters = callLetters
         self.feedName = feedName
         self.playbackID = playbackID
         self.league = league
-    }
-    
-    func getDisplayName() -> String
-    {
-        return ""
     }
     
     func getURL(gameDate: Date, cdn: CDN) -> URL?
@@ -67,5 +86,29 @@ class Feed
         case .MLB:
             return URL(string: "")
         }
+    }
+    
+    func getTitle() -> String
+    {
+        if self.feedName != ""
+        {
+            return feedName
+        }
+        else
+        {
+            if self.callLetters != ""
+            {
+                return String(format: "%@ (%@)", self.feedType, callLetters)
+            }
+            else
+            {
+                return self.feedType
+            }
+        }
+    }
+    
+    func getDetail() -> String
+    {
+        return ""
     }
 }

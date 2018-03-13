@@ -88,10 +88,7 @@ class GameManager
                                 {
                                     for jsonFeed in jsonMedia[0]["items"].arrayValue
                                     {
-                                        if let feedType = jsonFeed["mediaFeedType"].string
-                                        {
-                                            gameFeeds.append(Feed(feedType: feedType, callLetters: jsonFeed["callLetters"].string, feedName: jsonFeed["feedName"].string, playbackID: jsonFeed["mediaPlaybackId"].intValue, league: League.NHL))
-                                        }
+                                        gameFeeds.append(Feed(feedType: jsonFeed["mediaFeedType"].stringValue, callLetters: jsonFeed["callLetters"].stringValue, feedName: jsonFeed["feedName"].stringValue, playbackID: jsonFeed["mediaPlaybackId"].intValue, league: League.NHL))
                                     }
                                 }
                                 

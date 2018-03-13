@@ -27,7 +27,7 @@ dict[date2!] = "date2"
 print(dict)
 
 
-let feedURL = URL(string: "http://nhl.freegamez.ga/m3u8/2018-03-10/5854446203akc")!
+let feedURL = URL(string: "http://nhl.freegamez.ga/m3u8/2018-03-12/58556903akc")!
 
 do {
 var gameURL = try String(contentsOf: feedURL)
@@ -52,6 +52,8 @@ var gameURL = try String(contentsOf: feedURL)
             print(masterPlaylistURL.URLByReplacingLastPathComponent(pp))
             
             print(playlist.bandwidth)
+            print(playlist.resolution)
+            print(playlist.framerate)
             
             
         }

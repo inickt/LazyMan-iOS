@@ -55,6 +55,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     self.dateLabel.text = formatter.string(from: self.selectedDate)
                 }
             }
+
+            self.todayButton.isEnabled = !Calendar.current.isDateInToday(selectedDate)
         }
     }
     
