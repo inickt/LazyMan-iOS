@@ -10,7 +10,7 @@ import UIKit
 
 class GameSettingsViewController: UITableViewController
 {
-    var game: Game!
+    var presenter: GameViewPresenter?
     
     // MARK: - Navigation
 
@@ -27,15 +27,16 @@ class GameSettingsViewController: UITableViewController
             {
             case "gameOptionCDN":
                 settingsOptions?.options = [CDN.Akamai, CDN.Level3]
-                break
+                settingsOptions?.title = "CDN"
                 
             case "gameOptionQuality":
                 settingsOptions?.options = [CDN.Akamai, CDN.Level3]
-                break
+                settingsOptions?.title = "Quality"
                 
             case "gameOptionFeed":
                 settingsOptions?.options = self.game.feeds
-                break
+                settingsOptions?.title = "Feed"
+                
             default:
                 return
             }

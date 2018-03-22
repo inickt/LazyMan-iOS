@@ -147,5 +147,29 @@ class GameManager
             self.delegate?.updateGames(nhlGames: self.nhlGames[date], mlbGames: nil)
         }
     }
+    
+    
+    
+    func getPlaylists(from feed: Feed) -> [FeedPlaylist]
+    {
+//        feed.getURL(gameDate: <#T##Date#>, cdn: <#T##CDN#>)
+        
+        
+        
+        
+        
+        
+        
+        return []
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 

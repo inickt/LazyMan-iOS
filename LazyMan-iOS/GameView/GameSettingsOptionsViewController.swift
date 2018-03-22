@@ -11,11 +11,7 @@ import UIKit
 class GameSettingsOptionsViewController: UITableViewController {
 
     var options = [GameOptionCellText]()
-    
-    override func loadView() {
-        super.loadView()
-//        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "gameOptionCell")
-    }
+    var selectedIndex = 0
     
     
     override func viewDidLoad() {
@@ -47,7 +43,22 @@ class GameSettingsOptionsViewController: UITableViewController {
         cell.textLabel?.text = self.options[indexPath.row].getTitle()
         cell.detailTextLabel?.text = self.options[indexPath.row].getDetail()
 
+        cell.accessoryType = indexPath.row == self.selectedIndex ? .checkmark : .none
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        tableView.cellForRow(at: IndexPath(row: self.selectedIndex, section: 0))?.accessoryType = .none
+        
+//        selectedGame = games[indexPath.row]
+        
+        // update the checkmark for the current row
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        
+        self.selectedIndex = indexPath.row
     }
 
     /*

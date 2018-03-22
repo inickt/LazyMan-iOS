@@ -12,11 +12,13 @@ final class TeamManager
 {
     private static let manager = TeamManager()
     
-    static var nhlTeams: [String : NHLTeam] {
+    static var nhlTeams: [String : NHLTeam]
+    {
         return manager.nhlTeams
     }
     
-    static var mlbTeams: [String : MLBTeam] {
+    static var mlbTeams: [String : MLBTeam]
+    {
         return manager.mlbTeams
     }
     

@@ -5,14 +5,14 @@ import SwiftyJSON
 import FSCalendar
 import PlaygroundSupport
 import Pantomime
-
+import AVKit
 
 let date = Date()
 
 let dateFormatter = DateFormatter()
 dateFormatter.dateFormat = "yyyy-MM-dd"
 
-let date2 = dateFormatter.date(from: "2018-03-07")
+let date2 = dateFormatter.date(from: "2018-03-21")
 
 if date == date2
 {
@@ -27,35 +27,50 @@ dict[date2!] = "date2"
 print(dict)
 
 
-let feedURL = URL(string: "http://nhl.freegamez.ga/m3u8/2018-03-12/58556903akc")!
+let quality = "1920x1080"
+
+
+let qualityArray = quality.split(separator: "x")
+
+//guard qualityArray.count == 2
+
+qualityArray[1]
+
+
+
+
+
+
+
+
+let feedURL = URL(string: "http://nhl.freegamez.ga/m3u8/2018-03-21/58645103akc")!
 
 do {
 var gameURL = try String(contentsOf: feedURL)
-    
+
     let masterPlaylistURL = URL(string: gameURL)!
-    
+
     print(gameURL)
-    
+
     let m = ManifestBuilder()
     let mp = m.parse(masterPlaylistURL)
-    
+
     print(mp.path)
-    
+
     for index in 0..<mp.getPlaylistCount()
     {
         if let playlist = mp.getPlaylist(index)
         {
             print(playlist.path)
-            print(playlist.programId)
             let pp = playlist.path!
-            
+
             print(masterPlaylistURL.URLByReplacingLastPathComponent(pp))
-            
+
             print(playlist.bandwidth)
             print(playlist.resolution)
             print(playlist.framerate)
-            
-            
+
+
         }
     }
 }
@@ -64,11 +79,51 @@ catch {
 }
 
 
+let host = CFHostCreateWithName(nil,"mf.svc.nhl.com" as CFString).takeRetainedValue()
+CFHostStartInfoResolution(host, .addresses, nil)
+var success: DarwinBoolean = false
+if let addresses = CFHostGetAddressing(host, &success)?.takeUnretainedValue() as NSArray?,
+    let theAddress = addresses.firstObject as? NSData {
+    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+    if getnameinfo(theAddress.bytes.assumingMemoryBound(to: sockaddr.self), socklen_t(theAddress.length),
+                   &hostname, socklen_t(hostname.count), nil, 0, NI_NUMERICHOST) == 0 {
+        let numAddress = String(cString: hostname)
+        print(numAddress)
+    }
+}
 
-print()
-print()
 
-let nhlStatsURL = "https://statsapi.web.nhl.com/api/v1/schedule?Date=" + dateFormatter.string(from: date) + "&expand=schedule.teams,schedule.linescore,schedule.game.content.media.epg"
+
+
+private func urlToIP(_ url:URL) -> String? {
+    guard let hostname = url.host else {
+        return nil
+    }
+    
+    guard let host = hostname.withCString({gethostbyname($0)}) else {
+        return nil
+    }
+    
+    guard host.pointee.h_length > 0 else {
+        return nil
+    }
+    
+    var addr = in_addr()
+    memcpy(&addr.s_addr, host.pointee.h_addr_list[0], Int(host.pointee.h_length))
+    
+    guard let remoteIPAsC = inet_ntoa(addr) else {
+        return nil
+    }
+    
+    return String.init(cString: remoteIPAsC)
+}
+
+urlToIP(URL(string: "http://mf.svc.nhl.com/")!)
+URL(string: "http://mf.svc.nhl.com/")!.host
+
+
+
+let nhlStatsURL = "https://statsapi.web.nhl.com/api/v1/schedule?date=" + dateFormatter.string(from: date2!) + "&expand=schedule.teams,schedule.linescore,schedule.game.content.media.epg"
 
 
 if let url = URL(string: nhlStatsURL)

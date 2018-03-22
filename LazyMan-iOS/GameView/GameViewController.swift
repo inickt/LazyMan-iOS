@@ -21,6 +21,8 @@ class GameViewController: UIViewController, WKNavigationDelegate
     
     var game: Game!
     
+    var selectedFeed: Feed?
+    
     override func loadView() {
         super.loadView()
         

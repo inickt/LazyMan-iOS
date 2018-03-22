@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Pantomime
 
 protocol GameOptionCellText
 {
@@ -87,6 +87,8 @@ class Feed: GameOptionCellText
             return URL(string: "")
         }
     }
+    
+    
     
     func getTitle() -> String
     {
