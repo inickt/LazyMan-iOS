@@ -8,39 +8,87 @@
 
 import UIKit
 
-class GameSettingsViewController: UITableViewController
+protocol GameSettingsViewControllerType: class
 {
-    var presenter: GameViewPresenter?
+    func setQuality(text: String)
+    func setFeed(text: String)
+    func setCDN(text: String)
+}
+
+class GameSettingsViewController: UITableViewController, GameSettingsViewControllerType
+{
+    @IBOutlet private weak var qualityLabel: UILabel!
+    @IBOutlet private weak var feedLabel: UILabel!
+    @IBOutlet private weak var cdnLabel: UILabel!
+    
+    var presenter: GameViewPresenterType!
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         if let id = segue.identifier
         {
             let settingsOptions = segue.destination as? GameSettingsOptionsViewController
             
+            settingsOptions?.refreshControl = UIRefreshControl()
+            settingsOptions?.refreshControl?.beginRefreshing()
+            settingsOptions?.refreshControl?.backgroundColor = UIColor.darkGray
+            
             switch id
             {
             case "gameOptionCDN":
-                settingsOptions?.options = [CDN.Akamai, CDN.Level3]
+                self.presenter.getCDNOptions(completion: { (cdnOptions) in
+                    settingsOptions?.refreshControl?.endRefreshing()
+                    settingsOptions?.options = cdnOptions
+                    
+                    
+                }, error: {
+                    
+                })
                 settingsOptions?.title = "CDN"
+                settingsOptions?.option = .optionCDN
                 
             case "gameOptionQuality":
-                settingsOptions?.options = [CDN.Akamai, CDN.Level3]
+                self.presenter.getPlaylistOptions(completion: { (playlistOptions) in
+                    settingsOptions?.options = playlistOptions
+                    settingsOptions?.refreshControl?.endRefreshing()
+                }, error: {
+                    
+                })
                 settingsOptions?.title = "Quality"
+                settingsOptions?.option = .optionQuality
                 
             case "gameOptionFeed":
-                settingsOptions?.options = self.game.feeds
+                self.presenter.getFeedOptions(completion: { (feedOptions) in
+                    settingsOptions?.options = feedOptions
+                }, error: {
+                    
+                })
                 settingsOptions?.title = "Feed"
+                settingsOptions?.option = .optionFeed
                 
             default:
                 return
             }
         }
     }
-
+    
+    func setQuality(text: String)
+    {
+        self.qualityLabel.text = text
+        self.tableView.reloadData()
+    }
+    
+    func setFeed(text: String)
+    {
+        self.feedLabel.text = text
+        self.tableView.reloadData()
+    }
+    
+    func setCDN(text: String)
+    {
+        self.cdnLabel.text = text
+        self.tableView.reloadData()
+    }
 }

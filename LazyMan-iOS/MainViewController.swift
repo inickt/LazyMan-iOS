@@ -149,7 +149,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if let destinationViewController:GameViewController = navigationController?.storyboard?.instantiateViewController(withIdentifier: "GameView") as? GameViewController {
             
-            destinationViewController.game = self.games[indexPath.row]
+            destinationViewController.presenter = GameViewPresenter(game: self.games[indexPath.row])
             
             //Then just push the controller into the view hierarchy
             navigationController?.pushViewController(destinationViewController, animated: true)

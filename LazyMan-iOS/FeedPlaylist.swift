@@ -23,6 +23,11 @@ class FeedPlaylist: GameOptionCellText
         self.framerate = framerate
     }
     
+    func getBandwidth() -> Int?
+    {
+        return self.bandwidth
+    }
+    
     func getURL() -> URL
     {
         return self.url
@@ -34,22 +39,22 @@ class FeedPlaylist: GameOptionCellText
         
         if let framerate = self.framerate
         {
-            framerateString = String(framerate)
+            framerateString = "\(framerate)"
         }
         
         let qualityArray = self.quality.split(separator: "x")
         
         guard qualityArray.count == 2 else { return self.quality }
         
-        return String(format: "%@p%@", String(qualityArray[1]), framerateString)
+        return "\(qualityArray[1])p\(framerateString)"
 
     }
     
     func getDetail() -> String
     {
-        if let bandwidth =  self.bandwidth
+        if let bandwidth = self.bandwidth
         {
-            return String(format: "%@ %@", bandwidth / 1000, "Kbps")
+            return "\(bandwidth / 1000) Kbps"
         }
         else
         {

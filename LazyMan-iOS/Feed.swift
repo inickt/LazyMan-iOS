@@ -44,48 +44,132 @@ class Feed: GameOptionCellText
     private let feedName: String
     private let playbackID: Int
     private let league: League
+    private let gameDate: Date
+    private var feedPlaylists: [FeedPlaylist]?
     
-    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League)
+    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, gameDate: Date)
     {
         self.feedType = feedType
         self.callLetters = callLetters
         self.feedName = feedName
         self.playbackID = playbackID
         self.league = league
+        self.gameDate = gameDate
     }
     
-    func getURL(gameDate: Date, cdn: CDN) -> URL?
+    func getMasterURL(cdn: CDN) -> URL?
     {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.locale = Locale(identifier: "en_US_POSIX")
         
-        let baseFeedURLString = "http://nhl.freegamez.ga/m3u8/" + formatter.string(from: gameDate) + "/"
+        let baseFeedURLString = "http://nhl.freegamez.ga/m3u8/" + formatter.string(from: self.gameDate) + "/"
         
         switch self.league {
         case .NHL:
             
-            if Calendar.current.isDateInToday(gameDate)
+            if Calendar.current.isDateInToday(self.gameDate)
             {
                 do
                 {
                     let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
                     return URL(string: s)
-
                 }
                 catch
                 {
-                    return URL(string: "")
+                    return nil
                 }
             }
             else
             {
-                return URL(string: baseFeedURLString + String(self.playbackID))
+                do
+                {
+                    let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
+                    return URL(string: s)
+                }
+                catch
+                {
+                    do
+                    {
+                        let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID))!)
+                        return URL(string: s)
+                    }
+                    catch
+                    {
+                        return nil
+                    }
+                }
             }
         case .MLB:
-            return URL(string: "")
+            return nil
         }
+    }
+    
+    func getFeedPlaylists(cdn: CDN, completion: @escaping ([FeedPlaylist]) -> (), error: @escaping (Error) -> ())
+    {
+        if let feedPlaylists = self.feedPlaylists
+        {
+            completion(feedPlaylists)
+        }
+        else
+        {
+            var playlists = [FeedPlaylist]()
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                
+                if let masterURL = self.getMasterURL(cdn: cdn)
+                {
+                    playlists.append(FeedPlaylist(url: masterURL, quality: "Auto", bandwidth: nil, framerate: nil))
+                    
+                    let masterPlaylist = ManifestBuilder().parse(masterURL)
+                    
+                    
+                    for index in 0..<masterPlaylist.getPlaylistCount()
+                    {
+                        if let mediaPlaylist = masterPlaylist.getPlaylist(index),
+                            let mediaPath = mediaPlaylist.path,
+                            let mediaURL = masterURL.URLByReplacingLastPathComponent(mediaPath)
+                        {
+                            
+                            var framerate: Int?
+                            
+                            if let mpFramerate = mediaPlaylist.framerate
+                            {
+                                framerate = Int(mpFramerate.rounded())
+                            }
+                            
+                            playlists.append(FeedPlaylist(url: mediaURL,
+                                                          quality: mediaPlaylist.resolution ?? "Unknown",
+                                                          bandwidth: mediaPlaylist.bandwidth,
+                                                          framerate: framerate))
+                            
+                        }
+                        
+                    }
+                    DispatchQueue.main.async {
+                        playlists.sort(by: { (feed1, feed2) -> Bool in
+                            
+                            let f1b = feed1.getBandwidth() ?? Int.max
+                            let f2b = feed2.getBandwidth() ?? Int.max
+                            
+                            return f1b > f2b
+                        })
+                        self.feedPlaylists = playlists
+                        completion(playlists)
+                    }
+                }
+                else
+                {
+                    DispatchQueue.main.async {
+                        
+                    }
+                }
+            }
+
+        }
+        
+
     }
     
     

@@ -12,7 +12,7 @@ let date = Date()
 let dateFormatter = DateFormatter()
 dateFormatter.dateFormat = "yyyy-MM-dd"
 
-let date2 = dateFormatter.date(from: "2018-03-21")
+let date2 = dateFormatter.date(from: "2018-03-26")
 
 if date == date2
 {
@@ -43,7 +43,7 @@ qualityArray[1]
 
 
 
-let feedURL = URL(string: "http://nhl.freegamez.ga/m3u8/2018-03-21/58645103akc")!
+let feedURL = URL(string: "http://nhl.freegamez.ga/m3u8/2018-03-26/58672503akc")!
 
 do {
 var gameURL = try String(contentsOf: feedURL)

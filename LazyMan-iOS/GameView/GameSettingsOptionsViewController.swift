@@ -8,26 +8,25 @@
 
 import UIKit
 
-class GameSettingsOptionsViewController: UITableViewController {
-
+class GameSettingsOptionsViewController: UITableViewController
+{
+    enum OptionType
+    {
+        case optionCDN, optionQuality, optionFeed
+    }
+    
     var options = [GameOptionCellText]()
+    {
+        didSet
+        {            
+            self.tableView.reloadData()
+        }
+    }
+    
     var selectedIndex = 0
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    var presenter: GameViewPresenter!
+    var option: OptionType!
 
     // MARK: - Table view data source
 
@@ -59,16 +58,23 @@ class GameSettingsOptionsViewController: UITableViewController {
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         
         self.selectedIndex = indexPath.row
+        
+        switch self.option
+        {
+        case .optionCDN:
+            guard let cdn = self.options[indexPath.row] as? CDN else { return }
+            self.presenter.setSelectedCDN(cdn: cdn)
+            
+        case .optionQuality:
+            guard let feedPlaylist = self.options[indexPath.row] as? FeedPlaylist else { return }
+            self.presenter.setSelectedPlaylist(feedPlaylist: feedPlaylist)
+            
+        case .optionFeed:
+            guard let feed = self.options[indexPath.row] as? Feed else { return }
+            self.presenter.setSelectedFeed(feed: feed)
+            
+        default:
+            return
+        }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

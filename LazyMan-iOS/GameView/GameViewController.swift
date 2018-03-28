@@ -9,7 +9,19 @@
 import UIKit
 import WebKit
 
-class GameViewController: UIViewController, WKNavigationDelegate
+protocol GameViewControllerType: class
+{
+    func playURL(url: URL)
+    func showError(message: String)
+    func setTitle(title: String)
+    
+    
+}
+
+
+
+
+class GameViewController: UIViewController, WKNavigationDelegate, GameViewControllerType
 {
     
     @IBOutlet weak var navigation: UINavigationItem!
@@ -19,13 +31,12 @@ class GameViewController: UIViewController, WKNavigationDelegate
     
     private var webView: WKWebView!
     
-    var game: Game!
+    var presenter: GameViewPresenterType!
     
-    var selectedFeed: Feed?
-    
-    override func loadView() {
+    override func loadView()
+    {
         super.loadView()
-        
+        self.presenter.setGameView(gameView: self)
         
         let config = WKWebViewConfiguration()
         config.allowsInlineMediaPlayback = true
@@ -43,40 +54,41 @@ class GameViewController: UIViewController, WKNavigationDelegate
         self.webView.allowsLinkPreview = false
         
         self.webViewContainer.addSubview(self.webView)
+        
+        self.presenter.loadView()
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        self.refreshButton.isEnabled = false
-        
-        if let awayShort = self.game?.awayTeam.shortName, let homeShort = self.game?.homeTeam.shortName {
-            self.navigation.title = awayShort + " at " + homeShort
-        }
+        self.presenter.viewDidLoad()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "gameOptions"
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "gameOptions", let gameSettings = segue.destination as? GameSettingsViewController
         {
-            let options = segue.destination as? GameSettingsViewController
-            options?.game = self.game
+            gameSettings.presenter = self.presenter
+            self.presenter.setGameSettingsView(gameSettingsView: gameSettings)
         }
     }
- 
+    
+    func playURL(url: URL)
+    {
+        self.webView.load(URLRequest(url: url))
+    }
+    
+    func showError(message: String)
+    {
+        
+    }
+    
+    func setTitle(title: String)
+    {
+        self.navigation.title = title
+    }
 
     @IBAction func playPressed(_ sender: Any) {
         self.refreshButton.isEnabled = true
@@ -89,10 +101,10 @@ class GameViewController: UIViewController, WKNavigationDelegate
         }
         
         
-        if let validURL = self.game?.feeds[0].getURL(gameDate: (self.game?.startTime)!, cdn: CDN.Akamai)
-        {
-            self.webView.load(URLRequest(url: validURL))
-        }
+//        if let validURL = self.game?.feeds[0].getURL(gameDate: (self.game?.startTime)!, cdn: CDN.Akamai)
+//        {
+//            self.webView.load(URLRequest(url: validURL))
+//        }
         
     }
     

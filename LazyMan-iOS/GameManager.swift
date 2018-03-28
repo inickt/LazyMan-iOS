@@ -81,18 +81,24 @@ class GameManager
                                 formatter.locale = Locale(identifier: "en_US_POSIX")
                                 let gameDate = formatter.date(from: jsonGame["gameDate"].stringValue)
                                 
-                                
-                                var gameFeeds = [Feed]()
-                                
-                                if let jsonMedia = jsonGame["content"]["media"]["epg"].array, jsonMedia.count > 0
+                                if let homeTeam = homeTeam, let awayTeam = awayTeam, let gameDate = gameDate
                                 {
-                                    for jsonFeed in jsonMedia[0]["items"].arrayValue
+                                    var gameFeeds = [Feed]()
+                                    
+                                    if let jsonMedia = jsonGame["content"]["media"]["epg"].array, jsonMedia.count > 0
                                     {
-                                        gameFeeds.append(Feed(feedType: jsonFeed["mediaFeedType"].stringValue, callLetters: jsonFeed["callLetters"].stringValue, feedName: jsonFeed["feedName"].stringValue, playbackID: jsonFeed["mediaPlaybackId"].intValue, league: League.NHL))
+                                        for jsonFeed in jsonMedia[0]["items"].arrayValue
+                                        {
+                                            gameFeeds.append(Feed(feedType: jsonFeed["mediaFeedType"].stringValue,
+                                                                  callLetters: jsonFeed["callLetters"].stringValue,
+                                                                  feedName: jsonFeed["feedName"].stringValue,
+                                                                  playbackID: jsonFeed["mediaPlaybackId"].intValue,
+                                                                  league: League.NHL,
+                                                                  gameDate: gameDate))
+                                        }
                                     }
-                                }
-                                
-                                if let homeTeam = homeTeam, let awayTeam = awayTeam, let gameDate = gameDate {
+                                    
+                                    
                                     let gameState: String
                                     
                                     switch jsonGame["status"]["abstractGameState"].stringValue
