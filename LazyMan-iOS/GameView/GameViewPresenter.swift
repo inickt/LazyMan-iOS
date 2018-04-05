@@ -10,6 +10,8 @@ import UIKit
 
 protocol GameViewPresenterType: class
 {
+    var cdnSelector: GameViewOptionSelector<GameOptionCellText> { get }
+    
     func loadView()
     func viewDidLoad()
     
@@ -23,6 +25,8 @@ protocol GameViewPresenterType: class
     func setSelectedCDN(cdn: CDN)
     func setSelectedPlaylist(feedPlaylist: FeedPlaylist)
     func setSelectedFeed(feed: Feed)
+    
+    func getGame() -> Game
 }
 
 
@@ -32,6 +36,10 @@ class GameViewPresenter: GameViewPresenterType
     private weak var gameSettingsView: GameSettingsViewControllerType?
     
     private let game: Game
+    
+    let cdnSelector = GameViewOptionSelector<GameOptionCellText>(objects: [CDN.Akamai, CDN.Level3])
+    
+    
     
     private var selectedFeed: Feed?
     {
@@ -162,4 +170,22 @@ class GameViewPresenter: GameViewPresenterType
             
         }
     }
+    
+//    func reloadFeeds()
+//    {
+//        for feed in self.game.feeds
+//        {
+//            feed.getFeedPlaylists(cdn: <#T##CDN#>, completion: <#T##([FeedPlaylist]) -> ()#>, error: <#T##(Error) -> ()#>)
+//
+//
+//        }
+//
+//
+//    }
+    
+    
+    
+    
+    
+    
 }

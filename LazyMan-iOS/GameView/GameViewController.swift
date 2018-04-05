@@ -101,10 +101,10 @@ class GameViewController: UIViewController, WKNavigationDelegate, GameViewContro
         }
         
         
-//        if let validURL = self.game?.feeds[0].getURL(gameDate: (self.game?.startTime)!, cdn: CDN.Akamai)
-//        {
-//            self.webView.load(URLRequest(url: validURL))
-//        }
+        if let validURL = self.presenter.getGame().feeds[0].getMasterURL(cdn: CDN.Akamai)
+        {
+            self.webView.load(URLRequest(url: validURL))
+        }
         
     }
     

@@ -20,11 +20,20 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
     @IBOutlet private weak var qualityLabel: UILabel!
     @IBOutlet private weak var feedLabel: UILabel!
     @IBOutlet private weak var cdnLabel: UILabel!
+    @IBOutlet weak var qualityCell: UITableViewCell!
     
     var presenter: GameViewPresenterType!
     
     // MARK: - Navigation
 
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        self.setCDN(text: self.presenter.cdnSelector.getSelected()?.getTitle() ?? "")
+    }
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let id = segue.identifier
@@ -38,16 +47,19 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
             switch id
             {
             case "gameOptionCDN":
-                self.presenter.getCDNOptions(completion: { (cdnOptions) in
-                    settingsOptions?.refreshControl?.endRefreshing()
-                    settingsOptions?.options = cdnOptions
-                    
-                    
-                }, error: {
-                    
-                })
-                settingsOptions?.title = "CDN"
-                settingsOptions?.option = .optionCDN
+//                self.presenter.getCDNOptions(completion: { (cdnOptions) in
+//                    settingsOptions?.refreshControl?.endRefreshing()
+//                    settingsOptions?.options = cdnOptions
+//
+//
+//                }, error: {
+//
+//                })
+//                settingsOptions?.title = "CDN"
+//                settingsOptions?.option = .optionCDN
+                settingsOptions?.opetionSelector = self.presenter.cdnSelector
+                
+                
                 
             case "gameOptionQuality":
                 self.presenter.getPlaylistOptions(completion: { (playlistOptions) in

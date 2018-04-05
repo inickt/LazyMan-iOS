@@ -44,10 +44,10 @@ class Feed: GameOptionCellText
     private let feedName: String
     private let playbackID: Int
     private let league: League
-    private let gameDate: Date
+    private let gameDate: String
     private var feedPlaylists: [FeedPlaylist]?
     
-    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, gameDate: Date)
+    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, gameDate: String)
     {
         self.feedType = feedType
         self.callLetters = callLetters
@@ -64,41 +64,25 @@ class Feed: GameOptionCellText
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.locale = Locale(identifier: "en_US_POSIX")
         
-        let baseFeedURLString = "http://nhl.freegamez.ga/m3u8/" + formatter.string(from: self.gameDate) + "/"
+        let baseFeedURLString = "http://nhl.freegamez.ga/m3u8/" + self.gameDate + "/"
         
         switch self.league {
         case .NHL:
-            
-            if Calendar.current.isDateInToday(self.gameDate)
+            do
+            {
+                let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
+                return URL(string: s)
+            }
+            catch
             {
                 do
                 {
-                    let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
+                    let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID))!)
                     return URL(string: s)
                 }
                 catch
                 {
                     return nil
-                }
-            }
-            else
-            {
-                do
-                {
-                    let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
-                    return URL(string: s)
-                }
-                catch
-                {
-                    do
-                    {
-                        let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID))!)
-                        return URL(string: s)
-                    }
-                    catch
-                    {
-                        return nil
-                    }
                 }
             }
         case .MLB:

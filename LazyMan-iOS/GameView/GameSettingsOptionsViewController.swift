@@ -27,54 +27,43 @@ class GameSettingsOptionsViewController: UITableViewController
     
     var presenter: GameViewPresenter!
     var option: OptionType!
+    
+    var opetionSelector: GameViewOptionSelector<GameOptionCellText>!
+    
 
     // MARK: - Table view data source
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return self.options.count
+        return self.opetionSelector.objects.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameOptionCell", for: indexPath)
         
-        cell.textLabel?.text = self.options[indexPath.row].getTitle()
-        cell.detailTextLabel?.text = self.options[indexPath.row].getDetail()
+        cell.textLabel?.text = self.opetionSelector.objects[indexPath.row].getTitle()
+        cell.detailTextLabel?.text = self.opetionSelector.objects[indexPath.row].getDetail()
 
-        cell.accessoryType = indexPath.row == self.selectedIndex ? .checkmark : .none
+        cell.accessoryType = indexPath.row == self.opetionSelector.getSelectedIndex() ?? -1 ? .checkmark : .none
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        tableView.cellForRow(at: IndexPath(row: self.selectedIndex, section: 0))?.accessoryType = .none
+        if let selectedIndex = self.opetionSelector.getSelectedIndex()
+        {
+            tableView.cellForRow(at: IndexPath(row: selectedIndex, section: 0))?.accessoryType = .none
+        }
         
-//        selectedGame = games[indexPath.row]
+        self.opetionSelector.selectOption(index: indexPath.row)
         
         // update the checkmark for the current row
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         
-        self.selectedIndex = indexPath.row
-        
-        switch self.option
-        {
-        case .optionCDN:
-            guard let cdn = self.options[indexPath.row] as? CDN else { return }
-            self.presenter.setSelectedCDN(cdn: cdn)
-            
-        case .optionQuality:
-            guard let feedPlaylist = self.options[indexPath.row] as? FeedPlaylist else { return }
-            self.presenter.setSelectedPlaylist(feedPlaylist: feedPlaylist)
-            
-        case .optionFeed:
-            guard let feed = self.options[indexPath.row] as? Feed else { return }
-            self.presenter.setSelectedFeed(feed: feed)
-            
-        default:
-            return
-        }
     }
 }

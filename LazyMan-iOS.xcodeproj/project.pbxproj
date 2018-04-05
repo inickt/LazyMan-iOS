@@ -21,6 +21,7 @@
 		015F345E2050CFC40005453C /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F345D2050CFC40005453C /* TeamManager.swift */; };
 		015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F345F2055EA960005453C /* GameSettingsViewController.swift */; };
 		015F34622055F1550005453C /* GameSettingsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */; };
+		01794C6C2072FFD5008FFFEE /* GameViewOptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01794C6B2072FFD5008FFFEE /* GameViewOptionSelector.swift */; };
 		019EA59B203E6FF8000149A3 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EA59A203E6FF8000149A3 /* Teams.swift */; };
 		01ABFDBC20545C68005D57C5 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ABFDBB20545C68005D57C5 /* Feed.swift */; };
 		01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */; };
@@ -44,6 +45,7 @@
 		015F345D2050CFC40005453C /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
 		015F345F2055EA960005453C /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
 		015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsOptionsViewController.swift; sourceTree = "<group>"; };
+		01794C6B2072FFD5008FFFEE /* GameViewOptionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewOptionSelector.swift; sourceTree = "<group>"; };
 		019EA59A203E6FF8000149A3 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 		01ABFDBB20545C68005D57C5 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlaylist.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				01434A752040DAA70094E221 /* GameViewController.swift */,
 				015F345F2055EA960005453C /* GameSettingsViewController.swift */,
 				015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */,
+				01794C6B2072FFD5008FFFEE /* GameViewOptionSelector.swift */,
 			);
 			path = GameView;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				01E593CE204B07E400CE338A /* Game.swift in Sources */,
 				019EA59B203E6FF8000149A3 /* Teams.swift in Sources */,
 				015F34622055F1550005453C /* GameSettingsOptionsViewController.swift in Sources */,
+				01794C6C2072FFD5008FFFEE /* GameViewOptionSelector.swift in Sources */,
 				01344C8B2061D32E0040BDE7 /* GameViewPresenter.swift in Sources */,
 				01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */,
 				012CB8AF203A3E7C00E76740 /* AppDelegate.swift in Sources */,

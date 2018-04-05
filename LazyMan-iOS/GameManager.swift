@@ -94,7 +94,7 @@ class GameManager
                                                                   feedName: jsonFeed["feedName"].stringValue,
                                                                   playbackID: jsonFeed["mediaPlaybackId"].intValue,
                                                                   league: League.NHL,
-                                                                  gameDate: gameDate))
+                                                                  gameDate: date))
                                         }
                                     }
                                     
