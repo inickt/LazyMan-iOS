@@ -10,58 +10,70 @@ import Foundation
 import SwiftyJSON
 import Pantomime
 
-protocol GameDataDelegate
-{
-    func updateGames(nhlGames: [Game]?, mlbGames: [Game]?)
-}
-
 class GameManager
 {
     static let manager = GameManager()
     
-    var delegate: GameDataDelegate?
-    
     private var nhlGames = [String : [Game]]()
     private var mlbGames = [String : [Game]]()
     
+    private let formatter = DateFormatter()
+    
     private let nhlFormatURL = "https://statsapi.web.nhl.com/api/v1/schedule?date=%@&expand=schedule.teams,schedule.linescore,schedule.game.content.media.epg"
+    private let mlbFormatURL = "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=%@&hydrate=team,linescore,game(content(summary,media(epg)))&language=en"
     
-    func requestGames(date: String)
+    init()
     {
-        if self.nhlGames[date] != nil //, let mlbGames = self.games.mlbGames[date]
+        self.formatter.dateFormat = "yyyy-MM-dd"
+    }
+    
+    
+    func getGames(date: Date, league: League) -> [Game]?
+    {
+        switch league
         {
-            self.updateDelegate(date: date)
+        case .NHL:
+            return self.nhlGames[self.formatter.string(from: date)]
+            
+        case .MLB:
+            return self.mlbGames[self.formatter.string(from: date)]
         }
-        else
+    }
+    
+    func reloadGames(date: Date, league: League, completion: (([Game]) -> ())?, error: ((String) -> ())?)
+    {
+        switch league
         {
-            self.reloadGames(date: date)
+        case .NHL:
+            self.getNHLGames(date: self.formatter.string(from: date), completion: completion)
+            
+        case .MLB:
+            completion?([])
         }
     }
     
-    func reloadGames(date: String)
-    {
-        self.getNHLGames(date: date)
-    }
-    
-    func getM3U8(feedURL: URL)
-    {
-        
-
-        
-        
-        
-    }
-    
-    private func getNHLGames(date: String)
+    private func getNHLGames(date: String, completion: (([Game]) -> ())?)
     {
         let nhlStatsURL = String(format: self.nhlFormatURL, date)
         
         var newGames: [Game] = []
         
+        DispatchQueue.global(qos: .utility).async {
+
         if let url = URL(string: nhlStatsURL)
         {
-            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                
+            let config = URLSessionConfiguration.default
+            config.requestCachePolicy = .reloadIgnoringLocalCacheData
+            config.urlCache = nil
+            
+            let session = URLSession.init(configuration: config)
+            
+            
+            session.dataTask(with: url, completionHandler: { (data, response, error) in
+            
+//            let file = Bundle.main.path(forResource: "schedule2018-04-05", ofType: "json")
+//            let data = try? Data(contentsOf: URL(fileURLWithPath: file!))
+            
                 let j = try! JSON(data: data!).dictionaryValue
                 
                 if let numGames = j["totalItems"]?.int
@@ -127,7 +139,10 @@ class GameManager
                                 }
                             }
                             self.nhlGames[date] = newGames
-                            self.updateDelegate(date: date)
+                            DispatchQueue.main.async {
+                                completion?(newGames)
+                            }
+                            
                         }
                     }
                     else
@@ -139,43 +154,35 @@ class GameManager
                     print("error")
                 }
             }).resume()
+            }
         }
     }
     
     private func getMLBGames(date: Date)
     {
+        let file = Bundle.main.path(forResource: "schedule2018-04-05", ofType: "json")
+        let data = try? Data(contentsOf: URL(fileURLWithPath: file!))
         
-    }
+        guard let mlbJSON = try? JSON(data: data!).dictionaryValue else { return } // data error
     
-    private func updateDelegate(date: String)
-    {
-        DispatchQueue.main.async {
-            self.delegate?.updateGames(nhlGames: self.nhlGames[date], mlbGames: nil)
+        guard let numGames = mlbJSON["totalItems"]?.int, numGames > 0 else { return } // no games
+        
+        guard let mlbGames = mlbJSON["dates"]?[0]["games"].array else { return } // json error
+        
+        for mlbGame in mlbGames
+        {
+            print(mlbGame)
         }
+        
+        
+        
+        
     }
     
-    
-    
-    func getPlaylists(from feed: Feed) -> [FeedPlaylist]
+    func getM3U8(feedURL: URL)
     {
-//        feed.getURL(gameDate: <#T##Date#>, cdn: <#T##CDN#>)
         
-        
-        
-        
-        
-        
-        
-        return []
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 

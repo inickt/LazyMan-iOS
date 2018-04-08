@@ -10,182 +10,88 @@ import UIKit
 
 protocol GameViewPresenterType: class
 {
-    var cdnSelector: GameViewOptionSelector<GameOptionCellText> { get }
+    var gameView: GameViewControllerType? { get set }
+    var gameSettingsView: GameSettingsViewControllerType? { get set }
     
-    func loadView()
+    var qualitySelector: GameViewOptionSelector<FeedPlaylist>? { get }
+    var feedSelector: GameViewOptionSelector<Feed> { get }
+    var cdnSelector: GameViewOptionSelector<CDN> { get }
+    
+    var game: Game { get }
+    
     func viewDidLoad()
-    
-    func setGameView(gameView: GameViewControllerType)
-    func setGameSettingsView(gameSettingsView: GameSettingsViewControllerType)
-    
-    func getCDNOptions(completion: @escaping ([CDN]) -> (), error: @escaping () -> ())
-    func getPlaylistOptions(completion: @escaping ([FeedPlaylist]) -> (), error: @escaping () -> ())
-    func getFeedOptions(completion: @escaping ([Feed]) -> (), error: @escaping () -> ())
-    
-    func setSelectedCDN(cdn: CDN)
-    func setSelectedPlaylist(feedPlaylist: FeedPlaylist)
-    func setSelectedFeed(feed: Feed)
-    
-    func getGame() -> Game
+    func playPressed()
 }
-
 
 class GameViewPresenter: GameViewPresenterType
 {
-    private weak var gameView: GameViewControllerType?
-    private weak var gameSettingsView: GameSettingsViewControllerType?
+    weak var gameView: GameViewControllerType?
+    weak var gameSettingsView: GameSettingsViewControllerType?
     
-    private let game: Game
+    let game: Game
     
-    let cdnSelector = GameViewOptionSelector<GameOptionCellText>(objects: [CDN.Akamai, CDN.Level3])
-    
-    
-    
-    private var selectedFeed: Feed?
-    {
-        didSet
-        {
-            guard let selectedFeed = self.selectedFeed else { return }
-            self.gameSettingsView?.setFeed(text: selectedFeed.getTitle())
-        }
-    }
-    
-    private var selectedFeedPlaylist: FeedPlaylist?
-    {
-        didSet
-        {
-            guard let selectedFeedPlaylist = self.selectedFeedPlaylist else { return }
-            self.gameSettingsView?.setQuality(text: selectedFeedPlaylist.getTitle())
-        }
-    }
-    
-    private var selectedCDN: CDN!
-    {
-        didSet
-        {
-            self.gameSettingsView?.setCDN(text: self.selectedCDN.getTitle())
-        }
-    }
+    var qualitySelector: GameViewOptionSelector<FeedPlaylist>?
+    let feedSelector: GameViewOptionSelector<Feed>
+    let cdnSelector: GameViewOptionSelector<CDN>
     
     private let cdnOptions = [CDN.Akamai, CDN.Level3]
     
     init(game: Game)
     {
         self.game = game
-    }
-    
-    func loadView()
-    {
         
+        self.cdnSelector = GameViewOptionSelector<CDN>(objects: [CDN.Akamai, CDN.Level3])
+        self.feedSelector = GameViewOptionSelector<Feed>(objects: game.feeds)
+        
+        self.cdnSelector.onSelection = self.cdnSelected
+        self.feedSelector.onSelection = self.feedSelected
     }
     
     func viewDidLoad()
     {
+        self.cdnSelector.select(index: 0)
+        if self.feedSelector.count > 0 { self.feedSelector.select(index: 0) }
         self.gameView?.setTitle(title: "\(self.game.awayTeam.shortName) at \(self.game.homeTeam.shortName)")
-        
-        self.gameSettingsView?.setFeed(text: "")
-        self.gameSettingsView?.setQuality(text: "")
-        
-        self.setSelectedCDN(cdn: .Akamai)
-        if self.selectedFeed == nil, self.game.feeds.count > 0
+        self.gameSettingsView?.setQuality(text: nil)
+    }
+    
+    func playPressed()
+    {
+        if let feedPlaylsit = self.qualitySelector?.selectedObject
         {
-            self.setSelectedFeed(feed: self.game.feeds[0])
+            self.gameView?.playURL(url: feedPlaylsit.getURL())
+            self.gameView?.updatePlay(enabled: nil)
         }
     }
     
-    func setGameView(gameView: GameViewControllerType)
+    // MARK: - Private
+    
+    private func qualitySelected(selected: FeedPlaylist)
     {
-        self.gameView = gameView
+        self.gameSettingsView?.setQuality(text: selected.getTitle())
+        self.gameView?.updatePlay(enabled: true)
     }
     
-    func setGameSettingsView(gameSettingsView: GameSettingsViewControllerType)
+    private func cdnSelected(selected: CDN)
     {
-        self.gameSettingsView = gameSettingsView
+        self.gameSettingsView?.setCDN(text: selected.getTitle())
     }
     
-    func getGame() -> Game
+    private func feedSelected(selected: Feed)
     {
-        return self.game
-    }
-    
-    func setFeed(feed: Feed)
-    {
-        self.selectedFeed = feed
-    }
-    
-    func getCDNOptions(completion: @escaping ([CDN]) -> (), error: @escaping () -> ())
-    {
-        completion([.Akamai, .Level3])
-    }
-    
-    func getPlaylistOptions(completion: @escaping ([FeedPlaylist]) -> (), error: @escaping () -> ())
-    {
-        if let feed = self.selectedFeed
-        {
-            feed.getFeedPlaylists(cdn: .Akamai, completion: { (feedPlaylists) in
-                
-                if feedPlaylists.count > 0
-                {
-                    self.selectedFeedPlaylist = feedPlaylists[0]
-                }
-                
-                completion(feedPlaylists)
-            }, error: { (error) in
-                
-            })
-        }
-    }
-    
-    func getFeedOptions(completion: @escaping ([Feed]) -> (), error: @escaping () -> ())
-    {
-        if self.selectedFeed == nil, self.game.feeds.count > 0
-        {
-            self.selectedFeed = self.game.feeds[0]
-        }
+        self.gameSettingsView?.setFeed(text: selected.getTitle())
+        self.gameSettingsView?.setQuality(text: nil)
+        self.qualitySelector = nil
+        self.gameView?.updatePlay(enabled: false)
         
-        completion(self.game.feeds)
-    }
-    
-    func setSelectedCDN(cdn: CDN)
-    {
-        self.selectedCDN = cdn
-    }
-    
-    func setSelectedPlaylist(feedPlaylist: FeedPlaylist)
-    {
-        self.selectedFeedPlaylist = feedPlaylist
-    }
-    
-    func setSelectedFeed(feed: Feed)
-    {
-        self.selectedFeed = feed
-        
-        feed.getFeedPlaylists(cdn: self.selectedCDN ?? CDN.Akamai,
-                              completion: { (feedPlaylists) in
-                                if feedPlaylists.count > 0
-                                {
-                                    self.setSelectedPlaylist(feedPlaylist: feedPlaylists[0])
-                                }
-        }) { (error) in
+        selected.getFeedPlaylists(cdn: self.cdnSelector.selectedObject!, completion: { (feedPlaylists) in
+            self.qualitySelector = GameViewOptionSelector<FeedPlaylist>(objects: feedPlaylists)
+            self.qualitySelector?.onSelection = self.qualitySelected
             
+            if feedPlaylists.count > 0 { self.qualitySelector?.select(index: 0) }
+            
+        }) { (error) in
+            // TODO
         }
     }
-    
-//    func reloadFeeds()
-//    {
-//        for feed in self.game.feeds
-//        {
-//            feed.getFeedPlaylists(cdn: <#T##CDN#>, completion: <#T##([FeedPlaylist]) -> ()#>, error: <#T##(Error) -> ()#>)
-//
-//
-//        }
-//
-//
-//    }
-    
-    
-    
-    
-    
-    
 }

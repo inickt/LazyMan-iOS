@@ -14,15 +14,12 @@ protocol GameViewControllerType: class
     func playURL(url: URL)
     func showError(message: String)
     func setTitle(title: String)
-    
-    
+    func updatePlay(enabled: Bool?)
 }
 
-
-
-
-class GameViewController: UIViewController, WKNavigationDelegate, GameViewControllerType
+class GameViewController: UIViewController, GameViewControllerType
 {
+    // MARK: - IBOutlets
     
     @IBOutlet weak var navigation: UINavigationItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
@@ -33,10 +30,20 @@ class GameViewController: UIViewController, WKNavigationDelegate, GameViewContro
     
     var presenter: GameViewPresenterType!
     
+    @IBAction func playPressed(_ sender: Any)
+    {
+        self.presenter.playPressed()
+    }
+    
+    @IBAction func refreshPressed(_ sender: Any)
+    {
+        
+    }
+    
     override func loadView()
     {
         super.loadView()
-        self.presenter.setGameView(gameView: self)
+        self.presenter.gameView = self
         
         let config = WKWebViewConfiguration()
         config.allowsInlineMediaPlayback = true
@@ -54,8 +61,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, GameViewContro
         self.webView.allowsLinkPreview = false
         
         self.webViewContainer.addSubview(self.webView)
-        
-        self.presenter.loadView()
     }
     
     override func viewDidLoad()
@@ -71,7 +76,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, GameViewContro
         if segue.identifier == "gameOptions", let gameSettings = segue.destination as? GameSettingsViewController
         {
             gameSettings.presenter = self.presenter
-            self.presenter.setGameSettingsView(gameSettingsView: gameSettings)
+            self.presenter.gameSettingsView = gameSettings
         }
     }
     
@@ -89,34 +94,33 @@ class GameViewController: UIViewController, WKNavigationDelegate, GameViewContro
     {
         self.navigation.title = title
     }
-
-    @IBAction func playPressed(_ sender: Any) {
-        self.refreshButton.isEnabled = true
-        self.playButton.isEnabled = false
-
-        UIView.animate(withDuration: 0.2, animations: {
-            self.playButton.alpha = 0.0
-        }) { (true) in
-            self.playButton.isHidden = true
-        }
-        
-        
-        if let validURL = self.presenter.getGame().feeds[0].getMasterURL(cdn: CDN.Akamai)
+    
+    func updatePlay(enabled: Bool?)
+    {
+        guard let enabled = enabled else
         {
-            self.webView.load(URLRequest(url: validURL))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.playButton.alpha = 0.0
+            }) { (_) in
+                self.playButton.isHidden = true
+            }
+            return
         }
         
+        self.playButton.isHidden = false
+        self.playButton.isEnabled = enabled
+        UIView.animate(withDuration: 0.2, animations: {
+            self.playButton.alpha = 1.0
+        })
     }
-    
-    
-    @IBAction func refreshPressed(_ sender: Any) {
-        
-    }
-    
+}
+
+extension GameViewController: WKNavigationDelegate
+{
     // MARK: - WKNavigationDelegate
     
     /**
-     Allows iOS to play the nonsecure stream from broken
+     * Allows iOS to play the nonsecure stream from broken https certificates
      */
     func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
     {

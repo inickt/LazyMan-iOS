@@ -6,32 +6,18 @@
 //  Copyright © 2018 Nick Thompson. All rights reserved.
 //
 
-import UIKit
-
-class GameViewOptionSelector<T>
+protocol AnyGameViewOptionSelector
 {
-    let objects: [T]
-    private var index: Int?
-    
-    init(objects: [T])
+    var selectedIndex: Int? { get }
+    var count: Int { get }
+    func select(index: Int)
+    func getObjects() -> [GameOptionCellText]
+}
+
+class GameViewOptionSelector<T: GameOptionCellText>: ObjectSelector<T>, AnyGameViewOptionSelector
+{
+    func getObjects() -> [GameOptionCellText]
     {
-        self.objects = objects
-    }
-    
-    func getSelected() -> T?
-    {
-        guard let index = index else { return nil }
-        
-        return self.objects[index]
-    }
-    
-    func getSelectedIndex() -> Int?
-    {
-        return self.index
-    }
-    
-    func selectOption(index: Int)
-    {
-        self.index = index
+        return self.objects
     }
 }

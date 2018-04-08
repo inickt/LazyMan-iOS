@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		010DB56720423DF300DFB4A0 /* Logos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010DB56620423DF300DFB4A0 /* Logos.xcassets */; };
-		010E4584203A6964001EF46C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010E4583203A6964001EF46C /* MainViewController.swift */; };
+		010E4584203A6964001EF46C /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010E4583203A6964001EF46C /* GameListViewController.swift */; };
 		010E4586203A6B4A001EF46C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010E4585203A6B4A001EF46C /* Icons.xcassets */; };
 		012CB8AF203A3E7C00E76740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012CB8AE203A3E7C00E76740 /* AppDelegate.swift */; };
 		012CB8B6203A3E7C00E76740 /* GameList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012CB8B4203A3E7C00E76740 /* GameList.storyboard */; };
@@ -22,6 +22,10 @@
 		015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F345F2055EA960005453C /* GameSettingsViewController.swift */; };
 		015F34622055F1550005453C /* GameSettingsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */; };
 		01794C6C2072FFD5008FFFEE /* GameViewOptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01794C6B2072FFD5008FFFEE /* GameViewOptionSelector.swift */; };
+		0179AEC02076BC4E00539C6D /* ObjectSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179AEBF2076BC4E00539C6D /* ObjectSelector.swift */; };
+		0179AEC22076DB5D00539C6D /* schedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC12076DB5D00539C6D /* schedule2018-04-05.json */; };
+		0179AEC42076F84200539C6D /* mlbschedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */; };
+		0179AEC62076FC8000539C6D /* GameListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179AEC52076FC8000539C6D /* GameListPresenter.swift */; };
 		019EA59B203E6FF8000149A3 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EA59A203E6FF8000149A3 /* Teams.swift */; };
 		01ABFDBC20545C68005D57C5 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ABFDBB20545C68005D57C5 /* Feed.swift */; };
 		01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */; };
@@ -32,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		010DB56620423DF300DFB4A0 /* Logos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Logos.xcassets; sourceTree = "<group>"; };
-		010E4583203A6964001EF46C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		010E4583203A6964001EF46C /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 		010E4585203A6B4A001EF46C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		012CB8AB203A3E7C00E76740 /* LazyMan-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LazyMan-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		012CB8AE203A3E7C00E76740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +50,10 @@
 		015F345F2055EA960005453C /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
 		015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsOptionsViewController.swift; sourceTree = "<group>"; };
 		01794C6B2072FFD5008FFFEE /* GameViewOptionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewOptionSelector.swift; sourceTree = "<group>"; };
+		0179AEBF2076BC4E00539C6D /* ObjectSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelector.swift; sourceTree = "<group>"; };
+		0179AEC12076DB5D00539C6D /* schedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "schedule2018-04-05.json"; sourceTree = "<group>"; };
+		0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mlbschedule2018-04-05.json"; sourceTree = "<group>"; };
+		0179AEC52076FC8000539C6D /* GameListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListPresenter.swift; sourceTree = "<group>"; };
 		019EA59A203E6FF8000149A3 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 		01ABFDBB20545C68005D57C5 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlaylist.swift; sourceTree = "<group>"; };
@@ -91,6 +99,9 @@
 		012CB8AD203A3E7C00E76740 /* LazyMan-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				0179AEC12076DB5D00539C6D /* schedule2018-04-05.json */,
+				0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */,
+				0179AEBE2076BC3600539C6D /* Util */,
 				01344C892061D1200040BDE7 /* GameList */,
 				01344C882061D1130040BDE7 /* GameView */,
 				01D0F3C42061CBC8008174EC /* Resources */,
@@ -100,7 +111,6 @@
 				01E593CD204B07E400CE338A /* Game.swift */,
 				01E593C9204B03F800CE338A /* GameManager.swift */,
 				01434A732040D3FF0094E221 /* GameTableViewCell.swift */,
-				010E4583203A6964001EF46C /* MainViewController.swift */,
 				015F345D2050CFC40005453C /* TeamManager.swift */,
 				019EA59A203E6FF8000149A3 /* Teams.swift */,
 			);
@@ -124,8 +134,18 @@
 			isa = PBXGroup;
 			children = (
 				012CB8B4203A3E7C00E76740 /* GameList.storyboard */,
+				0179AEC52076FC8000539C6D /* GameListPresenter.swift */,
+				010E4583203A6964001EF46C /* GameListViewController.swift */,
 			);
 			path = GameList;
+			sourceTree = "<group>";
+		};
+		0179AEBE2076BC3600539C6D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0179AEBF2076BC4E00539C6D /* ObjectSelector.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		01D0F3C42061CBC8008174EC /* Resources */ = {
@@ -219,12 +239,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0179AEC42076F84200539C6D /* mlbschedule2018-04-05.json in Resources */,
 				012CB8BB203A3E7C00E76740 /* LaunchScreen.storyboard in Resources */,
 				012CB8B8203A3E7C00E76740 /* Assets.xcassets in Resources */,
 				010E4586203A6B4A001EF46C /* Icons.xcassets in Resources */,
 				012CB8B6203A3E7C00E76740 /* GameList.storyboard in Resources */,
 				010DB56720423DF300DFB4A0 /* Logos.xcassets in Resources */,
 				01344C862061D0EC0040BDE7 /* GameView.storyboard in Resources */,
+				0179AEC22076DB5D00539C6D /* schedule2018-04-05.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +315,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0179AEC62076FC8000539C6D /* GameListPresenter.swift in Sources */,
+				0179AEC02076BC4E00539C6D /* ObjectSelector.swift in Sources */,
 				01434A762040DAA70094E221 /* GameViewController.swift in Sources */,
 				01ABFDBC20545C68005D57C5 /* Feed.swift in Sources */,
 				015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */,
@@ -304,7 +328,7 @@
 				01344C8B2061D32E0040BDE7 /* GameViewPresenter.swift in Sources */,
 				01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */,
 				012CB8AF203A3E7C00E76740 /* AppDelegate.swift in Sources */,
-				010E4584203A6964001EF46C /* MainViewController.swift in Sources */,
+				010E4584203A6964001EF46C /* GameListViewController.swift in Sources */,
 				015F345E2050CFC40005453C /* TeamManager.swift in Sources */,
 				01434A742040D3FF0094E221 /* GameTableViewCell.swift in Sources */,
 			);

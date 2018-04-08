@@ -10,29 +10,30 @@ import UIKit
 
 protocol GameSettingsViewControllerType: class
 {
-    func setQuality(text: String)
+    func setQuality(text: String?)
     func setFeed(text: String)
     func setCDN(text: String)
 }
 
 class GameSettingsViewController: UITableViewController, GameSettingsViewControllerType
 {
+    // MARK: - IBOutlets
+    
     @IBOutlet private weak var qualityLabel: UILabel!
     @IBOutlet private weak var feedLabel: UILabel!
     @IBOutlet private weak var cdnLabel: UILabel!
-    @IBOutlet weak var qualityCell: UITableViewCell!
+    @IBOutlet private weak var qualityCell: UITableViewCell!
+    
+    // MARK: - Properties
     
     var presenter: GameViewPresenterType!
     
     // MARK: - Navigation
-
-    override func viewWillAppear(_ animated: Bool)
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool
     {
-        super.viewWillAppear(animated)
-        
-        self.setCDN(text: self.presenter.cdnSelector.getSelected()?.getTitle() ?? "")
+        return !(identifier == "gameOptionQuality" && self.presenter.qualitySelector == nil)
     }
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -40,45 +41,19 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
         {
             let settingsOptions = segue.destination as? GameSettingsOptionsViewController
             
-            settingsOptions?.refreshControl = UIRefreshControl()
-            settingsOptions?.refreshControl?.beginRefreshing()
-            settingsOptions?.refreshControl?.backgroundColor = UIColor.darkGray
-            
             switch id
             {
             case "gameOptionCDN":
-//                self.presenter.getCDNOptions(completion: { (cdnOptions) in
-//                    settingsOptions?.refreshControl?.endRefreshing()
-//                    settingsOptions?.options = cdnOptions
-//
-//
-//                }, error: {
-//
-//                })
-//                settingsOptions?.title = "CDN"
-//                settingsOptions?.option = .optionCDN
+                settingsOptions?.title = "CDN"
                 settingsOptions?.opetionSelector = self.presenter.cdnSelector
                 
-                
-                
             case "gameOptionQuality":
-                self.presenter.getPlaylistOptions(completion: { (playlistOptions) in
-                    settingsOptions?.options = playlistOptions
-                    settingsOptions?.refreshControl?.endRefreshing()
-                }, error: {
-                    
-                })
                 settingsOptions?.title = "Quality"
-                settingsOptions?.option = .optionQuality
+                settingsOptions?.opetionSelector = self.presenter.qualitySelector
                 
             case "gameOptionFeed":
-                self.presenter.getFeedOptions(completion: { (feedOptions) in
-                    settingsOptions?.options = feedOptions
-                }, error: {
-                    
-                })
                 settingsOptions?.title = "Feed"
-                settingsOptions?.option = .optionFeed
+                settingsOptions?.opetionSelector = self.presenter.feedSelector
                 
             default:
                 return
@@ -86,21 +61,41 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
         }
     }
     
-    func setQuality(text: String)
+    
+    // MARK: - GameSettingsViewControllerType
+    
+    func setQuality(text: String?)
     {
-        self.qualityLabel.text = text
-        self.tableView.reloadData()
+        if let text = text
+        {
+            self.qualityCell.accessoryView = nil
+            self.qualityCell.accessoryType = .disclosureIndicator
+            self.qualityLabel.text = text
+        }
+        else
+        {
+            self.qualityLabel.text = ""
+            self.qualityCell.accessoryType = .none
+            let activityIndicator = UIActivityIndicatorView()
+            activityIndicator.startAnimating()
+            self.qualityCell.accessoryView = activityIndicator
+        }
     }
     
     func setFeed(text: String)
     {
         self.feedLabel.text = text
-        self.tableView.reloadData()
     }
     
     func setCDN(text: String)
     {
         self.cdnLabel.text = text
-        self.tableView.reloadData()
+    }
+    
+    // MARK: - UITableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

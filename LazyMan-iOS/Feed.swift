@@ -49,45 +49,25 @@ class Feed: GameOptionCellText
     
     init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, gameDate: String)
     {
-        self.feedType = feedType
+        switch feedType
+        {
+        case "HOME":
+            self.feedType = "Home"
+        case "AWAY":
+            self.feedType = "Away"
+        case "FRENCH":
+            self.feedType = "French"
+        case "NATIONAL":
+            self.feedType = "National"
+        default:
+            self.feedType = feedType
+        }
+        
         self.callLetters = callLetters
         self.feedName = feedName
         self.playbackID = playbackID
         self.league = league
         self.gameDate = gameDate
-    }
-    
-    func getMasterURL(cdn: CDN) -> URL?
-    {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        let baseFeedURLString = "http://nhl.freegamez.ga/m3u8/" + self.gameDate + "/"
-        
-        switch self.league {
-        case .NHL:
-            do
-            {
-                let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
-                return URL(string: s)
-            }
-            catch
-            {
-                do
-                {
-                    let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID))!)
-                    return URL(string: s)
-                }
-                catch
-                {
-                    return nil
-                }
-            }
-        case .MLB:
-            return nil
-        }
     }
     
     func getFeedPlaylists(cdn: CDN, completion: @escaping ([FeedPlaylist]) -> (), error: @escaping (Error) -> ())
@@ -180,5 +160,40 @@ class Feed: GameOptionCellText
     func getDetail() -> String
     {
         return ""
+    }
+    
+    // MARK: - Private
+    
+    private func getMasterURL(cdn: CDN) -> URL?
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        let baseFeedURLString = "http://nhl.freegamez.ga/m3u8/" + self.gameDate + "/"
+        
+        switch self.league {
+        case .NHL:
+            do
+            {
+                let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
+                return URL(string: s)
+            }
+            catch
+            {
+                do
+                {
+                    let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID))!)
+                    return URL(string: s)
+                }
+                catch
+                {
+                    return nil
+                }
+            }
+        case .MLB:
+            return nil
+        }
     }
 }
