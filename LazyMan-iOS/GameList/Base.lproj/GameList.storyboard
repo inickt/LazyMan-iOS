@@ -106,23 +106,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13v-8S-wkF" userLabel="Seperator">
-                                                    <rect key="frame" x="256" y="16" width="1" height="68"/>
+                                                    <rect key="frame" x="246" y="16" width="1" height="68"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="xTq-nR-MCZ"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3RD 20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-5g-fYB">
-                                                    <rect key="frame" x="265" y="39.5" width="100" height="20.5"/>
+                                                    <rect key="frame" x="255" y="39.5" width="110" height="20.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="lWI-Yq-XDk"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="lWI-Yq-XDk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Fcp-f2-OGG" userLabel="Teams">
-                                                    <rect key="frame" x="10" y="11" width="246" height="78"/>
+                                                    <rect key="frame" x="10" y="11" width="236" height="78"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uAS-sl-QoU" userLabel="Away Team">
                                                             <rect key="frame" x="0.0" y="0.0" width="188" height="39"/>
@@ -189,14 +189,23 @@
                                     <outlet property="delegate" destination="DiW-Fz-1X3" id="Ihu-7s-px4"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ5-bH-XfP">
+                                <rect key="frame" x="20" y="442.5" width="335" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gcH-Lu-ECC" firstAttribute="trailing" secondItem="Rkh-Vy-k3R" secondAttribute="trailing" id="CBi-wd-15W"/>
+                            <constraint firstItem="VJ5-bH-XfP" firstAttribute="centerY" secondItem="gcH-Lu-ECC" secondAttribute="centerY" id="Ec7-XC-axd"/>
+                            <constraint firstItem="VJ5-bH-XfP" firstAttribute="leading" secondItem="Ffh-sn-7SU" secondAttribute="leading" constant="20" id="Kpl-TT-m8q"/>
                             <constraint firstItem="gcH-Lu-ECC" firstAttribute="leading" secondItem="Rkh-Vy-k3R" secondAttribute="leading" id="NCw-0f-Iyp"/>
                             <constraint firstItem="gcH-Lu-ECC" firstAttribute="top" secondItem="Drg-wo-ri7" secondAttribute="bottom" constant="1" id="TZ7-oi-Aif"/>
-                            <constraint firstItem="gcH-Lu-ECC" firstAttribute="bottom" secondItem="Rkh-Vy-k3R" secondAttribute="bottom" id="fgW-ZI-Oud"/>
+                            <constraint firstItem="gcH-Lu-ECC" firstAttribute="bottom" secondItem="Ffh-sn-7SU" secondAttribute="bottom" id="fgW-ZI-Oud"/>
                             <constraint firstItem="Drg-wo-ri7" firstAttribute="top" secondItem="Rkh-Vy-k3R" secondAttribute="top" id="geQ-nd-63o"/>
+                            <constraint firstAttribute="trailing" secondItem="VJ5-bH-XfP" secondAttribute="trailing" constant="20" id="hW4-VF-by5"/>
                             <constraint firstItem="Drg-wo-ri7" firstAttribute="leading" secondItem="Rkh-Vy-k3R" secondAttribute="leading" id="wb6-Ee-iTw"/>
                             <constraint firstItem="Drg-wo-ri7" firstAttribute="trailing" secondItem="Rkh-Vy-k3R" secondAttribute="trailing" id="xMR-aJ-5kq"/>
                         </constraints>
@@ -233,6 +242,7 @@
                         <outlet property="calendar" destination="Drg-wo-ri7" id="qCm-U8-NHN"/>
                         <outlet property="calendarHeight" destination="Tmg-lo-bvy" id="1Gl-bu-t63"/>
                         <outlet property="dateLabel" destination="DwF-fL-qzp" id="Po4-EN-asd"/>
+                        <outlet property="errorLabel" destination="VJ5-bH-XfP" id="9NV-6W-NWa"/>
                         <outlet property="leagueControl" destination="uAA-1T-MzU" id="d7R-VK-JcH"/>
                         <outlet property="tableView" destination="gcH-Lu-ECC" id="SZ2-TG-XFL"/>
                         <outlet property="todayButton" destination="aXN-gm-JkR" id="o0O-5C-43k"/>
@@ -242,10 +252,10 @@
             </objects>
             <point key="canvasLocation" x="-359.19999999999999" y="-491.60419790104953"/>
         </scene>
-        <!--GameView-->
+        <!--Game-->
         <scene sceneID="xZG-IN-lKk">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="GameView" storyboardName="GameView" referencedIdentifier="GameView" id="yLk-dD-8iX" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="GameView" storyboardName="Game" referencedIdentifier="Game" id="yLk-dD-8iX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24S-C2-cqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="696" y="-800"/>

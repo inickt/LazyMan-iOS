@@ -46,6 +46,7 @@ class Feed: GameOptionCellText
     private let league: League
     private let gameDate: String
     private var feedPlaylists: [FeedPlaylist]?
+    private var lastCDN: CDN?
     
     init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, gameDate: String)
     {
@@ -72,7 +73,7 @@ class Feed: GameOptionCellText
     
     func getFeedPlaylists(cdn: CDN, completion: @escaping ([FeedPlaylist]) -> (), error: @escaping (Error) -> ())
     {
-        if let feedPlaylists = self.feedPlaylists
+        if let feedPlaylists = self.feedPlaylists, let lastCDN = lastCDN, lastCDN == cdn
         {
             completion(feedPlaylists)
         }
@@ -171,10 +172,10 @@ class Feed: GameOptionCellText
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.locale = Locale(identifier: "en_US_POSIX")
         
-        let baseFeedURLString = "http://nhl.freegamez.ga/m3u8/" + self.gameDate + "/"
-        
         switch self.league {
         case .NHL:
+            let baseFeedURLString = "http://nhl.freegamez.ga/m3u8/" + self.gameDate + "/"
+            
             do
             {
                 let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
@@ -193,7 +194,17 @@ class Feed: GameOptionCellText
                 }
             }
         case .MLB:
-            return nil
+            let baseFeedURLString = "http://nhl.freegamez.ga/mlb/m3u8/" + self.gameDate + "/"
+            
+            do
+            {
+                let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
+                return URL(string: s)
+            }
+            catch
+            {
+                return nil
+            }
         }
     }
 }

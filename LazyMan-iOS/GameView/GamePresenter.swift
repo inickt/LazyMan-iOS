@@ -1,5 +1,5 @@
 //
-//  GameViewPresenter.swift
+//  GamePresenter.swift
 //  LazyMan-iOS
 //
 //  Created by Nick Thompson on 3/20/18.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol GameViewPresenterType: class
+protocol GamePresenterType: class
 {
     var gameView: GameViewControllerType? { get set }
     var gameSettingsView: GameSettingsViewControllerType? { get set }
     
-    var qualitySelector: GameViewOptionSelector<FeedPlaylist>? { get }
-    var feedSelector: GameViewOptionSelector<Feed> { get }
-    var cdnSelector: GameViewOptionSelector<CDN> { get }
+    var qualitySelector: GameOptionSelector<FeedPlaylist>? { get }
+    var feedSelector: GameOptionSelector<Feed> { get }
+    var cdnSelector: GameOptionSelector<CDN> { get }
     
     var game: Game { get }
     
@@ -23,16 +23,16 @@ protocol GameViewPresenterType: class
     func playPressed()
 }
 
-class GameViewPresenter: GameViewPresenterType
+class GamePresenter: GamePresenterType
 {
     weak var gameView: GameViewControllerType?
     weak var gameSettingsView: GameSettingsViewControllerType?
     
     let game: Game
     
-    var qualitySelector: GameViewOptionSelector<FeedPlaylist>?
-    let feedSelector: GameViewOptionSelector<Feed>
-    let cdnSelector: GameViewOptionSelector<CDN>
+    var qualitySelector: GameOptionSelector<FeedPlaylist>?
+    let feedSelector: GameOptionSelector<Feed>
+    let cdnSelector: GameOptionSelector<CDN>
     
     private let cdnOptions = [CDN.Akamai, CDN.Level3]
     
@@ -40,8 +40,8 @@ class GameViewPresenter: GameViewPresenterType
     {
         self.game = game
         
-        self.cdnSelector = GameViewOptionSelector<CDN>(objects: [CDN.Akamai, CDN.Level3])
-        self.feedSelector = GameViewOptionSelector<Feed>(objects: game.feeds)
+        self.cdnSelector = GameOptionSelector<CDN>(objects: [CDN.Akamai, CDN.Level3])
+        self.feedSelector = GameOptionSelector<Feed>(objects: game.feeds)
         
         self.cdnSelector.onSelection = self.cdnSelected
         self.feedSelector.onSelection = self.feedSelected
@@ -52,7 +52,6 @@ class GameViewPresenter: GameViewPresenterType
         self.cdnSelector.select(index: 0)
         if self.feedSelector.count > 0 { self.feedSelector.select(index: 0) }
         self.gameView?.setTitle(title: "\(self.game.awayTeam.shortName) at \(self.game.homeTeam.shortName)")
-        self.gameSettingsView?.setQuality(text: nil)
     }
     
     func playPressed()
@@ -75,6 +74,22 @@ class GameViewPresenter: GameViewPresenterType
     private func cdnSelected(selected: CDN)
     {
         self.gameSettingsView?.setCDN(text: selected.getTitle())
+        if let selectedFeed = self.feedSelector.selectedObject
+        {
+            self.gameSettingsView?.setQuality(text: nil)
+            self.qualitySelector = nil
+            self.gameView?.updatePlay(enabled: false)
+            
+            selectedFeed.getFeedPlaylists(cdn: selected, completion: { (feedPlaylists) in
+                self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
+                self.qualitySelector?.onSelection = self.qualitySelected
+                
+                if feedPlaylists.count > 0 { self.qualitySelector?.select(index: 0) }
+                
+            }) { (error) in
+                // TODO
+            }
+        }
     }
     
     private func feedSelected(selected: Feed)
@@ -85,7 +100,7 @@ class GameViewPresenter: GameViewPresenterType
         self.gameView?.updatePlay(enabled: false)
         
         selected.getFeedPlaylists(cdn: self.cdnSelector.selectedObject!, completion: { (feedPlaylists) in
-            self.qualitySelector = GameViewOptionSelector<FeedPlaylist>(objects: feedPlaylists)
+            self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
             self.qualitySelector?.onSelection = self.qualitySelected
             
             if feedPlaylists.count > 0 { self.qualitySelector?.select(index: 0) }

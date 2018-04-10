@@ -14,14 +14,15 @@
 		012CB8B6203A3E7C00E76740 /* GameList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012CB8B4203A3E7C00E76740 /* GameList.storyboard */; };
 		012CB8B8203A3E7C00E76740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012CB8B7203A3E7C00E76740 /* Assets.xcassets */; };
 		012CB8BB203A3E7C00E76740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012CB8B9203A3E7C00E76740 /* LaunchScreen.storyboard */; };
-		01344C862061D0EC0040BDE7 /* GameView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D0F3CB2061CFB9008174EC /* GameView.storyboard */; };
-		01344C8B2061D32E0040BDE7 /* GameViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01344C8A2061D32E0040BDE7 /* GameViewPresenter.swift */; };
+		01344C862061D0EC0040BDE7 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D0F3CB2061CFB9008174EC /* Game.storyboard */; };
+		01344C8B2061D32E0040BDE7 /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01344C8A2061D32E0040BDE7 /* GamePresenter.swift */; };
+		013959EA207ADF3B00E37E9C /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013959E9207ADF3B00E37E9C /* JSONLoader.swift */; };
 		01434A742040D3FF0094E221 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01434A732040D3FF0094E221 /* GameTableViewCell.swift */; };
 		01434A762040DAA70094E221 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01434A752040DAA70094E221 /* GameViewController.swift */; };
 		015F345E2050CFC40005453C /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F345D2050CFC40005453C /* TeamManager.swift */; };
 		015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F345F2055EA960005453C /* GameSettingsViewController.swift */; };
 		015F34622055F1550005453C /* GameSettingsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */; };
-		01794C6C2072FFD5008FFFEE /* GameViewOptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01794C6B2072FFD5008FFFEE /* GameViewOptionSelector.swift */; };
+		01794C6C2072FFD5008FFFEE /* GameOptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01794C6B2072FFD5008FFFEE /* GameOptionSelector.swift */; };
 		0179AEC02076BC4E00539C6D /* ObjectSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179AEBF2076BC4E00539C6D /* ObjectSelector.swift */; };
 		0179AEC22076DB5D00539C6D /* schedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC12076DB5D00539C6D /* schedule2018-04-05.json */; };
 		0179AEC42076F84200539C6D /* mlbschedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */; };
@@ -43,13 +44,14 @@
 		012CB8B7203A3E7C00E76740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		012CB8BA203A3E7C00E76740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		012CB8BC203A3E7C00E76740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01344C8A2061D32E0040BDE7 /* GameViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPresenter.swift; sourceTree = "<group>"; };
+		01344C8A2061D32E0040BDE7 /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
+		013959E9207ADF3B00E37E9C /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		01434A732040D3FF0094E221 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		01434A752040DAA70094E221 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		015F345D2050CFC40005453C /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
 		015F345F2055EA960005453C /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
 		015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsOptionsViewController.swift; sourceTree = "<group>"; };
-		01794C6B2072FFD5008FFFEE /* GameViewOptionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewOptionSelector.swift; sourceTree = "<group>"; };
+		01794C6B2072FFD5008FFFEE /* GameOptionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionSelector.swift; sourceTree = "<group>"; };
 		0179AEBF2076BC4E00539C6D /* ObjectSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelector.swift; sourceTree = "<group>"; };
 		0179AEC12076DB5D00539C6D /* schedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "schedule2018-04-05.json"; sourceTree = "<group>"; };
 		0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mlbschedule2018-04-05.json"; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 		01ABFDBB20545C68005D57C5 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlaylist.swift; sourceTree = "<group>"; };
 		01D0F3C92061CFAA008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameList.storyboard; sourceTree = "<group>"; };
-		01D0F3CA2061CFB9008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameView.storyboard; sourceTree = "<group>"; };
+		01D0F3CA2061CFB9008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game.storyboard; sourceTree = "<group>"; };
 		01E593C9204B03F800CE338A /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		01E593CD204B07E400CE338A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		6692BA5DC5F8089A7F24FDEC /* Pods_LazyMan_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyMan_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,12 +122,12 @@
 		01344C882061D1130040BDE7 /* GameView */ = {
 			isa = PBXGroup;
 			children = (
-				01D0F3CB2061CFB9008174EC /* GameView.storyboard */,
-				01344C8A2061D32E0040BDE7 /* GameViewPresenter.swift */,
+				01D0F3CB2061CFB9008174EC /* Game.storyboard */,
+				01344C8A2061D32E0040BDE7 /* GamePresenter.swift */,
 				01434A752040DAA70094E221 /* GameViewController.swift */,
 				015F345F2055EA960005453C /* GameSettingsViewController.swift */,
 				015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */,
-				01794C6B2072FFD5008FFFEE /* GameViewOptionSelector.swift */,
+				01794C6B2072FFD5008FFFEE /* GameOptionSelector.swift */,
 			);
 			path = GameView;
 			sourceTree = "<group>";
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				0179AEBF2076BC4E00539C6D /* ObjectSelector.swift */,
+				013959E9207ADF3B00E37E9C /* JSONLoader.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -245,7 +248,7 @@
 				010E4586203A6B4A001EF46C /* Icons.xcassets in Resources */,
 				012CB8B6203A3E7C00E76740 /* GameList.storyboard in Resources */,
 				010DB56720423DF300DFB4A0 /* Logos.xcassets in Resources */,
-				01344C862061D0EC0040BDE7 /* GameView.storyboard in Resources */,
+				01344C862061D0EC0040BDE7 /* Game.storyboard in Resources */,
 				0179AEC22076DB5D00539C6D /* schedule2018-04-05.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,8 +327,9 @@
 				01E593CE204B07E400CE338A /* Game.swift in Sources */,
 				019EA59B203E6FF8000149A3 /* Teams.swift in Sources */,
 				015F34622055F1550005453C /* GameSettingsOptionsViewController.swift in Sources */,
-				01794C6C2072FFD5008FFFEE /* GameViewOptionSelector.swift in Sources */,
-				01344C8B2061D32E0040BDE7 /* GameViewPresenter.swift in Sources */,
+				013959EA207ADF3B00E37E9C /* JSONLoader.swift in Sources */,
+				01794C6C2072FFD5008FFFEE /* GameOptionSelector.swift in Sources */,
+				01344C8B2061D32E0040BDE7 /* GamePresenter.swift in Sources */,
 				01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */,
 				012CB8AF203A3E7C00E76740 /* AppDelegate.swift in Sources */,
 				010E4584203A6964001EF46C /* GameListViewController.swift in Sources */,
@@ -353,12 +357,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		01D0F3CB2061CFB9008174EC /* GameView.storyboard */ = {
+		01D0F3CB2061CFB9008174EC /* Game.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				01D0F3CA2061CFB9008174EC /* Base */,
 			);
-			name = GameView.storyboard;
+			name = Game.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -476,6 +480,7 @@
 			baseConfigurationReference = C2466E3CA23A454708E0B525 /* Pods-LazyMan-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SQNZE245D;
@@ -494,6 +499,7 @@
 			baseConfigurationReference = AB4E0BF11AC215B0A921B72A /* Pods-LazyMan-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SQNZE245D;

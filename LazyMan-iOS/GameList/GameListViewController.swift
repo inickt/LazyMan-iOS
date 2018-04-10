@@ -15,6 +15,7 @@ protocol GameListViewControllerType: class
     func updateCalendar(date: Date)
     func updateTodayButton(enabled: Bool)
     func updateRefreshing(refreshing: Bool)
+    func updateError(error: String?)
     func updateGames()
 }
 
@@ -28,6 +29,7 @@ class GameListViewController: UIViewController, GameListViewControllerType
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var todayButton: UIBarButtonItem!
+    @IBOutlet private weak var errorLabel: UILabel!
     
     // MARK: - IBActions
     
@@ -129,6 +131,18 @@ class GameListViewController: UIViewController, GameListViewControllerType
         }
     }
     
+    func updateError(error: String?)
+    {
+        guard let error = error else
+        {
+            self.errorLabel.isHidden = true
+            return
+        }
+        
+        self.errorLabel.isHidden = false
+        self.errorLabel.text = error
+    }
+    
     func updateGames()
     {
         self.tableView.reloadData()
@@ -179,7 +193,7 @@ extension GameListViewController: UITableViewDelegate
         
         if let gameViewController = navigationController?.storyboard?.instantiateViewController(withIdentifier: "GameView") as? GameViewController
         {
-            gameViewController.presenter = GameViewPresenter(game: self.presenter.getGames()[indexPath.row])
+            gameViewController.presenter = GamePresenter(game: self.presenter.getGames()[indexPath.row])
             self.navigationController?.pushViewController(gameViewController, animated: true)
         }
     }

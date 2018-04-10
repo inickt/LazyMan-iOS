@@ -37,7 +37,7 @@ class FeedPlaylist: GameOptionCellText
     {
         var framerateString = ""
         
-        if let framerate = self.framerate
+        if let framerate = self.framerate, framerate != 30
         {
             framerateString = "\(framerate)"
         }

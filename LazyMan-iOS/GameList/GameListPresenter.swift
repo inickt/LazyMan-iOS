@@ -41,6 +41,7 @@ class GameListPresenter: GameListPresenterType
     private var games = [Game]() {
         didSet {
             self.view?.updateGames()
+            self.view?.updateError(error: nil)
         }
     }
     
@@ -136,7 +137,8 @@ class GameListPresenter: GameListPresenterType
             self.games = games
             self.view?.updateRefreshing(refreshing: false)
         }, error: { (error) in
-            // TODO error
+            self.view?.updateError(error: error)
+            self.view?.updateRefreshing(refreshing: false)
         })
     }
 }

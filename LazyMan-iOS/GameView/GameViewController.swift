@@ -28,7 +28,7 @@ class GameViewController: UIViewController, GameViewControllerType
     
     private var webView: WKWebView!
     
-    var presenter: GameViewPresenterType!
+    var presenter: GamePresenterType!
     
     @IBAction func playPressed(_ sender: Any)
     {
@@ -127,6 +127,4 @@ extension GameViewController: WKNavigationDelegate
         let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
         completionHandler(.useCredential, cred)
     }
-    
 }
-

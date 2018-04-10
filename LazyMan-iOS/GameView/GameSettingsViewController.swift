@@ -26,7 +26,7 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
     
     // MARK: - Properties
     
-    var presenter: GameViewPresenterType!
+    var presenter: GamePresenterType!
     
     // MARK: - Navigation
     

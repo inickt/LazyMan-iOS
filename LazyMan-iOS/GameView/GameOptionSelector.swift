@@ -1,5 +1,5 @@
 //
-//  GameViewOptionSelector.swift
+//  GameOptionSelector.swift
 //  LazyMan-iOS
 //
 //  Created by Nick Thompson on 4/2/18.
@@ -14,7 +14,7 @@ protocol AnyGameViewOptionSelector
     func getObjects() -> [GameOptionCellText]
 }
 
-class GameViewOptionSelector<T: GameOptionCellText>: ObjectSelector<T>, AnyGameViewOptionSelector
+class GameOptionSelector<T: GameOptionCellText>: ObjectSelector<T>, AnyGameViewOptionSelector
 {
     func getObjects() -> [GameOptionCellText]
     {
