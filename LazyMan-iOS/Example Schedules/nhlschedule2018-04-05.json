@@ -1,0 +1,2951 @@
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
+  "totalItems" : 12,
+  "totalEvents" : 0,
+  "totalGames" : 12,
+  "totalMatches" : 0,
+  "wait" : 10,
+  "dates" : [ {
+    "date" : "2018-04-05",
+    "totalItems" : 12,
+    "totalEvents" : 0,
+    "totalGames" : 12,
+    "totalMatches" : 0,
+    "games" : [ {
+      "gamePk" : 2017021241,
+      "link" : "/api/v1/game/2017021241/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-05T23:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 48,
+            "losses" : 25,
+            "ot" : 7,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 10,
+            "name" : "Toronto Maple Leafs",
+            "link" : "/api/v1/teams/10",
+            "venue" : {
+              "name" : "Air Canada Centre",
+              "link" : "/api/v1/venues/null",
+              "city" : "Toronto",
+              "timeZone" : {
+                "id" : "America/Toronto",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "TOR",
+            "teamName" : "Maple Leafs",
+            "locationName" : "Toronto",
+            "firstYearOfPlay" : "1926",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 5,
+              "teamName" : "Maple Leafs",
+              "link" : "/api/v1/franchises/5"
+            },
+            "shortName" : "Toronto",
+            "officialSiteUrl" : "http://www.mapleleafs.com",
+            "franchiseId" : 5,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 43,
+            "losses" : 28,
+            "ot" : 9,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 1,
+            "name" : "New Jersey Devils",
+            "link" : "/api/v1/teams/1",
+            "venue" : {
+              "name" : "Prudential Center",
+              "link" : "/api/v1/venues/null",
+              "city" : "Newark",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "NJD",
+            "teamName" : "Devils",
+            "locationName" : "New Jersey",
+            "firstYearOfPlay" : "1982",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 23,
+              "teamName" : "Devils",
+              "link" : "/api/v1/franchises/23"
+            },
+            "shortName" : "New Jersey",
+            "officialSiteUrl" : "http://www.truesince82.com",
+            "franchiseId" : 23,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 1,
+              "name" : "New Jersey Devils",
+              "link" : "/api/v1/teams/1"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 10,
+              "name" : "Toronto Maple Leafs",
+              "link" : "/api/v1/teams/10"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "Prudential Center",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021241/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "8af90b12-ef62-43aa-b501-5aa8b223a427",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58741103",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "MSG+",
+              "eventId" : "221-1007835",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "5e8ac32f-eebb-48f9-991d-a9da010a7931",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58741203",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "TSN4",
+              "eventId" : "221-1007835",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "20c232df-676e-4d24-8a02-afa197b388a2",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58741703",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007835",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58741303",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "TOJN",
+              "eventId" : "221-1007835",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58741403",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "SN590",
+              "eventId" : "221-1007835",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294814882",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294814882",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021242,
+      "link" : "/api/v1/game/2017021242/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-05T23:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 34,
+            "losses" : 37,
+            "ot" : 9,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 3,
+            "name" : "New York Rangers",
+            "link" : "/api/v1/teams/3",
+            "venue" : {
+              "name" : "Madison Square Garden",
+              "link" : "/api/v1/venues/null",
+              "city" : "New York",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "NYR",
+            "teamName" : "Rangers",
+            "locationName" : "New York",
+            "firstYearOfPlay" : "1926",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 10,
+              "teamName" : "Rangers",
+              "link" : "/api/v1/franchises/10"
+            },
+            "shortName" : "NY Rangers",
+            "officialSiteUrl" : "http://www.newyorkrangers.com",
+            "franchiseId" : 10,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 33,
+            "losses" : 37,
+            "ot" : 10,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 2,
+            "name" : "New York Islanders",
+            "link" : "/api/v1/teams/2",
+            "venue" : {
+              "name" : "Barclays Center",
+              "link" : "/api/v1/venues/null",
+              "city" : "Brooklyn",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "NYI",
+            "teamName" : "Islanders",
+            "locationName" : "New York",
+            "firstYearOfPlay" : "1972",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 22,
+              "teamName" : "Islanders",
+              "link" : "/api/v1/franchises/22"
+            },
+            "shortName" : "NY Islanders",
+            "officialSiteUrl" : "http://www.newyorkislanders.com",
+            "franchiseId" : 22,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 2,
+              "name" : "New York Islanders",
+              "link" : "/api/v1/teams/2"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 3,
+              "name" : "New York Rangers",
+              "link" : "/api/v1/teams/3"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "Barclays Center",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021242/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "859046ae-89dc-4654-98a5-2a969dad92b8",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58743903",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "MSG+ 2",
+              "eventId" : "221-1007838",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "66bcbf95-2155-468f-891b-97976d7f76f6",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58744003",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "MSG",
+              "eventId" : "221-1007838",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "464cdeff-cc31-4fdf-b1d8-528be7486ba8",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58744503",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007838",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58744103",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "WNYM",
+              "eventId" : "221-1007838",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58744203",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "WEPN",
+              "eventId" : "221-1007838",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294814448",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294814448",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021243,
+      "link" : "/api/v1/game/2017021243/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-05T23:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 35,
+            "losses" : 34,
+            "ot" : 11,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 12,
+            "name" : "Carolina Hurricanes",
+            "link" : "/api/v1/teams/12",
+            "venue" : {
+              "name" : "PNC Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Raleigh",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "CAR",
+            "teamName" : "Hurricanes",
+            "locationName" : "Carolina",
+            "firstYearOfPlay" : "1997",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 26,
+              "teamName" : "Hurricanes",
+              "link" : "/api/v1/franchises/26"
+            },
+            "shortName" : "Carolina",
+            "officialSiteUrl" : "http://www.carolinahurricanes.com",
+            "franchiseId" : 26,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 40,
+            "losses" : 26,
+            "ot" : 14,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 4,
+            "name" : "Philadelphia Flyers",
+            "link" : "/api/v1/teams/4",
+            "venue" : {
+              "name" : "Wells Fargo Center",
+              "link" : "/api/v1/venues/null",
+              "city" : "Philadelphia",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "PHI",
+            "teamName" : "Flyers",
+            "locationName" : "Philadelphia",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 16,
+              "teamName" : "Flyers",
+              "link" : "/api/v1/franchises/16"
+            },
+            "shortName" : "Philadelphia",
+            "officialSiteUrl" : "http://www.philadelphiaflyers.com",
+            "franchiseId" : 16,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 4,
+              "name" : "Philadelphia Flyers",
+              "link" : "/api/v1/teams/4"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 12,
+              "name" : "Carolina Hurricanes",
+              "link" : "/api/v1/teams/12"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "Wells Fargo Center",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021243/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "8b83daaa-d320-4a66-a971-bf5a760508ab",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58741803",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "NBCS-PH",
+              "eventId" : "221-1007839",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "b863259d-28ae-4335-a281-fd266b0945d2",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58741903",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "FS-CR",
+              "eventId" : "221-1007839",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "fc28d5bf-cffc-4f57-bec4-ee3e7831dea1",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58742403",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007839",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58742003",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "WPEN",
+              "eventId" : "221-1007839",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58742103",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "WCMC",
+              "eventId" : "221-1007839",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294814780",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294814780",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021244,
+      "link" : "/api/v1/game/2017021244/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-05T23:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 51,
+            "losses" : 18,
+            "ot" : 11,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 18,
+            "name" : "Nashville Predators",
+            "link" : "/api/v1/teams/18",
+            "venue" : {
+              "name" : "Bridgestone Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Nashville",
+              "timeZone" : {
+                "id" : "America/Chicago",
+                "offset" : -5,
+                "tz" : "CDT"
+              }
+            },
+            "abbreviation" : "NSH",
+            "teamName" : "Predators",
+            "locationName" : "Nashville",
+            "firstYearOfPlay" : "1998",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 34,
+              "teamName" : "Predators",
+              "link" : "/api/v1/franchises/34"
+            },
+            "shortName" : "Nashville",
+            "officialSiteUrl" : "http://www.nashvillepredators.com",
+            "franchiseId" : 34,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 48,
+            "losses" : 25,
+            "ot" : 7,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 15,
+            "name" : "Washington Capitals",
+            "link" : "/api/v1/teams/15",
+            "venue" : {
+              "name" : "Capital One Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Washington",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "WSH",
+            "teamName" : "Capitals",
+            "locationName" : "Washington",
+            "firstYearOfPlay" : "1974",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 24,
+              "teamName" : "Capitals",
+              "link" : "/api/v1/franchises/24"
+            },
+            "shortName" : "Washington",
+            "officialSiteUrl" : "http://www.washingtoncapitals.com",
+            "franchiseId" : 24,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 15,
+              "name" : "Washington Capitals",
+              "link" : "/api/v1/teams/15"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 18,
+              "name" : "Nashville Predators",
+              "link" : "/api/v1/teams/18"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "Capital One Arena",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021244/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "c27b58bc-1139-4923-a70d-b074414a6cd4",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "59598503",
+              "mediaFeedType" : "NATIONAL",
+              "callLetters" : "NBCS-WA",
+              "eventId" : "221-1007840",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "471bd14e-da4c-4397-a451-6f458e182503",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "59599103",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007840",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "59598703",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "WFED",
+              "eventId" : "221-1007840",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "59598803",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "WPRT",
+              "eventId" : "221-1007840",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294814098",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294814098",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021245,
+      "link" : "/api/v1/game/2017021245/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-05T23:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 45,
+            "losses" : 29,
+            "ot" : 6,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 5,
+            "name" : "Pittsburgh Penguins",
+            "link" : "/api/v1/teams/5",
+            "venue" : {
+              "name" : "PPG Paints Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Pittsburgh",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "PIT",
+            "teamName" : "Penguins",
+            "locationName" : "Pittsburgh",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 17,
+              "teamName" : "Penguins",
+              "link" : "/api/v1/franchises/17"
+            },
+            "shortName" : "Pittsburgh",
+            "officialSiteUrl" : "http://www.pittsburghpenguins.com",
+            "franchiseId" : 17,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 45,
+            "losses" : 29,
+            "ot" : 6,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 29,
+            "name" : "Columbus Blue Jackets",
+            "link" : "/api/v1/teams/29",
+            "venue" : {
+              "name" : "Nationwide Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Columbus",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "CBJ",
+            "teamName" : "Blue Jackets",
+            "locationName" : "Columbus",
+            "firstYearOfPlay" : "2000",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 36,
+              "teamName" : "Blue Jackets",
+              "link" : "/api/v1/franchises/36"
+            },
+            "shortName" : "Columbus",
+            "officialSiteUrl" : "http://www.bluejackets.com",
+            "franchiseId" : 36,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 29,
+              "name" : "Columbus Blue Jackets",
+              "link" : "/api/v1/teams/29"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 5,
+              "name" : "Pittsburgh Penguins",
+              "link" : "/api/v1/teams/5"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "Nationwide Arena",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021245/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "04a785f8-f726-410b-b84d-e4d8261ca912",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58743203",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "FSOH",
+              "eventId" : "221-1007843",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "04c445d4-6c87-47e9-a54a-c294e2355cae",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58743303",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "ATT-PT",
+              "eventId" : "221-1007843",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "9470ad1c-1fc2-4ae8-bbac-db46aa02ff17",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58743803",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007843",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58743403",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "WBNS",
+              "eventId" : "221-1007843",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58743503",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "WXDX",
+              "eventId" : "221-1007843",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294814470",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294814470",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021246,
+      "link" : "/api/v1/game/2017021246/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-05T23:30:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 28,
+            "losses" : 39,
+            "ot" : 13,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 8,
+            "name" : "Montréal Canadiens",
+            "link" : "/api/v1/teams/8",
+            "venue" : {
+              "name" : "Centre Bell",
+              "link" : "/api/v1/venues/null",
+              "city" : "Montreal",
+              "timeZone" : {
+                "id" : "America/Montreal",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "MTL",
+            "teamName" : "Canadiens",
+            "locationName" : "Montréal",
+            "firstYearOfPlay" : "1917",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 1,
+              "teamName" : "Canadiens",
+              "link" : "/api/v1/franchises/1"
+            },
+            "shortName" : "Montréal",
+            "officialSiteUrl" : "http://www.canadiens.com",
+            "franchiseId" : 1,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 30,
+            "losses" : 38,
+            "ot" : 12,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 17,
+            "name" : "Detroit Red Wings",
+            "link" : "/api/v1/teams/17",
+            "venue" : {
+              "name" : "Little Caesars Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Detroit",
+              "timeZone" : {
+                "id" : "America/Detroit",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "DET",
+            "teamName" : "Red Wings",
+            "locationName" : "Detroit",
+            "firstYearOfPlay" : "1932",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 12,
+              "teamName" : "Red Wings",
+              "link" : "/api/v1/franchises/12"
+            },
+            "shortName" : "Detroit",
+            "officialSiteUrl" : "http://www.detroitredwings.com",
+            "franchiseId" : 12,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 17,
+              "name" : "Detroit Red Wings",
+              "link" : "/api/v1/teams/17"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 8,
+              "name" : "Montréal Canadiens",
+              "link" : "/api/v1/teams/8"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "Little Caesars Arena",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021246/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "9278166c-454f-42e4-947c-01e057c94dfc",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58745403",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "",
+              "eventId" : "221-1007842",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "69823a1d-0f3f-473f-b2f9-b408fb2dfb7d",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58745503",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007842",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "40352f40-81a4-4dca-9498-a094c9539b50",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58745803",
+              "mediaFeedType" : "FRENCH",
+              "callLetters" : "",
+              "eventId" : "221-1007842",
+              "language" : "fra",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "308a074b-ffae-4916-995e-b490047ee2df",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58746003",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007842",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58745603",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "",
+              "eventId" : "221-1007842",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58745703",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007842",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58745903",
+              "mediaFeedType" : "FRENCH",
+              "callLetters" : "",
+              "eventId" : "221-1007842",
+              "language" : "fra",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294814100",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294814100",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021247,
+      "link" : "/api/v1/game/2017021247/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-05T23:30:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 49,
+            "losses" : 18,
+            "ot" : 12,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 6,
+            "name" : "Boston Bruins",
+            "link" : "/api/v1/teams/6",
+            "venue" : {
+              "name" : "TD Garden",
+              "link" : "/api/v1/venues/null",
+              "city" : "Boston",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "BOS",
+            "teamName" : "Bruins",
+            "locationName" : "Boston",
+            "firstYearOfPlay" : "1924",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 6,
+              "teamName" : "Bruins",
+              "link" : "/api/v1/franchises/6"
+            },
+            "shortName" : "Boston",
+            "officialSiteUrl" : "http://www.bostonbruins.com",
+            "franchiseId" : 6,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 41,
+            "losses" : 30,
+            "ot" : 8,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 13,
+            "name" : "Florida Panthers",
+            "link" : "/api/v1/teams/13",
+            "venue" : {
+              "name" : "BB&T Center",
+              "link" : "/api/v1/venues/null",
+              "city" : "Sunrise",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "FLA",
+            "teamName" : "Panthers",
+            "locationName" : "Florida",
+            "firstYearOfPlay" : "1993",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 33,
+              "teamName" : "Panthers",
+              "link" : "/api/v1/franchises/33"
+            },
+            "shortName" : "Florida",
+            "officialSiteUrl" : "http://www.floridapanthers.com",
+            "franchiseId" : 33,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 13,
+              "name" : "Florida Panthers",
+              "link" : "/api/v1/teams/13"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 6,
+              "name" : "Boston Bruins",
+              "link" : "/api/v1/teams/6"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "BB&T Center",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021247/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "c6482145-7cb0-4fae-b4be-39b763380e58",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58744703",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "FS-F",
+              "eventId" : "221-1007841",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "4dc213b1-89fe-4961-b4f5-7c68c699680e",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58744803",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "NESN",
+              "eventId" : "221-1007841",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "dd5c33b9-b75c-4581-9ebb-41e244981bed",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58745103",
+              "mediaFeedType" : "FRENCH",
+              "callLetters" : "TVAS",
+              "eventId" : "221-1007841",
+              "language" : "fra",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "87307714-acb9-4daf-951f-12b6f1ededc7",
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58745303",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007841",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58744903",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "WQAM",
+              "eventId" : "221-1007841",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_ON",
+              "mediaPlaybackId" : "58745003",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "WBZ",
+              "eventId" : "221-1007841",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294815338",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294815338",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021248,
+      "link" : "/api/v1/game/2017021248/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-06T00:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 36,
+            "losses" : 34,
+            "ot" : 10,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 20,
+            "name" : "Calgary Flames",
+            "link" : "/api/v1/teams/20",
+            "venue" : {
+              "name" : "Scotiabank Saddledome",
+              "link" : "/api/v1/venues/null",
+              "city" : "Calgary",
+              "timeZone" : {
+                "id" : "America/Denver",
+                "offset" : -6,
+                "tz" : "MDT"
+              }
+            },
+            "abbreviation" : "CGY",
+            "teamName" : "Flames",
+            "locationName" : "Calgary",
+            "firstYearOfPlay" : "1980",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 21,
+              "teamName" : "Flames",
+              "link" : "/api/v1/franchises/21"
+            },
+            "shortName" : "Calgary",
+            "officialSiteUrl" : "http://www.calgaryflames.com",
+            "franchiseId" : 21,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 50,
+            "losses" : 20,
+            "ot" : 10,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 52,
+            "name" : "Winnipeg Jets",
+            "link" : "/api/v1/teams/52",
+            "venue" : {
+              "name" : "Bell MTS Place",
+              "link" : "/api/v1/venues/null",
+              "city" : "Winnipeg",
+              "timeZone" : {
+                "id" : "America/Winnipeg",
+                "offset" : -5,
+                "tz" : "CDT"
+              }
+            },
+            "abbreviation" : "WPG",
+            "teamName" : "Jets",
+            "locationName" : "Winnipeg",
+            "firstYearOfPlay" : "2011",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 35,
+              "teamName" : "Jets",
+              "link" : "/api/v1/franchises/35"
+            },
+            "shortName" : "Winnipeg",
+            "officialSiteUrl" : "http://winnipegjets.com",
+            "franchiseId" : 35,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 52,
+              "name" : "Winnipeg Jets",
+              "link" : "/api/v1/teams/52"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 20,
+              "name" : "Calgary Flames",
+              "link" : "/api/v1/teams/20"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "Bell MTS Place",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021248/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "154c47ab-493f-455c-89e8-9f232bea54c6",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58746203",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "",
+              "eventId" : "221-1007844",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "f64a38bf-ede4-4c96-9633-ca00bb4b916b",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58746303",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007844",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "f46cfc73-19f3-4970-a842-cd79644f2717",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58746803",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007844",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58746403",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "",
+              "eventId" : "221-1007844",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58746503",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007844",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294814102",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294814102",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021249,
+      "link" : "/api/v1/game/2017021249/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-06T01:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 51,
+            "losses" : 22,
+            "ot" : 7,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 54,
+            "name" : "Vegas Golden Knights",
+            "link" : "/api/v1/teams/54",
+            "venue" : {
+              "name" : "T-Mobile Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Las Vegas",
+              "timeZone" : {
+                "id" : "America/Los_Angeles",
+                "offset" : -7,
+                "tz" : "PDT"
+              }
+            },
+            "abbreviation" : "VGK",
+            "teamName" : "Golden Knights",
+            "locationName" : "Vegas",
+            "firstYearOfPlay" : "2017",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 38,
+              "teamName" : "Golden Knights",
+              "link" : "/api/v1/franchises/38"
+            },
+            "shortName" : "Vegas",
+            "officialSiteUrl" : "http://www.vegasgoldenknights.com",
+            "franchiseId" : 38,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 34,
+            "losses" : 40,
+            "ot" : 6,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 22,
+            "name" : "Edmonton Oilers",
+            "link" : "/api/v1/teams/22",
+            "venue" : {
+              "name" : "Rogers Place",
+              "link" : "/api/v1/venues/null",
+              "city" : "Edmonton",
+              "timeZone" : {
+                "id" : "America/Edmonton",
+                "offset" : -6,
+                "tz" : "MDT"
+              }
+            },
+            "abbreviation" : "EDM",
+            "teamName" : "Oilers",
+            "locationName" : "Edmonton",
+            "firstYearOfPlay" : "1979",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 25,
+              "teamName" : "Oilers",
+              "link" : "/api/v1/franchises/25"
+            },
+            "shortName" : "Edmonton",
+            "officialSiteUrl" : "http://www.edmontonoilers.com",
+            "franchiseId" : 25,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 22,
+              "name" : "Edmonton Oilers",
+              "link" : "/api/v1/teams/22"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 54,
+              "name" : "Vegas Golden Knights",
+              "link" : "/api/v1/teams/54"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "Rogers Place",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021249/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "3fb25c81-3f3b-4a19-9959-32d019acb7dd",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59593803",
+              "mediaFeedType" : "NATIONAL",
+              "callLetters" : "",
+              "eventId" : "221-1007845",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "0e295203-3861-4ba0-ae39-63de1b25b833",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59593903",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007845",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "04a9b2b6-4e0a-4556-8899-0a2cbc130edd",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59594403",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007845",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59594003",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "",
+              "eventId" : "221-1007845",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59594103",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007845",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294814148",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294814148",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021250,
+      "link" : "/api/v1/game/2017021250/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-06T02:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 29,
+            "losses" : 40,
+            "ot" : 11,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 53,
+            "name" : "Arizona Coyotes",
+            "link" : "/api/v1/teams/53",
+            "venue" : {
+              "name" : "Gila River Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Glendale",
+              "timeZone" : {
+                "id" : "America/Phoenix",
+                "offset" : -7,
+                "tz" : "MST"
+              }
+            },
+            "abbreviation" : "ARI",
+            "teamName" : "Coyotes",
+            "locationName" : "Arizona",
+            "firstYearOfPlay" : "2014",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 28,
+              "teamName" : "Coyotes",
+              "link" : "/api/v1/franchises/28"
+            },
+            "shortName" : "Arizona",
+            "officialSiteUrl" : "http://www.arizonacoyotes.com",
+            "franchiseId" : 28,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 30,
+            "losses" : 40,
+            "ot" : 10,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 23,
+            "name" : "Vancouver Canucks",
+            "link" : "/api/v1/teams/23",
+            "venue" : {
+              "name" : "Rogers Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Vancouver",
+              "timeZone" : {
+                "id" : "America/Vancouver",
+                "offset" : -7,
+                "tz" : "PDT"
+              }
+            },
+            "abbreviation" : "VAN",
+            "teamName" : "Canucks",
+            "locationName" : "Vancouver",
+            "firstYearOfPlay" : "1970",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 20,
+              "teamName" : "Canucks",
+              "link" : "/api/v1/franchises/20"
+            },
+            "shortName" : "Vancouver",
+            "officialSiteUrl" : "http://www.canucks.com",
+            "franchiseId" : 20,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 23,
+              "name" : "Vancouver Canucks",
+              "link" : "/api/v1/teams/23"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 53,
+              "name" : "Arizona Coyotes",
+              "link" : "/api/v1/teams/53"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "Rogers Arena",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021250/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "1fb70da8-ba8f-4b10-850b-343af169ccf9",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59594603",
+              "mediaFeedType" : "NATIONAL",
+              "callLetters" : "",
+              "eventId" : "221-1007846",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "2d8c5feb-7237-46ea-ab63-e698077f4281",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59594703",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007846",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "7d4dc768-59b8-45ea-aff4-2e004a2168e0",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59595203",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007846",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 2",
+              "gamePlus" : true
+            }, {
+              "guid" : "d57102b0-8e52-42fd-b4df-b1580bfb3694",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59595303",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007846",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            }, {
+              "guid" : "0b1265f1-01d8-48aa-82ac-dd28b2272b18",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59595403",
+              "mediaFeedType" : "ISO",
+              "callLetters" : "",
+              "eventId" : "221-1007846",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Sedins Cam",
+              "gamePlus" : true
+            }, {
+              "guid" : "3f76b311-aff6-4fd8-b177-b77c1ad4884e",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59595503",
+              "mediaFeedType" : "ISO",
+              "callLetters" : "",
+              "eventId" : "221-1007846",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Endzone Cam 1",
+              "gamePlus" : true
+            }, {
+              "guid" : "3c018d7f-1e49-4dde-a1e7-0017ce376fbb",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59595603",
+              "mediaFeedType" : "ISO",
+              "callLetters" : "",
+              "eventId" : "221-1007846",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Endzone Cam 2",
+              "gamePlus" : true
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59594803",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "",
+              "eventId" : "221-1007846",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59594903",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007846",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294815248",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294815248",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021251,
+      "link" : "/api/v1/game/2017021251/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-06T02:30:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 44,
+            "losses" : 26,
+            "ot" : 10,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 30,
+            "name" : "Minnesota Wild",
+            "link" : "/api/v1/teams/30",
+            "venue" : {
+              "name" : "Xcel Energy Center",
+              "link" : "/api/v1/venues/null",
+              "city" : "St. Paul",
+              "timeZone" : {
+                "id" : "America/Chicago",
+                "offset" : -5,
+                "tz" : "CDT"
+              }
+            },
+            "abbreviation" : "MIN",
+            "teamName" : "Wild",
+            "locationName" : "Minnesota",
+            "firstYearOfPlay" : "2000",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 37,
+              "teamName" : "Wild",
+              "link" : "/api/v1/franchises/37"
+            },
+            "shortName" : "Minnesota",
+            "officialSiteUrl" : "http://www.wild.com",
+            "franchiseId" : 37,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 44,
+            "losses" : 28,
+            "ot" : 8,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 26,
+            "name" : "Los Angeles Kings",
+            "link" : "/api/v1/teams/26",
+            "venue" : {
+              "name" : "STAPLES Center",
+              "link" : "/api/v1/venues/null",
+              "city" : "Los Angeles",
+              "timeZone" : {
+                "id" : "America/Los_Angeles",
+                "offset" : -7,
+                "tz" : "PDT"
+              }
+            },
+            "abbreviation" : "LAK",
+            "teamName" : "Kings",
+            "locationName" : "Los Angeles",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 14,
+              "teamName" : "Kings",
+              "link" : "/api/v1/franchises/14"
+            },
+            "shortName" : "Los Angeles",
+            "officialSiteUrl" : "http://www.lakings.com",
+            "franchiseId" : 14,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 26,
+              "name" : "Los Angeles Kings",
+              "link" : "/api/v1/teams/26"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 30,
+              "name" : "Minnesota Wild",
+              "link" : "/api/v1/teams/30"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "STAPLES Center",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021251/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "6028bf08-67d5-4a57-ad5a-0992fa1bfb24",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59270003",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "",
+              "eventId" : "221-1007847",
+              "language" : "eng",
+              "freeGame" : true,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "f3df05b6-1def-4efe-b854-56d299310a77",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59270103",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007847",
+              "language" : "eng",
+              "freeGame" : true,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "707f8b7f-27cb-44c5-8c09-06a73a3f33ab",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59270603",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007847",
+              "language" : "eng",
+              "freeGame" : true,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59270203",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "",
+              "eventId" : "221-1007847",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "59270303",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007847",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294815250",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294815250",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    }, {
+      "gamePk" : 2017021252,
+      "link" : "/api/v1/game/2017021252/feed/live",
+      "gameType" : "R",
+      "season" : "20172018",
+      "gameDate" : "2018-04-06T02:30:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 42,
+            "losses" : 29,
+            "ot" : 9,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 21,
+            "name" : "Colorado Avalanche",
+            "link" : "/api/v1/teams/21",
+            "venue" : {
+              "name" : "Pepsi Center",
+              "link" : "/api/v1/venues/null",
+              "city" : "Denver",
+              "timeZone" : {
+                "id" : "America/Denver",
+                "offset" : -6,
+                "tz" : "MDT"
+              }
+            },
+            "abbreviation" : "COL",
+            "teamName" : "Avalanche",
+            "locationName" : "Colorado",
+            "firstYearOfPlay" : "1995",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 27,
+              "teamName" : "Avalanche",
+              "link" : "/api/v1/franchises/27"
+            },
+            "shortName" : "Colorado",
+            "officialSiteUrl" : "http://www.coloradoavalanche.com",
+            "franchiseId" : 27,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 44,
+            "losses" : 26,
+            "ot" : 10,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 28,
+            "name" : "San Jose Sharks",
+            "link" : "/api/v1/teams/28",
+            "venue" : {
+              "name" : "SAP Center at San Jose",
+              "link" : "/api/v1/venues/null",
+              "city" : "San Jose",
+              "timeZone" : {
+                "id" : "America/Los_Angeles",
+                "offset" : -7,
+                "tz" : "PDT"
+              }
+            },
+            "abbreviation" : "SJS",
+            "teamName" : "Sharks",
+            "locationName" : "San Jose",
+            "firstYearOfPlay" : "1991",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 29,
+              "teamName" : "Sharks",
+              "link" : "/api/v1/franchises/29"
+            },
+            "shortName" : "San Jose",
+            "officialSiteUrl" : "http://www.sjsharks.com",
+            "franchiseId" : 29,
+            "active" : true
+          }
+        }
+      },
+      "linescore" : {
+        "currentPeriod" : 0,
+        "periods" : [ ],
+        "shootoutInfo" : {
+          "away" : {
+            "scores" : 0,
+            "attempts" : 0
+          },
+          "home" : {
+            "scores" : 0,
+            "attempts" : 0
+          }
+        },
+        "teams" : {
+          "home" : {
+            "team" : {
+              "id" : 28,
+              "name" : "San Jose Sharks",
+              "link" : "/api/v1/teams/28"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          },
+          "away" : {
+            "team" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "goals" : 0,
+            "shotsOnGoal" : 0,
+            "goaliePulled" : false,
+            "numSkaters" : 0,
+            "powerPlay" : false
+          }
+        },
+        "powerPlayStrength" : "Even",
+        "hasShootout" : false,
+        "intermissionInfo" : {
+          "intermissionTimeRemaining" : 0,
+          "intermissionTimeElapsed" : 0,
+          "inIntermission" : false
+        }
+      },
+      "venue" : {
+        "name" : "SAP Center at San Jose",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017021252/content",
+        "editorial" : { },
+        "media" : {
+          "epg" : [ {
+            "title" : "NHLTV",
+            "platform" : "web",
+            "items" : [ {
+              "guid" : "b08f4d25-d03c-4995-a742-7b24c57a56ff",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58749703",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "",
+              "eventId" : "221-1007849",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "603ae7ff-35fe-4665-a229-0dbd7b26832f",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58749803",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007849",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "guid" : "7e2c78ef-486b-48ac-af54-066534b4fa26",
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58750303",
+              "mediaFeedType" : "COMPOSITE",
+              "callLetters" : "",
+              "eventId" : "221-1007849",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "Multi-Cam 1",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Audio",
+            "items" : [ {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58749903",
+              "mediaFeedType" : "HOME",
+              "callLetters" : "",
+              "eventId" : "221-1007849",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            }, {
+              "mediaState" : "MEDIA_OFF",
+              "mediaPlaybackId" : "58750003",
+              "mediaFeedType" : "AWAY",
+              "callLetters" : "",
+              "eventId" : "221-1007849",
+              "language" : "eng",
+              "freeGame" : false,
+              "feedName" : "",
+              "gamePlus" : false
+            } ]
+          }, {
+            "title" : "Extended Highlights",
+            "topicList" : "294814984",
+            "items" : [ ]
+          }, {
+            "title" : "Recap",
+            "topicList" : "294814984",
+            "items" : [ ]
+          }, {
+            "title" : "Power Play",
+            "items" : [ ]
+          } ]
+        },
+        "highlights" : { }
+      }
+    } ],
+    "events" : [ ],
+    "matches" : [ ]
+  } ]
+}

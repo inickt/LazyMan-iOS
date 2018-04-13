@@ -24,7 +24,7 @@
 		015F34622055F1550005453C /* GameSettingsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */; };
 		01794C6C2072FFD5008FFFEE /* GameOptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01794C6B2072FFD5008FFFEE /* GameOptionSelector.swift */; };
 		0179AEC02076BC4E00539C6D /* ObjectSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179AEBF2076BC4E00539C6D /* ObjectSelector.swift */; };
-		0179AEC22076DB5D00539C6D /* schedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC12076DB5D00539C6D /* schedule2018-04-05.json */; };
+		0179AEC22076DB5D00539C6D /* nhlschedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC12076DB5D00539C6D /* nhlschedule2018-04-05.json */; };
 		0179AEC42076F84200539C6D /* mlbschedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */; };
 		0179AEC62076FC8000539C6D /* GameListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179AEC52076FC8000539C6D /* GameListPresenter.swift */; };
 		019EA59B203E6FF8000149A3 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EA59A203E6FF8000149A3 /* Teams.swift */; };
@@ -53,7 +53,7 @@
 		015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsOptionsViewController.swift; sourceTree = "<group>"; };
 		01794C6B2072FFD5008FFFEE /* GameOptionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionSelector.swift; sourceTree = "<group>"; };
 		0179AEBF2076BC4E00539C6D /* ObjectSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelector.swift; sourceTree = "<group>"; };
-		0179AEC12076DB5D00539C6D /* schedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "schedule2018-04-05.json"; sourceTree = "<group>"; };
+		0179AEC12076DB5D00539C6D /* nhlschedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "nhlschedule2018-04-05.json"; sourceTree = "<group>"; };
 		0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mlbschedule2018-04-05.json"; sourceTree = "<group>"; };
 		0179AEC52076FC8000539C6D /* GameListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListPresenter.swift; sourceTree = "<group>"; };
 		019EA59A203E6FF8000149A3 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
@@ -101,8 +101,7 @@
 		012CB8AD203A3E7C00E76740 /* LazyMan-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				0179AEC12076DB5D00539C6D /* schedule2018-04-05.json */,
-				0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */,
+				019387BB2081396400D1CDBC /* Example Schedules */,
 				0179AEBE2076BC3600539C6D /* Util */,
 				01344C892061D1200040BDE7 /* GameList */,
 				01344C882061D1130040BDE7 /* GameView */,
@@ -149,6 +148,15 @@
 				013959E9207ADF3B00E37E9C /* JSONLoader.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		019387BB2081396400D1CDBC /* Example Schedules */ = {
+			isa = PBXGroup;
+			children = (
+				0179AEC12076DB5D00539C6D /* nhlschedule2018-04-05.json */,
+				0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */,
+			);
+			path = "Example Schedules";
 			sourceTree = "<group>";
 		};
 		01D0F3C42061CBC8008174EC /* Resources */ = {
@@ -249,7 +257,7 @@
 				012CB8B6203A3E7C00E76740 /* GameList.storyboard in Resources */,
 				010DB56720423DF300DFB4A0 /* Logos.xcassets in Resources */,
 				01344C862061D0EC0040BDE7 /* Game.storyboard in Resources */,
-				0179AEC22076DB5D00539C6D /* schedule2018-04-05.json in Resources */,
+				0179AEC22076DB5D00539C6D /* nhlschedule2018-04-05.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
