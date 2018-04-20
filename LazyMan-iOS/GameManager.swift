@@ -115,7 +115,7 @@ class GameManager
                                 gameState = self.gameTimeFormatter.string(from: gameDate)
                                 
                             case "Live":
-                                gameState = "(\(nhlGame["linescore"]["currentPeriodOrdinal"].stringValue) - \(nhlGame["linescore"]["currentPeriodTimeRemaining"].stringValue)"
+                                gameState = "\(nhlGame["linescore"]["currentPeriodOrdinal"].stringValue) - \(nhlGame["linescore"]["currentPeriodTimeRemaining"].stringValue)"
                                 
                             case "Final":
                                 gameState = "Final"

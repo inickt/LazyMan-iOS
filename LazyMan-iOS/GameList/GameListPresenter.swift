@@ -14,8 +14,8 @@ protocol GameListPresenterType: class
     func viewWillAppear()
     func viewDidAppear()
     
-    func todayPressed()
     func refreshPressed()
+    func datePressed()
     func dateSelected(date: Date)
     func leagueChanged(league: League)
     
@@ -32,7 +32,6 @@ class GameListPresenter: GameListPresenterType
     private var currentDate = Date() {
         didSet {
             guard !Calendar.current.isDate(oldValue, inSameDayAs: currentDate) else { return }
-            self.view?.updateTodayButton(enabled: !Calendar.current.isDateInToday(currentDate))
             self.view?.updateDate(date: currentDate)
             self.loadGames()
         }
@@ -66,7 +65,6 @@ class GameListPresenter: GameListPresenterType
     func viewWillAppear()
     {
         self.view?.updateCalendar(date: self.currentDate)
-        self.view?.updateTodayButton(enabled: !Calendar.current.isDateInToday(self.currentDate))
         self.view?.updateDate(date: self.currentDate)
         self.loadGames()
     }
@@ -76,15 +74,14 @@ class GameListPresenter: GameListPresenterType
         
     }
     
-    func todayPressed()
-    {
-        self.currentDate = Date()
-        self.view?.updateCalendar(date: self.currentDate)
-    }
-    
     func refreshPressed()
     {
         self.reloadGames()
+    }
+    
+    func datePressed()
+    {
+        self.view?.showDatePicker(currentDate: self.currentDate)
     }
     
     func dateSelected(date: Date)

@@ -13,10 +13,10 @@ protocol GameListViewControllerType: class
 {
     func updateDate(date: Date)
     func updateCalendar(date: Date)
-    func updateTodayButton(enabled: Bool)
     func updateRefreshing(refreshing: Bool)
     func updateError(error: String?)
     func updateGames()
+    func showDatePicker(currentDate: Date)
 }
 
 class GameListViewController: UIViewController, GameListViewControllerType
@@ -26,16 +26,16 @@ class GameListViewController: UIViewController, GameListViewControllerType
     @IBOutlet private weak var leagueControl: UISegmentedControl!
     @IBOutlet private weak var calendar: FSCalendar!
     @IBOutlet private weak var calendarHeight: NSLayoutConstraint!
-    @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var todayButton: UIBarButtonItem!
+    @IBOutlet private weak var dateButton: UIBarButtonItem!
+    @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var errorLabel: UILabel!
     
     // MARK: - IBActions
     
-    @IBAction func todayPressed(_ sender: Any)
+    @IBAction func datePressed(_ sender: Any)
     {
-        self.presenter.todayPressed()
+        self.presenter.datePressed()
     }
     
     @IBAction func refreshPressed(_ sender: Any)
@@ -113,11 +113,6 @@ class GameListViewController: UIViewController, GameListViewControllerType
         self.calendar.select(date, scrollToDate: true)
     }
     
-    func updateTodayButton(enabled: Bool)
-    {
-        self.todayButton.isEnabled = enabled
-    }
-    
     func updateRefreshing(refreshing: Bool)
     {
         if refreshing
@@ -146,6 +141,32 @@ class GameListViewController: UIViewController, GameListViewControllerType
     func updateGames()
     {
         self.tableView.reloadData()
+    }
+    
+    func showDatePicker(currentDate: Date)
+    {
+        let datePicker = UIAlertController(title: "Select Date", message: "", preferredStyle: .actionSheet)
+        let datePickerVC = DatePickerViewController()
+        datePicker.setValue(datePickerVC, forKey: "contentViewController")
+        
+        let todayAction = UIAlertAction(title: "Today", style: .default) { (_) in
+            let today = Date()
+            self.presenter.dateSelected(date: today)
+            self.calendar.select(today)
+        }
+        
+        let doneAction = UIAlertAction(title: "Done", style: .default) { (_) in
+            self.presenter.dateSelected(date: datePickerVC.datePicker.date)
+            self.calendar.select(datePickerVC.datePicker.date)
+        }
+        
+        datePicker.addAction(todayAction)
+        datePicker.addAction(doneAction)
+        
+        self.present(datePicker, animated: true, completion: nil)
+        
+        datePicker.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
+        datePickerVC.datePicker.setDate(currentDate, animated: false)
     }
     
     // MARK: - Private
