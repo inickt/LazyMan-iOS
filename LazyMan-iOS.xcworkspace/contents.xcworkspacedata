@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:LazyMan JSON.playground">
-   </FileRef>
-   <FileRef
       location = "group:LazyMan-iOS.xcodeproj">
    </FileRef>
    <FileRef

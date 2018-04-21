@@ -2,9 +2,6 @@
 
 Pantomime is a lightweight framework for iOS, OSX and tvOS that can read and parse HTTP Live Streaming manifests.
 
-## Latest build
-
-[![Build Status](https://travis-ci.org/thomaschristensen/Pantomime.svg?branch=master)](https://travis-ci.org/thomaschristensen/Pantomime)
 
 ## Installation
 
@@ -19,22 +16,7 @@ github "thomaschristensen/Pantomime"
 To use [CocoaPods](https://cocoapods.org) just add this to your Podfile:
 
 ``` Ruby
-pod 'Pantomime'
-```
-
-#### via Swift Package Manager
-
-To use Pantomime as a [Swift Package Manager](https://swift.org/package-manager/) package just add the following in your Package.swift file.
-
-``` Swift
-import PackageDescription
-
-let package = Package(
-    name: "HelloWorld",
-        dependencies: [
-            .Package(url: "https://github.com/thomaschristensen/Pantomime", majorVersion: 0)
-        ]
-    )
+pod 'Pantomime', :git => 'https://github.com/inickt/Pantomime.git', :branch => 'master'
 ```
 
 <br/>

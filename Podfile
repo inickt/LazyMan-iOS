@@ -9,5 +9,5 @@ target 'LazyMan-iOS' do
   pod 'FSCalendar', :inhibit_warnings => true
   pod 'SwiftyJSON'
   #pod 'Pantomime'
-  pod 'Pantomime', :git => 'https://github.com/thomaschristensen/Pantomime.git', :branch => 'master'
+  pod 'Pantomime', :git => 'https://github.com/inickt/Pantomime.git', :branch => 'master'
 end
