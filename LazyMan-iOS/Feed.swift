@@ -45,10 +45,11 @@ class Feed: GameOptionCellText
     private let playbackID: Int
     private let league: League
     private let gameDate: String
+    private let gameTime: Date
     private var feedPlaylists: [FeedPlaylist]?
     private var lastCDN: CDN?
     
-    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, gameDate: String)
+    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, gameDate: String, gameTime: Date)
     {
         switch feedType
         {
@@ -69,9 +70,10 @@ class Feed: GameOptionCellText
         self.playbackID = playbackID
         self.league = league
         self.gameDate = gameDate
+        self.gameTime = gameTime
     }
     
-    func getFeedPlaylists(cdn: CDN, completion: @escaping ([FeedPlaylist]) -> (), error: @escaping (Error) -> ())
+    func getFeedPlaylists(cdn: CDN, completion: @escaping ([FeedPlaylist]) -> (), error: @escaping (String) -> ())
     {
         if let feedPlaylists = self.feedPlaylists, let lastCDN = lastCDN, lastCDN == cdn
         {
@@ -85,10 +87,21 @@ class Feed: GameOptionCellText
                 
                 if let masterURL = self.getMasterURL(cdn: cdn)
                 {
+                    // Checking if stream has expired
+                    if masterURL.absoluteString.contains("exp"),
+                        let exp = try? masterURL.absoluteString.replace("(.*)exp=(\\d+)(.*)", replacement: "$2"),
+                        let expTime = Double(exp),
+                        Date().timeIntervalSince1970 > expTime + 1000
+                    {
+                        DispatchQueue.main.async {
+                            error("The stream has expired. Ask /u/StevensNJD4 to make it available.")
+                        }
+                        return
+                    }
+                    
                     playlists.append(FeedPlaylist(url: masterURL, quality: "Auto", bandwidth: nil, framerate: nil))
                     
                     let masterPlaylist = ManifestBuilder().parse(masterURL)
-                    
                     
                     for index in 0..<masterPlaylist.getPlaylistCount()
                     {
@@ -128,13 +141,18 @@ class Feed: GameOptionCellText
                 {
                     DispatchQueue.main.async {
                         
+                        if self.gameTime > Date()
+                        {
+                            error("No streams are avalible for this game yet. Check back later.")
+                        }
+                        else
+                        {
+                            error("Error getting game stream. The server may be down or the game may be currently unavailable.")
+                        }
                     }
                 }
             }
-
         }
-        
-
     }
     
     
@@ -167,44 +185,22 @@ class Feed: GameOptionCellText
     
     private func getMasterURL(cdn: CDN) -> URL?
     {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        switch self.league {
-        case .NHL:
-            let baseFeedURLString = "http://nhl.freegamez.ga/m3u8/" + self.gameDate + "/"
-            
-            do
-            {
-                let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
-                return URL(string: s)
-            }
-            catch
-            {
-                do
-                {
-                    let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID))!)
-                    return URL(string: s)
-                }
-                catch
-                {
-                    return nil
-                }
-            }
-        case .MLB:
-            let baseFeedURLString = "http://nhl.freegamez.ga/mlb/m3u8/" + self.gameDate + "/"
-            
-            do
-            {
-                let s = try String(contentsOf: URL(string: baseFeedURLString + String(self.playbackID) + cdn.rawValue)!)
-                return URL(string: s)
-            }
-            catch
-            {
-                return nil
-            }
+        if let contents = try? String(contentsOf: self.getMasterURLSource(cdn: cdn)), let masterURL = URL(string: contents)
+        {
+            return masterURL
         }
+        else if let contents = try? String(contentsOf: self.getMasterURLSource())
+        {
+            return URL(string: contents)
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
+    private func getMasterURLSource(cdn: CDN? = nil) -> URL
+    {
+        return URL(string: "http://nhl.freegamez.ga/getM3U8.php?league=\(self.league.rawValue)&date=\(self.gameDate)&id=\(self.playbackID)&cdn=\(cdn?.rawValue ?? "")")!
     }
 }

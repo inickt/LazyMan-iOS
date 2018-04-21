@@ -230,7 +230,7 @@
                                 <action selector="leagueChanged:" destination="DiW-Fz-1X3" eventType="valueChanged" id="IZ0-JV-xBd"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" image="settings" id="23P-Ii-JyX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="23P-Ii-JyX">
                             <connections>
                                 <action selector="refreshPressed:" destination="DiW-Fz-1X3" id="eco-wR-1HZ"/>
                             </connections>
@@ -264,6 +264,5 @@
     <resources>
         <image name="blackhawks" width="500" height="500"/>
         <image name="capitals" width="500" height="500"/>
-        <image name="settings" width="30" height="30"/>
     </resources>
 </document>

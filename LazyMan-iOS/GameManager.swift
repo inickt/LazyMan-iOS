@@ -104,7 +104,8 @@ class GameManager
                                                           feedName: mediaFeed["feedName"].stringValue,
                                                           playbackID: mediaFeed["mediaPlaybackId"].intValue,
                                                           league: League.NHL,
-                                                          gameDate: date))
+                                                          gameDate: date,
+                                                          gameTime: gameDate))
                                 }
                             }
                             
@@ -167,12 +168,18 @@ class GameManager
                             {
                                 for mediaFeed in mediaFeeds[0]["items"].arrayValue
                                 {
+                                    if mediaFeed["feedName"].stringValue.contains("IN_")
+                                    {
+                                        continue
+                                    }
+                                    
                                     gameFeeds.append(Feed(feedType: mediaFeed["mediaFeedType"].stringValue,
                                                           callLetters: mediaFeed["callLetters"].stringValue,
                                                           feedName: mediaFeed["feedName"].stringValue,
                                                           playbackID: mediaFeed["id"].intValue,
                                                           league: League.MLB,
-                                                          gameDate: date))
+                                                          gameDate: date,
+                                                          gameTime: gameDate))
                                 }
                             }
                             

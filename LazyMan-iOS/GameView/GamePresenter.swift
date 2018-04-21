@@ -21,6 +21,7 @@ protocol GamePresenterType: class
     
     func viewDidLoad()
     func playPressed()
+    func reloadPressed()
 }
 
 class GamePresenter: GamePresenterType
@@ -63,6 +64,14 @@ class GamePresenter: GamePresenterType
         }
     }
     
+    func reloadPressed()
+    {
+        if let selectedFeed = self.feedSelector.selectedObject
+        {
+            self.feedSelected(selected: selectedFeed)
+        }
+    }
+    
     // MARK: - Private
     
     private func qualitySelected(selected: FeedPlaylist)
@@ -87,7 +96,8 @@ class GamePresenter: GamePresenterType
                 if feedPlaylists.count > 0 { self.qualitySelector?.select(index: 0) }
                 
             }) { (error) in
-                // TODO
+                self.gameView?.showError(message: error)
+                self.gameSettingsView?.setQuality(text: "")
             }
         }
     }
@@ -106,7 +116,8 @@ class GamePresenter: GamePresenterType
             if feedPlaylists.count > 0 { self.qualitySelector?.select(index: 0) }
             
         }) { (error) in
-            // TODO
+            self.gameView?.showError(message: error)
+            self.gameSettingsView?.setQuality(text: "")
         }
     }
 }

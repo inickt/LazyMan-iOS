@@ -8,10 +8,9 @@
 
 import UIKit
 
-enum League
+enum League: String
 {
-    case NHL
-    case MLB
+    case NHL, MLB
 }
 
 protocol Team

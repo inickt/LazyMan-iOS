@@ -37,7 +37,7 @@ class GameViewController: UIViewController, GameViewControllerType
     
     @IBAction func refreshPressed(_ sender: Any)
     {
-        
+        self.presenter.reloadPressed()
     }
     
     override func loadView()
@@ -87,7 +87,16 @@ class GameViewController: UIViewController, GameViewControllerType
     
     func showError(message: String)
     {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(okAction)
         
+        let atrributedMessage = NSAttributedString(string: message, attributes: [.foregroundColor : UIColor.white])
+        alert.setValue(atrributedMessage, forKey: "attributedMessage")
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        alert.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
     }
     
     func setTitle(title: String)
