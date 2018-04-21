@@ -71,8 +71,7 @@ class GameListPresenter: GameListPresenterType
     
     func viewDidAppear()
     {
-        
-        
+        HostChecker.checkHosts(error: self.view?.showError)
     }
     
     func refreshPressed()

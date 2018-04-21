@@ -15,6 +15,7 @@ protocol GameListViewControllerType: class
     func updateCalendar(date: Date)
     func updateRefreshing(refreshing: Bool)
     func updateError(error: String?)
+    func showError(message: String)
     func updateGames()
     func showDatePicker(currentDate: Date)
 }
@@ -136,6 +137,20 @@ class GameListViewController: UIViewController, GameListViewControllerType
         
         self.errorLabel.isHidden = false
         self.errorLabel.text = error
+    }
+    
+    func showError(message: String)
+    {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        
+        let atrributedMessage = NSAttributedString(string: message, attributes: [.foregroundColor : UIColor.white])
+        alert.setValue(atrributedMessage, forKey: "attributedMessage")
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        alert.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
     }
     
     func updateGames()

@@ -30,7 +30,7 @@
 		0186CA43208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */; };
 		019387BD2082C87600D1CDBC /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019387BC2082C87600D1CDBC /* DatePickerViewController.swift */; };
 		019EA59B203E6FF8000149A3 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EA59A203E6FF8000149A3 /* Teams.swift */; };
-		01A8C071208BAE44005FDA2C /* HostCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8C070208BAE44005FDA2C /* HostCheck.swift */; };
+		01A8C071208BAE44005FDA2C /* HostChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A8C070208BAE44005FDA2C /* HostChecker.swift */; };
 		01ABFDBC20545C68005D57C5 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ABFDBB20545C68005D57C5 /* Feed.swift */; };
 		01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */; };
 		01E593CA204B03F800CE338A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E593C9204B03F800CE338A /* GameManager.swift */; };
@@ -63,7 +63,7 @@
 		0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+searcVisualEffectsSubview.swift"; sourceTree = "<group>"; };
 		019387BC2082C87600D1CDBC /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		019EA59A203E6FF8000149A3 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
-		01A8C070208BAE44005FDA2C /* HostCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostCheck.swift; sourceTree = "<group>"; };
+		01A8C070208BAE44005FDA2C /* HostChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostChecker.swift; sourceTree = "<group>"; };
 		01ABFDBB20545C68005D57C5 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlaylist.swift; sourceTree = "<group>"; };
 		01D0F3C92061CFAA008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameList.storyboard; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 				013959E9207ADF3B00E37E9C /* JSONLoader.swift */,
 				019387BC2082C87600D1CDBC /* DatePickerViewController.swift */,
 				0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */,
-				01A8C070208BAE44005FDA2C /* HostCheck.swift */,
+				01A8C070208BAE44005FDA2C /* HostChecker.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A8C071208BAE44005FDA2C /* HostCheck.swift in Sources */,
+				01A8C071208BAE44005FDA2C /* HostChecker.swift in Sources */,
 				0179AEC62076FC8000539C6D /* GameListPresenter.swift in Sources */,
 				0179AEC02076BC4E00539C6D /* ObjectSelector.swift in Sources */,
 				019387BD2082C87600D1CDBC /* DatePickerViewController.swift in Sources */,
