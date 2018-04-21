@@ -95,7 +95,7 @@ class Game
     
     static func sort(game1: Game, game2: Game) -> Bool
     {
-        if game1.gameState == .live && game2.gameState == .live
+        if (game1.gameState == .live && game2.gameState == .live) || (game1.gameState == .preview && game2.gameState == .preview)
         {
             return game1.startTime <= game2.startTime
         }
