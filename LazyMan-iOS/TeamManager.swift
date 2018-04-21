@@ -91,7 +91,7 @@ final class TeamManager
         self.addMLBTeam(loc: "Texas",         name: "Rangers",      abbrv: "TEX", logo: #imageLiteral(resourceName: "rangers-MLB"))
         self.addMLBTeam(loc: "Tampa Bay",     name: "Rays",         abbrv: "TB",  logo: #imageLiteral(resourceName: "rays"))
         self.addMLBTeam(loc: "Boston",        name: "Red Sox",      abbrv: "BOS", logo: #imageLiteral(resourceName: "red-sox"))
-        self.addMLBTeam(loc: "Chicago",       name: "Reds",         abbrv: "CIN", logo: #imageLiteral(resourceName: "reds"))
+        self.addMLBTeam(loc: "Cincinnati",    name: "Reds",         abbrv: "CIN", logo: #imageLiteral(resourceName: "reds"))
         self.addMLBTeam(loc: "Colorado",      name: "Rockies",      abbrv: "COL", logo: #imageLiteral(resourceName: "rockies"))
         self.addMLBTeam(loc: "Kansas City",   name: "Royals",       abbrv: "KAN", logo: #imageLiteral(resourceName: "royals"))
         self.addMLBTeam(loc: "Detroit",       name: "Tigers",       abbrv: "DET", logo: #imageLiteral(resourceName: "tigers"))
