@@ -168,7 +168,7 @@ class GameManager
                             {
                                 for mediaFeed in mediaFeeds[0]["items"].arrayValue
                                 {
-                                    if mediaFeed["feedName"].stringValue.contains("IN_")
+                                    if mediaFeed["mediaFeedType"].stringValue.contains("IN_")
                                     {
                                         continue
                                     }
