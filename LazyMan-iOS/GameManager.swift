@@ -28,7 +28,6 @@ class GameManager
     
     private let formatter = DateFormatter()
     private let gmtFormatter = DateFormatter()
-    private let gameTimeFormatter = DateFormatter()
     
     private let nhlJSONLoader: JSONLoader
     private let mlbJSONLoader: JSONLoader
@@ -49,8 +48,6 @@ class GameManager
         self.gmtFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         self.gmtFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         self.gmtFormatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        self.gameTimeFormatter.dateFormat = "h:mm a"
     }
     
     // MARK: - Public
@@ -109,23 +106,10 @@ class GameManager
                                 }
                             }
                             
-                            let gameState: String
-                            switch nhlGame["status"]["abstractGameState"].stringValue
-                            {
-                            case "Preview":
-                                gameState = self.gameTimeFormatter.string(from: gameDate)
-                                
-                            case "Live":
-                                gameState = "\(nhlGame["linescore"]["currentPeriodOrdinal"].stringValue) - \(nhlGame["linescore"]["currentPeriodTimeRemaining"].stringValue)"
-                                
-                            case "Final":
-                                gameState = "Final"
-                                
-                            default:
-                                gameState = nhlGame["status"]["detailedState"].stringValue
-                            }
+                            let gameState = GameState(abstractState: nhlGame["status"]["abstractGameState"].stringValue, detailedState: nhlGame["status"]["detailedState"].stringValue)
+                            let liveGameState = gameState == .live ? "\(nhlGame["linescore"]["currentPeriodOrdinal"].stringValue) - \(nhlGame["linescore"]["currentPeriodTimeRemaining"].stringValue)" : nhlGame["status"]["detailedState"].stringValue
                             
-                            newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, feeds: gameFeeds))
+                            newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, liveGameState: liveGameState, feeds: gameFeeds))
                         }
                     }
                     
@@ -136,6 +120,8 @@ class GameManager
                         }
                         return
                     }
+                    
+                    newGames.sort(by: Game.sort)
                     
                     self.nhlGames[date] = newGames
                     DispatchQueue.main.async {
@@ -183,23 +169,10 @@ class GameManager
                                 }
                             }
                             
-                            let gameState: String
-                            switch mlbGame["status"]["detailedState"].stringValue
-                            {
-                            case "Scheduled":
-                                gameState = self.gameTimeFormatter.string(from: gameDate)
-                                
-                            case "In Progress":
-                                gameState = mlbGame["linescore"]["currentInningOrdinal"].stringValue + " – " + mlbGame["linescore"]["inningHalf"].stringValue
-                                
-                            case "Final":
-                                gameState = "Final"
-                                
-                            default:
-                                gameState = mlbGame["status"]["detailedState"].stringValue
-                            }
+                            let gameState = GameState(abstractState: mlbGame["status"]["abstractGameState"].stringValue, detailedState: mlbGame["status"]["detailedState"].stringValue)
+                            let liveGameState = gameState == .live ? "\(mlbGame["linescore"]["currentInningOrdinal"].stringValue) - \(mlbGame["linescore"]["inningHalf"].stringValue)" : mlbGame["status"]["detailedState"].stringValue
                             
-                            newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, feeds: gameFeeds))
+                            newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, liveGameState: liveGameState, feeds: gameFeeds))
                         }
                     }
                     
@@ -211,9 +184,7 @@ class GameManager
                         return
                     }
                     
-                    newGames.sort(by: { (game1, game2) -> Bool in
-                        return game1.startTime <= game2.startTime
-                    })
+                    newGames.sort(by: Game.sort)
                     
                     self.mlbGames[date] = newGames
                     DispatchQueue.main.async {
