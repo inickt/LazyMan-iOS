@@ -1,5 +1,5 @@
 # LazyMan-iOS
-A simple app that lets you stream every live and archived NHL and MLB game from any of your iOS devices for free.
+A simple app that lets you stream every live and archived NHL and MLB game from any of your iOS devices for free. Based on the original [LazyMan project](). You can learn more at [/r/LazyMan](https://www.reddit.com/r/LazyMan/) on Reddit. Big thanks to @StevensNJD4 for making this possible.
 
 ## Features
 - NHL/MLB game playback
@@ -46,6 +46,9 @@ LazyMan for iOS is build on Swift 4.1 using Xcode 9.3 and macOS 10.13. The Pods 
 
 ### Exporting the .ipa
 To export an `.ipa`, change your build targer to `Generic iOS Device`. Then click `Product` -> `Archive`. Right click the archive in Organizer, and click `Show in Finder`. Right click the archive and select `Show Package Contents`. 
+
 Navigate to `Products` -> `Applications`, right click on `LazyMan-iOS.app`, click `Show Package Contents`, and then delete the `embedded.mobileprovision` file. Go back to the folder with `LazyMan-iOS.app` in it. 
+
 Create a new folder named `Payload`, and drag `LazyMan-iOS.app` to be inside of it. Right click the `Payload` folder, and select `Compress "Payload"`. 
+
 Rename `Payload.zip` to `LazyMan-iOS.ipa`.
