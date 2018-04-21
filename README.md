@@ -1,5 +1,5 @@
 # LazyMan-iOS
-A simple app that lets you stream every live and archived NHL and MLB game from any of your iOS devices for free. Based on the original [LazyMan project](). You can learn more at [/r/LazyMan](https://www.reddit.com/r/LazyMan/) on Reddit. Big thanks to @StevensNJD4 for making this possible.
+A simple app that lets you stream every live and archived NHL and MLB game from any of your iOS devices for free. Based on the original [LazyMan project](). You can learn more at [/r/LazyMan](https://www.reddit.com/r/LazyMan/) on Reddit. Big thanks to @[StevensNJD4](https://github.com/StevensNJD4/) for making this possible.
 
 ## Features
 - NHL/MLB game playback
