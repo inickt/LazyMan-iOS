@@ -72,6 +72,7 @@ class GameListPresenter: GameListPresenterType
     func viewDidAppear()
     {
         
+        
     }
     
     func refreshPressed()

@@ -155,8 +155,6 @@ class Feed: GameOptionCellText
         }
     }
     
-    
-    
     func getTitle() -> String
     {
         if self.feedName != ""
@@ -183,13 +181,17 @@ class Feed: GameOptionCellText
     
     // MARK: - Private
     
+    /**
+     Gets the master URL for the stream.
+     
+     - parameter cdn: the CDN the stream should be attempted to be loaded from
+     - returns: A URL of this Feed's master playlist, or nil if it cannot be loaded
+     */
     private func getMasterURL(cdn: CDN) -> URL?
     {
-        if let contents = try? String(contentsOf: self.getMasterURLSource(cdn: cdn)), let masterURL = URL(string: contents)
-        {
-            return masterURL
-        }
-        else if let contents = try? String(contentsOf: self.getMasterURLSource())
+        let masterURLSource = "http://nhl.freegamez.ga/getM3U8.php?league=\(self.league.rawValue)&date=\(self.gameDate)&id=\(self.playbackID)&cdn=\(cdn.rawValue)"
+        
+        if let contents = try? String(contentsOf: URL(string: masterURLSource)!)
         {
             return URL(string: contents)
         }
@@ -197,10 +199,5 @@ class Feed: GameOptionCellText
         {
             return nil
         }
-    }
-    
-    private func getMasterURLSource(cdn: CDN? = nil) -> URL
-    {
-        return URL(string: "http://nhl.freegamez.ga/getM3U8.php?league=\(self.league.rawValue)&date=\(self.gameDate)&id=\(self.playbackID)&cdn=\(cdn?.rawValue ?? "")")!
     }
 }
