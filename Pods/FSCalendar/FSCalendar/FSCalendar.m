@@ -359,8 +359,8 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
             CGFloat contentHeight = _contentView.fs_height;
             _daysContainer.frame = CGRectMake(0, 0, self.fs_width, contentHeight);
             _collectionView.frame = _daysContainer.bounds;
-            
         }
+        [_collectionViewLayout invalidateLayout];
 
         _topBorder.frame = CGRectMake(0, -1, self.fs_width, 1);
         _bottomBorder.frame = CGRectMake(0, self.fs_height, self.fs_width, 1);
