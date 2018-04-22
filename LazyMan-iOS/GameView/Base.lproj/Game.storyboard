@@ -16,56 +16,61 @@
             <objects>
                 <viewController storyboardIdentifier="Game" title="Game" id="nvE-ai-EfG" customClass="GameViewController" customModule="LazyMan_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gFu-Eh-gJI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Si-tW-BTf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ox4-u0-8Zj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Si-tW-BTf">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="6Si-tW-BTf" secondAttribute="height" multiplier="16:9" id="Ene-tr-IsK"/>
+                                        </constraints>
+                                    </view>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vzu-DO-pTs">
+                                        <rect key="frame" x="0.0" y="211" width="375" height="260"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="260" id="qek-jN-ywV"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="6Y3-Wu-FR1" kind="embed" identifier="gameOptions" id="JcX-Dg-hEJ"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="6Si-tW-BTf" secondAttribute="height" multiplier="16:9" id="Ene-tr-IsK"/>
+                                    <constraint firstItem="Vzu-DO-pTs" firstAttribute="top" secondItem="6Si-tW-BTf" secondAttribute="bottom" id="8AK-ZU-KLk"/>
+                                    <constraint firstItem="6Si-tW-BTf" firstAttribute="top" secondItem="ox4-u0-8Zj" secondAttribute="top" id="8vM-Bo-qw3"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vzu-DO-pTs" secondAttribute="bottom" id="PQl-ms-NJJ"/>
+                                    <constraint firstItem="6Si-tW-BTf" firstAttribute="leading" secondItem="ox4-u0-8Zj" secondAttribute="leading" id="dRT-lK-g1G"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vzu-DO-pTs" secondAttribute="trailing" id="hC6-Nb-Dm0"/>
+                                    <constraint firstItem="6Si-tW-BTf" firstAttribute="width" secondItem="ox4-u0-8Zj" secondAttribute="width" id="iBc-7g-Rvy"/>
+                                    <constraint firstItem="Vzu-DO-pTs" firstAttribute="leading" secondItem="ox4-u0-8Zj" secondAttribute="leading" id="kDn-9e-sPs"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Si-tW-BTf" secondAttribute="trailing" id="rR0-dh-Hwq"/>
                                 </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIq-IQ-asq">
-                                <rect key="frame" x="169" y="87.5" width="37" height="37"/>
-                                <state key="normal" image="circled_play"/>
-                                <connections>
-                                    <action selector="playPressed:" destination="nvE-ai-EfG" eventType="touchUpInside" id="eoN-rg-nqA"/>
-                                </connections>
-                            </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vzu-DO-pTs">
-                                <rect key="frame" x="0.0" y="211" width="375" height="392"/>
-                                <connections>
-                                    <segue destination="6Y3-Wu-FR1" kind="embed" identifier="gameOptions" id="JcX-Dg-hEJ"/>
-                                </connections>
-                            </containerView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Vzu-DO-pTs" firstAttribute="top" secondItem="6Si-tW-BTf" secondAttribute="bottom" id="0kz-GI-2e4"/>
-                            <constraint firstItem="FIq-IQ-asq" firstAttribute="centerY" secondItem="6Si-tW-BTf" secondAttribute="centerY" id="5JS-UI-xFv"/>
-                            <constraint firstItem="6Si-tW-BTf" firstAttribute="top" secondItem="g6Z-xR-Th3" secondAttribute="top" id="9UZ-dO-FPA"/>
-                            <constraint firstItem="g6Z-xR-Th3" firstAttribute="trailing" secondItem="Vzu-DO-pTs" secondAttribute="trailing" id="JaW-qx-GSZ"/>
-                            <constraint firstItem="g6Z-xR-Th3" firstAttribute="bottom" secondItem="Vzu-DO-pTs" secondAttribute="bottom" id="Suq-3F-QhK"/>
-                            <constraint firstItem="g6Z-xR-Th3" firstAttribute="trailing" secondItem="6Si-tW-BTf" secondAttribute="trailing" id="ViM-Om-JyP"/>
-                            <constraint firstItem="FIq-IQ-asq" firstAttribute="centerX" secondItem="6Si-tW-BTf" secondAttribute="centerX" id="ZGB-gR-2CY"/>
-                            <constraint firstItem="6Si-tW-BTf" firstAttribute="leading" secondItem="g6Z-xR-Th3" secondAttribute="leading" id="evK-kd-Ka5"/>
-                            <constraint firstItem="Vzu-DO-pTs" firstAttribute="leading" secondItem="g6Z-xR-Th3" secondAttribute="leading" id="ns2-nX-2tw"/>
+                            <constraint firstItem="g6Z-xR-Th3" firstAttribute="bottom" secondItem="ox4-u0-8Zj" secondAttribute="bottom" id="9rK-Vv-Fo5"/>
+                            <constraint firstItem="g6Z-xR-Th3" firstAttribute="trailing" secondItem="ox4-u0-8Zj" secondAttribute="trailing" id="S7E-Ds-wA6"/>
+                            <constraint firstItem="ox4-u0-8Zj" firstAttribute="top" secondItem="g6Z-xR-Th3" secondAttribute="top" id="a3w-Qg-1kE"/>
+                            <constraint firstItem="ox4-u0-8Zj" firstAttribute="leading" secondItem="g6Z-xR-Th3" secondAttribute="leading" id="clO-UT-OHC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g6Z-xR-Th3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Game" largeTitleDisplayMode="always" id="VbN-cO-UpM">
-                        <barButtonItem key="backBarButtonItem" title=" " id="5Ac-LZ-Qng"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="VbN-cO-UpM">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Zs5-Lc-hBJ">
                             <connections>
                                 <action selector="refreshPressed:" destination="nvE-ai-EfG" id="rxN-xK-4zc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="navigation" destination="VbN-cO-UpM" id="mlT-Qn-eJn"/>
-                        <outlet property="playButton" destination="FIq-IQ-asq" id="r97-9z-5mT"/>
                         <outlet property="refreshButton" destination="Zs5-Lc-hBJ" id="cPp-CC-CqF"/>
                         <outlet property="webViewContainer" destination="6Si-tW-BTf" id="hyG-18-tzO"/>
                     </connections>
@@ -78,8 +83,8 @@
         <scene sceneID="iZ2-pB-rWW">
             <objects>
                 <tableViewController id="6Y3-Wu-FR1" customClass="GameSettingsViewController" customModule="LazyMan_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="nUo-tD-lBX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="nUo-tD-lBX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
@@ -201,7 +206,7 @@
             <objects>
                 <tableViewController id="PtL-1i-piI" customClass="GameSettingsOptionsViewController" customModule="LazyMan_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="F3u-eq-fww">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -243,10 +248,7 @@
             <point key="canvasLocation" x="2343" y="-451"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="circled_play" width="37" height="37"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4bY-fs-mhS"/>
+        <segue reference="Fa0-0j-Qop"/>
     </inferredMetricsTieBreakers>
 </document>

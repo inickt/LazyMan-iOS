@@ -52,5 +52,7 @@ class GameSettingsOptionsViewController: UITableViewController
         
         // update the checkmark for the current row
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        
+        self.navigationController?.popViewController(animated: true)
     }
 }

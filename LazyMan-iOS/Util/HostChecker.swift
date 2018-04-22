@@ -10,6 +10,11 @@ import UIKit
 
 class HostChecker
 {
+    /**
+     Verifies that NHL and MLB hosts are being redirected correctly.
+     
+     - paramerer error: function that should show the given error to the user.
+     */
     static func checkHosts(error: ((String) -> ())?)
     {
         DispatchQueue.global(qos: .background).async {
@@ -47,21 +52,37 @@ class HostChecker
         }
     }
     
+    /**
+     Gets the address that should be resolved to.
+     */
     private static func getServerAddress() -> String?
     {
         return self.urlToIP(host: "freegamez.ga") ?? self.urlToIP(host: "powersports.ml")
     }
     
+    /**
+     Verifies that the NHL server resolves to the given address.
+     
+     - parameter correct: The correct IP address that should be resolved.
+     */
     private static func checkNHLHosts(correct: String) -> Bool
     {
         return self.urlToIP(host: "mf.svc.nhl.com") == correct
     }
     
+    /**
+     Verifies that the MLB servers resolve to the given address.
+     
+     - parameter correct: The correct IP address that should be resolved.
+     */
     private static func checkMLBHosts(correct: String) -> Bool
     {
         return (self.urlToIP(host: "mlb-ws-mf.media.mlb.com") == correct) && (self.urlToIP(host: "playback.svcs.mlb.com") == correct)
     }
     
+    /**
+     Resolves a host to an IP, if possible.
+     */
     private static func urlToIP(host: String) -> String?
     {
         let host = CFHostCreateWithName(nil, host as CFString).takeRetainedValue()
@@ -78,5 +99,3 @@ class HostChecker
         return nil
     }
 }
-
-

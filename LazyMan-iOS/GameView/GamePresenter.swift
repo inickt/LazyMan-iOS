@@ -18,9 +18,10 @@ protocol GamePresenterType: class
     var cdnSelector: GameOptionSelector<CDN> { get }
     
     var game: Game { get }
+    var selectingOption: Bool { get set }
     
     func viewDidLoad()
-    func playPressed()
+    func viewWillAppear()
     func reloadPressed()
 }
 
@@ -34,6 +35,7 @@ class GamePresenter: GamePresenterType
     var qualitySelector: GameOptionSelector<FeedPlaylist>?
     let feedSelector: GameOptionSelector<Feed>
     let cdnSelector: GameOptionSelector<CDN>
+    var selectingOption = false
     
     private let cdnOptions = [CDN.Akamai, CDN.Level3]
     
@@ -52,16 +54,18 @@ class GamePresenter: GamePresenterType
     {
         self.cdnSelector.select(index: 0)
         if self.feedSelector.count > 0 { self.feedSelector.select(index: 0) }
-        self.gameView?.setTitle(title: "\(self.game.awayTeam.shortName) at \(self.game.homeTeam.shortName)")
     }
     
-    func playPressed()
+    func viewWillAppear()
     {
-        if let feedPlaylsit = self.qualitySelector?.selectedObject
+        self.gameView?.gameTitle = "\(self.game.awayTeam.shortName) at \(self.game.homeTeam.shortName)"
+        
+        // play the feed if this view appears somehow and we aren't coming from options
+        if let feedPlaylist = self.qualitySelector?.selectedObject, !self.selectingOption
         {
-            self.gameView?.playURL(url: feedPlaylsit.getURL())
-            self.gameView?.updatePlay(enabled: nil)
+            self.gameView?.playURL(url: feedPlaylist.getURL())
         }
+        self.selectingOption = false
     }
     
     func reloadPressed()
@@ -77,7 +81,7 @@ class GamePresenter: GamePresenterType
     private func qualitySelected(selected: FeedPlaylist)
     {
         self.gameSettingsView?.setQuality(text: selected.getTitle())
-        self.gameView?.updatePlay(enabled: true)
+        self.gameView?.playURL(url: selected.getURL())
     }
     
     private func cdnSelected(selected: CDN)
@@ -87,7 +91,6 @@ class GamePresenter: GamePresenterType
         {
             self.gameSettingsView?.setQuality(text: nil)
             self.qualitySelector = nil
-            self.gameView?.updatePlay(enabled: false)
             
             selectedFeed.getFeedPlaylists(cdn: selected, completion: { (feedPlaylists) in
                 self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
@@ -107,13 +110,12 @@ class GamePresenter: GamePresenterType
         self.gameSettingsView?.setFeed(text: selected.getTitle())
         self.gameSettingsView?.setQuality(text: nil)
         self.qualitySelector = nil
-        self.gameView?.updatePlay(enabled: false)
         
         selected.getFeedPlaylists(cdn: self.cdnSelector.selectedObject!, completion: { (feedPlaylists) in
             self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
             self.qualitySelector?.onSelection = self.qualitySelected
             
-            if feedPlaylists.count > 0 { self.qualitySelector?.select(index: 0) }
+            if feedPlaylists.count > 1 { self.qualitySelector?.select(index: 1) }
             
         }) { (error) in
             self.gameView?.showError(message: error)

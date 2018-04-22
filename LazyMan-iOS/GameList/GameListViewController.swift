@@ -17,7 +17,7 @@ protocol GameListViewControllerType: class
     func updateError(error: String?)
     func showError(message: String)
     func updateGames()
-    func showDatePicker(currentDate: Date)
+    func showDatePicker(currentDate: Date, sender: UIBarButtonItem)
 }
 
 class GameListViewController: UIViewController, GameListViewControllerType
@@ -34,9 +34,9 @@ class GameListViewController: UIViewController, GameListViewControllerType
     
     // MARK: - IBActions
     
-    @IBAction func datePressed(_ sender: Any)
+    @IBAction func datePressed(_ sender: UIBarButtonItem)
     {
-        self.presenter.datePressed()
+        self.presenter.datePressed(sender: sender)
     }
     
     @IBAction func refreshPressed(_ sender: Any)
@@ -56,6 +56,7 @@ class GameListViewController: UIViewController, GameListViewControllerType
     private var presenter: GameListPresenterType!
     private var weekFormatter = DateFormatter()
     private var refreshControl = UIRefreshControl()
+    private var collapseDetailViewController = true
     
     // MARK: - Lifecycle
     
@@ -75,12 +76,16 @@ class GameListViewController: UIViewController, GameListViewControllerType
         }
         self.refreshControl.addTarget(self, action: #selector(refreshGames), for: .valueChanged)
         self.refreshControl.tintColor = .lightGray
+        
+        self.splitViewController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
         self.presenter.viewWillAppear()
+        
+        self.calendar.today = Date()
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -89,6 +94,21 @@ class GameListViewController: UIViewController, GameListViewControllerType
         self.presenter.viewDidAppear()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "showGameView",
+            let navController = segue.destination as? UINavigationController,
+            let gameViewController = navController.topViewController as? GameViewController,
+            let index = sender as? Int, index < self.presenter.getGameCount()
+        {
+            self.collapseDetailViewController = false
+            
+            gameViewController.presenter = GamePresenter(game: self.presenter.getGames()[index])
+            gameViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            gameViewController.navigationItem.leftItemsSupplementBackButton = true
+        }
+    }
+        
     // MARK: - GameListViewControllerType
     
     func updateDate(date: Date)
@@ -158,7 +178,7 @@ class GameListViewController: UIViewController, GameListViewControllerType
         self.tableView.reloadData()
     }
     
-    func showDatePicker(currentDate: Date)
+    func showDatePicker(currentDate: Date, sender: UIBarButtonItem)
     {
         let datePicker = UIAlertController(title: "Select Date", message: "", preferredStyle: .actionSheet)
         let datePickerVC = DatePickerViewController()
@@ -179,6 +199,12 @@ class GameListViewController: UIViewController, GameListViewControllerType
         datePicker.addAction(doneAction)
         
         self.present(datePicker, animated: true, completion: nil)
+        
+        if let popoverController = datePicker.popoverPresentationController
+        {
+            popoverController.barButtonItem = sender
+            popoverController.backgroundColor = UIColor(white: 0.1, alpha: 1.0)
+        }
         
         datePicker.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
         datePickerVC.datePicker.setDate(currentDate, animated: false)
@@ -227,11 +253,7 @@ extension GameListViewController: UITableViewDelegate
     {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let gameViewController = navigationController?.storyboard?.instantiateViewController(withIdentifier: "GameView") as? GameViewController
-        {
-            gameViewController.presenter = GamePresenter(game: self.presenter.getGames()[indexPath.row])
-            self.navigationController?.pushViewController(gameViewController, animated: true)
-        }
+        self.performSegue(withIdentifier: "showGameView", sender: indexPath.row)
     }
 }
 
@@ -248,5 +270,13 @@ extension GameListViewController: UITableViewDataSource
         
         cell.updateGameInfo(game: self.presenter.getGames()[indexPath.row])
         return cell
+    }
+}
+
+extension GameListViewController: UISplitViewControllerDelegate
+{
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool
+    {
+        return collapseDetailViewController
     }
 }

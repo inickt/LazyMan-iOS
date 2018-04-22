@@ -15,7 +15,7 @@ protocol GameListPresenterType: class
     func viewDidAppear()
     
     func refreshPressed()
-    func datePressed()
+    func datePressed(sender: UIBarButtonItem)
     func dateSelected(date: Date)
     func leagueChanged(league: League)
     
@@ -79,9 +79,9 @@ class GameListPresenter: GameListPresenterType
         self.reloadGames()
     }
     
-    func datePressed()
+    func datePressed(sender: UIBarButtonItem)
     {
-        self.view?.showDatePicker(currentDate: self.currentDate)
+        self.view?.showDatePicker(currentDate: self.currentDate, sender: sender)
     }
     
     func dateSelected(date: Date)

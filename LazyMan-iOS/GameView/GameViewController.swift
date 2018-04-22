@@ -11,10 +11,10 @@ import WebKit
 
 protocol GameViewControllerType: class
 {
+    var gameTitle: String { get set }
+    
     func playURL(url: URL)
     func showError(message: String)
-    func setTitle(title: String)
-    func updatePlay(enabled: Bool?)
 }
 
 class GameViewController: UIViewController, GameViewControllerType
@@ -23,16 +23,17 @@ class GameViewController: UIViewController, GameViewControllerType
     
     @IBOutlet weak var navigation: UINavigationItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
-    @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var webViewContainer: UIView!
     
     private var webView: WKWebView!
     
     var presenter: GamePresenterType!
-    
-    @IBAction func playPressed(_ sender: Any)
+    var gameTitle: String = ""
     {
-        self.presenter.playPressed()
+        didSet
+        {
+            self.navigation.title = gameTitle
+        }
     }
     
     @IBAction func refreshPressed(_ sender: Any)
@@ -49,16 +50,17 @@ class GameViewController: UIViewController, GameViewControllerType
         config.allowsInlineMediaPlayback = true
         config.allowsAirPlayForMediaPlayback = true
         config.allowsPictureInPictureMediaPlayback = true
+        config.requiresUserActionForMediaPlayback = false
         
         self.webView = WKWebView(frame: self.webViewContainer.frame, configuration: config)
         self.webView.navigationDelegate = self
-        self.webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.webView!.isOpaque = false
-        self.webView!.backgroundColor = UIColor.clear
-        self.webView!.scrollView.backgroundColor = UIColor.clear
-        self.webView.scrollView.isScrollEnabled = false
-        self.webView.allowsBackForwardNavigationGestures = false
-        self.webView.allowsLinkPreview = false
+                self.webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                self.webView.translatesAutoresizingMaskIntoConstraints = false
+                self.webView.isOpaque = false
+                self.webView.backgroundColor = .black
+                self.webView.scrollView.isScrollEnabled = false
+                self.webView.allowsBackForwardNavigationGestures = false
+                self.webView.allowsLinkPreview = false
         
         self.webViewContainer.addSubview(self.webView)
     }
@@ -67,6 +69,18 @@ class GameViewController: UIViewController, GameViewControllerType
     {
         super.viewDidLoad()
         self.presenter.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        self.presenter.viewWillAppear()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool)
+    {
+        super.viewDidDisappear(animated)
+        if !self.presenter.selectingOption { self.webView.loadHTMLString("", baseURL: nil) }
     }
     
     // MARK: - Navigation
@@ -82,7 +96,15 @@ class GameViewController: UIViewController, GameViewControllerType
     
     func playURL(url: URL)
     {
-        self.webView.load(URLRequest(url: url))
+        let htmlString = """
+        <body style=\"margin:0px;padding:0px;overflow:hidden;background-color:#000000\">
+            <video title=\"\(self.gameTitle)\" style=\"min-width:100%;min-height:100%;\" controls playsinline autoplay>
+                <source src=\"\(url.absoluteString)\">
+            </video>
+        </body>
+        """
+        
+        self.webView.loadHTMLString(htmlString, baseURL: nil)
     }
     
     func showError(message: String)
@@ -97,30 +119,6 @@ class GameViewController: UIViewController, GameViewControllerType
         self.present(alert, animated: true, completion: nil)
         
         alert.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
-    }
-    
-    func setTitle(title: String)
-    {
-        self.navigation.title = title
-    }
-    
-    func updatePlay(enabled: Bool?)
-    {
-        guard let enabled = enabled else
-        {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.playButton.alpha = 0.0
-            }) { (_) in
-                self.playButton.isHidden = true
-            }
-            return
-        }
-        
-        self.playButton.isHidden = false
-        self.playButton.isEnabled = enabled
-        UIView.animate(withDuration: 0.2, animations: {
-            self.playButton.alpha = 1.0
-        })
     }
 }
 

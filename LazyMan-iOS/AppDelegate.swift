@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().barStyle = .blackOpaque
+        
+        if let svc = self.window?.rootViewController as? UISplitViewController
+        {
+            svc.preferredDisplayMode = .allVisible
+            svc.view.backgroundColor = .black
+            if let nc = svc.viewControllers.last as? UINavigationController
+            {
+                nc.topViewController?.navigationItem.leftBarButtonItem = svc.displayModeButtonItem
+            }
+        }
+        
         // Override point for customization after application launch.
         return true
     }
