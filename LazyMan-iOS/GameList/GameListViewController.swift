@@ -11,13 +11,7 @@ import FSCalendar
 
 protocol GameListViewControllerType: class
 {
-    func updateDate(date: Date)
-    func updateCalendar(date: Date)
-    func updateRefreshing(refreshing: Bool)
-    func updateError(error: String?)
-    func showError(message: String)
-    func updateGames()
-    func showDatePicker(currentDate: Date, sender: UIBarButtonItem)
+    var collapseDetailViewController: Bool { get set }
 }
 
 class GameListViewController: UIViewController, GameListViewControllerType
@@ -29,170 +23,38 @@ class GameListViewController: UIViewController, GameListViewControllerType
     @IBOutlet private weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var dateButton: UIBarButtonItem!
-    @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var errorLabel: UILabel!
-    
-    // MARK: - IBActions
-    
-    @IBAction func datePressed(_ sender: UIBarButtonItem)
-    {
-        self.presenter.datePressed(sender: sender)
-    }
-    
-    @IBAction func refreshPressed(_ sender: Any)
-    {
-        self.tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentOffset.y - refreshControl.frame.height), animated: true)
-        self.refreshControl.beginRefreshing()
-        self.presenter.refreshPressed()
-    }
-    
-    @IBAction func leagueChanged(_ sender: Any)
-    {
-        self.presenter.leagueChanged(league: self.leagueControl.selectedSegmentIndex == 1 ? .MLB : .NHL)
-    }
+    private var pageController: UIPageViewController?
     
     // MARK: - Properties
     
-    private var presenter: GameListPresenterType!
+    internal var collapseDetailViewController = true
     private var weekFormatter = DateFormatter()
-    private var refreshControl = UIRefreshControl()
-    private var collapseDetailViewController = true
-    
-    // MARK: - Lifecycle
-    
-    override func viewDidLoad()
+    private var date = Date() // Only update with updateDate()
+    private var league: League = .NHL
     {
-        super.viewDidLoad()
-        self.presenter = GameListPresenter(view: self)
-        self.presenter.viewDidLoad()
-        
-        self.calendar.scope = .week
-        self.weekFormatter.dateFormat = "EEEE  MMMM d, yyyy"
-        
-        if #available(iOS 10.0, *) {
-            self.tableView.refreshControl = self.refreshControl
-        } else {
-            self.tableView.backgroundView = self.refreshControl
-        }
-        self.refreshControl.addTarget(self, action: #selector(refreshGames), for: .valueChanged)
-        self.refreshControl.tintColor = .lightGray
-        
-        self.splitViewController?.delegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool)
-    {
-        super.viewWillAppear(animated)
-        self.presenter.viewWillAppear()
-        
-        self.calendar.today = Date()
-    }
-    
-    override func viewDidAppear(_ animated: Bool)
-    {
-        super.viewDidAppear(animated)
-        self.presenter.viewDidAppear()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.identifier == "showGameView",
-            let navController = segue.destination as? UINavigationController,
-            let gameViewController = navController.topViewController as? GameViewController,
-            let index = sender as? Int, index < self.presenter.getGameCount()
+        didSet
         {
-            self.collapseDetailViewController = false
+            guard self.league != oldValue else { return }
             
-            gameViewController.presenter = GamePresenter(game: self.presenter.getGames()[index])
-            gameViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-            gameViewController.navigationItem.leftItemsSupplementBackButton = true
-        }
-    }
-        
-    // MARK: - GameListViewControllerType
-    
-    func updateDate(date: Date)
-    {
-        if self.calendar.scope == .week
-        {
-            UIView.animate(withDuration: 0.1, animations: {
-                self.dateLabel.alpha = 0.2
-            }) { (_) in
-                self.dateLabel.text = self.weekFormatter.string(from: date)
-                UIView.animate(withDuration: 0.1, animations: {
-                    self.dateLabel.alpha = 1.0
-                })
-            }
-        }
-        else {
-            self.dateLabel.text = self.weekFormatter.string(from: date)
+            let direction: UIPageViewControllerNavigationDirection = self.leagueControl.selectedSegmentIndex == 1 ? .forward : .reverse
+            self.pageController?.setViewControllers([self.createGameTableView(date: self.date, league: self.league)], direction: direction, animated: true, completion: nil)
         }
     }
     
-    func updateCalendar(date: Date)
-    {
-        self.calendar.select(date, scrollToDate: true)
-    }
+    // MARK: - IBActions
     
-    func updateRefreshing(refreshing: Bool)
-    {
-        if refreshing
-        {
-            self.tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentOffset.y - refreshControl.frame.height), animated: true)
-            self.refreshControl.beginRefreshing()
-        }
-        else
-        {
-            self.refreshControl.endRefreshing()
-        }
-    }
-    
-    func updateError(error: String?)
-    {
-        guard let error = error else
-        {
-            self.errorLabel.isHidden = true
-            return
-        }
-        
-        self.errorLabel.isHidden = false
-        self.errorLabel.text = error
-    }
-    
-    func showError(message: String)
-    {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        alert.addAction(okAction)
-        
-        let atrributedMessage = NSAttributedString(string: message, attributes: [.foregroundColor : UIColor.white])
-        alert.setValue(atrributedMessage, forKey: "attributedMessage")
-        
-        self.present(alert, animated: true, completion: nil)
-        
-        alert.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
-    }
-    
-    func updateGames()
-    {
-        self.tableView.reloadData()
-    }
-    
-    func showDatePicker(currentDate: Date, sender: UIBarButtonItem)
+    @IBAction private func datePressed(_ sender: UIBarButtonItem)
     {
         let datePicker = UIAlertController(title: "Select Date", message: "", preferredStyle: .actionSheet)
         let datePickerVC = DatePickerViewController()
         datePicker.setValue(datePickerVC, forKey: "contentViewController")
         
         let todayAction = UIAlertAction(title: "Today", style: .default) { (_) in
-            let today = Date()
-            self.presenter.dateSelected(date: today)
-            self.calendar.select(today)
+            self.updateDate(date: Date())
         }
         
         let doneAction = UIAlertAction(title: "Done", style: .default) { (_) in
-            self.presenter.dateSelected(date: datePickerVC.datePicker.date)
-            self.calendar.select(datePickerVC.datePicker.date)
+            self.updateDate(date: datePickerVC.datePicker.date)
         }
         
         datePicker.addAction(todayAction)
@@ -207,15 +69,112 @@ class GameListViewController: UIViewController, GameListViewControllerType
         }
         
         datePicker.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
-        datePickerVC.datePicker.setDate(currentDate, animated: false)
+        datePickerVC.datePicker.setDate(self.date, animated: false)
+    }
+    
+    @IBAction private func leagueChanged(_ sender: Any)
+    {
+        self.league = self.leagueControl.selectedSegmentIndex == 1 ? .MLB : .NHL
+    }
+    
+    // MARK: - Lifecycle
+    
+    override func loadView()
+    {
+        super.loadView()
+        self.splitViewController?.delegate = self
+        self.calendar.scope = .week
+        self.weekFormatter.dateFormat = "EEEE  MMMM d, yyyy"
+        self.updateDate(date: self.date, wasSwiped: false, firstLoad: true)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateToday), name: .UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        self.updateToday()
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        HostChecker.checkHosts(error: self.showError)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "pageControllerSegue", let pageController = segue.destination as? UIPageViewController
+        {
+            self.pageController = pageController
+            self.pageController?.dataSource = self
+            self.pageController?.delegate = self
+            self.pageController?.setViewControllers([self.createGameTableView(date: self.date, league: self.league)], direction: .forward, animated: false, completion: nil)
+        }
     }
     
     // MARK: - Private
     
-    @objc
-    private func refreshGames()
+    private func showError(message: String)
     {
-        self.presenter.refreshPressed()
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        
+        let atrributedMessage = NSAttributedString(string: message, attributes: [.foregroundColor : UIColor.white])
+        alert.setValue(atrributedMessage, forKey: "attributedMessage")
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        alert.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
+    }
+    
+    private func createGameTableView(date: Date, league: League) -> GameListTableViewController
+    {
+        let gameListTable = self.storyboard?.instantiateViewController(withIdentifier: "GameTableView") as! GameListTableViewController
+        
+        gameListTable.date = date
+        gameListTable.league = league
+        gameListTable.gameListView = self
+        
+        return gameListTable
+    }
+    
+    private func updateDate(date: Date, wasSwiped: Bool = false, firstLoad: Bool = false)
+    {
+        // We only want to perform the following updates if the date changed, or its the first time loading
+        if !firstLoad, Calendar.current.isDate(self.date, inSameDayAs: date) { return }
+        
+        // If we are swiping, we don't want to move the pages again
+        if !wasSwiped
+        {
+            let direction: UIPageViewControllerNavigationDirection = date > self.date ? .forward : .reverse
+            self.pageController?.setViewControllers([self.createGameTableView(date: date, league: self.league)], direction: direction, animated: true, completion: nil)
+        }
+        
+        // Update calendar and text
+        self.calendar.select(date, scrollToDate: true)
+        if self.calendar.scope == .week
+        {
+            UIView.animate(withDuration: 0.1, animations: {
+                self.dateLabel.alpha = 0.2
+            }) { (_) in
+                self.dateLabel.text = self.weekFormatter.string(from: self.date)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.dateLabel.alpha = 1.0
+                })
+            }
+        }
+        else {
+            self.dateLabel.text = self.weekFormatter.string(from: date)
+        }
+        
+        self.date = date
+    }
+    
+    @objc
+    private func updateToday()
+    {
+        self.calendar.today = Date()
     }
 }
 
@@ -223,7 +182,7 @@ extension GameListViewController: FSCalendarDelegate
 {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition)
     {
-        self.presenter.dateSelected(date: date)
+        self.updateDate(date: date)
     }
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool)
@@ -247,29 +206,39 @@ extension GameListViewController: FSCalendarDelegate
     }
 }
 
-extension GameListViewController: UITableViewDelegate
+extension GameListViewController: UIPageViewControllerDataSource
 {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
     {
-        tableView.deselectRow(at: indexPath, animated: true)
+        if let before = viewController as? GameListTableViewController,
+            let date = Calendar.current.date(byAdding: .day, value: -1, to: before.date)
+        {
+            return self.createGameTableView(date: date, league: self.league)
+        }
+
+        return nil
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
+    {
+        if let after = viewController as? GameListTableViewController,
+            let date = Calendar.current.date(byAdding: .day, value: 1, to: after.date)
+        {
+            return self.createGameTableView(date: date, league: self.league)
+        }
         
-        self.performSegue(withIdentifier: "showGameView", sender: indexPath.row)
+        return nil
     }
 }
 
-extension GameListViewController: UITableViewDataSource
+extension GameListViewController: UIPageViewControllerDelegate
 {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool)
     {
-        return self.presenter.getGameCount()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? GameTableViewCell else { return UITableViewCell() }
-        
-        cell.updateGameInfo(game: self.presenter.getGames()[indexPath.row])
-        return cell
+        if completed, let date = (pageViewController.viewControllers?.last as? GameListTableViewController)?.date
+        {
+            self.updateDate(date: date, wasSwiped: true, firstLoad: false)
+        }
     }
 }
 
@@ -277,6 +246,6 @@ extension GameListViewController: UISplitViewControllerDelegate
 {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool
     {
-        return collapseDetailViewController
+        return self.collapseDetailViewController
     }
 }

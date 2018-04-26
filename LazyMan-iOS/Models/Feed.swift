@@ -94,7 +94,7 @@ class Feed: GameOptionCellText
                         Date().timeIntervalSince1970 > expTime + 1000
                     {
                         DispatchQueue.main.async {
-                            error("The stream has expired. Ask /u/StevensNJD4 to make it available.")
+                            error("The stream has expired. Please report the game you are trying to play.")
                         }
                         return
                     }
