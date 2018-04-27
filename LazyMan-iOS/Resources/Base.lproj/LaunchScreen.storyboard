@@ -1,29 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FEb-9D-7ec">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="9Bi-R2-rF1">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                <viewController id="FEb-9D-7ec" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k0k-Ht-Ukf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: 0.2.1 – Build: 118" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQt-eb-lJl" userLabel="APP_VERSION">
+                                <rect key="frame" x="0.0" y="589" width="375" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LazyMan" translatesAutoresizingMaskIntoConstraints="NO" id="rhN-uD-E2x">
+                                <rect key="frame" x="87" y="213.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="HAZ-M3-3gN"/>
+                                    <constraint firstAttribute="width" secondItem="rhN-uD-E2x" secondAttribute="height" multiplier="1:1" id="vuR-uK-zh6"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmG-Uv-fxe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5sO-c6-rG1" firstAttribute="trailing" secondItem="RQt-eb-lJl" secondAttribute="trailing" id="D3N-HO-XeX"/>
+                            <constraint firstItem="cmG-Uv-fxe" firstAttribute="leading" secondItem="5sO-c6-rG1" secondAttribute="leading" id="Ef0-o8-0tN"/>
+                            <constraint firstItem="cmG-Uv-fxe" firstAttribute="trailing" secondItem="5sO-c6-rG1" secondAttribute="trailing" id="GWu-Yh-iXB"/>
+                            <constraint firstItem="rhN-uD-E2x" firstAttribute="centerX" secondItem="5sO-c6-rG1" secondAttribute="centerX" id="LK5-ta-8IQ"/>
+                            <constraint firstItem="cmG-Uv-fxe" firstAttribute="top" secondItem="k0k-Ht-Ukf" secondAttribute="top" id="QOY-d5-wVL"/>
+                            <constraint firstItem="rhN-uD-E2x" firstAttribute="centerY" secondItem="5sO-c6-rG1" secondAttribute="centerY" constant="-30" id="blv-y4-bN1"/>
+                            <constraint firstItem="RQt-eb-lJl" firstAttribute="leading" secondItem="5sO-c6-rG1" secondAttribute="leading" id="tUM-gO-DCg"/>
+                            <constraint firstAttribute="bottom" secondItem="RQt-eb-lJl" secondAttribute="bottom" constant="60" id="vlv-yC-22s"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5sO-c6-rG1"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7jw-sy-BJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="-3815.1999999999998" y="-2563.2683658170918"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LazyMan" width="400" height="400"/>
+    </resources>
 </document>
