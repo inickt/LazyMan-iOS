@@ -18,7 +18,7 @@ The app is currently in beta. Future releases will make it easier to install Sur
 <img width="250" src="https://github.com/inickt/LazyMan-iOS/blob/master/screenshots/screenshot1.png"><img width="250" src="https://github.com/inickt/LazyMan-iOS/blob/master/screenshots/screenshot2.png"><img width="250" src="https://github.com/inickt/LazyMan-iOS/blob/master/screenshots/screenshot3.png"><img width="250" src="https://github.com/inickt/LazyMan-iOS/blob/master/screenshots/screenshot4.png"><img width="250" src="https://github.com/inickt/LazyMan-iOS/blob/master/screenshots/screenshot5.png"><img width="250" src="https://github.com/inickt/LazyMan-iOS/blob/master/screenshots/screenshot6.png">
 
 ## Requirements
-- iOS 10 and above (iOS 9 may be added in the future)
+- iOS 11 and above (iOS 9 and 10 should be added in the future)
   - If not jailbroken: [Surge 3](https://itunes.apple.com/us/app/surge-3-web-developer-tool/id1329879957?mt=8) (It’s free, you do NOT need the in app purchase)
   - If jailbroken: [Manual host file changes](https://www.reddit.com/r/LazyMan/wiki/hostsfile)
 - A computer with [Cydia Impactor](http://www.cydiaimpactor.com/) (iTunes need to be installed on Windows)
