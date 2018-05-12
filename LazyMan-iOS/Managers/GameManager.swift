@@ -106,7 +106,7 @@ class GameManager
                                 }
                             }
                             
-                            let gameState = GameState(abstractState: nhlGame["status"]["abstractGameState"].stringValue, detailedState: nhlGame["status"]["detailedState"].stringValue)
+                            let gameState = GameState(abstractState: nhlGame["status"]["abstractGameState"].stringValue, detailedState: nhlGame["status"]["detailedState"].stringValue, startTimeTBD: nhlGame["status"]["startTimeTBD"].boolValue)
                             let liveGameState = gameState == .live ? "\(nhlGame["linescore"]["currentPeriodOrdinal"].stringValue) - \(nhlGame["linescore"]["currentPeriodTimeRemaining"].stringValue)" : nhlGame["status"]["detailedState"].stringValue
                             
                             newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, liveGameState: liveGameState, feeds: gameFeeds))
@@ -169,7 +169,7 @@ class GameManager
                                 }
                             }
                             
-                            let gameState = GameState(abstractState: mlbGame["status"]["abstractGameState"].stringValue, detailedState: mlbGame["status"]["detailedState"].stringValue)
+                            let gameState = GameState(abstractState: mlbGame["status"]["abstractGameState"].stringValue, detailedState: mlbGame["status"]["detailedState"].stringValue, startTimeTBD: mlbGame["status"]["startTimeTBD"].boolValue)
                             let liveGameState = gameState == .live ? "\(mlbGame["linescore"]["currentInningOrdinal"].stringValue) - \(mlbGame["linescore"]["inningHalf"].stringValue)" : mlbGame["status"]["detailedState"].stringValue
                             
                             newGames.append(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, liveGameState: liveGameState, feeds: gameFeeds))

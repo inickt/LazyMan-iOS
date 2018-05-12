@@ -17,13 +17,13 @@ enum GameState: Int
     case postponed = 4
     case tbd = 5
     
-    init(abstractState: String, detailedState: String)
+    init(abstractState: String, detailedState: String, startTimeTBD: Bool)
     {
         if abstractState.contains("Postponed") || detailedState.contains("Postponed")
         {
             self = .postponed
         }
-        else if abstractState.contains("TBD") || detailedState.contains("TBD")
+        else if abstractState.contains("TBD") || detailedState.contains("TBD") || startTimeTBD
         {
             self = .tbd
         }
