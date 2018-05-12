@@ -22,13 +22,15 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ox4-u0-8Zj">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Si-tW-BTf">
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTE-NB-8Wc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="6Si-tW-BTf" secondAttribute="height" multiplier="16:9" id="Ene-tr-IsK"/>
+                                            <constraint firstAttribute="width" secondItem="DTE-NB-8Wc" secondAttribute="height" multiplier="16:9" id="qYM-PA-U6Z"/>
                                         </constraints>
-                                    </view>
+                                        <connections>
+                                            <segue destination="8RF-6m-Dyl" kind="embed" identifier="player" id="1up-jg-sYZ"/>
+                                        </connections>
+                                    </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vzu-DO-pTs">
                                         <rect key="frame" x="0.0" y="211" width="375" height="260"/>
                                         <constraints>
@@ -41,14 +43,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Vzu-DO-pTs" firstAttribute="top" secondItem="6Si-tW-BTf" secondAttribute="bottom" id="8AK-ZU-KLk"/>
-                                    <constraint firstItem="6Si-tW-BTf" firstAttribute="top" secondItem="ox4-u0-8Zj" secondAttribute="top" id="8vM-Bo-qw3"/>
+                                    <constraint firstItem="DTE-NB-8Wc" firstAttribute="leading" secondItem="ox4-u0-8Zj" secondAttribute="leading" id="D5t-Uh-hU9"/>
+                                    <constraint firstItem="Vzu-DO-pTs" firstAttribute="top" secondItem="DTE-NB-8Wc" secondAttribute="bottom" id="GPy-HM-23E"/>
                                     <constraint firstAttribute="bottom" secondItem="Vzu-DO-pTs" secondAttribute="bottom" id="PQl-ms-NJJ"/>
-                                    <constraint firstItem="6Si-tW-BTf" firstAttribute="leading" secondItem="ox4-u0-8Zj" secondAttribute="leading" id="dRT-lK-g1G"/>
+                                    <constraint firstItem="DTE-NB-8Wc" firstAttribute="top" secondItem="ox4-u0-8Zj" secondAttribute="top" id="dDU-TK-awn"/>
                                     <constraint firstAttribute="trailing" secondItem="Vzu-DO-pTs" secondAttribute="trailing" id="hC6-Nb-Dm0"/>
-                                    <constraint firstItem="6Si-tW-BTf" firstAttribute="width" secondItem="ox4-u0-8Zj" secondAttribute="width" id="iBc-7g-Rvy"/>
                                     <constraint firstItem="Vzu-DO-pTs" firstAttribute="leading" secondItem="ox4-u0-8Zj" secondAttribute="leading" id="kDn-9e-sPs"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Si-tW-BTf" secondAttribute="trailing" id="rR0-dh-Hwq"/>
+                                    <constraint firstItem="DTE-NB-8Wc" firstAttribute="width" secondItem="ox4-u0-8Zj" secondAttribute="width" id="qDv-SS-aEH"/>
+                                    <constraint firstAttribute="trailing" secondItem="DTE-NB-8Wc" secondAttribute="trailing" id="uMA-bL-5ry"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -72,12 +74,19 @@
                     <connections>
                         <outlet property="navigation" destination="VbN-cO-UpM" id="mlT-Qn-eJn"/>
                         <outlet property="refreshButton" destination="Zs5-Lc-hBJ" id="cPp-CC-CqF"/>
-                        <outlet property="webViewContainer" destination="6Si-tW-BTf" id="hyG-18-tzO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJJ-TH-TLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-491.37931034482762"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="kDV-rm-Kdt">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="8RF-6m-Dyl" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u28-6x-1ec" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="-697"/>
         </scene>
         <!--Game Settings View Controller-->
         <scene sceneID="iZ2-pB-rWW">
@@ -199,7 +208,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nI-OO-HEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528" y="-451"/>
+            <point key="canvasLocation" x="1590" y="-309"/>
         </scene>
         <!--Game Settings Options View Controller-->
         <scene sceneID="sUh-ye-urg">
@@ -245,12 +254,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWs-Qi-DaM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343" y="-451"/>
+            <point key="canvasLocation" x="2329" y="-309"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Taz-h3-i4I">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cza-eZ-bkr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="Game" id="dFu-CO-aN3" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Hed-J0-9BO">
@@ -261,6 +269,7 @@
                         <segue destination="nvE-ai-EfG" kind="relationship" relationship="rootViewController" id="YBD-PB-vcD"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cza-eZ-bkr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-108" y="-492"/>
         </scene>

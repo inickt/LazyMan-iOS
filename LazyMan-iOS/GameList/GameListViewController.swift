@@ -98,7 +98,7 @@ class GameListViewController: UIViewController, GameListViewControllerType
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        HostChecker.checkHosts(error: self.showError)
+        NotificationCenter.default.post(name: pauseNotification, object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

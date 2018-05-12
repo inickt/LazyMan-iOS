@@ -58,11 +58,8 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
             default:
                 return
             }
-            
-            self.presenter.selectingOption = true
         }
     }
-    
     
     // MARK: - GameSettingsViewControllerType
     

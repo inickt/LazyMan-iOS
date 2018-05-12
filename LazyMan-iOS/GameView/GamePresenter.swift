@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVKit
 
-protocol GamePresenterType: class
+protocol GamePresenterType: class, AVAssetResourceLoaderDelegate
 {
     var gameView: GameViewControllerType? { get set }
     var gameSettingsView: GameSettingsViewControllerType? { get set }
@@ -18,14 +19,13 @@ protocol GamePresenterType: class
     var cdnSelector: GameOptionSelector<CDN> { get }
     
     var game: Game { get }
-    var selectingOption: Bool { get set }
     
     func viewDidLoad()
     func viewWillAppear()
     func reloadPressed()
 }
 
-class GamePresenter: GamePresenterType
+class GamePresenter: NSObject, GamePresenterType
 {
     weak var gameView: GameViewControllerType?
     weak var gameSettingsView: GameSettingsViewControllerType?
@@ -35,7 +35,6 @@ class GamePresenter: GamePresenterType
     var qualitySelector: GameOptionSelector<FeedPlaylist>?
     let feedSelector: GameOptionSelector<Feed>
     let cdnSelector: GameOptionSelector<CDN>
-    var selectingOption = false
     
     private let cdnOptions = [CDN.Akamai, CDN.Level3]
     
@@ -45,6 +44,8 @@ class GamePresenter: GamePresenterType
         
         self.cdnSelector = GameOptionSelector<CDN>(objects: [CDN.Akamai, CDN.Level3])
         self.feedSelector = GameOptionSelector<Feed>(objects: game.feeds)
+        
+        super.init()
         
         self.cdnSelector.onSelection = self.cdnSelected
         self.feedSelector.onSelection = self.feedSelected
@@ -59,13 +60,6 @@ class GamePresenter: GamePresenterType
     func viewWillAppear()
     {
         self.gameView?.gameTitle = "\(self.game.awayTeam.shortName) at \(self.game.homeTeam.shortName)"
-        
-        // play the feed if this view appears somehow and we aren't coming from options
-        if let feedPlaylist = self.qualitySelector?.selectedObject, !self.selectingOption
-        {
-            self.gameView?.playURL(url: feedPlaylist.getURL())
-        }
-        self.selectingOption = false
     }
     
     func reloadPressed()
@@ -74,6 +68,26 @@ class GamePresenter: GamePresenterType
         {
             self.feedSelected(selected: selectedFeed)
         }
+    }
+    
+    // MARK: - AVAssetResourceLoaderDelegate
+    
+    func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool
+    {
+        if let url = loadingRequest.request.url
+        {
+            for host in allHosts
+            {
+                if url.absoluteString.contains(host), let redirect = URL(string: url.absoluteString.replacingOccurrences(of: host, with: serverAddress))
+                {
+                    try? loadingRequest.dataRequest?.respond(with: Data(contentsOf: redirect))
+                    loadingRequest.finishLoading()
+                    return true
+                }
+            }
+        }
+
+        return false
     }
     
     // MARK: - Private

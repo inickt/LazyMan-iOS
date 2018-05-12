@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import AVKit
 
 protocol GameViewControllerType: class
 {
@@ -17,15 +18,15 @@ protocol GameViewControllerType: class
     func showError(message: String)
 }
 
-class GameViewController: UIViewController, GameViewControllerType
+class GameViewController: UIViewController, GameViewControllerType, AVPlayerViewControllerDelegate
 {
     // MARK: - IBOutlets
     
-    @IBOutlet weak var navigation: UINavigationItem!
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
-    @IBOutlet weak var webViewContainer: UIView!
+    @IBOutlet private weak var navigation: UINavigationItem!
+    @IBOutlet private weak var refreshButton: UIBarButtonItem!
+    private var playerVC: AVPlayerViewController?
     
-    private var webView: WKWebView!
+    // MARK: - Properties
     
     var presenter: GamePresenterType!
     var gameTitle: String = ""
@@ -36,33 +37,20 @@ class GameViewController: UIViewController, GameViewControllerType
         }
     }
     
+    // MARK: - IBActions
+    
     @IBAction func refreshPressed(_ sender: Any)
     {
         self.presenter.reloadPressed()
     }
     
+    // MARK: - Lifecycle
+    
     override func loadView()
     {
         super.loadView()
         self.presenter.gameView = self
-        
-        let config = WKWebViewConfiguration()
-        config.allowsInlineMediaPlayback = true
-        config.allowsAirPlayForMediaPlayback = true
-        config.allowsPictureInPictureMediaPlayback = true
-        config.requiresUserActionForMediaPlayback = false
-        
-        self.webView = WKWebView(frame: self.webViewContainer.frame, configuration: config)
-        self.webView.navigationDelegate = self
-                self.webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                self.webView.translatesAutoresizingMaskIntoConstraints = false
-                self.webView.isOpaque = false
-                self.webView.backgroundColor = .black
-                self.webView.scrollView.isScrollEnabled = false
-                self.webView.allowsBackForwardNavigationGestures = false
-                self.webView.allowsLinkPreview = false
-        
-        self.webViewContainer.addSubview(self.webView)
+        NotificationCenter.default.addObserver(self, selector: #selector(pause), name: pauseNotification, object: nil)
     }
     
     override func viewDidLoad()
@@ -77,12 +65,6 @@ class GameViewController: UIViewController, GameViewControllerType
         self.presenter.viewWillAppear()
     }
     
-    override func viewDidDisappear(_ animated: Bool)
-    {
-        super.viewDidDisappear(animated)
-        if !self.presenter.selectingOption { self.webView.loadHTMLString("", baseURL: nil) }
-    }
-    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -92,19 +74,20 @@ class GameViewController: UIViewController, GameViewControllerType
             gameSettings.presenter = self.presenter
             self.presenter.gameSettingsView = gameSettings
         }
+        else if segue.identifier == "player", let playerVC = segue.destination as? AVPlayerViewController
+        {
+            self.playerVC = playerVC
+        }
     }
     
     func playURL(url: URL)
     {
-        let htmlString = """
-        <body style=\"margin:0px;padding:0px;overflow:hidden;background-color:#000000\">
-            <video title=\"\(self.gameTitle)\" style=\"min-width:100%;min-height:100%;\" controls playsinline autoplay>
-                <source src=\"\(url.absoluteString)\">
-            </video>
-        </body>
-        """
-        
-        self.webView.loadHTMLString(htmlString, baseURL: nil)
+        let asset = AVURLAsset(url: url)
+        asset.resourceLoader.setDelegate(self.presenter, queue: DispatchQueue(label: "Loader"))
+        let playerItem = AVPlayerItem(asset: asset)
+        let player = AVPlayer(playerItem: playerItem)
+        self.playerVC?.player = player
+        player.play()
     }
     
     func showError(message: String)
@@ -120,18 +103,11 @@ class GameViewController: UIViewController, GameViewControllerType
         
         alert.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
     }
-}
-
-extension GameViewController: WKNavigationDelegate
-{
-    // MARK: - WKNavigationDelegate
     
-    /**
-     * Allows iOS to play the nonsecure stream from broken https certificates
-     */
-    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+    // MARK: - Private
+    
+    @objc private func pause()
     {
-        let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-        completionHandler(.useCredential, cred)
+        self.playerVC?.player?.pause()
     }
 }
