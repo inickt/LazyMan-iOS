@@ -35,8 +35,13 @@
 		01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */; };
 		01DC7B952092530A003C311A /* GameListTableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7B942092530A003C311A /* GameListTableBackgroundView.swift */; };
 		01DC7B9720925325003C311A /* GameListTableBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */; };
+		01DC7B9F2092BE6B003C311A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7B9E2092BE6B003C311A /* SettingsViewController.swift */; };
+		01DC7BA020940B23003C311A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01DC7BA220940B23003C311A /* Settings.storyboard */; };
+		01DC7BA4209414AC003C311A /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7BA3209414AC003C311A /* SettingsManager.swift */; };
 		01E593CA204B03F800CE338A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E593C9204B03F800CE338A /* GameManager.swift */; };
 		01E593CE204B07E400CE338A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E593CD204B07E400CE338A /* Game.swift */; };
+		01E9A71120A75DA600AB231B /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9A71020A75DA600AB231B /* UpdateManager.swift */; };
+		01E9A71320A772B100AB231B /* SettingsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9A71220A772B100AB231B /* SettingsOptionsViewController.swift */; };
 		01EDB67E208A8DD700E74B52 /* String+replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EDB67D208A8DD700E74B52 /* String+replace.swift */; };
 		2DBB500360049A35282D0F72 /* Pods_LazyMan_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6692BA5DC5F8089A7F24FDEC /* Pods_LazyMan_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -72,8 +77,13 @@
 		01D0F3CA2061CFB9008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game.storyboard; sourceTree = "<group>"; };
 		01DC7B942092530A003C311A /* GameListTableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTableBackgroundView.swift; sourceTree = "<group>"; };
 		01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListTableBackgroundView.xib; sourceTree = "<group>"; };
+		01DC7B9E2092BE6B003C311A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		01DC7BA120940B23003C311A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		01DC7BA3209414AC003C311A /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		01E593C9204B03F800CE338A /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		01E593CD204B07E400CE338A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		01E9A71020A75DA600AB231B /* UpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
+		01E9A71220A772B100AB231B /* SettingsOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionsViewController.swift; sourceTree = "<group>"; };
 		01EDB67D208A8DD700E74B52 /* String+replace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+replace.swift"; sourceTree = "<group>"; };
 		6692BA5DC5F8089A7F24FDEC /* Pods_LazyMan_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyMan_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4E0BF11AC215B0A921B72A /* Pods-LazyMan-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyMan-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyMan-iOS/Pods-LazyMan-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +123,7 @@
 		012CB8AD203A3E7C00E76740 /* LazyMan-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				01DC7B9B2092BB99003C311A /* Settings */,
 				01DC7B99209293F1003C311A /* Managers */,
 				01DC7B98209293A8003C311A /* Models */,
 				019387BB2081396400D1CDBC /* Example Schedules */,
@@ -201,8 +212,20 @@
 			children = (
 				015F345D2050CFC40005453C /* TeamManager.swift */,
 				01E593C9204B03F800CE338A /* GameManager.swift */,
+				01DC7BA3209414AC003C311A /* SettingsManager.swift */,
+				01E9A71020A75DA600AB231B /* UpdateManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		01DC7B9B2092BB99003C311A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				01DC7BA220940B23003C311A /* Settings.storyboard */,
+				01DC7B9E2092BE6B003C311A /* SettingsViewController.swift */,
+				01E9A71220A772B100AB231B /* SettingsOptionsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		1A68C0BF12E806DE05FE9B6A /* Pods */ = {
@@ -232,7 +255,7 @@
 				1A27598C587C0F45B8858311 /* [CP] Check Pods Manifest.lock */,
 				012CB8A7203A3E7C00E76740 /* Sources */,
 				012CB8A8203A3E7C00E76740 /* Frameworks */,
-				01DC7B9A2092A4EA003C311A /* ShellScript */,
+				01DC7B9A2092A4EA003C311A /* Build Number and Storyboard Labels */,
 				012CB8A9203A3E7C00E76740 /* Resources */,
 				426B6D90171E64CC4320375D /* [CP] Embed Pods Frameworks */,
 				217844BAFF81752828390607 /* [CP] Copy Pods Resources */,
@@ -259,6 +282,11 @@
 					012CB8AA203A3E7C00E76740 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -294,24 +322,26 @@
 				010DB56720423DF300DFB4A0 /* Logos.xcassets in Resources */,
 				01344C862061D0EC0040BDE7 /* Game.storyboard in Resources */,
 				0179AEC22076DB5D00539C6D /* nhlschedule2018-04-05.json in Resources */,
+				01DC7BA020940B23003C311A /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01DC7B9A2092A4EA003C311A /* ShellScript */ = {
+		01DC7B9A2092A4EA003C311A /* Build Number and Storyboard Labels */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Build Number and Storyboard Labels";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#   ON/OFF Script Toggle (script ON with #, script OFF without #)\n#exit 0\n\n#   Increment Build Number Bool (Increment ON with true, increment OFF with false)\nshouldIncrement=true\n\n#   App vesion / Build version constants\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\n#   Increment build number\nif [ \"$shouldIncrement\" = true ]; then\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n#   Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: $versionNumber – Build: $buildNumber\\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Resources/Base.lproj/LaunchScreen.storyboard\"";
+			shellScript = "#   ON/OFF Script Toggle (script ON with #, script OFF without #)\n#exit 0\n\n#   Increment Build Number Bool (Increment ON with true, increment OFF with false)\nshouldIncrement=true\n\n#   App vesion / Build version constants\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\n#   Increment build number\nif [ \"$shouldIncrement\" = true ]; then\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n#   Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: $versionNumber – Build: $buildNumber\\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Resources/Base.lproj/LaunchScreen.storyboard\"\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: $versionNumber – Build: $buildNumber\\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Settings/Base.lproj/Settings.storyboard\"";
 		};
 		1A27598C587C0F45B8858311 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -390,12 +420,16 @@
 				015F34622055F1550005453C /* GameSettingsOptionsViewController.swift in Sources */,
 				013959EA207ADF3B00E37E9C /* JSONLoader.swift in Sources */,
 				01EDB67E208A8DD700E74B52 /* String+replace.swift in Sources */,
+				01DC7B9F2092BE6B003C311A /* SettingsViewController.swift in Sources */,
 				01794C6C2072FFD5008FFFEE /* GameOptionSelector.swift in Sources */,
 				01344C8B2061D32E0040BDE7 /* GamePresenter.swift in Sources */,
 				01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */,
 				012CB8AF203A3E7C00E76740 /* AppDelegate.swift in Sources */,
+				01DC7BA4209414AC003C311A /* SettingsManager.swift in Sources */,
 				010E4584203A6964001EF46C /* GameListViewController.swift in Sources */,
+				01E9A71320A772B100AB231B /* SettingsOptionsViewController.swift in Sources */,
 				015F345E2050CFC40005453C /* TeamManager.swift in Sources */,
+				01E9A71120A75DA600AB231B /* UpdateManager.swift in Sources */,
 				01434A742040D3FF0094E221 /* GameTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +459,14 @@
 				01D0F3CA2061CFB9008174EC /* Base */,
 			);
 			name = Game.storyboard;
+			sourceTree = "<group>";
+		};
+		01DC7BA220940B23003C311A /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01DC7BA120940B23003C311A /* Base */,
+			);
+			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

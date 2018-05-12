@@ -25,6 +25,15 @@ class GameTableViewCell: UITableViewCell
             self.awayTeamLabel.text = self.game?.awayTeam.fullName
             self.homeTeamLabel.text = self.game?.homeTeam.fullName
             self.timeLabel.text = self.game?.getGameState()
+            
+            if game?.hasFavoriteTeam() ?? false
+            {
+                self.backgroundColor = UIColor(red: 0.0, green: 0.07, blue: 0.14, alpha: 1.0)
+            }
+            else
+            {
+                self.backgroundColor = .black
+            }
         }
     }
 }

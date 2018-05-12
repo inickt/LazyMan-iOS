@@ -127,6 +127,11 @@
                                 <action selector="leagueChanged:" destination="DiW-Fz-1X3" eventType="valueChanged" id="IZ0-JV-xBd"/>
                             </connections>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" image="settings" id="yeq-Yf-Ujh">
+                            <connections>
+                                <segue destination="CPc-Vr-Mgc" kind="presentation" modalPresentationStyle="formSheet" id="LZN-ox-hnd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -141,6 +146,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XiW-32-OGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-150" y="-1349"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="mmI-dC-oMT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="CPc-Vr-Mgc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kV-Rf-QTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="607" y="-1602"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="tJB-XD-td0">
@@ -320,5 +333,6 @@
     <resources>
         <image name="blackhawks" width="500" height="500"/>
         <image name="capitals" width="500" height="500"/>
+        <image name="settings" width="30" height="30"/>
     </resources>
 </document>

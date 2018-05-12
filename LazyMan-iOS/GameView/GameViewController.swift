@@ -36,6 +36,7 @@ class GameViewController: UIViewController, GameViewControllerType, AVPlayerView
             self.navigation.title = gameTitle
         }
     }
+    private var hidden = false
     
     // MARK: - IBActions
     
@@ -65,6 +66,12 @@ class GameViewController: UIViewController, GameViewControllerType, AVPlayerView
         self.presenter.viewWillAppear()
     }
     
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        self.hidden = false
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -87,7 +94,11 @@ class GameViewController: UIViewController, GameViewControllerType, AVPlayerView
         let playerItem = AVPlayerItem(asset: asset)
         let player = AVPlayer(playerItem: playerItem)
         self.playerVC?.player = player
-        player.play()
+        if !self.hidden
+        {
+            try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            player.play()
+        }
     }
     
     func showError(message: String)
@@ -109,5 +120,6 @@ class GameViewController: UIViewController, GameViewControllerType, AVPlayerView
     @objc private func pause()
     {
         self.playerVC?.player?.pause()
+        self.hidden = true
     }
 }

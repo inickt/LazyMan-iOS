@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let selectedView = UIView()
         selectedView.backgroundColor = UIColor.darkGray
         UITableViewCell.appearance().selectedBackgroundView = selectedView
+        UITableViewCell.appearance().backgroundColor = .black
+
         
         // Configures split view controller
         if let svc = self.window?.rootViewController as? UISplitViewController

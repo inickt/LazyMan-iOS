@@ -95,13 +95,28 @@ class Game
     
     static func sort(game1: Game, game2: Game) -> Bool
     {
-        if (game1.gameState == .live && game2.gameState == .live) || (game1.gameState == .preview && game2.gameState == .preview)
+        if game1.hasFavoriteTeam() || game2.hasFavoriteTeam()
+        {
+            return game1.hasFavoriteTeam()
+        }
+        else if (game1.gameState == .live && game2.gameState == .live) || (game1.gameState == .preview && game2.gameState == .preview)
         {
             return game1.startTime <= game2.startTime
         }
         else
         {
             return game1.gameState.rawValue <= game2.gameState.rawValue
+        }
+    }
+    
+    func hasFavoriteTeam() -> Bool
+    {
+        switch self.awayTeam.league
+        {
+        case .NHL:
+            return self.awayTeam.shortName == SettingsManager.shared.favoriteNHLTeam?.shortName || self.homeTeam.shortName == SettingsManager.shared.favoriteNHLTeam?.shortName
+        case .MLB:
+            return self.awayTeam.shortName == SettingsManager.shared.favoriteMLBTeam?.shortName || self.homeTeam.shortName == SettingsManager.shared.favoriteMLBTeam?.shortName
         }
     }
 }

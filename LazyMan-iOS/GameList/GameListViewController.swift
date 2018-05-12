@@ -82,11 +82,22 @@ class GameListViewController: UIViewController, GameListViewControllerType
     override func loadView()
     {
         super.loadView()
+        self.league = SettingsManager.shared.defaultLeague
+        self.leagueControl.selectedSegmentIndex = SettingsManager.shared.defaultLeague == .NHL ? 0 : 1
         self.splitViewController?.delegate = self
         self.calendar.scope = .week
         self.weekFormatter.dateFormat = "EEEE  MMMM d, yyyy"
         self.updateDate(date: self.date, wasSwiped: false, firstLoad: true)
         NotificationCenter.default.addObserver(self, selector: #selector(updateToday), name: .UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        if SettingsManager.shared.versionUpdates
+        {
+            UpdateManager.checkUpdate(completion: self.showMessage)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -114,7 +125,7 @@ class GameListViewController: UIViewController, GameListViewControllerType
     
     // MARK: - Private
     
-    private func showError(message: String)
+    private func showMessage(message: String)
     {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)

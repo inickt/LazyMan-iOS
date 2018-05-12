@@ -53,7 +53,7 @@ class GamePresenter: NSObject, GamePresenterType
     
     func viewDidLoad()
     {
-        self.cdnSelector.select(index: 0)
+        self.cdnSelector.select(index: SettingsManager.shared.defaultCDN == .Akamai ? 0 : 1)
         if self.feedSelector.count > 0 { self.feedSelector.select(index: 0) }
     }
     
@@ -110,7 +110,7 @@ class GamePresenter: NSObject, GamePresenterType
                 self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
                 self.qualitySelector?.onSelection = self.qualitySelected
                 
-                if feedPlaylists.count > 0 { self.qualitySelector?.select(index: 0) }
+                if feedPlaylists.count > SettingsManager.shared.defaultQuality { self.qualitySelector?.select(index: SettingsManager.shared.defaultQuality) }
                 
             }) { (error) in
                 self.gameView?.showError(message: error)
@@ -129,7 +129,7 @@ class GamePresenter: NSObject, GamePresenterType
             self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
             self.qualitySelector?.onSelection = self.qualitySelected
             
-            if feedPlaylists.count > 1 { self.qualitySelector?.select(index: 1) }
+            if feedPlaylists.count > SettingsManager.shared.defaultQuality { self.qualitySelector?.select(index: SettingsManager.shared.defaultQuality) }
             
         }) { (error) in
             self.gameView?.showError(message: error)
