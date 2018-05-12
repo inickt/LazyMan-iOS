@@ -66,8 +66,7 @@ class GameListTableViewController: UITableViewController
         }
     }
     
-    @objc
-    private func refreshPressed()
+    @objc private func refreshPressed()
     {
         // Clears out the existing data, and reloads the games.
         self.games = nil
@@ -105,7 +104,7 @@ class GameListTableViewController: UITableViewController
             return UITableViewCell()
         }
         
-        cell.updateGameInfo(game: games[indexPath.row])
+        cell.game = games[indexPath.row]
         return cell
     }
     

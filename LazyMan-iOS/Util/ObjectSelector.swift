@@ -6,8 +6,8 @@
 //  Copyright © 2018 Nick Thompson. All rights reserved.
 //
 
-/*
- * Represents an object which can hold an array of items and maintain a selected element in the array.
+/**
+ Represents an object which can hold an array of items and maintain a selected element in the array.
  */
 protocol AnyObjectSelector
 {
@@ -22,8 +22,8 @@ protocol AnyObjectSelector
     func select(index: Int)
 }
 
-/*
- * Can hold a non-mutable array and keeps track of a currently selected element.
+/**
+ Can hold a non-mutable array and keeps track of a currently selected element.
  */
 class ObjectSelector<T>: AnyObjectSelector
 {

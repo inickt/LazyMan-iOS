@@ -8,10 +8,13 @@
 
 import UIKit
 
+// Hosts to redirect
 let nhlHosts = ["mf.svc.nhl.com"]
 let mlbHosts = ["mlb-ws-mf.media.mlb.com", "playback.svcs.mlb.com"]
 let allHosts = nhlHosts + mlbHosts
 
+// Server address
 let serverAddress = "freegamez.ga"
 
+// Notification for pausing when back to game list on iPhone
 let pauseNotification = NSNotification.Name(rawValue: "pause")

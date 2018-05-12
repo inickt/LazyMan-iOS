@@ -171,8 +171,7 @@ class GameListViewController: UIViewController, GameListViewControllerType
         self.date = date
     }
     
-    @objc
-    private func updateToday()
+    @objc private func updateToday()
     {
         self.calendar.today = Date()
     }
