@@ -66,4 +66,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
+    {
+        if #available(iOS 11.0, *) {
+            return UIInterfaceOrientationMask.portrait
+        }
+        else if let presentedViewController = window?.rootViewController?.presentedViewController,
+            String(describing: type(of: presentedViewController)) == "AVFullScreenViewController"
+        {
+            return UIInterfaceOrientationMask.allButUpsideDown
+        }
+        else
+        {
+            UIDevice.current.setValue(UIDeviceOrientation.portrait.rawValue, forKey: "orientation")
+            return UIInterfaceOrientationMask.portrait
+        }
+    }
 }

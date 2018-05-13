@@ -18,7 +18,7 @@ protocol GameViewControllerType: class
     func showError(message: String)
 }
 
-class GameViewController: UIViewController, GameViewControllerType, AVPlayerViewControllerDelegate
+class GameViewController: UIViewController, GameViewControllerType
 {
     // MARK: - IBOutlets
     

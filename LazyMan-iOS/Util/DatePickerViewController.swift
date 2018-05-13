@@ -18,5 +18,7 @@ class DatePickerViewController: UIViewController
         self.datePicker.datePickerMode = .date
         self.datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         self.datePicker.backgroundColor = .clear
+        self.datePicker.minimumDate = Date(timeIntervalSince1970: 1412726400)
+        self.datePicker.maximumDate = Calendar.current.date(byAdding: Calendar.Component.year, value: 1, to: Date())
     }
 }

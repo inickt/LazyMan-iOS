@@ -64,6 +64,7 @@
                         <viewLayoutGuide key="safeArea" id="g6Z-xR-Th3"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="VbN-cO-UpM">
+                        <barButtonItem key="backBarButtonItem" title=" " id="KdQ-Vj-Jr9"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Zs5-Lc-hBJ">
                             <connections>
                                 <action selector="refreshPressed:" destination="nvE-ai-EfG" id="rxN-xK-4zc"/>
