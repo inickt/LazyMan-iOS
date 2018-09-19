@@ -91,6 +91,9 @@ class Game {
 }
 
 extension Game: Comparable {
+    
+    // MARK: - Comparable
+    
     static func < (lhs: Game, rhs: Game) -> Bool {
         if lhs.hasFavoriteTeam || rhs.hasFavoriteTeam {
             return lhs.hasFavoriteTeam

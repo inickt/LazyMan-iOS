@@ -9,6 +9,9 @@
 import Foundation
 
 class Feed {
+    
+    // MARK: - Properties
+    
     let feedType: String
     let callLetters: String
     let feedName: String
@@ -18,9 +21,10 @@ class Feed {
     let gameTime: Date
     var feedPlaylists: [FeedPlaylist]?
     
+    // MARK: - Init
+    
     init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, gameDate: String, gameTime: Date, feedPlaylists: [FeedPlaylist]? = nil) {
-        switch feedType
-        {
+        switch feedType {
         case "HOME":
             self.feedType = "Home"
         case "AWAY":

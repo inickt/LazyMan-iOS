@@ -8,16 +8,6 @@
 
 import UIKit
 
-enum League: String {
-    case NHL, MLB
-}
-
-extension League {
-    var favorites: [Team]? {
-        return nil
-    }
-}
-
 struct Team {
     var location: String
     var shortName: String

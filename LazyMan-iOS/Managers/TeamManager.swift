@@ -8,9 +8,13 @@
 
 import UIKit
 
-final class TeamManager
-{
+final class TeamManager {
+    
+    // MARK: - Shared Manager
+    
     private static let manager = TeamManager()
+    
+    // MARK: - Teams
     
     static var nhlTeams: [String : Team] {
         return manager.nhlTeams
@@ -19,6 +23,8 @@ final class TeamManager
     static var mlbTeams: [String : Team] {
         return manager.mlbTeams
     }
+    
+    // MARK: - Private
     
     private var nhlTeams = [String : Team]()
     private var mlbTeams = [String : Team]()
