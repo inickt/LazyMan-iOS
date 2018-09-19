@@ -22,11 +22,11 @@ class GameTableViewCell: UITableViewCell
         {
             self.awayTeamImage.image = self.game?.awayTeam.logo
             self.homeTeamImage.image = self.game?.homeTeam.logo
-            self.awayTeamLabel.text = self.game?.awayTeam.fullName
-            self.homeTeamLabel.text = self.game?.homeTeam.fullName
-            self.timeLabel.text = self.game?.getGameState()
+            self.awayTeamLabel.text = self.game?.awayTeam.name
+            self.homeTeamLabel.text = self.game?.homeTeam.name
+            self.timeLabel.text = self.game?.gameStateDescription
             
-            if game?.hasFavoriteTeam() ?? false
+            if game?.hasFavoriteTeam ?? false
             {
                 self.backgroundColor = UIColor(red: 0.0, green: 0.07, blue: 0.14, alpha: 1.0)
             }

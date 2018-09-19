@@ -37,7 +37,7 @@ class SettingsOptionsViewController: UITableViewController
         {
             if let team = teams[indexPath.row]
             {
-                cell.textLabel?.text = team.fullName
+                cell.textLabel?.text = team.name
                 cell.imageView?.image = team.logo.addImagePadding(x: 90, y: 90)
                 cell.accessoryType = self.isFavorite?(team) ?? false ? .checkmark : .none
             }

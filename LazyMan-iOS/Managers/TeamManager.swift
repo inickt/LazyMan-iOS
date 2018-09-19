@@ -12,27 +12,23 @@ final class TeamManager
 {
     private static let manager = TeamManager()
     
-    static var nhlTeams: [String : NHLTeam]
-    {
+    static var nhlTeams: [String : Team] {
         return manager.nhlTeams
     }
     
-    static var mlbTeams: [String : MLBTeam]
-    {
+    static var mlbTeams: [String : Team] {
         return manager.mlbTeams
     }
     
-    private var nhlTeams = [String : NHLTeam]()
-    private var mlbTeams = [String : MLBTeam]()
+    private var nhlTeams = [String : Team]()
+    private var mlbTeams = [String : Team]()
     
-    private init()
-    {
+    private init() {
         self.initNHLTeams()
         self.initMLBTeams()
     }
     
-    private func initNHLTeams()
-    {
+    private func initNHLTeams() {
         self.addNHLTeam(loc: "Colorado",     name: "Avalanche",      abbrv: "COL", logo: #imageLiteral(resourceName: "avalanche"))
         self.addNHLTeam(loc: "Chicago",      name: "Blackhawks",     abbrv: "CHI", logo: #imageLiteral(resourceName: "blackhawks"))
         self.addNHLTeam(loc: "Columbus",     name: "Blue Jackets",   abbrv: "CBJ", logo: #imageLiteral(resourceName: "blue-jackets"))
@@ -66,8 +62,7 @@ final class TeamManager
         self.addNHLTeam(loc: "Minnesota",    name: "Wild",           abbrv: "MIN", logo: #imageLiteral(resourceName: "wild"))
     }
     
-    private func initMLBTeams()
-    {
+    private func initMLBTeams() {
         self.addMLBTeam(loc: "Los Angeles",   name: "Angels",       abbrv: "LAA", logo: #imageLiteral(resourceName: "angeles"))
         self.addMLBTeam(loc: "Houston",       name: "Astros",       abbrv: "HOU", logo: #imageLiteral(resourceName: "astros"))
         self.addMLBTeam(loc: "Oakland",       name: "Athletics",    abbrv: "OAK", logo: #imageLiteral(resourceName: "athletics"))
@@ -100,13 +95,11 @@ final class TeamManager
         self.addMLBTeam(loc: "New York",      name: "Yankees",      abbrv: "NYY", logo: #imageLiteral(resourceName: "yankees"))
     }
     
-    private func addNHLTeam(loc: String, name: String, abbrv: String, logo: UIImage)
-    {
-        self.nhlTeams[name] = NHLTeam(location: loc, shortName: name, abbreviation: abbrv, logo: logo)
+    private func addNHLTeam(loc: String, name: String, abbrv: String, logo: UIImage) {
+        self.nhlTeams[name] = Team(location: loc, shortName: name, abbreviation: abbrv, logo: logo, league: .NHL)
     }
     
-    private func addMLBTeam(loc: String, name: String, abbrv: String, logo: UIImage)
-    {
-        self.mlbTeams[name] = MLBTeam(location: loc, shortName: name, abbreviation: abbrv, logo: logo)
+    private func addMLBTeam(loc: String, name: String, abbrv: String, logo: UIImage) {
+        self.mlbTeams[name] = Team(location: loc, shortName: name, abbreviation: abbrv, logo: logo, league: .MLB)
     }
 }

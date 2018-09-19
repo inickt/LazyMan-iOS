@@ -39,21 +39,23 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
     {
         if let id = segue.identifier
         {
-            let settingsOptions = segue.destination as? GameSettingsOptionsViewController
+            
             
             switch id
             {
             case "gameOptionCDN":
-                settingsOptions?.title = "CDN"
-                settingsOptions?.opetionSelector = self.presenter.cdnSelector
+                segue.destination.title = "CDN"
+                let settingsOptions = segue.destination as? GameSettingsOptionsViewController<CDN>
+                settingsOptions?.optionSelector = ObjectSelector(objects: [.Akamai, .Level3])
+//                settingsOptions?.opetionSelector = self.presenter.cdnSelector
                 
             case "gameOptionQuality":
-                settingsOptions?.title = "Quality"
-                settingsOptions?.opetionSelector = self.presenter.qualitySelector
+                segue.destination.title = "Quality"
+//                settingsOptions?.opetionSelector = self.presenter.qualitySelector
                 
             case "gameOptionFeed":
-                settingsOptions?.title = "Feed"
-                settingsOptions?.opetionSelector = self.presenter.feedSelector
+                segue.destination.title = "Feed"
+//                settingsOptions?.opetionSelector = self.presenter.feedSelector
                 
             default:
                 return

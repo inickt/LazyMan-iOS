@@ -32,6 +32,8 @@
 		019EA59B203E6FF8000149A3 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EA59A203E6FF8000149A3 /* Teams.swift */; };
 		01ABFDBC20545C68005D57C5 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ABFDBB20545C68005D57C5 /* Feed.swift */; };
 		01AF56CE20A52E250027DCCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF56CD20A52E250027DCCD /* Constants.swift */; };
+		01BE535B212770AA00F08401 /* CDN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE535A212770AA00F08401 /* CDN.swift */; };
+		01BE535D2127720400F08401 /* FeedPlaylistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE535C2127720400F08401 /* FeedPlaylistManager.swift */; };
 		01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */; };
 		01DC7B952092530A003C311A /* GameListTableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7B942092530A003C311A /* GameListTableBackgroundView.swift */; };
 		01DC7B9720925325003C311A /* GameListTableBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */; };
@@ -72,6 +74,8 @@
 		019EA59A203E6FF8000149A3 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 		01ABFDBB20545C68005D57C5 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		01AF56CD20A52E250027DCCD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		01BE535A212770AA00F08401 /* CDN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDN.swift; sourceTree = "<group>"; };
+		01BE535C2127720400F08401 /* FeedPlaylistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlaylistManager.swift; sourceTree = "<group>"; };
 		01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlaylist.swift; sourceTree = "<group>"; };
 		01D0F3C92061CFAA008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameList.storyboard; sourceTree = "<group>"; };
 		01D0F3CA2061CFB9008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game.storyboard; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 				01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */,
 				01E593CD204B07E400CE338A /* Game.swift */,
 				019EA59A203E6FF8000149A3 /* Teams.swift */,
+				01BE535A212770AA00F08401 /* CDN.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				01E593C9204B03F800CE338A /* GameManager.swift */,
 				01DC7BA3209414AC003C311A /* SettingsManager.swift */,
 				01E9A71020A75DA600AB231B /* UpdateManager.swift */,
+				01BE535C2127720400F08401 /* FeedPlaylistManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				01E593CE204B07E400CE338A /* Game.swift in Sources */,
 				0186CA43208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift in Sources */,
 				019EA59B203E6FF8000149A3 /* Teams.swift in Sources */,
+				01BE535B212770AA00F08401 /* CDN.swift in Sources */,
 				015F34622055F1550005453C /* GameSettingsOptionsViewController.swift in Sources */,
 				013959EA207ADF3B00E37E9C /* JSONLoader.swift in Sources */,
 				01EDB67E208A8DD700E74B52 /* String+replace.swift in Sources */,
@@ -429,6 +436,7 @@
 				010E4584203A6964001EF46C /* GameListViewController.swift in Sources */,
 				01E9A71320A772B100AB231B /* SettingsOptionsViewController.swift in Sources */,
 				015F345E2050CFC40005453C /* TeamManager.swift in Sources */,
+				01BE535D2127720400F08401 /* FeedPlaylistManager.swift in Sources */,
 				01E9A71120A75DA600AB231B /* UpdateManager.swift in Sources */,
 				01434A742040D3FF0094E221 /* GameTableViewCell.swift in Sources */,
 			);

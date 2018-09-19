@@ -6,58 +6,48 @@
 //  Copyright © 2018 Nick Thompson. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class FeedPlaylist: GameOptionCellText
-{
-    private let url: URL
-    private let quality: String
-    private let bandwidth: Int?
-    private let framerate: Int?
+struct FeedPlaylist {
     
-    init(url: URL, quality: String, bandwidth: Int?, framerate: Int?)
-    {
+    // MARK: - Properties
+    
+    let url: URL
+    let quality: String
+    let bandwidth: Int?
+    let framerate: Int?
+    
+    // MARK: - Init
+    
+    init(url: URL, quality: String, bandwidth: Int?, framerate: Int?) {
         self.url = url
         self.quality = quality
         self.bandwidth = bandwidth
         self.framerate = framerate
     }
     
-    func getBandwidth() -> Int?
-    {
-        return self.bandwidth
-    }
+    // MARK: - Computed Properties
     
-    func getURL() -> URL
-    {
-        return self.url
-    }
-    
-    func getTitle() -> String
-    {
+    var title: String {
         var framerateString = ""
-        
-        if let framerate = self.framerate, framerate != 30
-        {
+        if let framerate = self.framerate, framerate != 30 {
             framerateString = "\(framerate)"
         }
         
         let qualityArray = self.quality.split(separator: "x")
-        
-        guard qualityArray.count == 2 else { return self.quality }
-        
-        return "\(qualityArray[1])p\(framerateString)"
-
+        if qualityArray.count == 2  {
+            return "\(qualityArray[1])p\(framerateString)"
+        }
+        else {
+            return "\(self.quality) \(framerateString)"
+        }
     }
     
-    func getDetail() -> String
-    {
-        if let bandwidth = self.bandwidth
-        {
+    var description: String {
+        if let bandwidth = self.bandwidth {
             return "\(bandwidth / 1000) Kbps"
         }
-        else
-        {
+        else {
             return ""
         }
     }

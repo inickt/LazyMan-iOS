@@ -9,8 +9,8 @@
 import UIKit
 import AVKit
 
-protocol GamePresenterType: class, AVAssetResourceLoaderDelegate
-{
+protocol GamePresenterType: class, AVAssetResourceLoaderDelegate {
+    
     var gameView: GameViewControllerType? { get set }
     var gameSettingsView: GameSettingsViewControllerType? { get set }
     
@@ -94,46 +94,46 @@ class GamePresenter: NSObject, GamePresenterType
     
     private func qualitySelected(selected: FeedPlaylist)
     {
-        self.gameSettingsView?.setQuality(text: selected.getTitle())
-        self.gameView?.playURL(url: selected.getURL())
+//        self.gameSettingsView?.setQuality(text: selected.getTitle())
+//        self.gameView?.playURL(url: selected.getURL())
     }
     
     private func cdnSelected(selected: CDN)
     {
-        self.gameSettingsView?.setCDN(text: selected.getTitle())
-        if let selectedFeed = self.feedSelector.selectedObject
-        {
-            self.gameSettingsView?.setQuality(text: nil)
-            self.qualitySelector = nil
-            
-            selectedFeed.getFeedPlaylists(cdn: selected, completion: { (feedPlaylists) in
-                self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
-                self.qualitySelector?.onSelection = self.qualitySelected
-                
-                if feedPlaylists.count > SettingsManager.shared.defaultQuality { self.qualitySelector?.select(index: SettingsManager.shared.defaultQuality) }
-                
-            }) { (error) in
-                self.gameView?.showError(message: error)
-                self.gameSettingsView?.setQuality(text: "")
-            }
-        }
+//        self.gameSettingsView?.setCDN(text: selected.getTitle())
+//        if let selectedFeed = self.feedSelector.selectedObject
+//        {
+//            self.gameSettingsView?.setQuality(text: nil)
+//            self.qualitySelector = nil
+//
+//            selectedFeed.getFeedPlaylists(cdn: selected, completion: { (feedPlaylists) in
+//                self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
+//                self.qualitySelector?.onSelection = self.qualitySelected
+//
+//                if feedPlaylists.count > SettingsManager.shared.defaultQuality { self.qualitySelector?.select(index: SettingsManager.shared.defaultQuality) }
+//
+//            }) { (error) in
+//                self.gameView?.showError(message: error)
+//                self.gameSettingsView?.setQuality(text: "")
+//            }
+//        }
     }
     
     private func feedSelected(selected: Feed)
     {
-        self.gameSettingsView?.setFeed(text: selected.getTitle())
-        self.gameSettingsView?.setQuality(text: nil)
-        self.qualitySelector = nil
-        
-        selected.getFeedPlaylists(cdn: self.cdnSelector.selectedObject!, completion: { (feedPlaylists) in
-            self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
-            self.qualitySelector?.onSelection = self.qualitySelected
-            
-            if feedPlaylists.count > SettingsManager.shared.defaultQuality { self.qualitySelector?.select(index: SettingsManager.shared.defaultQuality) }
-            
-        }) { (error) in
-            self.gameView?.showError(message: error)
-            self.gameSettingsView?.setQuality(text: "")
-        }
+//        self.gameSettingsView?.setFeed(text: selected.getTitle())
+//        self.gameSettingsView?.setQuality(text: nil)
+//        self.qualitySelector = nil
+//        
+//        selected.getFeedPlaylists(cdn: self.cdnSelector.selectedObject!, completion: { (feedPlaylists) in
+//            self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
+//            self.qualitySelector?.onSelection = self.qualitySelected
+//            
+//            if feedPlaylists.count > SettingsManager.shared.defaultQuality { self.qualitySelector?.select(index: SettingsManager.shared.defaultQuality) }
+//            
+//        }) { (error) in
+//            self.gameView?.showError(message: error)
+//            self.gameSettingsView?.setQuality(text: "")
+//        }
     }
 }

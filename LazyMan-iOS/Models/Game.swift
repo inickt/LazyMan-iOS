@@ -6,117 +6,104 @@
 //  Copyright © 2018 Nick Thompson. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-enum GameState: Int
-{
-    case live = 0
-    case preview = 1
-    case other = 2
-    case final = 3
-    case postponed = 4
-    case tbd = 5
+enum GameState: Int {
     
-    init(abstractState: String, detailedState: String, startTimeTBD: Bool)
-    {
-        if abstractState.contains("Postponed") || detailedState.contains("Postponed")
-        {
+    case live, preview, other, final, postponed, tbd
+    
+    init(abstractState: String, detailedState: String, startTimeTBD: Bool) {
+        let states = [abstractState, detailedState]
+        
+        if states.contains(where: { $0.contains("Postponed") }) {
             self = .postponed
         }
-        else if abstractState.contains("TBD") || detailedState.contains("TBD") || startTimeTBD
-        {
+        else if states.contains(where: { $0.contains("TBD") }) || startTimeTBD {
             self = .tbd
         }
-        else if abstractState == "Live" || detailedState == "Live"
-        {
+        else if states.contains(where: { $0.contains("Live") }) {
             self = .live
         }
-        else if abstractState == "Preview" || detailedState == "Preview"
-        {
+        else if states.contains(where: { $0.contains("Preview") }) {
             self = .preview
         }
-        else if abstractState == "Final" || detailedState == "Final"
-        {
+        else if states.contains(where: { $0.contains("Final") }) {
             self = .final
         }
-        else
-        {
+        else {
             self = .other
         }
     }
 }
 
-class Game
-{
+class Game {
+    
+    // MARK: - Static
+    
+    private static let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter
+    }()
+    
+    // MARK: - Properties
+    
     let homeTeam: Team
     let awayTeam: Team
     let startTime: Date
     let gameState: GameState
     let liveGameState: String
     let feeds: [Feed]
+    var gameStateDescription: String {
+        switch self.gameState {
+        case .live:
+            return self.liveGameState
+        case .preview:
+            return Game.timeFormatter.string(from: self.startTime)
+        case .other:
+            return self.liveGameState
+        case .final:
+            return "Final"
+        case .postponed:
+            return "Postponed"
+        case .tbd:
+            return "TBD"
+        }
+    }
+    let league: League
+    var hasFavoriteTeam: Bool {
+        return homeTeam.isFavorite || awayTeam.isFavorite
+    }
     
-    private let gameTimeFormatter = DateFormatter()
+    // MARK: - Init
     
-    init(homeTeam: Team, awayTeam: Team, startTime: Date, gameState: GameState, liveGameState: String, feeds: [Feed])
-    {
+    init?(homeTeam: Team, awayTeam: Team, startTime: Date, gameState: GameState, liveGameState: String, feeds: [Feed]) {
+        guard homeTeam.league == awayTeam.league else { return nil }
+        
         self.homeTeam = homeTeam
         self.awayTeam = awayTeam
         self.startTime = startTime
         self.gameState = gameState
         self.liveGameState = liveGameState
         self.feeds = feeds
-        
-        self.gameTimeFormatter.dateFormat = "h:mm a"
+        self.league = homeTeam.league
     }
-    
-    func getGameState() -> String
-    {
-        switch self.gameState
-        {
-        case .live:
-            return self.liveGameState
-            
-        case .preview:
-            return self.gameTimeFormatter.string(from: self.startTime)
-            
-        case .other:
-            return self.liveGameState
-            
-        case .final:
-            return "Final"
-            
-        case .postponed:
-            return "Postponed"
-            
-        case .tbd:
-            return "TBD"
+}
+
+extension Game: Comparable {
+    static func < (lhs: Game, rhs: Game) -> Bool {
+        if lhs.hasFavoriteTeam || rhs.hasFavoriteTeam {
+            return lhs.hasFavoriteTeam
+        }
+        else if (lhs.gameState == .live && rhs.gameState == .live) || (lhs.gameState == .preview && rhs.gameState == .preview) {
+            return lhs.startTime < rhs.startTime
+        }
+        else {
+            return lhs.gameState.rawValue < rhs.gameState.rawValue
         }
     }
     
-    static func sort(game1: Game, game2: Game) -> Bool
-    {
-        if game1.hasFavoriteTeam() || game2.hasFavoriteTeam()
-        {
-            return game1.hasFavoriteTeam()
-        }
-        else if (game1.gameState == .live && game2.gameState == .live) || (game1.gameState == .preview && game2.gameState == .preview)
-        {
-            return game1.startTime <= game2.startTime
-        }
-        else
-        {
-            return game1.gameState.rawValue <= game2.gameState.rawValue
-        }
-    }
-    
-    func hasFavoriteTeam() -> Bool
-    {
-        switch self.awayTeam.league
-        {
-        case .NHL:
-            return self.awayTeam.shortName == SettingsManager.shared.favoriteNHLTeam?.shortName || self.homeTeam.shortName == SettingsManager.shared.favoriteNHLTeam?.shortName
-        case .MLB:
-            return self.awayTeam.shortName == SettingsManager.shared.favoriteMLBTeam?.shortName || self.homeTeam.shortName == SettingsManager.shared.favoriteMLBTeam?.shortName
-        }
+    static func == (lhs: Game, rhs: Game) -> Bool {
+        return lhs.awayTeam == rhs.awayTeam && lhs.startTime == rhs.startTime
     }
 }

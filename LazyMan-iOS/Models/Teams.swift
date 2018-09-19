@@ -8,48 +8,36 @@
 
 import UIKit
 
-enum League: String
-{
+enum League: String {
     case NHL, MLB
 }
 
-protocol Team
-{
-    var location: String { get }
-    var shortName: String { get }
-    var abbreviation: String { get }
-    var logo: UIImage { get }
-    var league: League { get }
-}
-
-extension Team
-{
-    var fullName: String
-    {
-        return String(format: "%@ %@", self.location, self.shortName)
+extension League {
+    var favorites: [Team]? {
+        return nil
     }
 }
 
-struct NHLTeam: Team
-{
+struct Team {
     var location: String
     var shortName: String
     var abbreviation: String
     var logo: UIImage
+    var name: String {
+        return "\(self.location) \(self.shortName)"
+    }
     var league: League
-    {
-        return League.NHL
+    var isFavorite: Bool {
+        return self.league.favorites?.contains(self) ?? false
     }
 }
 
-struct MLBTeam: Team
-{
-    var location: String
-    var shortName: String
-    var abbreviation: String
-    var logo: UIImage
-    var league: League
-    {
-        return League.MLB
+extension Team: Comparable {
+    static func < (lhs: Team, rhs: Team) -> Bool {
+        return lhs.name < rhs.name
+    }
+    
+    static func ==(lhs: Team, rhs: Team) -> Bool {
+        return lhs.name == rhs.name
     }
 }

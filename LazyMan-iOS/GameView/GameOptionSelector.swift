@@ -11,12 +11,11 @@ protocol AnyGameViewOptionSelector
     var selectedIndex: Int? { get }
     var count: Int { get }
     func select(index: Int)
-    func getObjects() -> [GameOptionCellText]
 }
 
-class GameOptionSelector<T: GameOptionCellText>: ObjectSelector<T>, AnyGameViewOptionSelector
+class GameOptionSelector<T>: ObjectSelector<T>, AnyGameViewOptionSelector
 {
-    func getObjects() -> [GameOptionCellText]
+    func getObjects() -> [T]
     {
         return self.objects
     }
