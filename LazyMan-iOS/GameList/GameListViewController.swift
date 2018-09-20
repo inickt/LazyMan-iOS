@@ -36,7 +36,7 @@ class GameListViewController: UIViewController, GameListViewControllerType
         {
             guard self.league != oldValue else { return }
             
-            let direction: UIPageViewControllerNavigationDirection = self.leagueControl.selectedSegmentIndex == 1 ? .forward : .reverse
+            let direction: UIPageViewController.NavigationDirection = self.leagueControl.selectedSegmentIndex == 1 ? .forward : .reverse
             self.pageController?.setViewControllers([self.createGameTableView(date: self.date, league: self.league)], direction: direction, animated: true, completion: nil)
         }
     }
@@ -88,7 +88,7 @@ class GameListViewController: UIViewController, GameListViewControllerType
         self.calendar.scope = .week
         self.weekFormatter.dateFormat = "EEEE  MMMM d, yyyy"
         self.updateDate(date: self.date, wasSwiped: false, firstLoad: true)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateToday), name: .UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateToday), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     override func viewDidLoad()
@@ -158,7 +158,7 @@ class GameListViewController: UIViewController, GameListViewControllerType
         // If we are swiping, we don't want to move the pages again
         if !wasSwiped
         {
-            let direction: UIPageViewControllerNavigationDirection = date > self.date ? .forward : .reverse
+            let direction: UIPageViewController.NavigationDirection = date > self.date ? .forward : .reverse
             self.pageController?.setViewControllers([self.createGameTableView(date: date, league: self.league)], direction: direction, animated: true, completion: nil)
         }
         

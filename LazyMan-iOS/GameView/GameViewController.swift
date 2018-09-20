@@ -96,7 +96,7 @@ class GameViewController: UIViewController, GameViewControllerType
         self.playerVC?.player = player
         if !self.hidden
         {
-            try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try? AVAudioSession.sharedInstance().setCategory(convertFromAVAudioSessionCategory(AVAudioSession.Category.playback))
             player.play()
         }
     }
@@ -122,4 +122,9 @@ class GameViewController: UIViewController, GameViewControllerType
         self.playerVC?.player?.pause()
         self.hidden = true
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
 }
