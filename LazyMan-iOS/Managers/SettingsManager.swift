@@ -6,10 +6,22 @@
 //  Copyright © 2018 Nick Thompson. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class SettingsManager
-{
+protocol SettingsType {
+    var defaultLeague: League { get set }
+    var defaultQuality: Int { get set }
+    var defaultCDN: CDN { get set }
+    var favoriteNHLTeam: Team? { get set }
+    var favoriteMLBTeam: Team? { get set }
+    var versionUpdates: Bool { get set }
+    var betaUpdates: Bool { get set }
+}
+
+class SettingsManager: SettingsType {
+    
+    // MARK: - Shared
+    
     static let shared = SettingsManager()
     
     // MARK: - Persisted Properties
@@ -18,12 +30,10 @@ class SettingsManager
     var defaultLeague: League {
         get {
             if let value = UserDefaults.standard.string(forKey: defaultLeagueKey),
-                let league = League(rawValue: value)
-            {
+                let league = League(rawValue: value) {
                 return league
             }
-            else
-            {
+            else {
                 return .NHL
             }
         }
@@ -46,12 +56,10 @@ class SettingsManager
     var defaultCDN: CDN {
         get {
             if let value = UserDefaults.standard.string(forKey: defaultCDNKey),
-                let cdn = CDN(rawValue: value)
-            {
+                let cdn = CDN(rawValue: value) {
                 return cdn
             }
-            else
-            {
+            else {
                 return .Akamai
             }
         }
@@ -64,22 +72,18 @@ class SettingsManager
     var favoriteNHLTeam: Team? {
         get {
             if let value = UserDefaults.standard.string(forKey: favoriteNHLTeamKey),
-                let team = TeamManager.nhlTeams[value]
-            {
+                let team = TeamManager.nhlTeams[value] {
                 return team
             }
-            else
-            {
+            else {
                 return nil
             }
         }
         set {
-            if let newValue = newValue, newValue.league == .NHL
-            {
+            if let newValue = newValue, newValue.league == .NHL {
                 UserDefaults.standard.set(newValue.shortName, forKey: favoriteNHLTeamKey)
             }
-            else
-            {
+            else {
                 UserDefaults.standard.removeObject(forKey: favoriteNHLTeamKey)
             }
         }
@@ -89,46 +93,30 @@ class SettingsManager
     var favoriteMLBTeam: Team? {
         get {
             if let value = UserDefaults.standard.string(forKey: favoriteMLBTeamKey),
-                let team = TeamManager.mlbTeams[value]
-            {
+                let team = TeamManager.mlbTeams[value] {
                 return team
             }
-            else
-            {
+            else {
                 return nil
             }
         }
         set {
-            if let newValue = newValue, newValue.league == .MLB
-            {
+            if let newValue = newValue, newValue.league == .MLB {
                 UserDefaults.standard.set(newValue.shortName, forKey: favoriteMLBTeamKey)
             }
-            else
-            {
+            else {
                 UserDefaults.standard.removeObject(forKey: favoriteMLBTeamKey)
             }
-        }
-    }
-    
-    private let hostWarningsKey = "hostWarnings"
-    var hostWarnings: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: hostWarningsKey)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: hostWarningsKey)
         }
     }
     
     private let versionUpdatesKey = "versionUpdates"
     var versionUpdates: Bool {
         get {
-            if UserDefaults.standard.object(forKey: versionUpdatesKey) != nil
-            {
+            if UserDefaults.standard.object(forKey: versionUpdatesKey) != nil {
                 return UserDefaults.standard.bool(forKey: versionUpdatesKey)
             }
-            else
-            {
+            else {
                 return true
             }
         }
