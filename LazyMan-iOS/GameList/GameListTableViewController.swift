@@ -33,53 +33,64 @@ class GameListTableViewController: UITableViewController
         self.refreshControl?.addTarget(self, action: #selector(refreshPressed), for: .valueChanged)
         self.updateError(error: nil)
         
-        // Prefetches the games for this view, possibly before the list is visible. This is good for paging.
-        if let games = GameManager.manager.getGames(date: self.date, league: self.league)
-        {
-            self.games = games
-            self.tableView.reloadData()
-        }
-        else
-        {
-            GameManager.manager.reloadGames(date: self.date, league: self.league, completion: { (games) in
+//        // Prefetches the games for this view, possibly before the list is visible. This is good for paging.
+//        if let games = GameManager.manager.getGames(date: self.date, league: self.league)
+//        {
+//            self.games = games
+//            self.tableView.reloadData()
+//        }
+//        else
+//        {
+//            GameManager.manager.reloadGames(date: self.date, league: self.league, completion: { (games) in
+//                self.games = games
+//                self.tableView.reloadData()
+//            }) { (error) in
+//                self.updateError(error: error)
+//            }
+//        }
+        
+        GameManager.manager.getGames(date: self.date, league: self.league, reload: false) { result in
+            switch result {
+            case .success(let games):
                 self.games = games
                 self.tableView.reloadData()
-            }) { (error) in
-                self.updateError(error: error)
+            case .failure(let error):
+                self.updateError(error: error.localizedDescription)
             }
         }
+        
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
         
-        // Updates games silently to refresh time remaining. If the refresh fails it will keep existing data.
-        GameManager.manager.reloadGames(date: self.date, league: self.league, completion: { (games) in
-            self.games = games
-            self.tableView.reloadData()
-        }) { (error) in
-            if self.games == nil
-            {
-                self.updateError(error: error)
-            }
-        }
+//        // Updates games silently to refresh time remaining. If the refresh fails it will keep existing data.
+//        GameManager.manager.reloadGames(date: self.date, league: self.league, completion: { (games) in
+//            self.games = games
+//            self.tableView.reloadData()
+//        }) { (error) in
+//            if self.games == nil
+//            {
+//                self.updateError(error: error)
+//            }
+//        }
     }
     
     @objc private func refreshPressed()
     {
-        // Clears out the existing data, and reloads the games.
-        self.games = nil
-        self.tableView.reloadData()
-        self.updateError(error: nil)
-        GameManager.manager.reloadGames(date: self.date, league: self.league, completion: { (games) in
-            self.games = games
-            self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
-        }, error: { (error) in
-            self.updateError(error: error)
-            self.refreshControl?.endRefreshing()
-        })
+//        // Clears out the existing data, and reloads the games.
+//        self.games = nil
+//        self.tableView.reloadData()
+//        self.updateError(error: nil)
+//        GameManager.manager.reloadGames(date: self.date, league: self.league, completion: { (games) in
+//            self.games = games
+//            self.tableView.reloadData()
+//            self.refreshControl?.endRefreshing()
+//        }, error: { (error) in
+//            self.updateError(error: error)
+//            self.refreshControl?.endRefreshing()
+//        })
     }
     
     private func updateError(error: String?)

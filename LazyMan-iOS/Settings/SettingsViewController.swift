@@ -95,7 +95,7 @@ class SettingsViewController: UITableViewController
         
         if indexPath.section == 2 && indexPath.row == 2
         {
-            UpdateManager.checkUpdate(completion: self.showMessage, userPressed: true)
+//            UpdateManager.checkUpdate(completion: self.showMessage, userPressed: true)
         }
     }
     

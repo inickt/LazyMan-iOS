@@ -6,20 +6,27 @@
 //  Copyright © 2018 Nick Thompson. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import SwiftyJSON
 
-class UpdateManager
-{
-    // MARK: - Static private properties
+protocol UpdateType {
+    func checkUpdate(completion: () -> (String))
+}
+
+class UpdateManager {
     
-    static private let githubReleaseURL = URL(string: "https://api.github.com/repos/inickt/LazyMan-iOS/releases")!
+    // MARK: - Shared
+    
+    static let shared = UpdateManager()
+    
+    // MARK: - Private properties
+    
+    private let githubReleaseURL = URL(string: "https://api.github.com/repos/inickt/LazyMan-iOS/releases")!
     
     /**
      Checks for a current version update.
      */
-    static func checkUpdate(completion: @escaping ((String) -> ()), userPressed: Bool = false)
-    {
+    func checkUpdate(completion: @escaping ((String) -> ()), userPressed: Bool = false) {
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
         config.urlCache = nil

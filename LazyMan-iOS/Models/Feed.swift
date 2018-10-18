@@ -12,37 +12,40 @@ class Feed {
     
     // MARK: - Properties
     
-    let feedType: String
+    let feedType: FeedType
     let callLetters: String
     let feedName: String
     let playbackID: Int
     let league: League
-    let gameDate: String
-    let gameTime: Date
     var feedPlaylists: [FeedPlaylist]?
     
     // MARK: - Init
     
-    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, gameDate: String, gameTime: Date, feedPlaylists: [FeedPlaylist]? = nil) {
-        switch feedType {
-        case "HOME":
-            self.feedType = "Home"
-        case "AWAY":
-            self.feedType = "Away"
-        case "FRENCH":
-            self.feedType = "French"
-        case "NATIONAL":
-            self.feedType = "National"
-        default:
-            self.feedType = feedType
-        }
-        
+    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, feedPlaylists: [FeedPlaylist]? = nil) {
+        self.feedType = FeedType(feedType: feedType)
         self.callLetters = callLetters
         self.feedName = feedName
         self.playbackID = playbackID
         self.league = league
-        self.gameDate = gameDate
-        self.gameTime = gameTime
         self.feedPlaylists = feedPlaylists
+    }
+}
+
+enum FeedType {
+    case home, away, french, national, other(String)
+    
+    init(feedType: String) {
+        switch feedType {
+        case "HOME":
+            self = .home
+        case "AWAY":
+            self = .away
+        case "FRENCH":
+            self = .french
+        case "NATIONAL":
+            self = .national
+        default:
+            self = .other(feedType)
+        }
     }
 }

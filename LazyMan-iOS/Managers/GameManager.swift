@@ -10,8 +10,12 @@ import Foundation
 import SwiftyJSON
 import Pantomime
 
-class GameManager
-{
+protocol GameManagerType {
+    func getGames(date: Date, league: League, reload: Bool, completion: @escaping (Result<[Game], GameManagerError>) -> ())
+}
+
+class GameManager: GameManagerType {
+    
     // MARK: - Static private properties
     
     static private let nhlFormatURL = "https://statsapi.web.nhl.com/api/v1/schedule?date=%@&expand=schedule.teams,schedule.linescore,schedule.game.content.media.epg"
@@ -19,7 +23,7 @@ class GameManager
     
     // MARK: - Static public properties
     
-    static let manager = GameManager()
+    static let manager: GameManagerType = GameManager()
     
     // Mark: - Properties
     
@@ -52,180 +56,133 @@ class GameManager
     
     // MARK: - Public
     
-    func getGames(date: Date, league: League) -> [Game]?
-    {
-        switch league
-        {
+    func getGames(date: Date, league: League, reload: Bool, completion: @escaping (Result<[Game], GameManagerError>) -> ()) {
+        let stringDate = self.formatter.string(from: date)
+        
+        switch league {
         case .NHL:
-            return self.nhlGames[self.formatter.string(from: date)]
-            
+            self.nhlJSONLoader.load(date: stringDate) { (result) in
+                self.parseJsonResult(jsonResult: result, league: league, completion: completion)
+            }
         case .MLB:
-            return self.mlbGames[self.formatter.string(from: date)]
+            self.mlbJSONLoader.load(date: stringDate) { (result) in
+                self.parseJsonResult(jsonResult: result, league: league, completion: completion)
+            }
         }
     }
     
-    func reloadGames(date: Date, league: League, completion: (([Game]) -> ())?, error: @escaping ((String) -> ()))
-    {
-        switch league
-        {
-        case .NHL:
-            self.getNHLGames(date: self.formatter.string(from: date), completion: completion, errorCompletion: error)
-            
-        case .MLB:
-            self.getMLBGames(date: self.formatter.string(from: date), completion: completion, errorCompletion: error)
+    func parseJsonResult(jsonResult: Result<Data, StringError>, league: League, completion: @escaping (Result<[Game], GameManagerError>) -> ()) {
+        switch jsonResult {
+        case .failure(let error):
+            DispatchQueue.main.async {
+                completion(.failure(.jsonError(error.error)))
+            }
+        case .success(let jsonData):
+            switch self.getJSONGames(data: jsonData) {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            case .success(let jsonGames):
+                var games: [Game] = []
+                switch league {
+                case .NHL:
+                    games = self.nhlJSONtoGames(jsonGames: jsonGames)
+//                    games = self.nhlJSONtoGames(jsonGames: jsonGames)
+                case .MLB:
+                    games = self.mlbJSONtoGames(jsonGames: jsonGames)
+                }
+                DispatchQueue.main.async {
+                    completion(.success(games))
+                }
+            }
         }
     }
+    
+    
+    private func nhlJSONtoGames(jsonGames: [JSON]) -> [Game] {
+        var newGames: [Game] = []
+        
+        for nhlGame in jsonGames {
+            if let gameDate = self.gmtFormatter.date(from: nhlGame["gameDate"].stringValue),
+                let homeTeam = TeamManager.nhlTeams[nhlGame["teams"]["home"]["team"]["teamName"].stringValue],
+                let awayTeam = TeamManager.nhlTeams[nhlGame["teams"]["away"]["team"]["teamName"].stringValue]
+            {
+                var gameFeeds = [Feed]()
+                if let mediaFeeds = nhlGame["content"]["media"]["epg"].array, mediaFeeds.count > 0
+                {
+                    for mediaFeed in mediaFeeds[0]["items"].arrayValue
+                    {
+                        gameFeeds.append(Feed(feedType: mediaFeed["mediaFeedType"].stringValue,
+                                              callLetters: mediaFeed["callLetters"].stringValue,
+                                              feedName: mediaFeed["feedName"].stringValue,
+                                              playbackID: mediaFeed["mediaPlaybackId"].intValue,
+                                              league: League.NHL))
+                    }
+                }
+                
+                let gameState = GameState(abstractState: nhlGame["status"]["abstractGameState"].stringValue, detailedState: nhlGame["status"]["detailedState"].stringValue, startTimeTBD: nhlGame["status"]["startTimeTBD"].boolValue)
+                let liveGameState = gameState == .live ? "\(nhlGame["linescore"]["currentPeriodOrdinal"].stringValue) - \(nhlGame["linescore"]["currentPeriodTimeRemaining"].stringValue)" : nhlGame["status"]["detailedState"].stringValue
+                
+                newGames.appendOptional(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, liveGameState: liveGameState, feeds: gameFeeds))
+            }
+        }
+        
+        return newGames
+    }
+    
+    private func mlbJSONtoGames(jsonGames: [JSON]) -> [Game] {
+        var newGames: [Game] = []
+        
+        for mlbGame in jsonGames {
+            if let gameDate = self.gmtFormatter.date(from: mlbGame["gameDate"].stringValue),
+                let homeTeam = TeamManager.mlbTeams[mlbGame["teams"]["home"]["team"]["teamName"].stringValue],
+                let awayTeam = TeamManager.mlbTeams[mlbGame["teams"]["away"]["team"]["teamName"].stringValue]
+            {
+                var gameFeeds = [Feed]()
+                if let mediaFeeds = mlbGame["content"]["media"]["epg"].array, mediaFeeds.count > 0
+                {
+                    for mediaFeed in mediaFeeds[0]["items"].arrayValue
+                    {
+                        if mediaFeed["mediaFeedType"].stringValue.contains("IN_")
+                        {
+                            continue
+                        }
+                        gameFeeds.append(Feed(feedType: mediaFeed["mediaFeedType"].stringValue,
+                                              callLetters: mediaFeed["callLetters"].stringValue,
+                                              feedName: mediaFeed["feedName"].stringValue,
+                                              playbackID: mediaFeed["id"].intValue,
+                                              league: League.MLB))
+                    }
+                }
+                
+                let gameState = GameState(abstractState: mlbGame["status"]["abstractGameState"].stringValue, detailedState: mlbGame["status"]["detailedState"].stringValue, startTimeTBD: mlbGame["status"]["startTimeTBD"].boolValue)
+                let liveGameState = gameState == .live ? "\(mlbGame["linescore"]["currentInningOrdinal"].stringValue) - \(mlbGame["linescore"]["inningHalf"].stringValue)" : mlbGame["status"]["detailedState"].stringValue
+                
+                newGames.appendOptional(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, liveGameState: liveGameState, feeds: gameFeeds))
+            }
+        }
+        
+        return newGames
+    }
+    
     
     // MARK: - Private
     
-    private func getNHLGames(date: String, completion: (([Game]) -> ())?, errorCompletion: @escaping ((String) -> ()))
-    {
-        DispatchQueue.global(qos: .utility).async {
-            self.nhlJSONLoader.load(date: date, completion: { (jsonData) in
-                var newGames: [Game] = []
-                
-                self.getJSONGames(data: jsonData, completion: { (nhlGames) in
-                    for nhlGame in nhlGames
-                    {
-                        if let gameDate = self.gmtFormatter.date(from: nhlGame["gameDate"].stringValue),
-                            let homeTeam = TeamManager.nhlTeams[nhlGame["teams"]["home"]["team"]["teamName"].stringValue],
-                            let awayTeam = TeamManager.nhlTeams[nhlGame["teams"]["away"]["team"]["teamName"].stringValue]
-                        {
-                            var gameFeeds = [Feed]()
-                            if let mediaFeeds = nhlGame["content"]["media"]["epg"].array, mediaFeeds.count > 0
-                            {
-                                for mediaFeed in mediaFeeds[0]["items"].arrayValue
-                                {
-                                    gameFeeds.append(Feed(feedType: mediaFeed["mediaFeedType"].stringValue,
-                                                          callLetters: mediaFeed["callLetters"].stringValue,
-                                                          feedName: mediaFeed["feedName"].stringValue,
-                                                          playbackID: mediaFeed["mediaPlaybackId"].intValue,
-                                                          league: League.NHL,
-                                                          gameDate: date,
-                                                          gameTime: gameDate))
-                                }
-                            }
-                            
-                            let gameState = GameState(abstractState: nhlGame["status"]["abstractGameState"].stringValue, detailedState: nhlGame["status"]["detailedState"].stringValue, startTimeTBD: nhlGame["status"]["startTimeTBD"].boolValue)
-                            let liveGameState = gameState == .live ? "\(nhlGame["linescore"]["currentPeriodOrdinal"].stringValue) - \(nhlGame["linescore"]["currentPeriodTimeRemaining"].stringValue)" : nhlGame["status"]["detailedState"].stringValue
-                            
-                            newGames.appendOptional(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, liveGameState: liveGameState, feeds: gameFeeds))
-                        }
-                    }
-                    
-                    guard newGames.count > 0 else
-                    {
-                        DispatchQueue.main.async {
-                            errorCompletion("There are no games today.")
-                        }
-                        return
-                    }
-                    
-                    newGames.sort()
-                    
-                    self.nhlGames[date] = newGames
-                    DispatchQueue.main.async {
-                        completion?(newGames)
-                    }
-                }, errorCompletion: errorCompletion)
-            }, error: { (error) in
-                DispatchQueue.main.async {
-                    errorCompletion(error)
-                }
-            })
-        }
-    }
-    
-    private func getMLBGames(date: String, completion: (([Game]) -> ())?, errorCompletion: @escaping ((String) -> ()))
-    {
-        DispatchQueue.global(qos: .utility).async {
-            self.mlbJSONLoader.load(date: date, completion: { (jsonData) in
-                var newGames: [Game] = []
-                
-                self.getJSONGames(data: jsonData, completion: { (mlbGames) in
-                    for mlbGame in mlbGames
-                    {
-                        if let gameDate = self.gmtFormatter.date(from: mlbGame["gameDate"].stringValue),
-                            let homeTeam = TeamManager.mlbTeams[mlbGame["teams"]["home"]["team"]["teamName"].stringValue],
-                            let awayTeam = TeamManager.mlbTeams[mlbGame["teams"]["away"]["team"]["teamName"].stringValue]
-                        {
-                            var gameFeeds = [Feed]()
-                            if let mediaFeeds = mlbGame["content"]["media"]["epg"].array, mediaFeeds.count > 0
-                            {
-                                for mediaFeed in mediaFeeds[0]["items"].arrayValue
-                                {
-                                    if mediaFeed["mediaFeedType"].stringValue.contains("IN_")
-                                    {
-                                        continue
-                                    }
-                                    
-                                    gameFeeds.append(Feed(feedType: mediaFeed["mediaFeedType"].stringValue,
-                                                          callLetters: mediaFeed["callLetters"].stringValue,
-                                                          feedName: mediaFeed["feedName"].stringValue,
-                                                          playbackID: mediaFeed["id"].intValue,
-                                                          league: League.MLB,
-                                                          gameDate: date,
-                                                          gameTime: gameDate))
-                                }
-                            }
-                            
-                            let gameState = GameState(abstractState: mlbGame["status"]["abstractGameState"].stringValue, detailedState: mlbGame["status"]["detailedState"].stringValue, startTimeTBD: mlbGame["status"]["startTimeTBD"].boolValue)
-                            let liveGameState = gameState == .live ? "\(mlbGame["linescore"]["currentInningOrdinal"].stringValue) - \(mlbGame["linescore"]["inningHalf"].stringValue)" : mlbGame["status"]["detailedState"].stringValue
-                            
-                            newGames.appendOptional(Game(homeTeam: homeTeam, awayTeam: awayTeam, startTime: gameDate, gameState: gameState, liveGameState: liveGameState, feeds: gameFeeds))
-                        }
-                    }
-                    
-                    guard newGames.count > 0 else
-                    {
-                        DispatchQueue.main.async {
-                            errorCompletion("There are no games today.")
-                        }
-                        return
-                    }
-                    
-                    newGames.sort()
-                    
-                    self.mlbGames[date] = newGames
-                    DispatchQueue.main.async {
-                        completion?(newGames)
-                    }
-                }, errorCompletion: errorCompletion)
-            }, error: { (error) in
-                DispatchQueue.main.async {
-                    errorCompletion(error)
-                }
-            })
-        }
-    }
-    
-    private func getJSONGames(data: Data, completion: ([JSON]) -> (), errorCompletion: @escaping ((String) -> ()))
-    {
-        guard let json = try? JSON(data: data).dictionaryValue else
-        {
-            DispatchQueue.main.async {
-                errorCompletion("Error parsing JSON data.")
-            }
-            return
+    private func getJSONGames(data: Data) -> Result<[JSON], GameManagerError> {
+        guard let json = try? JSON(data: data).dictionaryValue else {
+            return .failure(.jsonError("Error parsing JSON data."))
         }
         
-        guard let numGames = json["totalItems"]?.int, numGames > 0 else
-        {
-            DispatchQueue.main.async {
-                errorCompletion("There are no games today.")
-            }
-            return
+        guard let numGames = json["totalItems"]?.int, numGames > 0 else {
+            return .failure(.noGames)
         }
         
-        guard let games = json["dates"]?[0]["games"].array else
-        {
-            DispatchQueue.main.async {
-                errorCompletion("Error parsing JSON game array data.")
-            }
-            return
+        guard let games = json["dates"]?[0]["games"].array else {
+            return .failure(.jsonError("Error parsing JSON game array data."))
         }
         
-        completion(games)
+        return .success(games)
     }
 }
 
@@ -235,4 +192,8 @@ fileprivate extension Array {
             self.append(newElement)
         }
     }
+}
+
+enum GameManagerError: Error {
+    case noGames, jsonError(String)
 }

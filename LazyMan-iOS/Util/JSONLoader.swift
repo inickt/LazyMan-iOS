@@ -6,20 +6,22 @@
 //  Copyright © 2018 Nick Thompson. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-protocol JSONLoader
-{
-    func load(date: String, completion: @escaping (Data) -> (), error: ((String) -> ())?)
+protocol JSONLoader {
+    func load(date: String, completion: @escaping ((Result<Data, StringError>) -> ()))
 }
 
-class JSONWebLoader: JSONLoader
-{
+class JSONWebLoader: JSONLoader {
+    
+    // MARK: - Private
+    
     private let dateFormatURL: String
     private let session: URLSession
     
-    init(dateFormatURL: String)
-    {
+    // MARK: - Initialization
+    
+    init(dateFormatURL: String) {
         self.dateFormatURL = dateFormatURL
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
@@ -27,56 +29,55 @@ class JSONWebLoader: JSONLoader
         self.session = URLSession(configuration: config)
     }
     
-    func load(date: String, completion: @escaping (Data) -> (), error: ((String) -> ())?)
-    {
-        guard let url = URL(string: String(format: self.dateFormatURL, date)) else
-        {
-            error?("Could not create URL for \(self.dateFormatURL) on \(date)")
+    // MARK: - JSONLoader
+    
+    func load(date: String, completion: @escaping ((Result<Data, StringError>) -> ())) {
+        guard let url = URL(string: String(format: self.dateFormatURL, date)) else {
+            completion(.failure(StringError("Could not create URL for \(self.dateFormatURL) on \(date)")))
             return
         }
         
         self.session.dataTask(with: url) { (taskData, taskResponse, taskError) in
-            guard let taskData = taskData else
-            {
-                if let taskError = taskError
-                {
-                    error?(taskError.localizedDescription)
+            guard let taskData = taskData else {
+                if let taskError = taskError {
+                    completion(.failure(StringError(taskError.localizedDescription)))
                 }
-                else
-                {
-                    error?("Unknown error loading data from \(url.absoluteString)")
+                else {
+                    completion(.failure(StringError(("Unknown error loading data from \(url.absoluteString)"))))
                 }
                 return
             }
             
-            completion(taskData)
+            completion(.success(taskData))
         }.resume()
     }
 }
 
-class JSONFileLoader: JSONLoader
-{
+class JSONFileLoader: JSONLoader {
+    
+    // MARK: - Private
+    
     private let filename: String
     
-    init(filename: String)
-    {
+    // MARK: - Initialization
+    
+    init(filename: String) {
         self.filename = filename
     }
     
-    func load(date: String, completion: @escaping (Data) -> (), error: ((String) -> ())?)
-    {
-        guard let filenamePath = Bundle.main.path(forResource: "\(self.filename)", ofType: "json") else
-        {
-            error?("File \(self.filename).json does not exist.")
+    // MARK: - JSONLoader
+    
+    func load(date: String, completion: @escaping ((Result<Data, StringError>) -> ())) {
+        guard let filenamePath = Bundle.main.path(forResource: "\(self.filename)", ofType: "json") else {
+            completion(.failure(StringError("File \(self.filename).json does not exist.")))
             return
         }
         
-        guard let fileData = try? Data(contentsOf: URL(fileURLWithPath: filenamePath)) else
-        {
-            error?("File \(self.filename).json could not be loaded.")
+        guard let fileData = try? Data(contentsOf: URL(fileURLWithPath: filenamePath)) else {
+            completion(.failure(StringError("File \(self.filename).json could not be loaded.")))
             return
         }
         
-        completion(fileData)
+        completion(.success(fileData))
     }
 }

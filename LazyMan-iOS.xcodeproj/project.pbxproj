@@ -36,6 +36,7 @@
 		01BE535B212770AA00F08401 /* CDN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE535A212770AA00F08401 /* CDN.swift */; };
 		01BE535D2127720400F08401 /* FeedPlaylistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE535C2127720400F08401 /* FeedPlaylistManager.swift */; };
 		01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */; };
+		01D47B552160650E000DE0D5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D47B542160650E000DE0D5 /* Result.swift */; };
 		01DC7B952092530A003C311A /* GameListTableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7B942092530A003C311A /* GameListTableBackgroundView.swift */; };
 		01DC7B9720925325003C311A /* GameListTableBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */; };
 		01DC7B9F2092BE6B003C311A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7B9E2092BE6B003C311A /* SettingsViewController.swift */; };
@@ -81,6 +82,7 @@
 		01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlaylist.swift; sourceTree = "<group>"; };
 		01D0F3C92061CFAA008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameList.storyboard; sourceTree = "<group>"; };
 		01D0F3CA2061CFB9008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game.storyboard; sourceTree = "<group>"; };
+		01D47B542160650E000DE0D5 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		01DC7B942092530A003C311A /* GameListTableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTableBackgroundView.swift; sourceTree = "<group>"; };
 		01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListTableBackgroundView.xib; sourceTree = "<group>"; };
 		01DC7B9E2092BE6B003C311A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -129,8 +131,8 @@
 		012CB8AD203A3E7C00E76740 /* LazyMan-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				01DC7B9B2092BB99003C311A /* Settings */,
 				01DC7B99209293F1003C311A /* Managers */,
+				01DC7B9B2092BB99003C311A /* Settings */,
 				01DC7B98209293A8003C311A /* Models */,
 				019387BB2081396400D1CDBC /* Example Schedules */,
 				0179AEBE2076BC3600539C6D /* Util */,
@@ -177,6 +179,7 @@
 				019387BC2082C87600D1CDBC /* DatePickerViewController.swift */,
 				0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */,
 				01AF56CD20A52E250027DCCD /* Constants.swift */,
+				01D47B542160650E000DE0D5 /* Result.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				019387BD2082C87600D1CDBC /* DatePickerViewController.swift in Sources */,
 				0106F1822152F8C0007AD290 /* League.swift in Sources */,
 				01434A762040DAA70094E221 /* GameViewController.swift in Sources */,
+				01D47B552160650E000DE0D5 /* Result.swift in Sources */,
 				01ABFDBC20545C68005D57C5 /* Feed.swift in Sources */,
 				015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */,
 				013CF1F220901A30001A24EC /* GameListTableViewController.swift in Sources */,

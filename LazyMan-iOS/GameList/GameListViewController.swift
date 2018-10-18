@@ -96,7 +96,7 @@ class GameListViewController: UIViewController, GameListViewControllerType
         super.viewDidLoad()
         if SettingsManager.shared.versionUpdates
         {
-            UpdateManager.checkUpdate(completion: self.showMessage)
+//            UpdateManager.checkUpdate(completion: self.showMessage)
         }
     }
     

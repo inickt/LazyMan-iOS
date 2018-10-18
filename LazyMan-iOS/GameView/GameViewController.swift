@@ -96,7 +96,7 @@ class GameViewController: UIViewController, GameViewControllerType
         self.playerVC?.player = player
         if !self.hidden
         {
-            try? AVAudioSession.sharedInstance().setCategory(convertFromAVAudioSessionCategory(AVAudioSession.Category.playback))
+//            try? AVAudioSession.sharedInstance().setCategory(convertFromAVAudioSessionCategory(AVAudioSession.Category.playback))
             player.play()
         }
     }
