@@ -11,7 +11,7 @@ import SwiftyJSON
 import Pantomime
 
 protocol GameManagerType {
-    func getGames(date: Date, league: League, reload: Bool, completion: @escaping (Result<[Game], GameManagerError>) -> ())
+    func getGames(date: Date, league: League, ignoreCache: Bool, completion: @escaping (Result<[Game], GameManagerError>) -> ())
 }
 
 class GameManager: GameManagerType {
@@ -56,49 +56,75 @@ class GameManager: GameManagerType {
     
     // MARK: - Public
     
-    func getGames(date: Date, league: League, reload: Bool, completion: @escaping (Result<[Game], GameManagerError>) -> ()) {
+    func getGames(date: Date, league: League, ignoreCache: Bool, completion: @escaping (Result<[Game], GameManagerError>) -> ()) {
+        if !ignoreCache {
+            switch league {
+            case .NHL:
+                if let games = self.nhlGames[self.formatter.string(from: date)] {
+                    completion(.success(games))
+                    return
+                }
+            case .MLB:
+                if let games = self.mlbGames[self.formatter.string(from: date)] {
+                    completion(.success(games))
+                    return
+                }
+            }
+        }
+        else {
+            switch league {
+            case .NHL:
+                self.nhlGames[self.formatter.string(from: date)] = nil
+            case .MLB:
+                self.mlbGames[self.formatter.string(from: date)] = nil
+            }
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            switch self.loadJson(from: league, for: date) {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    completion(.failure(.jsonError(error.error)))
+                }
+            case .success(let json):
+                let result = self.parseJson(json: json, league: league, date: self.formatter.string(from: date))
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            }
+        }
+    }
+    
+    func loadJson(from league: League, for date: Date) -> Result<JSON, StringError>{
         let stringDate = self.formatter.string(from: date)
         
         switch league {
         case .NHL:
-            self.nhlJSONLoader.load(date: stringDate) { (result) in
-                self.parseJsonResult(jsonResult: result, league: league, completion: completion)
-            }
+            return self.nhlJSONLoader.load(date: stringDate)
         case .MLB:
-            self.mlbJSONLoader.load(date: stringDate) { (result) in
-                self.parseJsonResult(jsonResult: result, league: league, completion: completion)
-            }
+            return self.mlbJSONLoader.load(date: stringDate)
         }
     }
     
-    func parseJsonResult(jsonResult: Result<Data, StringError>, league: League, completion: @escaping (Result<[Game], GameManagerError>) -> ()) {
-        switch jsonResult {
+    func parseJson(json: JSON, league: League, date: String) -> Result<[Game], GameManagerError> {
+
+        switch self.getJSONGames(json: json) {
         case .failure(let error):
-            DispatchQueue.main.async {
-                completion(.failure(.jsonError(error.error)))
+                return .failure(error)
+        case .success(let jsonGames):
+            var games: [Game] = []
+            switch league {
+            case .NHL:
+                games = self.nhlJSONtoGames(jsonGames: jsonGames)
+                self.nhlGames[date] = games
+            case .MLB:
+                games = self.mlbJSONtoGames(jsonGames: jsonGames)
+                self.mlbGames[date] = games
             }
-        case .success(let jsonData):
-            switch self.getJSONGames(data: jsonData) {
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    completion(.failure(error))
-                }
-            case .success(let jsonGames):
-                var games: [Game] = []
-                switch league {
-                case .NHL:
-                    games = self.nhlJSONtoGames(jsonGames: jsonGames)
-//                    games = self.nhlJSONtoGames(jsonGames: jsonGames)
-                case .MLB:
-                    games = self.mlbJSONtoGames(jsonGames: jsonGames)
-                }
-                DispatchQueue.main.async {
-                    completion(.success(games))
-                }
-            }
+            
+            return .success(games)
         }
     }
-    
     
     private func nhlJSONtoGames(jsonGames: [JSON]) -> [Game] {
         var newGames: [Game] = []
@@ -169,16 +195,12 @@ class GameManager: GameManagerType {
     
     // MARK: - Private
     
-    private func getJSONGames(data: Data) -> Result<[JSON], GameManagerError> {
-        guard let json = try? JSON(data: data).dictionaryValue else {
-            return .failure(.jsonError("Error parsing JSON data."))
-        }
-        
-        guard let numGames = json["totalItems"]?.int, numGames > 0 else {
+    private func getJSONGames(json: JSON) -> Result<[JSON], GameManagerError> {
+        guard let numGames = json["totalItems"].int, numGames > 0 else {
             return .failure(.noGames)
         }
         
-        guard let games = json["dates"]?[0]["games"].array else {
+        guard let games = json["dates"][0]["games"].array else {
             return .failure(.jsonError("Error parsing JSON game array data."))
         }
         
@@ -195,5 +217,5 @@ fileprivate extension Array {
 }
 
 enum GameManagerError: Error {
-    case noGames, jsonError(String)
+    case noGames, jsonError(String), notLoaded
 }

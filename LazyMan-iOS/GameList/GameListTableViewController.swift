@@ -8,19 +8,22 @@
 
 import UIKit
 
-class GameListTableViewController: UITableViewController
-{
+class GameListTableViewController: UITableViewController {
+    
     // MARK: - Properties
     
     weak var gameListView: GameListViewControllerType?
     var date: Date!
     var league: League!
-    private var games: [Game]?
+    private var games: [Game]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     // MARK: - Lifecycle
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         // Replace the background view with custom view with error label
@@ -33,80 +36,64 @@ class GameListTableViewController: UITableViewController
         self.refreshControl?.addTarget(self, action: #selector(refreshPressed), for: .valueChanged)
         self.updateError(error: nil)
         
-//        // Prefetches the games for this view, possibly before the list is visible. This is good for paging.
-//        if let games = GameManager.manager.getGames(date: self.date, league: self.league)
-//        {
-//            self.games = games
-//            self.tableView.reloadData()
-//        }
-//        else
-//        {
-//            GameManager.manager.reloadGames(date: self.date, league: self.league, completion: { (games) in
-//                self.games = games
-//                self.tableView.reloadData()
-//            }) { (error) in
-//                self.updateError(error: error)
-//            }
-//        }
-        
-        GameManager.manager.getGames(date: self.date, league: self.league, reload: false) { result in
+        GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: false) { result in
             switch result {
             case .success(let games):
                 self.games = games
-                self.tableView.reloadData()
             case .failure(let error):
                 self.updateError(error: error.localizedDescription)
             }
         }
-        
     }
     
-    override func viewDidAppear(_ animated: Bool)
-    {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        // Updates games silently to refresh time remaining. If the refresh fails it will keep existing data.
-//        GameManager.manager.reloadGames(date: self.date, league: self.league, completion: { (games) in
-//            self.games = games
-//            self.tableView.reloadData()
-//        }) { (error) in
-//            if self.games == nil
-//            {
-//                self.updateError(error: error)
-//            }
-//        }
+        // Updates games silently to refresh time remaining. If the refresh fails it will keep existing data.
+        GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: false) { result in
+            switch result {
+            case .success(let games):
+                self.games = games
+            case .failure(let error):
+                if self.games == nil {
+                    self.updateError(error: error.localizedDescription)
+                }
+            }
+        }
     }
     
-    @objc private func refreshPressed()
-    {
-//        // Clears out the existing data, and reloads the games.
-//        self.games = nil
-//        self.tableView.reloadData()
-//        self.updateError(error: nil)
-//        GameManager.manager.reloadGames(date: self.date, league: self.league, completion: { (games) in
-//            self.games = games
-//            self.tableView.reloadData()
-//            self.refreshControl?.endRefreshing()
-//        }, error: { (error) in
-//            self.updateError(error: error)
-//            self.refreshControl?.endRefreshing()
-//        })
+    // MARK: - Private
+    
+    @objc private func refreshPressed() {
+        // Clears out the existing data, and reloads the games.
+        self.games = nil
+        self.updateError(error: nil)
+        
+        GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: true) { result in
+            switch result {
+            case .success(let games):
+                self.games = games
+                self.refreshControl?.endRefreshing()
+            case .failure(let error):
+                if self.games == nil {
+                    self.updateError(error: error.localizedDescription)
+                    self.refreshControl?.endRefreshing()
+                }
+            }
+        }
     }
     
-    private func updateError(error: String?)
-    {
+    private func updateError(error: String?) {
         (self.tableView.backgroundView as? GameListTableBackgroundView)?.errorLabel.text = error
     }
-
+    
     // MARK: - Table view data source
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.games?.count ?? 0
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? GameTableViewCell,
             let games = self.games,
             games.count > indexPath.row
@@ -119,15 +106,13 @@ class GameListTableViewController: UITableViewController
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showGame",
             let navController = segue.destination as? UINavigationController,
             let gameVC = navController.topViewController as? GameViewController,
