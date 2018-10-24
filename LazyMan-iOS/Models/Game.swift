@@ -107,6 +107,6 @@ extension Game: Comparable {
     }
     
     static func == (lhs: Game, rhs: Game) -> Bool {
-        return lhs.awayTeam == rhs.awayTeam && lhs.startTime == rhs.startTime
+        return lhs.awayTeam == rhs.awayTeam && lhs.homeTeam == rhs.homeTeam && lhs.startTime == rhs.startTime
     }
 }

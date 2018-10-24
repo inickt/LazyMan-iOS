@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Feed {
+class Feed: Hashable {
     
     // MARK: - Properties
     
@@ -17,17 +17,27 @@ class Feed {
     let feedName: String
     let playbackID: Int
     let league: League
-    var feedPlaylists: [FeedPlaylist]?
+    let date: Date
     
     // MARK: - Init
     
-    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, feedPlaylists: [FeedPlaylist]? = nil) {
+    init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, date: Date) {
         self.feedType = FeedType(feedType: feedType)
         self.callLetters = callLetters
         self.feedName = feedName
         self.playbackID = playbackID
         self.league = league
-        self.feedPlaylists = feedPlaylists
+        self.date = date
+    }
+    
+    // MARK: - Hashable
+    
+    static func == (lhs: Feed, rhs: Feed) -> Bool {
+        return lhs.playbackID == rhs.playbackID && lhs.league == rhs.league && lhs.date == rhs.date
+    }
+    
+    var hashValue: Int {
+        return self.playbackID
     }
 }
 

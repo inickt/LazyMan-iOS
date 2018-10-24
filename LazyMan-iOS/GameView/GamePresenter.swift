@@ -35,15 +35,28 @@ class GamePresenter: NSObject, GamePresenterType
     var qualitySelector: GameOptionSelector<FeedPlaylist>?
     let feedSelector: GameOptionSelector<Feed>
     let cdnSelector: GameOptionSelector<CDN>
+
+    var qualities = [FeedPlaylist]()
+    var feeds = [Feed]()
+    let cdns = [CDN.Akamai, CDN.Level3]
     
+    
+    var selectedQuality: FeedPlaylist?
+    var selectedFeed: Feed?
+    var selectedCDN: CDN
+    
+    private let settingsManager: SettingsType
     private let cdnOptions = [CDN.Akamai, CDN.Level3]
     
-    init(game: Game)
+    init(game: Game, settingsManager: SettingsType = SettingsManager.shared)
     {
         self.game = game
+        self.settingsManager = settingsManager
         
         self.cdnSelector = GameOptionSelector<CDN>(objects: [CDN.Akamai, CDN.Level3])
         self.feedSelector = GameOptionSelector<Feed>(objects: game.feeds)
+        
+        self.selectedCDN = self.settingsManager.defaultCDN
         
         super.init()
         
@@ -51,14 +64,12 @@ class GamePresenter: NSObject, GamePresenterType
         self.feedSelector.onSelection = self.feedSelected
     }
     
-    func viewDidLoad()
-    {
+    func viewDidLoad() {
         self.cdnSelector.select(index: SettingsManager.shared.defaultCDN == .Akamai ? 0 : 1)
         if self.feedSelector.count > 0 { self.feedSelector.select(index: 0) }
     }
     
-    func viewWillAppear()
-    {
+    func viewWillAppear() {
         self.gameView?.gameTitle = "\(self.game.awayTeam.shortName) at \(self.game.homeTeam.shortName)"
     }
     

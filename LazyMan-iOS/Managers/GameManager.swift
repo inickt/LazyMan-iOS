@@ -143,7 +143,8 @@ class GameManager: GameManagerType {
                                               callLetters: mediaFeed["callLetters"].stringValue,
                                               feedName: mediaFeed["feedName"].stringValue,
                                               playbackID: mediaFeed["mediaPlaybackId"].intValue,
-                                              league: League.NHL))
+                                              league: League.NHL,
+                                              date: gameDate))
                     }
                 }
                 
@@ -170,15 +171,15 @@ class GameManager: GameManagerType {
                 {
                     for mediaFeed in mediaFeeds[0]["items"].arrayValue
                     {
-                        if mediaFeed["mediaFeedType"].stringValue.contains("IN_")
-                        {
+                        if mediaFeed["mediaFeedType"].stringValue.contains("IN_") {
                             continue
                         }
                         gameFeeds.append(Feed(feedType: mediaFeed["mediaFeedType"].stringValue,
                                               callLetters: mediaFeed["callLetters"].stringValue,
                                               feedName: mediaFeed["feedName"].stringValue,
                                               playbackID: mediaFeed["id"].intValue,
-                                              league: League.MLB))
+                                              league: League.MLB,
+                                              date: gameDate))
                     }
                 }
                 
