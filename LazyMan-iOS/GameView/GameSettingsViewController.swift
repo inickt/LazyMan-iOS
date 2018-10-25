@@ -30,10 +30,10 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
     
     // MARK: - Navigation
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool
-    {
-        return !(identifier == "gameOptionQuality" && self.presenter.qualitySelector == nil)
-    }
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool
+//    {
+//        return !(identifier == "gameOptionQuality" && self.presenter.qualitySelector == nil)
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {

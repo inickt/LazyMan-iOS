@@ -33,6 +33,7 @@
 		019EA59B203E6FF8000149A3 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EA59A203E6FF8000149A3 /* Team.swift */; };
 		01ABFDBC20545C68005D57C5 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ABFDBB20545C68005D57C5 /* Feed.swift */; };
 		01AF56CE20A52E250027DCCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF56CD20A52E250027DCCD /* Constants.swift */; };
+		01B6BC732182623F00822856 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B6BC722182623F00822856 /* DateUtils.swift */; };
 		01BE535B212770AA00F08401 /* CDN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE535A212770AA00F08401 /* CDN.swift */; };
 		01BE535D2127720400F08401 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE535C2127720400F08401 /* FeedManager.swift */; };
 		01D0F3C3205DBA8B008174EC /* FeedPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */; };
@@ -77,6 +78,7 @@
 		019EA59A203E6FF8000149A3 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		01ABFDBB20545C68005D57C5 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		01AF56CD20A52E250027DCCD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		01B6BC722182623F00822856 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		01BE535A212770AA00F08401 /* CDN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDN.swift; sourceTree = "<group>"; };
 		01BE535C2127720400F08401 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		01D0F3C2205DBA8B008174EC /* FeedPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlaylist.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */,
 				01AF56CD20A52E250027DCCD /* Constants.swift */,
 				01D47B542160650E000DE0D5 /* Result.swift */,
+				01B6BC722182623F00822856 /* DateUtils.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				01D47B552160650E000DE0D5 /* Result.swift in Sources */,
 				01ABFDBC20545C68005D57C5 /* Feed.swift in Sources */,
 				015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */,
+				01B6BC732182623F00822856 /* DateUtils.swift in Sources */,
 				013CF1F220901A30001A24EC /* GameListTableViewController.swift in Sources */,
 				01E593CA204B03F800CE338A /* GameManager.swift in Sources */,
 				01E593CE204B07E400CE338A /* Game.swift in Sources */,

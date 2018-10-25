@@ -8,7 +8,6 @@
 
 import Foundation
 import SwiftyJSON
-import Pantomime
 
 protocol GameManagerType {
     func getGames(date: Date, league: League, ignoreCache: Bool, completion: @escaping (Result<[Game], GameManagerError>) -> ())
@@ -30,9 +29,6 @@ class GameManager: GameManagerType {
     private var nhlGames = [String : [Game]]()
     private var mlbGames = [String : [Game]]()
     
-    private let formatter = DateFormatter()
-    private let gmtFormatter = DateFormatter()
-    
     private let nhlJSONLoader: JSONLoader
     private let mlbJSONLoader: JSONLoader
     
@@ -42,16 +38,9 @@ class GameManager: GameManagerType {
     // init(nhlJSONLoader: JSONLoader = JSONFileLoader(filename: "nhlschedule2018-04-05"),
     //      mlbJSONLoader: JSONLoader = JSONFileLoader(filename: "mlbschedule2018-04-05"))
     init(nhlJSONLoader: JSONLoader = JSONWebLoader(dateFormatURL: nhlFormatURL),
-         mlbJSONLoader: JSONLoader = JSONWebLoader(dateFormatURL: mlbFormatURL))
-    {
+         mlbJSONLoader: JSONLoader = JSONWebLoader(dateFormatURL: mlbFormatURL)) {
         self.nhlJSONLoader = nhlJSONLoader
         self.mlbJSONLoader = mlbJSONLoader
-        
-        self.formatter.dateFormat = "yyyy-MM-dd"
-        
-        self.gmtFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        self.gmtFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        self.gmtFormatter.locale = Locale(identifier: "en_US_POSIX")
     }
     
     // MARK: - Public
@@ -60,12 +49,12 @@ class GameManager: GameManagerType {
         if !ignoreCache {
             switch league {
             case .NHL:
-                if let games = self.nhlGames[self.formatter.string(from: date)] {
+                if let games = self.nhlGames[DateUtils.convertToYYYYMMDD(from: date)] {
                     completion(.success(games))
                     return
                 }
             case .MLB:
-                if let games = self.mlbGames[self.formatter.string(from: date)] {
+                if let games = self.mlbGames[DateUtils.convertToYYYYMMDD(from: date)] {
                     completion(.success(games))
                     return
                 }
@@ -74,9 +63,9 @@ class GameManager: GameManagerType {
         else {
             switch league {
             case .NHL:
-                self.nhlGames[self.formatter.string(from: date)] = nil
+                self.nhlGames[DateUtils.convertToYYYYMMDD(from: date)] = nil
             case .MLB:
-                self.mlbGames[self.formatter.string(from: date)] = nil
+                self.mlbGames[DateUtils.convertToYYYYMMDD(from: date)] = nil
             }
         }
         
@@ -87,7 +76,7 @@ class GameManager: GameManagerType {
                     completion(.failure(.jsonError(error.error)))
                 }
             case .success(let json):
-                let result = self.parseJson(json: json, league: league, date: self.formatter.string(from: date))
+                let result = self.parseJson(json: json, league: league, date: DateUtils.convertToYYYYMMDD(from: date))
                 DispatchQueue.main.async {
                     completion(result)
                 }
@@ -96,7 +85,7 @@ class GameManager: GameManagerType {
     }
     
     func loadJson(from league: League, for date: Date) -> Result<JSON, StringError>{
-        let stringDate = self.formatter.string(from: date)
+        let stringDate = DateUtils.convertToYYYYMMDD(from: date)
         
         switch league {
         case .NHL:
@@ -130,7 +119,7 @@ class GameManager: GameManagerType {
         var newGames: [Game] = []
         
         for nhlGame in jsonGames {
-            if let gameDate = self.gmtFormatter.date(from: nhlGame["gameDate"].stringValue),
+            if let gameDate = DateUtils.convertGMTtoDate(from: nhlGame["gameDate"].stringValue),
                 let homeTeam = TeamManager.nhlTeams[nhlGame["teams"]["home"]["team"]["teamName"].stringValue],
                 let awayTeam = TeamManager.nhlTeams[nhlGame["teams"]["away"]["team"]["teamName"].stringValue]
             {
@@ -162,7 +151,7 @@ class GameManager: GameManagerType {
         var newGames: [Game] = []
         
         for mlbGame in jsonGames {
-            if let gameDate = self.gmtFormatter.date(from: mlbGame["gameDate"].stringValue),
+            if let gameDate = DateUtils.convertGMTtoDate(from: mlbGame["gameDate"].stringValue),
                 let homeTeam = TeamManager.mlbTeams[mlbGame["teams"]["home"]["team"]["teamName"].stringValue],
                 let awayTeam = TeamManager.mlbTeams[mlbGame["teams"]["away"]["team"]["teamName"].stringValue]
             {
