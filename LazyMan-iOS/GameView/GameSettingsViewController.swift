@@ -37,25 +37,30 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if let id = segue.identifier
-        {
+        if let id = segue.identifier {
+            let settingsOptions = segue.destination as? GameSettingsOptionsViewController
             
-            
-            switch id
-            {
+            switch id {
             case "gameOptionCDN":
                 segue.destination.title = "CDN"
-                let settingsOptions = segue.destination as? GameSettingsOptionsViewController<CDN>
-                settingsOptions?.optionSelector = ObjectSelector(objects: [.Akamai, .Level3])
-//                settingsOptions?.opetionSelector = self.presenter.cdnSelector
+                settingsOptions?.presenter = GameSettingsOptionsPresenter(objects: self.presenter.cdnOptions.options,
+                                                                              selected: self.presenter.cdnOptions.selected,
+                                                                              type: .cdn,
+                                                                              delegate: self.presenter)
                 
             case "gameOptionQuality":
                 segue.destination.title = "Quality"
-//                settingsOptions?.opetionSelector = self.presenter.qualitySelector
+                settingsOptions?.presenter = GameSettingsOptionsPresenter(objects: self.presenter.playlistOptions.options,
+                                                                          selected: self.presenter.playlistOptions.selected,
+                                                                          type: .playlist,
+                                                                          delegate: self.presenter)
                 
             case "gameOptionFeed":
                 segue.destination.title = "Feed"
-//                settingsOptions?.opetionSelector = self.presenter.feedSelector
+                settingsOptions?.presenter = GameSettingsOptionsPresenter(objects: self.presenter.feedOptions.options,
+                                                                          selected: self.presenter.feedOptions.selected,
+                                                                          type: .feed,
+                                                                          delegate: self.presenter)
                 
             default:
                 return

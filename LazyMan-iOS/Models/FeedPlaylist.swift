@@ -52,3 +52,12 @@ struct FeedPlaylist {
         }
     }
 }
+
+extension FeedPlaylist: Equatable {
+    static func == (lhs: FeedPlaylist, rhs: FeedPlaylist) -> Bool {
+        return lhs.url == rhs.url
+            && lhs.quality == rhs.quality
+            && lhs.bandwidth == rhs.bandwidth
+            && lhs.framerate == rhs.framerate
+    }
+}

@@ -71,9 +71,6 @@ class Game {
         }
     }
     let league: League
-    var hasFavoriteTeam: Bool {
-        return homeTeam.isFavorite || awayTeam.isFavorite
-    }
     
     // MARK: - Init
     
@@ -90,21 +87,9 @@ class Game {
     }
 }
 
-extension Game: Comparable {
+extension Game: Equatable {
     
-    // MARK: - Comparable
-    
-    static func < (lhs: Game, rhs: Game) -> Bool {
-        if lhs.hasFavoriteTeam || rhs.hasFavoriteTeam {
-            return lhs.hasFavoriteTeam
-        }
-        else if (lhs.gameState == .live && rhs.gameState == .live) || (lhs.gameState == .preview && rhs.gameState == .preview) {
-            return lhs.startTime < rhs.startTime
-        }
-        else {
-            return lhs.gameState.rawValue < rhs.gameState.rawValue
-        }
-    }
+    // MARK: - Equarable
     
     static func == (lhs: Game, rhs: Game) -> Bool {
         return lhs.awayTeam == rhs.awayTeam && lhs.homeTeam == rhs.homeTeam && lhs.startTime == rhs.startTime

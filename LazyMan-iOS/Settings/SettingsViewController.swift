@@ -103,7 +103,8 @@ class SettingsViewController: UITableViewController
     {
         if segue.identifier == "favoriteNHLSegue", let vc = segue.destination as? SettingsOptionsViewController
         {
-            vc.teams = [nil] + Array(TeamManager.nhlTeams.values).sorted { $0.name < $1.name }
+            // TODO: Bad singleton access?
+            vc.teams = [nil] + Array(TeamManager.shared.nhlTeams.values).sorted { $0.name < $1.name }
             vc.selectedAction = { (team) in
                 self.favoriteNHLTeamLabel.text = team?.shortName ?? "None"
                 SettingsManager.shared.favoriteNHLTeam = team
@@ -112,7 +113,8 @@ class SettingsViewController: UITableViewController
         }
         else if segue.identifier == "favoriteMLBSegue", let vc = segue.destination as? SettingsOptionsViewController
         {
-            vc.teams = [nil] + Array(TeamManager.mlbTeams.values).sorted { $0.name < $1.name }
+            // TODO: Bad singleton access?
+            vc.teams = [nil] + Array(TeamManager.shared.mlbTeams.values).sorted { $0.name < $1.name }
             vc.selectedAction = { (team) in
                 self.favoriteMLBTeamLabel.text = team?.shortName ?? "None"
                 SettingsManager.shared.favoriteMLBTeam = team

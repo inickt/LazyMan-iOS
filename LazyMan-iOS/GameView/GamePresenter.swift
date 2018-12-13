@@ -9,14 +9,14 @@
 import UIKit
 import AVKit
 
-protocol GamePresenterType: class, AVAssetResourceLoaderDelegate {
+protocol GamePresenterType: AVAssetResourceLoaderDelegate, GameSettingsOptionsDelegate {
     
     var gameView: GameViewControllerType? { get set }
     var gameSettingsView: GameSettingsViewControllerType? { get set }
     
-//    var qualitySelector: GameOptionSelector<FeedPlaylist>? { get }
-//    var feedSelector: GameOptionSelector<Feed> { get }
-//    var cdnSelector: GameOptionSelector<CDN> { get }
+    var cdnOptions: (options: [CDN], selected: CDN) { get }
+    var feedOptions: (options: [Feed], selected: Feed?) { get }
+    var playlistOptions: (options: [FeedPlaylist], selected: FeedPlaylist?) { get }
     
     var game: Game { get }
     
@@ -25,44 +25,57 @@ protocol GamePresenterType: class, AVAssetResourceLoaderDelegate {
     func reloadPressed()
 }
 
-class GamePresenter: NSObject, GamePresenterType
-{
+class GamePresenter: NSObject, GamePresenterType {
+    
     weak var gameView: GameViewControllerType?
     weak var gameSettingsView: GameSettingsViewControllerType?
     
     let game: Game
 
     
-//    var qualities = [FeedPlaylist]()
-    let cdns = [CDN.Akamai, CDN.Level3]
+    var cdnOptions: (options: [CDN], selected: CDN) {
+        return ([CDN.Akamai, CDN.Level3], self.selectedCDN)
+    }
     
+    var feedOptions: (options: [Feed], selected: Feed?) {
+        return (self.game.feeds, self.selectedFeed)
+    }
     
-    var selectedQuality: FeedPlaylist? {
+    var playlistOptions: (options: [FeedPlaylist], selected: FeedPlaylist?) {
+        return (self.playlists ?? [], self.selectedPlaylist)
+    }
+    
+    var playlists: [FeedPlaylist]?
+    
+    var selectedPlaylist: FeedPlaylist? {
         didSet {
-            
-            if let playlist = self.selectedQuality {
-                self.gameView?.playURL(url: playlist.url)
+            if let selectedPlaylist = self.selectedPlaylist {
+                self.gameSettingsView?.setQuality(text: selectedPlaylist.title)
+                self.gameView?.playURL(url: selectedPlaylist.url)
             }
         }
     }
     var selectedFeed: Feed? {
         didSet {
-            self.selectDefaultPlaylist()
+            if let selectedFeed = self.selectedFeed {
+                self.selectDefaultPlaylist()
+                self.gameSettingsView?.setFeed(text: selectedFeed.title)
+            }
         }
     }
     var selectedCDN: CDN {
         didSet {
             self.selectDefaultFeed()
+            self.gameSettingsView?.setCDN(text: self.selectedCDN.title)
         }
     }
     
     private let settingsManager: SettingsType
     private let feedManager: FeedManagerType
     
-    private let cdnOptions = [CDN.Akamai, CDN.Level3]
+    // MARK: - Initialization
     
-    init(game: Game, settingsManager: SettingsType = SettingsManager.shared, feedManager: FeedManagerType = FeedManager.shared)
-    {
+    init(game: Game, settingsManager: SettingsType = SettingsManager.shared, feedManager: FeedManagerType = FeedManager.shared) {
         self.game = game
         self.settingsManager = settingsManager
         self.feedManager = feedManager
@@ -70,25 +83,39 @@ class GamePresenter: NSObject, GamePresenterType
         self.selectedCDN = self.settingsManager.defaultCDN
         
         super.init()
-        
-
     }
     
     func viewDidLoad() {
-        
+        self.gameSettingsView?.setCDN(text: self.selectedCDN.title)
+        self.gameSettingsView?.setQuality(text: nil)
     }
     
     func viewWillAppear() {
         self.gameView?.gameTitle = "\(self.game.awayTeam.shortName) at \(self.game.homeTeam.shortName)"
-        self.selectDefaultFeed()
+        if self.selectedFeed == nil {
+            self.selectDefaultFeed()
+        }
     }
     
-    func reloadPressed()
-    {
-//        if let selectedFeed = self.feedSelector.selectedObject
-//        {
-//            self.feedSelected(selected: selectedFeed)
-//        }
+    func reloadPressed() {
+        if let selectedFeed = self.selectedFeed {
+            self.gameSettingsView?.setQuality(text: nil)
+            self.feedManager.getFeedPlaylists(from: selectedFeed, using: self.selectedCDN, ignoreCache: true) { result in
+                self.handleFeedPlaylist(result: result)
+            }
+        }
+    }
+    
+    func didSelectCDN(option: CDN) {
+        self.selectedCDN = option
+    }
+    
+    func didSelectFeed(option: Feed) {
+        self.selectedFeed = option
+    }
+    
+    func didSelectPlaylist(option: FeedPlaylist) {
+        self.selectedPlaylist = option
     }
     
     // MARK: - AVAssetResourceLoaderDelegate
@@ -114,93 +141,58 @@ class GamePresenter: NSObject, GamePresenterType
     // MARK: - Private
     
     private func selectDefaultFeed() {
-        if ({ return false }()) { // TODO: add french option to settings
+        if ({ false }()) { // TODO: add french option to settings
             for feed in self.game.feeds {
                 if case .french = feed.feedType {
                     self.selectedFeed = feed
-                    break
+                    return
                 }
             }
         }
-        else if self.game.homeTeam.isFavorite {
+        // TODO: Bad singleton access?
+        else if TeamManager.shared.isFavorite(team: self.game.homeTeam) {
             for feed in self.game.feeds {
                 if case .home = feed.feedType {
                     self.selectedFeed = feed
-                    break
+                    return
                 }
             }
         }
-        else if self.game.awayTeam.isFavorite {
+        // TODO: Bad singleton access?
+        else if TeamManager.shared.isFavorite(team: self.game.awayTeam) {
             for feed in self.game.feeds {
                 if case .away = feed.feedType {
                     self.selectedFeed = feed
-                    break
+                    return
                 }
             }
         }
-        else {
-            self.selectedFeed = self.game.feeds.first
-        }
+        
+        // If all of the above fails, select the first if we have it
+        self.selectedFeed = self.game.feeds.first
     }
     
     private func selectDefaultPlaylist() {
         guard let feed = self.selectedFeed else { return }
         
         self.feedManager.getFeedPlaylists(from: feed, using: self.selectedCDN, ignoreCache: false) { result in
-            switch result {
-            case .failure(let _):
-                return
-            case .success(let playlists):
-                self.selectedQuality = playlists.first
+            self.handleFeedPlaylist(result: result)
+        }
+    }
+    
+    private func handleFeedPlaylist(result: Result<[FeedPlaylist], StringError>) {
+        switch result {
+        case .failure(let _):
+            self.gameSettingsView?.setQuality(text: "")
+            return
+        case .success(let playlists):
+            self.playlists = playlists
+            guard playlists.count >= 2 else {
+                self.selectedPlaylist = playlists.first
                 return
             }
+            self.selectedPlaylist = playlists[self.settingsManager.defaultQuality]
+            return
         }
-        
-    }
-    
-    
-    private func qualitySelected(selected: FeedPlaylist)
-    {
-//        self.gameSettingsView?.setQuality(text: selected.getTitle())
-//        self.gameView?.playURL(url: selected.getURL())
-    }
-    
-    private func cdnSelected(selected: CDN)
-    {
-//        self.gameSettingsView?.setCDN(text: selected.getTitle())
-//        if let selectedFeed = self.feedSelector.selectedObject
-//        {
-//            self.gameSettingsView?.setQuality(text: nil)
-//            self.qualitySelector = nil
-//
-//            selectedFeed.getFeedPlaylists(cdn: selected, completion: { (feedPlaylists) in
-//                self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
-//                self.qualitySelector?.onSelection = self.qualitySelected
-//
-//                if feedPlaylists.count > SettingsManager.shared.defaultQuality { self.qualitySelector?.select(index: SettingsManager.shared.defaultQuality) }
-//
-//            }) { (error) in
-//                self.gameView?.showError(message: error)
-//                self.gameSettingsView?.setQuality(text: "")
-//            }
-//        }
-    }
-    
-    private func feedSelected(selected: Feed)
-    {
-//        self.gameSettingsView?.setFeed(text: selected.getTitle())
-//        self.gameSettingsView?.setQuality(text: nil)
-//        self.qualitySelector = nil
-//        
-//        selected.getFeedPlaylists(cdn: self.cdnSelector.selectedObject!, completion: { (feedPlaylists) in
-//            self.qualitySelector = GameOptionSelector<FeedPlaylist>(objects: feedPlaylists)
-//            self.qualitySelector?.onSelection = self.qualitySelected
-//            
-//            if feedPlaylists.count > SettingsManager.shared.defaultQuality { self.qualitySelector?.select(index: SettingsManager.shared.defaultQuality) }
-//            
-//        }) { (error) in
-//            self.gameView?.showError(message: error)
-//            self.gameSettingsView?.setQuality(text: "")
-//        }
     }
 }

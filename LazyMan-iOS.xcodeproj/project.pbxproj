@@ -28,6 +28,7 @@
 		0179AEC02076BC4E00539C6D /* ObjectSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179AEBF2076BC4E00539C6D /* ObjectSelector.swift */; };
 		0179AEC22076DB5D00539C6D /* nhlschedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC12076DB5D00539C6D /* nhlschedule2018-04-05.json */; };
 		0179AEC42076F84200539C6D /* mlbschedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */; };
+		01833BF7218A70B3007EDD9A /* GameSettingsOptionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01833BF6218A70B2007EDD9A /* GameSettingsOptionsPresenter.swift */; };
 		0186CA43208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */; };
 		019387BD2082C87600D1CDBC /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019387BC2082C87600D1CDBC /* DatePickerViewController.swift */; };
 		019EA59B203E6FF8000149A3 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EA59A203E6FF8000149A3 /* Team.swift */; };
@@ -73,6 +74,7 @@
 		0179AEBF2076BC4E00539C6D /* ObjectSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelector.swift; sourceTree = "<group>"; };
 		0179AEC12076DB5D00539C6D /* nhlschedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "nhlschedule2018-04-05.json"; sourceTree = "<group>"; };
 		0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mlbschedule2018-04-05.json"; sourceTree = "<group>"; };
+		01833BF6218A70B2007EDD9A /* GameSettingsOptionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsOptionsPresenter.swift; sourceTree = "<group>"; };
 		0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+searcVisualEffectsSubview.swift"; sourceTree = "<group>"; };
 		019387BC2082C87600D1CDBC /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		019EA59A203E6FF8000149A3 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				015F345F2055EA960005453C /* GameSettingsViewController.swift */,
 				015F34612055F1550005453C /* GameSettingsOptionsViewController.swift */,
 				01794C6B2072FFD5008FFFEE /* GameOptionSelector.swift */,
+				01833BF6218A70B2007EDD9A /* GameSettingsOptionsPresenter.swift */,
 			);
 			path = GameView;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				010E4584203A6964001EF46C /* GameListViewController.swift in Sources */,
 				01E9A71320A772B100AB231B /* SettingsOptionsViewController.swift in Sources */,
 				015F345E2050CFC40005453C /* TeamManager.swift in Sources */,
+				01833BF7218A70B3007EDD9A /* GameSettingsOptionsPresenter.swift in Sources */,
 				01BE535D2127720400F08401 /* FeedManager.swift in Sources */,
 				01E9A71120A75DA600AB231B /* UpdateManager.swift in Sources */,
 				01434A742040D3FF0094E221 /* GameTableViewCell.swift in Sources */,

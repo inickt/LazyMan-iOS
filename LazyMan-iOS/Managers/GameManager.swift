@@ -31,6 +31,7 @@ class GameManager: GameManagerType {
     
     private let nhlJSONLoader: JSONLoader
     private let mlbJSONLoader: JSONLoader
+    private let teamManager: TeamManagerType
     
     // MARK: - Initialization
     
@@ -38,9 +39,11 @@ class GameManager: GameManagerType {
     // init(nhlJSONLoader: JSONLoader = JSONFileLoader(filename: "nhlschedule2018-04-05"),
     //      mlbJSONLoader: JSONLoader = JSONFileLoader(filename: "mlbschedule2018-04-05"))
     init(nhlJSONLoader: JSONLoader = JSONWebLoader(dateFormatURL: nhlFormatURL),
-         mlbJSONLoader: JSONLoader = JSONWebLoader(dateFormatURL: mlbFormatURL)) {
+         mlbJSONLoader: JSONLoader = JSONWebLoader(dateFormatURL: mlbFormatURL),
+         teamManager: TeamManagerType = TeamManager.shared) {
         self.nhlJSONLoader = nhlJSONLoader
         self.mlbJSONLoader = mlbJSONLoader
+        self.teamManager = teamManager
     }
     
     // MARK: - Public
@@ -104,10 +107,10 @@ class GameManager: GameManagerType {
             var games: [Game] = []
             switch league {
             case .NHL:
-                games = self.nhlJSONtoGames(jsonGames: jsonGames)
+                games = self.nhlJSONtoGames(jsonGames: jsonGames).sorted(by: self.teamManager.compareGames)
                 self.nhlGames[date] = games
             case .MLB:
-                games = self.mlbJSONtoGames(jsonGames: jsonGames)
+                games = self.mlbJSONtoGames(jsonGames: jsonGames).sorted(by: self.teamManager.compareGames)
                 self.mlbGames[date] = games
             }
             
@@ -120,8 +123,8 @@ class GameManager: GameManagerType {
         
         for nhlGame in jsonGames {
             if let gameDate = DateUtils.convertGMTtoDate(from: nhlGame["gameDate"].stringValue),
-                let homeTeam = TeamManager.nhlTeams[nhlGame["teams"]["home"]["team"]["teamName"].stringValue],
-                let awayTeam = TeamManager.nhlTeams[nhlGame["teams"]["away"]["team"]["teamName"].stringValue]
+                let homeTeam = self.teamManager.nhlTeams[nhlGame["teams"]["home"]["team"]["teamName"].stringValue],
+                let awayTeam = self.teamManager.nhlTeams[nhlGame["teams"]["away"]["team"]["teamName"].stringValue]
             {
                 var gameFeeds = [Feed]()
                 if let mediaFeeds = nhlGame["content"]["media"]["epg"].array, mediaFeeds.count > 0
@@ -152,8 +155,8 @@ class GameManager: GameManagerType {
         
         for mlbGame in jsonGames {
             if let gameDate = DateUtils.convertGMTtoDate(from: mlbGame["gameDate"].stringValue),
-                let homeTeam = TeamManager.mlbTeams[mlbGame["teams"]["home"]["team"]["teamName"].stringValue],
-                let awayTeam = TeamManager.mlbTeams[mlbGame["teams"]["away"]["team"]["teamName"].stringValue]
+                let homeTeam = self.teamManager.mlbTeams[mlbGame["teams"]["home"]["team"]["teamName"].stringValue],
+                let awayTeam = self.teamManager.mlbTeams[mlbGame["teams"]["away"]["team"]["teamName"].stringValue]
             {
                 var gameFeeds = [Feed]()
                 if let mediaFeeds = mlbGame["content"]["media"]["epg"].array, mediaFeeds.count > 0

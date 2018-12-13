@@ -26,12 +26,11 @@ class GameTableViewCell: UITableViewCell
             self.homeTeamLabel.text = self.game?.homeTeam.name
             self.timeLabel.text = self.game?.gameStateDescription
             
-            if game?.hasFavoriteTeam ?? false
-            {
+            // TODO: Bad singleton access?
+            if let game = self.game, TeamManager.shared.hasFavoriteTeam(game: game) {
                 self.backgroundColor = UIColor(red: 0.0, green: 0.07, blue: 0.14, alpha: 1.0)
             }
-            else
-            {
+            else {
                 self.backgroundColor = .black
             }
         }

@@ -72,7 +72,8 @@ class SettingsManager: SettingsType {
     var favoriteNHLTeam: Team? {
         get {
             if let value = UserDefaults.standard.string(forKey: favoriteNHLTeamKey),
-                let team = TeamManager.nhlTeams[value] {
+                // TODO: Bad singleton access?
+                let team = TeamManager.shared.nhlTeams[value] {
                 return team
             }
             else {
@@ -93,7 +94,8 @@ class SettingsManager: SettingsType {
     var favoriteMLBTeam: Team? {
         get {
             if let value = UserDefaults.standard.string(forKey: favoriteMLBTeamKey),
-                let team = TeamManager.mlbTeams[value] {
+                // TODO: Bad singleton access?
+                let team = TeamManager.shared.mlbTeams[value] {
                 return team
             }
             else {

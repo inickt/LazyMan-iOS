@@ -8,32 +8,64 @@
 
 import UIKit
 
-final class TeamManager {
+protocol TeamManagerType {
+    var nhlTeams: [String : Team] { get }
+    var mlbTeams: [String : Team] { get }
+    func isFavorite(team: Team) -> Bool
+    func hasFavoriteTeam(game: Game) -> Bool
+    func compareGames(lhs: Game, rhs: Game) -> Bool
+}
+
+final class TeamManager: TeamManagerType {
     
     // MARK: - Shared Manager
     
-    private static let manager = TeamManager()
+    static let shared = TeamManager()
     
-    // MARK: - Teams
+    // MARK: Initialization
     
-    static var nhlTeams: [String : Team] {
-        return manager.nhlTeams
-    }
-    
-    static var mlbTeams: [String : Team] {
-        return manager.mlbTeams
-    }
-    
-    // MARK: - Private
-    
-    private var nhlTeams = [String : Team]()
-    private var mlbTeams = [String : Team]()
-    
-    private init() {
+    init(settingsManager: SettingsType = SettingsManager.shared) {
+        self.settingsManager = settingsManager
         self.initNHLTeams()
         self.initMLBTeams()
     }
     
+    // MARK: - Private Properties
+    
+    private let settingsManager: SettingsType
+    var nhlTeams: [String : Team] {
+        return self._nhlTeams
+    }
+    var mlbTeams: [String : Team] {
+        return self._mlbTeams
+    }
+    
+    // MARK: - Private
+    
+    func isFavorite(team: Team) -> Bool {
+        return team == self.settingsManager.favoriteMLBTeam || team == self.settingsManager.favoriteNHLTeam
+    }
+    
+    func hasFavoriteTeam(game: Game) -> Bool {
+        return self.isFavorite(team: game.awayTeam) || self.isFavorite(team: game.homeTeam)
+    }
+    
+    func compareGames(lhs: Game, rhs: Game) -> Bool {
+        if self.hasFavoriteTeam(game: lhs) || self.hasFavoriteTeam(game: rhs) {
+            return self.hasFavoriteTeam(game: lhs)
+        }
+        else if (lhs.gameState == .live && rhs.gameState == .live) || (lhs.gameState == .preview && rhs.gameState == .preview) {
+            return lhs.startTime < rhs.startTime
+        }
+        else {
+            return lhs.gameState.rawValue < rhs.gameState.rawValue
+        }
+    }
+    
+    private var _nhlTeams = [String : Team]()
+    private var _mlbTeams = [String : Team]()
+    
+    // TODO: Move into plist
     private func initNHLTeams() {
         self.addNHLTeam(loc: "Colorado",     name: "Avalanche",      abbrv: "COL", logo: #imageLiteral(resourceName: "avalanche"))
         self.addNHLTeam(loc: "Chicago",      name: "Blackhawks",     abbrv: "CHI", logo: #imageLiteral(resourceName: "blackhawks"))
@@ -102,10 +134,10 @@ final class TeamManager {
     }
     
     private func addNHLTeam(loc: String, name: String, abbrv: String, logo: UIImage) {
-        self.nhlTeams[name] = Team(location: loc, shortName: name, abbreviation: abbrv, logo: logo, league: .NHL)
+        self._nhlTeams[name] = Team(location: loc, shortName: name, abbreviation: abbrv, logo: logo, league: .NHL)
     }
     
     private func addMLBTeam(loc: String, name: String, abbrv: String, logo: UIImage) {
-        self.mlbTeams[name] = Team(location: loc, shortName: name, abbreviation: abbrv, logo: logo, league: .MLB)
+        self._mlbTeams[name] = Team(location: loc, shortName: name, abbreviation: abbrv, logo: logo, league: .MLB)
     }
 }

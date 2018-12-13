@@ -18,6 +18,17 @@ class Feed: Hashable {
     let playbackID: Int
     let league: League
     let date: Date
+    var title: String {
+        if self.feedName != "" {
+            return self.feedName
+        }
+        else if self.callLetters != "" {
+            return "\(self.feedType.title) (\(self.callLetters))"
+        }
+        else {
+            return self.feedType.title
+        }
+    }
     
     // MARK: - Init
     
@@ -43,6 +54,21 @@ class Feed: Hashable {
 
 enum FeedType {
     case home, away, french, national, other(String)
+    
+    var title: String {
+        switch self {
+        case .home:
+            return "Home"
+        case .away:
+            return "Away"
+        case .french:
+            return "French"
+        case .national:
+            return "National"
+        case .other(let name):
+            return name
+        }
+    }
     
     init(feedType: String) {
         switch feedType {

@@ -11,9 +11,3 @@ import Foundation
 enum League: String {
     case NHL, MLB
 }
-
-extension League {
-    var favorites: [Team]? {
-        return nil
-    }
-}

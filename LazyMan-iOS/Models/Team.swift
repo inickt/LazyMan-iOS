@@ -17,9 +17,6 @@ struct Team {
         return "\(self.location) \(self.shortName)"
     }
     var league: League
-    var isFavorite: Bool {
-        return self.league.favorites?.contains(self) ?? false
-    }
 }
 
 extension Team: Comparable {
