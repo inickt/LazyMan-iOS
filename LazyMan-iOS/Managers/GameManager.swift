@@ -13,6 +13,22 @@ protocol GameManagerType {
     func getGames(date: Date, league: League, ignoreCache: Bool, completion: @escaping (Result<[Game], GameManagerError>) -> ())
 }
 
+enum GameManagerError: LazyManError {
+
+    var messgae: String {
+        switch self {
+        case .noGames:
+            return "There are no games today."
+        case .invalid(let type):
+            return "Error parsing JSON \(type)."
+        case .jsonError(let jsonError):
+            return jsonError.messgae
+        }
+    }
+
+    case noGames, invalid(String), jsonError(JSONLoaderError)
+}
+
 class GameManager: GameManagerType {
     
     // MARK: - Static private properties
@@ -76,7 +92,7 @@ class GameManager: GameManagerType {
             switch self.loadJson(from: league, for: date) {
             case .failure(let error):
                 DispatchQueue.main.async {
-                    completion(.failure(.jsonError(error.error)))
+                    completion(.failure(.jsonError(error)))
                 }
             case .success(let json):
                 let result = self.parseJson(json: json, league: league, date: DateUtils.convertToYYYYMMDD(from: date))
@@ -87,7 +103,7 @@ class GameManager: GameManagerType {
         }
     }
     
-    func loadJson(from league: League, for date: Date) -> Result<JSON, StringError>{
+    func loadJson(from league: League, for date: Date) -> Result<JSON, JSONLoaderError>{
         let stringDate = DateUtils.convertToYYYYMMDD(from: date)
         
         switch league {
@@ -194,7 +210,7 @@ class GameManager: GameManagerType {
         }
         
         guard let games = json["dates"][0]["games"].array else {
-            return .failure(.jsonError("Error parsing JSON game array data."))
+            return .failure(.invalid("game array data"))
         }
         
         return .success(games)
@@ -207,8 +223,4 @@ fileprivate extension Array {
             self.append(newElement)
         }
     }
-}
-
-enum GameManagerError: Error {
-    case noGames, jsonError(String), notLoaded
 }

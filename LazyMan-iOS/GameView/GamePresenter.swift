@@ -133,11 +133,11 @@ class GamePresenter: NSObject, GamePresenterType {
         }
     }
 
-    private func handlePlaylist(result: Result<[Playlist], StringError>) {
+    private func handlePlaylist(result: Result<[Playlist], FeedManagerError>) {
         switch result {
         case .failure(let error):
             self.gameView?.setQuality(text: "")
-            self.gameView?.showError(message: error.error)
+            self.gameView?.showError(message: error.messgae)
         case .success(let playlists):
             var defaultPlaylist = playlists.first
             if playlists.count >= 2  {

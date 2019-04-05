@@ -10,7 +10,21 @@ import Foundation
 import Pantomime // TODO: Abstract
 
 protocol FeedManagerType {
-    func getFeedPlaylists(from feed: Feed, using cdn: CDN, ignoreCache: Bool, completion: @escaping (Result<[Playlist], StringError>) -> ())
+    func getFeedPlaylists(from feed: Feed, using cdn: CDN, ignoreCache: Bool, completion: @escaping (Result<[Playlist], FeedManagerError>) -> ())
+}
+
+enum FeedManagerError: LazyManError {
+
+    var messgae: String {
+        switch self {
+        case .masterURL:
+            return "Could not create master playlist URL."
+        case .expired:
+            return "The stream has expired. Please report the game you are trying to play."
+        }
+    }
+
+    case masterURL, expired
 }
 
 class FeedManager: FeedManagerType {
@@ -25,7 +39,7 @@ class FeedManager: FeedManagerType {
     
     // MARK: - FeedManagerType
     
-    func getFeedPlaylists(from feed: Feed, using cdn: CDN, ignoreCache: Bool, completion: @escaping (Result<[Playlist], StringError>) -> ()) {
+    func getFeedPlaylists(from feed: Feed, using cdn: CDN, ignoreCache: Bool, completion: @escaping (Result<[Playlist], FeedManagerError>) -> ()) {
         if !ignoreCache, let playlists = self.cachedPlaylists[feed]?[cdn] {
             completion(.success(playlists))
         } else {
@@ -50,16 +64,16 @@ class FeedManager: FeedManagerType {
     
     // MARK: - Private
     
-    private func buildPlaylists(from feed: Feed, using cdn: CDN) -> Result<[Playlist], StringError> {
+    private func buildPlaylists(from feed: Feed, using cdn: CDN) -> Result<[Playlist], FeedManagerError> {
         guard let masterURL = self.getMasterURL(league: feed.league, cdn: cdn, playbackID: feed.playbackID, date: feed.date) else {
-            return .failure(StringError("Could not create Master URL."))
+            return .failure(.masterURL)
         }
         
         guard masterURL.absoluteString.contains("exp"),
             let exp = try? masterURL.absoluteString.replace("(.*)exp=(\\d+)(.*)", replacement: "$2"),
             let expTime = Double(exp),
             Date().timeIntervalSince1970 <= expTime + 1000 else {
-                return .failure(StringError("The stream has expired. Please report the game you are trying to play."))
+                return .failure(.expired)
         }
         
         var playlists = [Playlist]()

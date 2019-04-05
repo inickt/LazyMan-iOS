@@ -34,14 +34,14 @@ class GameListTableViewController: UITableViewController {
         self.tableView.separatorColor = .darkGray
         self.refreshControl?.tintColor = .lightGray
         self.refreshControl?.addTarget(self, action: #selector(refreshPressed), for: .valueChanged)
-        self.updateError(error: nil)
+        self.updateError(message: nil)
         
         GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: false) { result in
             switch result {
             case .success(let games):
                 self.games = games
             case .failure(let error):
-                self.updateError(error: error.localizedDescription)
+                self.updateError(message: error.localizedDescription)
             }
         }
     }
@@ -56,7 +56,7 @@ class GameListTableViewController: UITableViewController {
                 self.games = games
             case .failure(let error):
                 if self.games == nil {
-                    self.updateError(error: error.localizedDescription)
+                    self.updateError(message: error.messgae)
                 }
             }
         }
@@ -67,7 +67,7 @@ class GameListTableViewController: UITableViewController {
     @objc private func refreshPressed() {
         // Clears out the existing data, and reloads the games.
         self.games = nil
-        self.updateError(error: nil)
+        self.updateError(message: nil)
         
         GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: true) { result in
             switch result {
@@ -76,15 +76,15 @@ class GameListTableViewController: UITableViewController {
                 self.refreshControl?.endRefreshing()
             case .failure(let error):
                 if self.games == nil {
-                    self.updateError(error: error.localizedDescription)
+                    self.updateError(message: error.messgae)
                     self.refreshControl?.endRefreshing()
                 }
             }
         }
     }
     
-    private func updateError(error: String?) {
-        (self.tableView.backgroundView as? GameListTableBackgroundView)?.errorLabel.text = error
+    private func updateError(message: String?) {
+        (self.tableView.backgroundView as? GameListTableBackgroundView)?.errorLabel.text = message
     }
     
     // MARK: - Table view data source
