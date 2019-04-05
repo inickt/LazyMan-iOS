@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum League: String {
+enum League: String, Hashable {
     case NHL, MLB
 }

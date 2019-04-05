@@ -12,8 +12,7 @@ import OptionSelector
 
 protocol GamePresenterType: AVAssetResourceLoaderDelegate {
     
-    var gameView: GameViewControllerType? { get set }
-    var gameSettingsView: GameSettingsViewControllerType? { get set }
+    var gameView: GameViewType? { get set }
 
     var cdnSelector: SingularOptionSelector<CDN> { get }
     var feedSelector: SingularOptionSelector<Feed> { get }
@@ -27,8 +26,7 @@ protocol GamePresenterType: AVAssetResourceLoaderDelegate {
 
 class GamePresenter: NSObject, GamePresenterType {
 
-    weak var gameView: GameViewControllerType?
-    weak var gameSettingsView: GameSettingsViewControllerType?
+    weak var gameView: GameViewType?
     
     let game: Game
     private (set) var cdnSelector: SingularOptionSelector<CDN>
@@ -46,6 +44,10 @@ class GamePresenter: NSObject, GamePresenterType {
     private let teamManager: TeamManagerType
 
     // MARK: - Initialization
+
+    deinit {
+        print("DEINIT GP")
+    }
     
     init?(game: Game,
          settingsManager: SettingsType = SettingsManager.shared,
@@ -76,9 +78,9 @@ class GamePresenter: NSObject, GamePresenterType {
     }
     
     func load() {
-        self.gameSettingsView?.setQuality(text: nil)
-        self.gameSettingsView?.setFeed(text: self.feedSelector.selected.title)
-        self.gameSettingsView?.setCDN(text: self.cdnSelector.selected.title)
+        self.gameView?.setQuality(text: nil)
+        self.gameView?.setFeed(text: self.feedSelector.selected.title)
+        self.gameView?.setCDN(text: self.cdnSelector.selected.title)
         self.gameView?.gameTitle = "\(self.game.awayTeam.shortName) at \(self.game.homeTeam.shortName)"
         self.loadPlaylists(reload: false)
     }
@@ -109,30 +111,23 @@ class GamePresenter: NSObject, GamePresenterType {
     
     // MARK: - Private
 
-    private func getDefaultPlaylist(playlists: [Playlist]) -> Playlist? {
-        guard playlists.count >= 2 else {
-            return playlists.first
-        }
-        return playlists[self.settingsManager.defaultQuality]
-    }
-
     private func didSelectCDN(cdn: CDN) {
-        self.gameSettingsView?.setCDN(text: cdn.title)
+        self.gameView?.setCDN(text: cdn.title)
         self.loadPlaylists()
     }
 
     private func didSelectFeed(feed: Feed) {
-        self.gameSettingsView?.setFeed(text: feed.title)
+        self.gameView?.setFeed(text: feed.title)
         self.loadPlaylists()
     }
 
     private func didSelectPlaylist(playlist: Playlist) {
-        self.gameSettingsView?.setQuality(text: playlist.title)
+        self.gameView?.setQuality(text: playlist.title)
         self.gameView?.playURL(url: playlist.url)
     }
 
     private func loadPlaylists(reload: Bool = false) {
-        self.gameSettingsView?.setQuality(text: nil)
+        self.gameView?.setQuality(text: nil)
         self.feedManager.getFeedPlaylists(from: self.feedSelector.selected, using: self.cdnSelector.selected, ignoreCache: reload) {
             self.handlePlaylist(result: $0)
         }
@@ -141,11 +136,14 @@ class GamePresenter: NSObject, GamePresenterType {
     private func handlePlaylist(result: Result<[Playlist], StringError>) {
         switch result {
         case .failure(let error):
-            self.gameSettingsView?.setQuality(text: "")
+            self.gameView?.setQuality(text: "")
             self.gameView?.showError(message: error.error)
-            return
         case .success(let playlists):
-            guard !playlists.isEmpty, let selected = getDefaultPlaylist(playlists: playlists) else {
+            var defaultPlaylist = playlists.first
+            if playlists.count >= 2  {
+                defaultPlaylist = playlists[self.settingsManager.defaultQuality]
+            }
+            guard !playlists.isEmpty, let selected = defaultPlaylist else {
                 return
             }
             self.playlistSelector = SingularOptionSelector(options: playlists, selected: selected)

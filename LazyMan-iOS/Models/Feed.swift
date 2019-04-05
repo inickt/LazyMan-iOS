@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Feed: Hashable {
+struct Feed: Hashable {
     
     // MARK: - Properties
     
@@ -46,13 +46,9 @@ class Feed: Hashable {
     static func == (lhs: Feed, rhs: Feed) -> Bool {
         return lhs.playbackID == rhs.playbackID && lhs.league == rhs.league && lhs.date == rhs.date
     }
-    
-    var hashValue: Int {
-        return self.playbackID
-    }
 }
 
-enum FeedType: Equatable {
+enum FeedType: Equatable, Hashable {
     case home, away, french, national, other(String)
     
     var title: String {

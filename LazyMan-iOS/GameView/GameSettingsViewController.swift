@@ -9,13 +9,7 @@
 import UIKit
 import OptionSelector
 
-protocol GameSettingsViewControllerType: class {
-    func setQuality(text: String?)
-    func setFeed(text: String)
-    func setCDN(text: String)
-}
-
-class GameSettingsViewController: UITableViewController, GameSettingsViewControllerType
+class GameSettingsViewController: UITableViewController
 {
     // MARK: - IBOutlets
     
@@ -29,6 +23,10 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
     var presenter: GamePresenterType!
     
     // MARK: - GameSettingsViewControllerType
+
+    deinit {
+        print("DEINIT GSVC")
+    }
     
     func setQuality(text: String?)
     {
