@@ -1,0 +1,6 @@
+framework module OptionSelector {
+  umbrella header "OptionSelector-umbrella.h"
+
+  export *
+  module * { export * }
+}

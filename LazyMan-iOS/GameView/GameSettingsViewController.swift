@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import OptionSelector
 
-protocol GameSettingsViewControllerType: class
-{
+protocol GameSettingsViewControllerType: class {
     func setQuality(text: String?)
     func setFeed(text: String)
     func setCDN(text: String)
@@ -19,54 +19,14 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
 {
     // MARK: - IBOutlets
     
-    @IBOutlet private weak var qualityLabel: UILabel!
-    @IBOutlet private weak var feedLabel: UILabel!
-    @IBOutlet private weak var cdnLabel: UILabel!
-    @IBOutlet private weak var qualityCell: UITableViewCell!
+    @IBOutlet private var qualityLabel: UILabel!
+    @IBOutlet private var feedLabel: UILabel!
+    @IBOutlet private var cdnLabel: UILabel!
+    @IBOutlet private var qualityCell: UITableViewCell!
     
     // MARK: - Properties
     
     var presenter: GamePresenterType!
-    
-    // MARK: - Navigation
-    
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool
-//    {
-//        return !(identifier == "gameOptionQuality" && self.presenter.qualitySelector == nil)
-//    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if let id = segue.identifier {
-            let settingsOptions = segue.destination as? GameSettingsOptionsViewController
-            
-            switch id {
-            case "gameOptionCDN":
-                segue.destination.title = "CDN"
-                settingsOptions?.presenter = GameSettingsOptionsPresenter(objects: self.presenter.cdnOptions.options,
-                                                                              selected: self.presenter.cdnOptions.selected,
-                                                                              type: .cdn,
-                                                                              delegate: self.presenter)
-                
-            case "gameOptionQuality":
-                segue.destination.title = "Quality"
-                settingsOptions?.presenter = GameSettingsOptionsPresenter(objects: self.presenter.playlistOptions.options,
-                                                                          selected: self.presenter.playlistOptions.selected,
-                                                                          type: .playlist,
-                                                                          delegate: self.presenter)
-                
-            case "gameOptionFeed":
-                segue.destination.title = "Feed"
-                settingsOptions?.presenter = GameSettingsOptionsPresenter(objects: self.presenter.feedOptions.options,
-                                                                          selected: self.presenter.feedOptions.selected,
-                                                                          type: .feed,
-                                                                          delegate: self.presenter)
-                
-            default:
-                return
-            }
-        }
-    }
     
     // MARK: - GameSettingsViewControllerType
     
@@ -103,5 +63,68 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let vc: UIViewController
+        switch indexPath.section {
+        case 0:
+            guard let selector = presenter?.playlistSelector else {
+                return
+            }
+            vc = DarkOptionViewController(selector)
+        case 1:
+            guard let selector = presenter?.feedSelector else {
+                return
+            }
+            vc = DarkOptionViewController(selector)
+        case 2:
+            guard let selector = presenter?.cdnSelector else {
+                return
+            }
+            vc = DarkOptionViewController(selector)
+        default:
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+class DarkOptionViewController<OptionType: OptionSelectorCell>: OptionViewController<OptionType> {
+
+    override func createCell() -> UITableViewCell {
+        let cell = super.createCell()
+        cell.textLabel?.textColor = .white
+        cell.detailTextLabel?.textColor = .lightGray
+        return cell
+    }
+
+    override var defaultCellStyle: UITableViewCell.CellStyle {
+        return .subtitle
+    }
+}
+
+extension CDN: OptionSelectorCell {
+    var description: String {
+        return ""
+    }
+
+    var image: UIImage? {
+        return nil
+    }
+}
+
+extension Feed: OptionSelectorCell {
+    var description: String {
+        return ""
+    }
+
+    var image: UIImage? {
+        return nil
+    }
+}
+
+extension Playlist: OptionSelectorCell {
+
+    var image: UIImage? {
+        return nil
     }
 }

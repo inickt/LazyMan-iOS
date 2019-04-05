@@ -1,12 +1,20 @@
 PODS:
   - FSCalendar (2.7.9)
+  - OptionSelector (0.1.0)
   - Pantomime (0.1.5)
-  - SwiftyJSON (4.1.0)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - FSCalendar
+  - FSCalendar (= 2.7.9)
+  - OptionSelector (= 0.1.0)
   - Pantomime (from `https://github.com/inickt/Pantomime.git`, branch `master`)
   - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FSCalendar
+    - OptionSelector
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   Pantomime:
@@ -15,14 +23,15 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Pantomime:
-    :commit: 47e6f2ddfdab3906c52a36e8fd14d2cc47757fb4
+    :commit: be741c901b3e2f02542a4789777b390023546cd4
     :git: https://github.com/inickt/Pantomime.git
 
 SPEC CHECKSUMS:
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
+  OptionSelector: 703ec2eec9679a3cf5d6130d9e163a5dd7d26741
   Pantomime: 2aec2b603b91f6d5a4774ecce9c0ed073d3b4e5d
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: ad0a5ac257de47063d55f5248521f93834284843
+PODFILE CHECKSUM: f381e312b3a6b6a46d023b121ecb4a3a2131bebd
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.1

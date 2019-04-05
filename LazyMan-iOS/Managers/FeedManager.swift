@@ -10,7 +10,7 @@ import Foundation
 import Pantomime // TODO: Abstract
 
 protocol FeedManagerType {
-    func getFeedPlaylists(from feed: Feed, using cdn: CDN, ignoreCache: Bool, completion: @escaping (Result<[FeedPlaylist], StringError>) -> ())
+    func getFeedPlaylists(from feed: Feed, using cdn: CDN, ignoreCache: Bool, completion: @escaping (Result<[Playlist], StringError>) -> ())
 }
 
 class FeedManager: FeedManagerType {
@@ -21,11 +21,11 @@ class FeedManager: FeedManagerType {
     
     // MARK: - Private Properties
     
-    private var cachedPlaylists = [Feed : [CDN : [FeedPlaylist]]]()
+    private var cachedPlaylists = [Feed : [CDN : [Playlist]]]()
     
     // MARK: - FeedManagerType
     
-    func getFeedPlaylists(from feed: Feed, using cdn: CDN, ignoreCache: Bool, completion: @escaping (Result<[FeedPlaylist], StringError>) -> ()) {
+    func getFeedPlaylists(from feed: Feed, using cdn: CDN, ignoreCache: Bool, completion: @escaping (Result<[Playlist], StringError>) -> ()) {
         if !ignoreCache, let playlists = self.cachedPlaylists[feed]?[cdn] {
             completion(.success(playlists))
         } else {
@@ -50,7 +50,7 @@ class FeedManager: FeedManagerType {
     
     // MARK: - Private
     
-    private func buildPlaylists(from feed: Feed, using cdn: CDN) -> Result<[FeedPlaylist], StringError> {
+    private func buildPlaylists(from feed: Feed, using cdn: CDN) -> Result<[Playlist], StringError> {
         guard let masterURL = self.getMasterURL(league: feed.league, cdn: cdn, playbackID: feed.playbackID, date: feed.date) else {
             return .failure(StringError("Could not create Master URL."))
         }
@@ -62,10 +62,10 @@ class FeedManager: FeedManagerType {
                 return .failure(StringError("The stream has expired. Please report the game you are trying to play."))
         }
         
-        var playlists = [FeedPlaylist]()
+        var playlists = [Playlist]()
         
         // Add master playlist to list, AKA the auto quality.
-        playlists.append(FeedPlaylist(url: masterURL, quality: "Auto", bandwidth: nil, framerate: nil))
+        playlists.append(Playlist(url: masterURL, quality: "Auto", bandwidth: nil, framerate: nil))
         
         // Parse the master playlist
         let masterPlaylist = ManifestBuilder().parse(masterURL)
@@ -83,7 +83,7 @@ class FeedManager: FeedManagerType {
                 framerate = Int(mpFramerate.rounded())
             }
             
-            playlists.append(FeedPlaylist(url: mediaURL,
+            playlists.append(Playlist(url: mediaURL,
                                           quality: mediaPlaylist.resolution ?? "Unknown",
                                           bandwidth: mediaPlaylist.bandwidth,
                                           framerate: framerate))

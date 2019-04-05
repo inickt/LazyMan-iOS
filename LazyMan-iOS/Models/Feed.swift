@@ -52,7 +52,7 @@ class Feed: Hashable {
     }
 }
 
-enum FeedType {
+enum FeedType: Equatable {
     case home, away, french, national, other(String)
     
     var title: String {

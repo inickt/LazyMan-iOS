@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import WebKit
 import AVKit
 
 protocol GameViewControllerType: class
@@ -42,7 +41,7 @@ class GameViewController: UIViewController, GameViewControllerType
     
     @IBAction func refreshPressed(_ sender: Any)
     {
-        self.presenter.reloadPressed()
+        self.presenter.reload()
     }
     
     // MARK: - Lifecycle
@@ -53,19 +52,13 @@ class GameViewController: UIViewController, GameViewControllerType
         self.presenter.gameView = self
         NotificationCenter.default.addObserver(self, selector: #selector(pause), name: pauseNotification, object: nil)
     }
-    
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.presenter.viewDidLoad()
+        self.presenter.load()
     }
-    
-    override func viewWillAppear(_ animated: Bool)
-    {
-        super.viewWillAppear(animated)
-        self.presenter.viewWillAppear()
-    }
-    
+
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)

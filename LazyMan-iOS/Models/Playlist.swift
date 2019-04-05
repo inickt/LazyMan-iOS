@@ -1,5 +1,5 @@
 //
-//  FeedPlaylist.swift
+//  Playlist.swift
 //  LazyMan-iOS
 //
 //  Created by Nick Thompson on 3/17/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FeedPlaylist {
+struct Playlist {
     
     // MARK: - Properties
     
@@ -53,8 +53,8 @@ struct FeedPlaylist {
     }
 }
 
-extension FeedPlaylist: Equatable {
-    static func == (lhs: FeedPlaylist, rhs: FeedPlaylist) -> Bool {
+extension Playlist: Equatable {
+    static func == (lhs: Playlist, rhs: Playlist) -> Bool {
         return lhs.url == rhs.url
             && lhs.quality == rhs.quality
             && lhs.bandwidth == rhs.bandwidth

@@ -6,8 +6,10 @@ target 'LazyMan-iOS' do
   use_frameworks!
 
   # Pods for LazyMan-iOS
-  pod 'FSCalendar', :inhibit_warnings => true
+  pod 'FSCalendar', '2.7.9', :inhibit_warnings => true
   pod 'SwiftyJSON'
   #pod 'Pantomime'
   pod 'Pantomime', :git => 'https://github.com/inickt/Pantomime.git', :branch => 'master'
+
+  pod 'OptionSelector', '0.1.0'
 end

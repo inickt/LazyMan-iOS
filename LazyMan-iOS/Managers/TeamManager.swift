@@ -13,6 +13,7 @@ protocol TeamManagerType {
     var mlbTeams: [String : Team] { get }
     func isFavorite(team: Team) -> Bool
     func hasFavoriteTeam(game: Game) -> Bool
+    func getDefaultFeed(game: Game) -> Feed?
     func compareGames(lhs: Game, rhs: Game) -> Bool
 }
 
@@ -39,8 +40,7 @@ final class TeamManager: TeamManagerType {
     var mlbTeams: [String : Team] {
         return self._mlbTeams
     }
-    
-    // MARK: - Private
+
     
     func isFavorite(team: Team) -> Bool {
         return team == self.settingsManager.favoriteMLBTeam || team == self.settingsManager.favoriteNHLTeam
@@ -48,6 +48,19 @@ final class TeamManager: TeamManagerType {
     
     func hasFavoriteTeam(game: Game) -> Bool {
         return self.isFavorite(team: game.awayTeam) || self.isFavorite(team: game.homeTeam)
+    }
+
+    func getDefaultFeed(game: Game) -> Feed? {
+        // TODO: add french option to settings
+        if ({ false }()), let feed = game.feeds.first(where: { $0.feedType == .french }) {
+            return feed
+        } else if self.isFavorite(team: game.homeTeam),  let feed = game.feeds.first(where: { $0.feedType == .home }) {
+            return feed
+        } else if self.isFavorite(team: game.awayTeam), let feed = game.feeds.first(where: { $0.feedType == .away }){
+            return feed
+        } else {
+            return game.feeds.first
+        }
     }
     
     func compareGames(lhs: Game, rhs: Game) -> Bool {

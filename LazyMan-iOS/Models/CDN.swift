@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CDN: String {
+enum CDN: String, CaseIterable {
     case Level3 = "l3c", Akamai = "akc"
     
     var title: String {
