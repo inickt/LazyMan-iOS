@@ -9,45 +9,40 @@
 import Foundation
 
 enum GameState: Int {
-    
+
     case live, preview, other, final, postponed, tbd
-    
+
     init(abstractState: String, detailedState: String, startTimeTBD: Bool) {
         let states = [abstractState, detailedState]
-        
+
         if states.contains(where: { $0.contains("Postponed") }) {
             self = .postponed
-        }
-        else if states.contains(where: { $0.contains("TBD") }) || startTimeTBD {
+        } else if states.contains(where: { $0.contains("TBD") }) || startTimeTBD {
             self = .tbd
-        }
-        else if states.contains(where: { $0.contains("Live") }) {
+        } else if states.contains(where: { $0.contains("Live") }) {
             self = .live
-        }
-        else if states.contains(where: { $0.contains("Preview") }) {
+        } else if states.contains(where: { $0.contains("Preview") }) {
             self = .preview
-        }
-        else if states.contains(where: { $0.contains("Final") }) {
+        } else if states.contains(where: { $0.contains("Final") }) {
             self = .final
-        }
-        else {
+        } else {
             self = .other
         }
     }
 }
 
 class Game {
-    
+
     // MARK: - Static
-    
+
     private static let timeFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
         return formatter
     }()
-    
+
     // MARK: - Properties
-    
+
     let homeTeam: Team
     let awayTeam: Team
     let startTime: Date
@@ -71,12 +66,12 @@ class Game {
         }
     }
     let league: League
-    
+
     // MARK: - Init
-    
+
     init?(homeTeam: Team, awayTeam: Team, startTime: Date, gameState: GameState, liveGameState: String, feeds: [Feed]) {
         guard homeTeam.league == awayTeam.league else { return nil }
-        
+
         self.homeTeam = homeTeam
         self.awayTeam = awayTeam
         self.startTime = startTime
@@ -88,9 +83,9 @@ class Game {
 }
 
 extension Game: Equatable {
-    
+
     // MARK: - Equarable
-    
+
     static func == (lhs: Game, rhs: Game) -> Bool {
         return lhs.awayTeam == rhs.awayTeam && lhs.homeTeam == rhs.homeTeam && lhs.startTime == rhs.startTime
     }

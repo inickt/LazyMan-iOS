@@ -9,35 +9,30 @@
 import UIKit
 import OptionSelector
 
-class GameSettingsViewController: UITableViewController
-{
+class GameSettingsViewController: UITableViewController {
     // MARK: - IBOutlets
-    
+
     @IBOutlet private var qualityLabel: UILabel!
     @IBOutlet private var feedLabel: UILabel!
     @IBOutlet private var cdnLabel: UILabel!
     @IBOutlet private var qualityCell: UITableViewCell!
-    
+
     // MARK: - Properties
-    
+
     var presenter: GamePresenterType!
-    
+
     // MARK: - GameSettingsViewControllerType
 
     deinit {
         print("DEINIT GSVC")
     }
-    
-    func setQuality(text: String?)
-    {
-        if let text = text
-        {
+
+    func setQuality(text: String?) {
+        if let text = text {
             self.qualityCell.accessoryView = nil
             self.qualityCell.accessoryType = .disclosureIndicator
             self.qualityLabel.text = text
-        }
-        else
-        {
+        } else {
             self.qualityLabel.text = ""
             self.qualityCell.accessoryType = .none
             let activityIndicator = UIActivityIndicatorView()
@@ -45,44 +40,41 @@ class GameSettingsViewController: UITableViewController
             self.qualityCell.accessoryView = activityIndicator
         }
     }
-    
-    func setFeed(text: String)
-    {
+
+    func setFeed(text: String) {
         self.feedLabel.text = text
     }
-    
-    func setCDN(text: String)
-    {
+
+    func setCDN(text: String) {
         self.cdnLabel.text = text
     }
-    
+
     // MARK: - UITableViewDelegate
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let vc: UIViewController
+        let viewController: UIViewController
         switch indexPath.section {
         case 0:
             guard let selector = presenter?.playlistSelector else {
                 return
             }
-            vc = DarkOptionViewController(selector)
+            viewController = DarkOptionViewController(selector)
         case 1:
             guard let selector = presenter?.feedSelector else {
                 return
             }
-            vc = DarkOptionViewController(selector)
+            viewController = DarkOptionViewController(selector)
         case 2:
             guard let selector = presenter?.cdnSelector else {
                 return
             }
-            vc = DarkOptionViewController(selector)
+            viewController = DarkOptionViewController(selector)
         default:
             return
         }
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

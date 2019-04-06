@@ -32,14 +32,14 @@ enum JSONLoaderError: LazyManError {
 }
 
 class JSONWebLoader: JSONLoader {
-    
+
     // MARK: - Private
-    
+
     private let dateFormatURL: String
     private let session: URLSession
-    
+
     // MARK: - Initialization
-    
+
     init(dateFormatURL: String) {
         self.dateFormatURL = dateFormatURL
         let config = URLSessionConfiguration.default
@@ -47,9 +47,9 @@ class JSONWebLoader: JSONLoader {
         config.urlCache = nil
         self.session = URLSession(configuration: config)
     }
-    
+
     // MARK: - JSONLoader
-    
+
     func load(date: String) -> Result<JSON, JSONLoaderError> {
         guard let url = URL(string: String(format: self.dateFormatURL, date)) else {
             return .failure(.urlError("\(date) schedule"))
@@ -69,32 +69,32 @@ class JSONWebLoader: JSONLoader {
 }
 
 class JSONFileLoader: JSONLoader {
-    
+
     // MARK: - Private
-    
+
     private let filename: String
-    
+
     // MARK: - Initialization
-    
+
     init(filename: String) {
         self.filename = filename
     }
-    
+
     // MARK: - JSONLoader
-    
+
     func load(date: String) -> Result<JSON, JSONLoaderError> {
         guard let filenamePath = Bundle.main.path(forResource: "\(self.filename)", ofType: "json") else {
             return .failure(.fileError(self.filename))
         }
-        
+
         guard let fileData = try? Data(contentsOf: URL(fileURLWithPath: filenamePath)) else {
             return .failure(.dataError("File \(self.filename).json could not be loaded."))
         }
-        
+
         guard let json = try? JSON(data: fileData) else {
             return .failure(.parseError("Could not parse JSON from \(self.filename)."))
         }
-        
+
         return .success(json)
     }
 }

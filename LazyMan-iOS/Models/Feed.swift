@@ -9,9 +9,9 @@
 import Foundation
 
 struct Feed: Hashable {
-    
+
     // MARK: - Properties
-    
+
     let feedType: FeedType
     let callLetters: String
     let feedName: String
@@ -21,17 +21,15 @@ struct Feed: Hashable {
     var title: String {
         if self.feedName != "" {
             return self.feedName
-        }
-        else if self.callLetters != "" {
+        } else if self.callLetters != "" {
             return "\(self.feedType.title) (\(self.callLetters))"
-        }
-        else {
+        } else {
             return self.feedType.title
         }
     }
-    
+
     // MARK: - Init
-    
+
     init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, date: Date) {
         self.feedType = FeedType(feedType: feedType)
         self.callLetters = callLetters
@@ -40,9 +38,9 @@ struct Feed: Hashable {
         self.league = league
         self.date = date
     }
-    
+
     // MARK: - Hashable
-    
+
     static func == (lhs: Feed, rhs: Feed) -> Bool {
         return lhs.playbackID == rhs.playbackID && lhs.league == rhs.league && lhs.date == rhs.date
     }
@@ -50,7 +48,7 @@ struct Feed: Hashable {
 
 enum FeedType: Equatable, Hashable {
     case home, away, french, national, other(String)
-    
+
     var title: String {
         switch self {
         case .home:
@@ -65,7 +63,7 @@ enum FeedType: Equatable, Hashable {
             return name
         }
     }
-    
+
     init(feedType: String) {
         switch feedType {
         case "HOME":

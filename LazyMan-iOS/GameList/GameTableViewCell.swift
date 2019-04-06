@@ -8,29 +8,25 @@
 
 import UIKit
 
-class GameTableViewCell: UITableViewCell
-{
+class GameTableViewCell: UITableViewCell {
     @IBOutlet private weak var awayTeamImage: UIImageView!
     @IBOutlet private weak var homeTeamImage: UIImageView!
     @IBOutlet private weak var awayTeamLabel: UILabel!
     @IBOutlet private weak var homeTeamLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
-    
-    var game: Game?
-    {
-        didSet
-        {
+
+    var game: Game? {
+        didSet {
             self.awayTeamImage.image = self.game?.awayTeam.logo
             self.homeTeamImage.image = self.game?.homeTeam.logo
             self.awayTeamLabel.text = self.game?.awayTeam.name
             self.homeTeamLabel.text = self.game?.homeTeam.name
             self.timeLabel.text = self.game?.gameStateDescription
-            
+
             // TODO: Bad singleton access?
             if let game = self.game, TeamManager.shared.hasFavoriteTeam(game: game) {
                 self.backgroundColor = UIColor(red: 0.0, green: 0.07, blue: 0.14, alpha: 1.0)
-            }
-            else {
+            } else {
                 self.backgroundColor = .black
             }
         }

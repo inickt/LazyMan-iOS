@@ -9,9 +9,9 @@
 import UIKit
 
 class GameListTableViewController: UITableViewController {
-    
+
     // MARK: - Properties
-    
+
     weak var gameListView: GameListViewControllerType?
     var date: Date!
     var league: League!
@@ -20,22 +20,22 @@ class GameListTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
+
     // MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Replace the background view with custom view with error label
         let backgroundView = GameListTableBackgroundView.instanceFromNib()
         backgroundView.frame = self.tableView.frame
         self.tableView.backgroundView = backgroundView
-        
+
         self.tableView.separatorColor = .darkGray
         self.refreshControl?.tintColor = .lightGray
         self.refreshControl?.addTarget(self, action: #selector(refreshPressed), for: .valueChanged)
         self.updateError(message: nil)
-        
+
         GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: false) { result in
             switch result {
             case .success(let games):
@@ -45,10 +45,10 @@ class GameListTableViewController: UITableViewController {
             }
         }
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         // Updates games silently to refresh time remaining. If the refresh fails it will keep existing data.
         GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: false) { result in
             switch result {
@@ -61,14 +61,14 @@ class GameListTableViewController: UITableViewController {
             }
         }
     }
-    
+
     // MARK: - Private
-    
+
     @objc private func refreshPressed() {
         // Clears out the existing data, and reloads the games.
         self.games = nil
         self.updateError(message: nil)
-        
+
         GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: true) { result in
             switch result {
             case .success(let games):
@@ -82,36 +82,36 @@ class GameListTableViewController: UITableViewController {
             }
         }
     }
-    
+
     private func updateError(message: String?) {
         (self.tableView.backgroundView as? GameListTableBackgroundView)?.errorLabel.text = message
     }
-    
+
     // MARK: - Table view data source
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.games?.count ?? 0
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? GameTableViewCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell",
+                                                       for: indexPath) as? GameTableViewCell,
             let games = self.games,
             games.count > indexPath.row
-            else
-        {
+            else {
             return UITableViewCell()
         }
-        
+
         cell.game = games[indexPath.row]
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     // MARK: - Navigation
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showGame",
             let navController = segue.destination as? UINavigationController,
@@ -119,8 +119,7 @@ class GameListTableViewController: UITableViewController {
             let cell = sender as? UITableViewCell,
             let indexPath = self.tableView.indexPath(for: cell),
             let games = self.games,
-            games.count > indexPath.row
-        {
+            games.count > indexPath.row {
             self.gameListView?.collapseDetailViewController = false
             gameVC.presenter = GamePresenter(game: games[indexPath.row])
             gameVC.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem

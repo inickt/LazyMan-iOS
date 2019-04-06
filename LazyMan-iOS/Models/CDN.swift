@@ -9,13 +9,14 @@
 import Foundation
 
 enum CDN: String, CaseIterable {
-    case Akamai = "akc", Level3 = "l3c"
-    
+
+    case akamai = "akc", level3 = "l3c"
+
     var title: String {
         switch self {
-        case .Akamai:
+        case .akamai:
             return "Akamai"
-        case .Level3:
+        case .level3:
             return "Level 3"
         }
     }

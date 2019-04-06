@@ -23,8 +23,8 @@ extension Team: Comparable {
     static func < (lhs: Team, rhs: Team) -> Bool {
         return lhs.name < rhs.name
     }
-    
-    static func ==(lhs: Team, rhs: Team) -> Bool {
+
+    static func == (lhs: Team, rhs: Team) -> Bool {
         return lhs.name == rhs.name
     }
 }

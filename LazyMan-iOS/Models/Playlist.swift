@@ -9,45 +9,43 @@
 import Foundation
 
 struct Playlist {
-    
+
     // MARK: - Properties
-    
+
     let url: URL
     let quality: String
     let bandwidth: Int?
     let framerate: Int?
-    
+
     // MARK: - Init
-    
+
     init(url: URL, quality: String, bandwidth: Int?, framerate: Int?) {
         self.url = url
         self.quality = quality
         self.bandwidth = bandwidth
         self.framerate = framerate
     }
-    
+
     // MARK: - Computed Properties
-    
+
     var title: String {
         var framerateString = ""
         if let framerate = self.framerate, framerate != 30 {
             framerateString = "\(framerate)"
         }
-        
+
         let qualityArray = self.quality.split(separator: "x")
-        if qualityArray.count == 2  {
+        if qualityArray.count == 2 {
             return "\(qualityArray[1])p\(framerateString)"
-        }
-        else {
+        } else {
             return "\(self.quality) \(framerateString)"
         }
     }
-    
+
     var description: String {
         if let bandwidth = self.bandwidth {
             return "\(bandwidth / 1000) Kbps"
-        }
-        else {
+        } else {
             return ""
         }
     }

@@ -11,15 +11,15 @@ import AVKit
 import OptionSelector
 
 protocol GamePresenterType: AVAssetResourceLoaderDelegate {
-    
+
     var gameView: GameViewType? { get set }
 
     var cdnSelector: SingularOptionSelector<CDN> { get }
     var feedSelector: SingularOptionSelector<Feed> { get }
     var playlistSelector: SingularOptionSelector<Playlist>? { get }
-    
+
     var game: Game { get }
-    
+
     func load()
     func reload()
 }
@@ -27,7 +27,7 @@ protocol GamePresenterType: AVAssetResourceLoaderDelegate {
 class GamePresenter: NSObject, GamePresenterType {
 
     weak var gameView: GameViewType?
-    
+
     let game: Game
     private (set) var cdnSelector: SingularOptionSelector<CDN>
     private (set) var feedSelector: SingularOptionSelector<Feed>
@@ -38,7 +38,7 @@ class GamePresenter: NSObject, GamePresenterType {
             }
         }
     }
-    
+
     private let settingsManager: SettingsType
     private let feedManager: FeedManagerType
     private let teamManager: TeamManagerType
@@ -48,11 +48,11 @@ class GamePresenter: NSObject, GamePresenterType {
     deinit {
         print("DEINIT GP")
     }
-    
+
     init?(game: Game,
-         settingsManager: SettingsType = SettingsManager.shared,
-         feedManager: FeedManagerType = FeedManager.shared,
-         teamManager: TeamManagerType = TeamManager.shared) {
+          settingsManager: SettingsType = SettingsManager.shared,
+          feedManager: FeedManagerType = FeedManager.shared,
+          teamManager: TeamManagerType = TeamManager.shared) {
         self.game = game
         self.settingsManager = settingsManager
         self.feedManager = feedManager
@@ -60,8 +60,7 @@ class GamePresenter: NSObject, GamePresenterType {
 
         guard let defaultFeed = teamManager.getDefaultFeed(game: game),
             let cdnSelector = SingularOptionSelector(options: CDN.allCases, selected: settingsManager.defaultCDN),
-            let feedSelector = SingularOptionSelector(options: game.feeds, selected: defaultFeed) else
-        {
+            let feedSelector = SingularOptionSelector(options: game.feeds, selected: defaultFeed) else {
             return nil
         }
         self.cdnSelector = cdnSelector
@@ -76,7 +75,7 @@ class GamePresenter: NSObject, GamePresenterType {
             self?.didSelectFeed(feed: selected)
         }
     }
-    
+
     func load() {
         self.gameView?.setQuality(text: nil)
         self.gameView?.setFeed(text: self.feedSelector.selected.title)
@@ -88,17 +87,15 @@ class GamePresenter: NSObject, GamePresenterType {
     func reload() {
         self.loadPlaylists(reload: true)
     }
-    
+
     // MARK: - AVAssetResourceLoaderDelegate
-    
+
     func resourceLoader(_ resourceLoader: AVAssetResourceLoader,
-                        shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool
-    {
+                        shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
         if let url = loadingRequest.request.url {
             for host in allHosts {
                 if url.absoluteString.contains(host),
-                    let redirect = URL(string: url.absoluteString.replacingOccurrences(of: host, with: serverAddress))
-                {
+                    let redirect = URL(string: url.absoluteString.replacingOccurrences(of: host, with: serverAddress)) {
                     try? loadingRequest.dataRequest?.respond(with: Data(contentsOf: redirect))
                     loadingRequest.finishLoading()
                     return true
@@ -108,7 +105,7 @@ class GamePresenter: NSObject, GamePresenterType {
 
         return false
     }
-    
+
     // MARK: - Private
 
     private func didSelectCDN(cdn: CDN) {
@@ -128,7 +125,9 @@ class GamePresenter: NSObject, GamePresenterType {
 
     private func loadPlaylists(reload: Bool = false) {
         self.gameView?.setQuality(text: nil)
-        self.feedManager.getFeedPlaylists(from: self.feedSelector.selected, using: self.cdnSelector.selected, ignoreCache: reload) {
+        self.feedManager.getFeedPlaylists(from: self.feedSelector.selected,
+                                          using: self.cdnSelector.selected,
+                                          ignoreCache: reload) {
             self.handlePlaylist(result: $0)
         }
     }
@@ -140,7 +139,7 @@ class GamePresenter: NSObject, GamePresenterType {
             self.gameView?.showError(message: error.messgae)
         case .success(let playlists):
             var defaultPlaylist = playlists.first
-            if playlists.count >= 2  {
+            if playlists.count >= 2 {
                 defaultPlaylist = playlists[self.settingsManager.defaultQuality]
             }
             guard !playlists.isEmpty, let selected = defaultPlaylist else {

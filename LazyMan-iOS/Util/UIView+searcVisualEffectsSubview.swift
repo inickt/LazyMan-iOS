@@ -12,15 +12,14 @@ extension UIView {
     func searchVisualEffectsSubview() -> UIVisualEffectView? {
         if let visualEffectView = self as? UIVisualEffectView {
             return visualEffectView
-        }
-        else {
+        } else {
             for subview in subviews {
                 if let found = subview.searchVisualEffectsSubview() {
                     return found
                 }
             }
         }
-        
+
         return nil
     }
 }

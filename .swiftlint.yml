@@ -1,0 +1,5 @@
+included:
+  - LazyMan-iOS
+
+excluded:
+  - Pods

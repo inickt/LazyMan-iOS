@@ -12,7 +12,7 @@ import AVKit
 protocol GameViewType: class {
 
     var gameTitle: String { get set }
-    
+
     func playURL(url: URL)
     func showError(message: String)
     func setQuality(text: String?)
@@ -23,13 +23,13 @@ protocol GameViewType: class {
 class GameViewController: UIViewController, GameViewType {
 
     // MARK: - IBOutlets
-    
+
     @IBOutlet private var navigation: UINavigationItem!
     @IBOutlet private var refreshButton: UIBarButtonItem!
     private var playerVC: AVPlayerViewController?
-    
+
     // MARK: - Properties
-    
+
     var presenter: GamePresenterType!
     var gameTitle: String = "" {
         didSet {
@@ -38,19 +38,19 @@ class GameViewController: UIViewController, GameViewType {
     }
     private weak var gameSettingsView: GameSettingsViewController?
     private var hidden = false
-    
+
     // MARK: - IBActions
-    
+
     @IBAction private func refreshPressed(_ sender: Any) {
         self.presenter.reload()
     }
-    
+
     // MARK: - Lifecycle
 
     deinit {
         print("DEINIT GVC")
     }
-    
+
     override func loadView() {
         super.loadView()
         self.presenter.gameView = self
@@ -66,21 +66,20 @@ class GameViewController: UIViewController, GameViewType {
         super.viewDidAppear(animated)
         self.hidden = false
     }
-    
+
     // MARK: - Navigation
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gameOptions", let gameSettings = segue.destination as? GameSettingsViewController {
             gameSettings.presenter = self.presenter
             self.gameSettingsView = gameSettings
-        }
-        else if segue.identifier == "player", let playerVC = segue.destination as? AVPlayerViewController {
+        } else if segue.identifier == "player", let playerVC = segue.destination as? AVPlayerViewController {
             self.playerVC = playerVC
         }
     }
 
     // MARK: GameViewType
-    
+
     func playURL(url: URL) {
         let asset = AVURLAsset(url: url)
         asset.resourceLoader.setDelegate(self.presenter, queue: DispatchQueue(label: "Loader"))
@@ -93,17 +92,17 @@ class GameViewController: UIViewController, GameViewType {
             player.play()
         }
     }
-    
+
     func showError(message: String) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alert.addAction(okAction)
-        
-        let atrributedMessage = NSAttributedString(string: message, attributes: [.foregroundColor : UIColor.white])
+
+        let atrributedMessage = NSAttributedString(string: message, attributes: [.foregroundColor: UIColor.white])
         alert.setValue(atrributedMessage, forKey: "attributedMessage")
-        
+
         self.present(alert, animated: true, completion: nil)
-        
+
         alert.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
     }
 
@@ -118,9 +117,9 @@ class GameViewController: UIViewController, GameViewType {
     func setCDN(text: String) {
         self.gameSettingsView?.setCDN(text: text)
     }
-    
+
     // MARK: - Private
-    
+
     @objc private func pause() {
         self.playerVC?.player?.pause()
         self.hidden = true

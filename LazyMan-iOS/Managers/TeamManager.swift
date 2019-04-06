@@ -9,8 +9,8 @@
 import UIKit
 
 protocol TeamManagerType {
-    var nhlTeams: [String : Team] { get }
-    var mlbTeams: [String : Team] { get }
+    var nhlTeams: [String: Team] { get }
+    var mlbTeams: [String: Team] { get }
     func isFavorite(team: Team) -> Bool
     func hasFavoriteTeam(game: Game) -> Bool
     func getDefaultFeed(game: Game) -> Feed?
@@ -18,34 +18,33 @@ protocol TeamManagerType {
 }
 
 final class TeamManager: TeamManagerType {
-    
+
     // MARK: - Shared Manager
-    
+
     static let shared = TeamManager()
-    
+
     // MARK: Initialization
-    
+
     init(settingsManager: SettingsType = SettingsManager.shared) {
         self.settingsManager = settingsManager
         self.initNHLTeams()
         self.initMLBTeams()
     }
-    
+
     // MARK: - Private Properties
-    
+
     private let settingsManager: SettingsType
-    var nhlTeams: [String : Team] {
+    var nhlTeams: [String: Team] {
         return self._nhlTeams
     }
-    var mlbTeams: [String : Team] {
+    var mlbTeams: [String: Team] {
         return self._mlbTeams
     }
 
-    
     func isFavorite(team: Team) -> Bool {
         return team == self.settingsManager.favoriteMLBTeam || team == self.settingsManager.favoriteNHLTeam
     }
-    
+
     func hasFavoriteTeam(game: Game) -> Bool {
         return self.isFavorite(team: game.awayTeam) || self.isFavorite(team: game.homeTeam)
     }
@@ -54,31 +53,31 @@ final class TeamManager: TeamManagerType {
         // TODO: add french option to settings
         if ({ false }()), let feed = game.feeds.first(where: { $0.feedType == .french }) {
             return feed
-        } else if self.isFavorite(team: game.homeTeam),  let feed = game.feeds.first(where: { $0.feedType == .home }) {
+        } else if self.isFavorite(team: game.homeTeam), let feed = game.feeds.first(where: { $0.feedType == .home }) {
             return feed
-        } else if self.isFavorite(team: game.awayTeam), let feed = game.feeds.first(where: { $0.feedType == .away }){
+        } else if self.isFavorite(team: game.awayTeam), let feed = game.feeds.first(where: { $0.feedType == .away }) {
             return feed
         } else {
             return game.feeds.first
         }
     }
-    
+
     func compareGames(lhs: Game, rhs: Game) -> Bool {
         if self.hasFavoriteTeam(game: lhs) || self.hasFavoriteTeam(game: rhs) {
             return self.hasFavoriteTeam(game: lhs)
-        }
-        else if (lhs.gameState == .live && rhs.gameState == .live) || (lhs.gameState == .preview && rhs.gameState == .preview) {
+        } else if (lhs.gameState == .live && rhs.gameState == .live)
+            || (lhs.gameState == .preview && rhs.gameState == .preview) {
             return lhs.startTime < rhs.startTime
-        }
-        else {
+        } else {
             return lhs.gameState.rawValue < rhs.gameState.rawValue
         }
     }
-    
-    private var _nhlTeams = [String : Team]()
-    private var _mlbTeams = [String : Team]()
-    
+
+    private var _nhlTeams = [String: Team]()
+    private var _mlbTeams = [String: Team]()
+
     // TODO: Move into plist
+    // swiftlint:disable comma
     private func initNHLTeams() {
         self.addNHLTeam(loc: "Colorado",     name: "Avalanche",      abbrv: "COL", logo: #imageLiteral(resourceName: "avalanche"))
         self.addNHLTeam(loc: "Chicago",      name: "Blackhawks",     abbrv: "CHI", logo: #imageLiteral(resourceName: "blackhawks"))
@@ -112,7 +111,7 @@ final class TeamManager: TeamManagerType {
         self.addNHLTeam(loc: "Dallas",       name: "Stars",          abbrv: "DAL", logo: #imageLiteral(resourceName: "stars"))
         self.addNHLTeam(loc: "Minnesota",    name: "Wild",           abbrv: "MIN", logo: #imageLiteral(resourceName: "wild"))
     }
-    
+
     private func initMLBTeams() {
         self.addMLBTeam(loc: "Los Angeles",   name: "Angels",       abbrv: "LAA", logo: #imageLiteral(resourceName: "angeles"))
         self.addMLBTeam(loc: "Houston",       name: "Astros",       abbrv: "HOU", logo: #imageLiteral(resourceName: "astros"))
@@ -145,11 +144,11 @@ final class TeamManager: TeamManagerType {
         self.addMLBTeam(loc: "Chicago",       name: "White Sox",    abbrv: "CWS", logo: #imageLiteral(resourceName: "white-sox"))
         self.addMLBTeam(loc: "New York",      name: "Yankees",      abbrv: "NYY", logo: #imageLiteral(resourceName: "yankees"))
     }
-    
+
     private func addNHLTeam(loc: String, name: String, abbrv: String, logo: UIImage) {
         self._nhlTeams[name] = Team(location: loc, shortName: name, abbreviation: abbrv, logo: logo, league: .NHL)
     }
-    
+
     private func addMLBTeam(loc: String, name: String, abbrv: String, logo: UIImage) {
         self._mlbTeams[name] = Team(location: loc, shortName: name, abbreviation: abbrv, logo: logo, league: .MLB)
     }
