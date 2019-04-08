@@ -11,6 +11,7 @@ import UIKit
 protocol TeamManagerType {
     var nhlTeams: [String: Team] { get }
     var mlbTeams: [String: Team] { get }
+
     func isFavorite(team: Team) -> Bool
     func hasFavoriteTeam(game: Game) -> Bool
     func getDefaultFeed(game: Game) -> Feed?
@@ -121,7 +122,7 @@ final class TeamManager: TeamManagerType {
         self.addMLBTeam(loc: "Milwaukee",     name: "Brewers",      abbrv: "MIL", logo: #imageLiteral(resourceName: "brewers"))
         self.addMLBTeam(loc: "St. Louis",     name: "Cardinals",    abbrv: "STL", logo: #imageLiteral(resourceName: "cardinals"))
         self.addMLBTeam(loc: "Chicago",       name: "Cubs",         abbrv: "CHC", logo: #imageLiteral(resourceName: "cubs"))
-        self.addMLBTeam(loc: "Arizona",       name: "Diamondbacks", abbrv: "ARI", logo: #imageLiteral(resourceName: "diamondbacks"))
+        self.addMLBTeam(loc: "Arizona",       name: "D-backs",      abbrv: "ARI", logo: #imageLiteral(resourceName: "diamondbacks"))
         self.addMLBTeam(loc: "Los Angeles",   name: "Dodgers",      abbrv: "LAD", logo: #imageLiteral(resourceName: "dodgers"))
         self.addMLBTeam(loc: "San Francisco", name: "Giants",       abbrv: "SF",  logo: #imageLiteral(resourceName: "giants"))
         self.addMLBTeam(loc: "Cleveland",     name: "Indians",      abbrv: "CLE", logo: #imageLiteral(resourceName: "indians"))

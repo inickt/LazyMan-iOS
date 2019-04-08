@@ -48,6 +48,9 @@ class GameViewController: UIViewController, GameViewType {
     // MARK: - Lifecycle
 
     override func loadView() {
+        // swiftlint:disable:previous prohibited_super_call
+        // TODO: - Clean this up, remove super call (crashed without it though...)
+        super.loadView()
         self.presenter?.gameView = self
         NotificationCenter.default.addObserver(self, selector: #selector(pause), name: pauseNotification, object: nil)
     }

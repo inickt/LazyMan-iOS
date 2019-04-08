@@ -80,6 +80,9 @@ class GameListViewController: UIViewController, GameListViewControllerType {
     // MARK: - Lifecycle
 
     override func loadView() {
+        // swiftlint:disable:previous prohibited_super_call
+        // TODO: - Clean this up, remove super call (crashed without it though...)
+        super.loadView()
         self.league = SettingsManager.shared.defaultLeague
         self.leagueControl.selectedSegmentIndex = SettingsManager.shared.defaultLeague == .NHL ? 0 : 1
         self.splitViewController?.delegate = self

@@ -121,6 +121,7 @@ class GamePresenter: NSObject, GamePresenterType {
 
     private func loadPlaylists(reload: Bool = false) {
         self.gameView?.setQuality(text: nil)
+        self.playlistSelector = nil
         self.feedManager.getFeedPlaylists(from: self.feedSelector.selected,
                                           using: self.cdnSelector.selected,
                                           ignoreCache: reload) {
