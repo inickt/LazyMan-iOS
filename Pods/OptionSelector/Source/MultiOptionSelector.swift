@@ -16,15 +16,17 @@ final public class MultiOptionSelector<OptionType: Equatable>: ConstrainedOption
     public var selected: [OptionType] {
         return selectedIndices.map { self.options[$0] }
     }
-    private(set) public var selectedIndices = Set<Int>() {
+    private(set) public var selectedIndices: Set<Int> {
         didSet {
             self.callback?(self.selected)
         }
     }
     public var callback: (([OptionType]) -> Void)?
 
-    public init(options: [OptionType]) {
+    public init(_ options: [OptionType], selected: [OptionType] = [], callback: (([OptionType]) -> Void)? = nil) {
         self.options = options
+        self.selectedIndices = Set(selected.flatMap { sel in options.indices.filter { options[$0] == sel } })
+        self.callback = callback
     }
 
     public func select(index: Int) {

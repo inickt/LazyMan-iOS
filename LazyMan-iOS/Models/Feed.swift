@@ -19,9 +19,9 @@ struct Feed: Hashable {
     let league: League
     let date: Date
     var title: String {
-        if self.feedName != "" {
+        if !self.feedName.isEmpty {
             return self.feedName
-        } else if self.callLetters != "" {
+        } else if !self.callLetters.isEmpty {
             return "\(self.feedType.title) (\(self.callLetters))"
         } else {
             return self.feedType.title

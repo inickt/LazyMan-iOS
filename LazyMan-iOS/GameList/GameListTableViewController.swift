@@ -41,7 +41,7 @@ class GameListTableViewController: UITableViewController {
             case .success(let games):
                 self.games = games
             case .failure(let error):
-                self.updateError(message: error.localizedDescription)
+                self.updateError(message: error.messgae)
             }
         }
     }
@@ -64,7 +64,8 @@ class GameListTableViewController: UITableViewController {
 
     // MARK: - Private
 
-    @objc private func refreshPressed() {
+    @objc
+    private func refreshPressed() {
         // Clears out the existing data, and reloads the games.
         self.games = nil
         self.updateError(message: nil)
@@ -84,7 +85,7 @@ class GameListTableViewController: UITableViewController {
     }
 
     private func updateError(message: String?) {
-        (self.tableView.backgroundView as? GameListTableBackgroundView)?.errorLabel.text = message
+        (self.tableView.backgroundView as? GameListTableBackgroundView)?.errorMessage = message
     }
 
     // MARK: - Table view data source

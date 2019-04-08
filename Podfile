@@ -11,5 +11,5 @@ target 'LazyMan-iOS' do
   #pod 'Pantomime'
   pod 'Pantomime', :git => 'https://github.com/inickt/Pantomime.git', :branch => 'master'
 
-  pod 'OptionSelector', '0.1.0'
+  pod 'OptionSelector', '~> 0.2'
 end

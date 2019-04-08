@@ -45,10 +45,6 @@ class GamePresenter: NSObject, GamePresenterType {
 
     // MARK: - Initialization
 
-    deinit {
-        print("DEINIT GP")
-    }
-
     init?(game: Game,
           settingsManager: SettingsType = SettingsManager.shared,
           feedManager: FeedManagerType = FeedManager.shared,
@@ -59,8 +55,8 @@ class GamePresenter: NSObject, GamePresenterType {
         self.teamManager = teamManager
 
         guard let defaultFeed = teamManager.getDefaultFeed(game: game),
-            let cdnSelector = SingularOptionSelector(options: CDN.allCases, selected: settingsManager.defaultCDN),
-            let feedSelector = SingularOptionSelector(options: game.feeds, selected: defaultFeed) else {
+            let cdnSelector = SingularOptionSelector(CDN.allCases, selected: settingsManager.defaultCDN),
+            let feedSelector = SingularOptionSelector(game.feeds, selected: defaultFeed) else {
             return nil
         }
         self.cdnSelector = cdnSelector
@@ -145,7 +141,7 @@ class GamePresenter: NSObject, GamePresenterType {
             guard !playlists.isEmpty, let selected = defaultPlaylist else {
                 return
             }
-            self.playlistSelector = SingularOptionSelector(options: playlists, selected: selected)
+            self.playlistSelector = SingularOptionSelector(playlists, selected: selected)
             self.didSelectPlaylist(playlist: selected)
         }
     }

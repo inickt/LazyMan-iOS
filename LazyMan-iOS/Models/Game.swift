@@ -70,7 +70,9 @@ class Game {
     // MARK: - Init
 
     init?(homeTeam: Team, awayTeam: Team, startTime: Date, gameState: GameState, liveGameState: String, feeds: [Feed]) {
-        guard homeTeam.league == awayTeam.league else { return nil }
+        guard homeTeam.league == awayTeam.league else {
+            return nil
+        }
 
         self.homeTeam = homeTeam
         self.awayTeam = awayTeam

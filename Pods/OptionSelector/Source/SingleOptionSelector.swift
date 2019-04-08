@@ -22,8 +22,12 @@ final public class SingleOptionSelector<OptionType: Equatable>: ConstrainedOptio
     private(set) public var selectedIndex: Int?
     public var callback: ((OptionType?) -> Void)?
 
-    public init(options: [OptionType]) {
+    public init(_ options: [OptionType], selected: OptionType? = nil, callback: ((OptionType?) -> Void)? = nil) {
         self.options = options
+        if let selected = selected {
+            self.selectedIndex = options.firstIndex(of: selected)
+        }
+        self.callback = callback
     }
 
     public func select(index: Int) {

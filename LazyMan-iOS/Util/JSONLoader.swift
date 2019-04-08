@@ -21,6 +21,8 @@ enum JSONLoaderError: LazyManError {
             return "File \(filename).json does not exist."
         case .urlError(let description):
             return "Could not create url from \(description) to parse JSON."
+        case .loadError(let message):
+            return message
         case .dataError(let source):
             return "Could not load data from \(source) to parse JSON."
         case .parseError(let source):
@@ -28,7 +30,7 @@ enum JSONLoaderError: LazyManError {
         }
     }
 
-    case fileError(String), urlError(String), dataError(String), parseError(String)
+    case fileError(String), urlError(String), loadError(String), dataError(String), parseError(String)
 }
 
 class JSONWebLoader: JSONLoader {
@@ -52,11 +54,15 @@ class JSONWebLoader: JSONLoader {
 
     func load(date: String) -> Result<JSON, JSONLoaderError> {
         guard let url = URL(string: String(format: self.dateFormatURL, date)) else {
-            return .failure(.urlError("\(date) schedule"))
+             return .failure(.urlError("\(date) schedule"))
         }
 
-        // TODO: Bring back URLSession (had better error messages)
-        guard let jsonData = try? Data(contentsOf: url) else {
+        let (data, _, error) = URLSession.shared.synchronousDataTask(with: url)
+
+        guard let jsonData = data else {
+            if let errorMessage = error?.localizedDescription {
+                return .failure(.loadError(errorMessage))
+            }
             return .failure(.dataError("\(date) schedule"))
         }
 

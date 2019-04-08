@@ -13,13 +13,14 @@ open class OptionViewController<OptionType: OptionSelectorCell>: UITableViewCont
     public var selector: AnyOptionSelector<OptionType>
     public var popOnSelection = true
 
-    public convenience init<Selector: OptionSelector>(_ selector: Selector) where Selector.OptionType == OptionType {
-        self.init(selector: AnyOptionSelector(selector))
+    public convenience init<Selector: OptionSelector>(_ selector: Selector,
+                                          style: UITableView.Style = .plain) where Selector.OptionType == OptionType {
+        self.init(selector: AnyOptionSelector(selector), style: style)
     }
 
-    public init(selector: AnyOptionSelector<OptionType>) {
+    public init(selector: AnyOptionSelector<OptionType>, style: UITableView.Style = .plain) {
         self.selector = selector
-        super.init(nibName: nil, bundle: nil)
+        super.init(style: style)
     }
 
     required public init?(coder aDecoder: NSCoder) {

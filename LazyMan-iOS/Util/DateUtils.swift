@@ -12,7 +12,7 @@ enum DateUtils {
 
     // MARK: - Private Properties
 
-    static private let gmtFormatter: DateFormatter = {
+    private static let gmtFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
@@ -20,7 +20,7 @@ enum DateUtils {
         return formatter
     }()
 
-    static private let yyyymmddFormatter: DateFormatter = {
+    private static let yyyymmddFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter

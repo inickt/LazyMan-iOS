@@ -37,7 +37,9 @@ class UpdateManager {
                 return
             }
 
-            guard let json = try? JSON(data: data).arrayValue else { return }
+            guard let json = try? JSON(data: data).arrayValue else {
+                return
+            }
 
             guard let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
                 return

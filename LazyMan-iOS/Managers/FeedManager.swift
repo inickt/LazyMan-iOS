@@ -113,7 +113,7 @@ class FeedManager: FeedManagerType {
         }
 
         // Sort playlists from highest to lowest quality
-        playlists.sort(by: { $0.bandwidth ?? Int.max > $1.bandwidth ?? Int.max })
+        playlists.sort { $0.bandwidth ?? Int.max > $1.bandwidth ?? Int.max }
 
         return .success(playlists)
     }

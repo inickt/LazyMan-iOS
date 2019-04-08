@@ -9,11 +9,12 @@
 import UIKit
 
 class GameTableViewCell: UITableViewCell {
-    @IBOutlet private weak var awayTeamImage: UIImageView!
-    @IBOutlet private weak var homeTeamImage: UIImageView!
-    @IBOutlet private weak var awayTeamLabel: UILabel!
-    @IBOutlet private weak var homeTeamLabel: UILabel!
-    @IBOutlet private weak var timeLabel: UILabel!
+
+    @IBOutlet private var awayTeamImage: UIImageView!
+    @IBOutlet private var homeTeamImage: UIImageView!
+    @IBOutlet private var awayTeamLabel: UILabel!
+    @IBOutlet private var homeTeamLabel: UILabel!
+    @IBOutlet private var timeLabel: UILabel!
 
     var game: Game? {
         didSet {

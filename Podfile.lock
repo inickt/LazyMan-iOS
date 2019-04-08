@@ -1,12 +1,12 @@
 PODS:
   - FSCalendar (2.7.9)
-  - OptionSelector (0.1.0)
+  - OptionSelector (0.2.2)
   - Pantomime (0.1.5)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - FSCalendar (= 2.7.9)
-  - OptionSelector (= 0.1.0)
+  - OptionSelector (~> 0.2)
   - Pantomime (from `https://github.com/inickt/Pantomime.git`, branch `master`)
   - SwiftyJSON
 
@@ -28,10 +28,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
-  OptionSelector: 703ec2eec9679a3cf5d6130d9e163a5dd7d26741
+  OptionSelector: b10703475093270c4ccfe42a1f2f75e383ecd5fe
   Pantomime: 2aec2b603b91f6d5a4774ecce9c0ed073d3b4e5d
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: f381e312b3a6b6a46d023b121ecb4a3a2131bebd
+PODFILE CHECKSUM: 342b776d907eb667332221f297f2ccd015d11b18
 
 COCOAPODS: 1.6.1

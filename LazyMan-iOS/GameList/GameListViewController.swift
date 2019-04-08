@@ -9,18 +9,19 @@
 import UIKit
 import FSCalendar
 
-protocol GameListViewControllerType: class {
+protocol GameListViewControllerType: AnyObject {
     var collapseDetailViewController: Bool { get set }
 }
 
 class GameListViewController: UIViewController, GameListViewControllerType {
+
     // MARK: - IBOutlets
 
-    @IBOutlet private weak var leagueControl: UISegmentedControl!
-    @IBOutlet private weak var calendar: FSCalendar!
-    @IBOutlet private weak var calendarHeight: NSLayoutConstraint!
-    @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var dateButton: UIBarButtonItem!
+    @IBOutlet private var leagueControl: UISegmentedControl!
+    @IBOutlet private var calendar: FSCalendar!
+    @IBOutlet private var calendarHeight: NSLayoutConstraint!
+    @IBOutlet private var dateLabel: UILabel!
+    @IBOutlet private var dateButton: UIBarButtonItem!
     private var pageController: UIPageViewController?
 
     // MARK: - Properties
@@ -30,7 +31,9 @@ class GameListViewController: UIViewController, GameListViewControllerType {
     private var date = Date() // Only update with updateDate()
     private var league: League = .NHL {
         didSet {
-            guard self.league != oldValue else { return }
+            guard self.league != oldValue else {
+                return
+            }
 
             // swiftlint:disable:next line_length
             let direction: UIPageViewController.NavigationDirection = self.leagueControl.selectedSegmentIndex == 1 ? .forward : .reverse
@@ -77,7 +80,6 @@ class GameListViewController: UIViewController, GameListViewControllerType {
     // MARK: - Lifecycle
 
     override func loadView() {
-        super.loadView()
         self.league = SettingsManager.shared.defaultLeague
         self.leagueControl.selectedSegmentIndex = SettingsManager.shared.defaultLeague == .NHL ? 0 : 1
         self.splitViewController?.delegate = self
@@ -147,7 +149,9 @@ class GameListViewController: UIViewController, GameListViewControllerType {
 
     private func updateDate(date: Date, wasSwiped: Bool = false, firstLoad: Bool = false) {
         // We only want to perform the following updates if the date changed, or its the first time loading
-        if !firstLoad, Calendar.current.isDate(self.date, inSameDayAs: date) { return }
+        if !firstLoad, Calendar.current.isDate(self.date, inSameDayAs: date) {
+            return
+        }
 
         // If we are swiping, we don't want to move the pages again
         if !wasSwiped {
@@ -161,13 +165,14 @@ class GameListViewController: UIViewController, GameListViewControllerType {
         // Update calendar and text
         self.calendar.select(date, scrollToDate: true)
         if self.calendar.scope == .week {
+            // swiftlint:disable:next multiline_arguments
             UIView.animate(withDuration: 0.1, animations: {
                 self.dateLabel.alpha = 0.2
             }, completion: { (_) in
                 self.dateLabel.text = self.weekFormatter.string(from: self.date)
-                UIView.animate(withDuration: 0.1, animations: {
+                UIView.animate(withDuration: 0.1) {
                     self.dateLabel.alpha = 1.0
-                })
+                }
             })
         } else {
             self.dateLabel.text = self.weekFormatter.string(from: date)
@@ -176,7 +181,8 @@ class GameListViewController: UIViewController, GameListViewControllerType {
         self.date = date
     }
 
-    @objc private func updateToday() {
+    @objc
+    private func updateToday() {
         self.calendar.today = Date()
     }
 }
@@ -192,9 +198,9 @@ extension GameListViewController: FSCalendarDelegate {
 
         if calendar.scope == .week {
             calendar.appearance.headerTitleColor = UIColor.clear
-            UIView.animate(withDuration: 0.1, animations: {
+            UIView.animate(withDuration: 0.1) {
                 self.dateLabel.alpha = 1.0
-            })
+            }
         } else {
             UIView.animate(withDuration: 0.001, animations: {
                 self.dateLabel.alpha = 0.0

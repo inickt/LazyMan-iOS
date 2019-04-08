@@ -24,12 +24,13 @@ final public class SingularOptionSelector<OptionType: Equatable>: ConstrainedOpt
     }
     public var callback: ((OptionType) -> Void)?
 
-    public init?(options: [OptionType], selected: OptionType) {
+    public init?(_ options: [OptionType], selected: OptionType, callback: ((OptionType) -> Void)? = nil) {
         guard !options.isEmpty, let selectedIndex = options.firstIndex(of: selected) else {
             return nil
         }
         self.options = options
         self.selectedIndex = selectedIndex
+        self.callback = callback
     }
 
     public func select(index: Int) {

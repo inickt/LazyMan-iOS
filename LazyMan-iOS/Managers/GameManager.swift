@@ -37,9 +37,9 @@ class GameManager: GameManagerType {
     // MARK: - Static private properties
 
     // swiftlint:disable:next line_length
-    static private let nhlFormatURL = "https://statsapi.web.nhl.com/api/v1/schedule?date=%@&expand=schedule.teams,schedule.linescore,schedule.game.content.media.epg"
+    private static let nhlFormatURL = "https://statsapi.web.nhl.com/api/v1/schedule?date=%@&expand=schedule.teams,schedule.linescore,schedule.game.content.media.epg"
     // swiftlint:disable:next line_length
-    static private let mlbFormatURL = "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=%@&hydrate=team,linescore,game(content(summary,media(epg)))&language=en"
+    private static let mlbFormatURL = "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=%@&hydrate=team,linescore,game(content(summary,media(epg)))&language=en"
 
     // MARK: - Static public properties
 
@@ -149,7 +149,7 @@ class GameManager: GameManagerType {
                 let homeTeam = self.teamManager.nhlTeams[nhlGame["teams"]["home"]["team"]["teamName"].stringValue],
                 let awayTeam = self.teamManager.nhlTeams[nhlGame["teams"]["away"]["team"]["teamName"].stringValue] {
                 var gameFeeds = [Feed]()
-                if let mediaFeeds = nhlGame["content"]["media"]["epg"].array, mediaFeeds.count > 0 {
+                if let mediaFeeds = nhlGame["content"]["media"]["epg"].array, !mediaFeeds.isEmpty {
                     for mediaFeed in mediaFeeds[0]["items"].arrayValue {
                         gameFeeds.append(Feed(feedType: mediaFeed["mediaFeedType"].stringValue,
                                               callLetters: mediaFeed["callLetters"].stringValue,
@@ -186,7 +186,7 @@ class GameManager: GameManagerType {
                 let homeTeam = self.teamManager.mlbTeams[mlbGame["teams"]["home"]["team"]["teamName"].stringValue],
                 let awayTeam = self.teamManager.mlbTeams[mlbGame["teams"]["away"]["team"]["teamName"].stringValue] {
                 var gameFeeds = [Feed]()
-                if let mediaFeeds = mlbGame["content"]["media"]["epg"].array, mediaFeeds.count > 0 {
+                if let mediaFeeds = mlbGame["content"]["media"]["epg"].array, !mediaFeeds.isEmpty {
                     for mediaFeed in mediaFeeds[0]["items"].arrayValue {
                         if mediaFeed["mediaFeedType"].stringValue.contains("IN_") {
                             continue

@@ -9,7 +9,12 @@
 import UIKit
 import OptionSelector
 
+private let kPlaylistIndex = 0
+private let kFeedIndex = 1
+private let kCDNIndex = 2
+
 class GameSettingsViewController: UITableViewController {
+
     // MARK: - IBOutlets
 
     @IBOutlet private var qualityLabel: UILabel!
@@ -19,13 +24,9 @@ class GameSettingsViewController: UITableViewController {
 
     // MARK: - Properties
 
-    var presenter: GamePresenterType!
+    var presenter: GamePresenterType?
 
-    // MARK: - GameSettingsViewControllerType
-
-    deinit {
-        print("DEINIT GSVC")
-    }
+    // MARK: - Public
 
     func setQuality(text: String?) {
         if let text = text {
@@ -56,65 +57,27 @@ class GameSettingsViewController: UITableViewController {
 
         let viewController: UIViewController
         switch indexPath.section {
-        case 0:
+        case kPlaylistIndex:
             guard let selector = presenter?.playlistSelector else {
                 return
             }
-            viewController = DarkOptionViewController(selector)
-        case 1:
+            viewController = DarkOptionViewController(selector, style: .grouped)
+            viewController.title = "Quality"
+        case kFeedIndex:
             guard let selector = presenter?.feedSelector else {
                 return
             }
-            viewController = DarkOptionViewController(selector)
-        case 2:
+            viewController = DarkOptionViewController(selector, style: .grouped)
+            viewController.title = "Feed"
+        case kCDNIndex:
             guard let selector = presenter?.cdnSelector else {
                 return
             }
-            viewController = DarkOptionViewController(selector)
+            viewController = DarkOptionViewController(selector, style: .grouped)
+            viewController.title = "CDN"
         default:
             return
         }
         self.navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-class DarkOptionViewController<OptionType: OptionSelectorCell>: OptionViewController<OptionType> {
-
-    override func createCell() -> UITableViewCell {
-        let cell = super.createCell()
-        cell.textLabel?.textColor = .white
-        cell.detailTextLabel?.textColor = .lightGray
-        return cell
-    }
-
-    override var defaultCellStyle: UITableViewCell.CellStyle {
-        return .subtitle
-    }
-}
-
-extension CDN: OptionSelectorCell {
-    var description: String {
-        return ""
-    }
-
-    var image: UIImage? {
-        return nil
-    }
-}
-
-extension Feed: OptionSelectorCell {
-    var description: String {
-        return ""
-    }
-
-    var image: UIImage? {
-        return nil
-    }
-}
-
-extension Playlist: OptionSelectorCell {
-
-    var image: UIImage? {
-        return nil
     }
 }

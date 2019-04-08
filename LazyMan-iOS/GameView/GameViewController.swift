@@ -9,7 +9,7 @@
 import UIKit
 import AVKit
 
-protocol GameViewType: class {
+protocol GameViewType: AnyObject {
 
     var gameTitle: String { get set }
 
@@ -30,7 +30,7 @@ class GameViewController: UIViewController, GameViewType {
 
     // MARK: - Properties
 
-    var presenter: GamePresenterType!
+    var presenter: GamePresenterType?
     var gameTitle: String = "" {
         didSet {
             self.navigation.title = gameTitle
@@ -42,24 +42,19 @@ class GameViewController: UIViewController, GameViewType {
     // MARK: - IBActions
 
     @IBAction private func refreshPressed(_ sender: Any) {
-        self.presenter.reload()
+        self.presenter?.reload()
     }
 
     // MARK: - Lifecycle
 
-    deinit {
-        print("DEINIT GVC")
-    }
-
     override func loadView() {
-        super.loadView()
-        self.presenter.gameView = self
+        self.presenter?.gameView = self
         NotificationCenter.default.addObserver(self, selector: #selector(pause), name: pauseNotification, object: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter.load()
+        self.presenter?.load()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -120,7 +115,8 @@ class GameViewController: UIViewController, GameViewType {
 
     // MARK: - Private
 
-    @objc private func pause() {
+    @objc
+    private func pause() {
         self.playerVC?.player?.pause()
         self.hidden = true
     }

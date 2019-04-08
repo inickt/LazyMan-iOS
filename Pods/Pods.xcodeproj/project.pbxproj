@@ -128,7 +128,7 @@
 		20EC23B205B15BA09E9D0FD06568204A /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 		215164FFEC89A35603415832E5D33370 /* FSCalendar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FSCalendar-Info.plist"; sourceTree = "<group>"; };
 		22570CF036A2EA686AE5D8A6E24623CE /* FSCalendarAppearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarAppearance.m; path = FSCalendar/FSCalendarAppearance.m; sourceTree = "<group>"; };
-		24F4AFFCE70032B3982FD81F2DCC9A48 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F4AFFCE70032B3982FD81F2DCC9A48 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		273E32599FDB670F4F40260FE3DAFF34 /* FSCalendarCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarCollectionView.h; path = FSCalendar/FSCalendarCollectionView.h; sourceTree = "<group>"; };
 		28F16594DBE6F3D96612BDFF9B3CE547 /* URLBufferedReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLBufferedReader.swift; path = sources/URLBufferedReader.swift; sourceTree = "<group>"; };
 		2D5CA52A36E204D6D0398FFF65DDCD98 /* FSCalendarConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarConstants.m; path = FSCalendar/FSCalendarConstants.m; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		7D25B8A3E624115D1409031B249B6010 /* Pantomime-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pantomime-dummy.m"; sourceTree = "<group>"; };
 		80D55F698B78ADB9E80187E4779D3F0F /* NSURLExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSURLExtension.swift; path = sources/NSURLExtension.swift; sourceTree = "<group>"; };
 		83D016804645713DB0F34E64A16B59EB /* FSCalendarCollectionViewLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarCollectionViewLayout.m; path = FSCalendar/FSCalendarCollectionViewLayout.m; sourceTree = "<group>"; };
-		8C1123FD4E412BCA942E533ACB814148 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C1123FD4E412BCA942E533ACB814148 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FSCalendar.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99070B4E85FA8BD60C81A2BE2DEF1A72 /* OptionTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionTableViewController.swift; path = Source/iOS/OptionTableViewController.swift; sourceTree = "<group>"; };
 		99C97D47D42989E06428888551DC250D /* FSCalendarHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarHeaderView.h; path = FSCalendar/FSCalendarHeaderView.h; sourceTree = "<group>"; };
 		9A1D42E77526D182DD52C15AB744F89F /* FSCalendar+Deprecated.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FSCalendar+Deprecated.m"; path = "FSCalendar/FSCalendar+Deprecated.m"; sourceTree = "<group>"; };
@@ -167,9 +167,9 @@
 		9B6DE6659B728319F56C8A6D5BB0A744 /* FSCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FSCalendar.modulemap; sourceTree = "<group>"; };
 		9BE869D080D2F727DAC0B3EA9AF5015F /* FSCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSCalendar-prefix.pch"; sourceTree = "<group>"; };
 		9C16B29297D0569FAF650891BA063812 /* FSCalendarDelegationProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarDelegationProxy.m; path = FSCalendar/FSCalendarDelegationProxy.m; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A0CD490842D1267AC36524009F7A9B2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A0D940200A8BFC3A1DF138B93247A8FC /* Pods_LazyMan_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyMan_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0D940200A8BFC3A1DF138B93247A8FC /* Pods_LazyMan_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LazyMan_iOS.framework; path = "Pods-LazyMan-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14122F660A09A7ED14240C52951E50D /* FSCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSCalendar-umbrella.h"; sourceTree = "<group>"; };
 		AA24AED30286B767AD051FCA2DABA3DC /* Pantomime-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pantomime-Info.plist"; sourceTree = "<group>"; };
 		AF9A7DB3F4FA7F03190E59BF3D38BD81 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON/SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		CAD4478A0CF4B661FF1AFFA82A0C6D12 /* OptionSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OptionSelector.h; path = Source/OptionSelector.h; sourceTree = "<group>"; };
 		CC0F6859FB8A4150ADE9E4D51E4A7000 /* FSCalendarCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarCell.h; path = FSCalendar/FSCalendarCell.h; sourceTree = "<group>"; };
 		CE69F4BCC3EECE22A65D55504A5D9334 /* Pods-LazyMan-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LazyMan-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CF5C0DA237CF2F756BDDBAAC7E4F39B8 /* OptionSelector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OptionSelector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF5C0DA237CF2F756BDDBAAC7E4F39B8 /* OptionSelector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OptionSelector.framework; path = OptionSelector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B7B64A5F917615F735E8EA481E63EE /* SwiftyJSON-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyJSON-Info.plist"; sourceTree = "<group>"; };
 		D41F0027FC57FDCC18DAAADABA9DD70C /* ConstrainedOptionSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstrainedOptionSelector.swift; path = Source/ConstrainedOptionSelector.swift; sourceTree = "<group>"; };
 		D65176778D5E7764CB0B207C8E2F7A21 /* OptionSelector-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OptionSelector-Info.plist"; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 		EF7B3ECCA34564766FF12E3587632A97 /* FSCalendarDelegationFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSCalendarDelegationFactory.m; path = FSCalendar/FSCalendarDelegationFactory.m; sourceTree = "<group>"; };
 		F059FE0D90D111179452DF9E9C2E9640 /* BufferedReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BufferedReader.swift; path = sources/BufferedReader.swift; sourceTree = "<group>"; };
 		F16CEEE7EB1093B8728A1434EB95A59E /* MasterPlaylist.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MasterPlaylist.swift; path = sources/MasterPlaylist.swift; sourceTree = "<group>"; };
-		F29906C08DE18DF4921DDB24775B9055 /* Pantomime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pantomime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F29906C08DE18DF4921DDB24775B9055 /* Pantomime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pantomime.framework; path = Pantomime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38423C0F029A27DCC60DB8E552FACC9 /* FSCalendar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendar.h; path = FSCalendar/FSCalendar.h; sourceTree = "<group>"; };
 		F4041F12C3FBFBD94D33E32AB7319072 /* AnyOptionSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyOptionSelector.swift; path = Source/AnyOptionSelector.swift; sourceTree = "<group>"; };
 		F98CD99FBB5348B4E261B07913C2CEE1 /* FSCalendarExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSCalendarExtensions.h; path = FSCalendar/FSCalendarExtensions.h; sourceTree = "<group>"; };
@@ -295,6 +295,7 @@
 				28F16594DBE6F3D96612BDFF9B3CE547 /* URLBufferedReader.swift */,
 				06AD4377BB48999637E8E3241E99E67B /* Support Files */,
 			);
+			name = Pantomime;
 			path = Pantomime;
 			sourceTree = "<group>";
 		};
@@ -349,6 +350,7 @@
 				6982F4B2D5DA54859A052D94DF71B690 /* FSCalendarWeekdayView.m */,
 				392CB27DD3032454D692262A87E67F7E /* Support Files */,
 			);
+			name = FSCalendar;
 			path = FSCalendar;
 			sourceTree = "<group>";
 		};
@@ -389,6 +391,7 @@
 				AF9A7DB3F4FA7F03190E59BF3D38BD81 /* SwiftyJSON.swift */,
 				124CB271D428F0783FFE36FBB09A1A43 /* Support Files */,
 			);
+			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -417,6 +420,7 @@
 				E4DBFB53E0D0A39FE6E8108DB15BC55A /* SingularOptionSelector.swift */,
 				A7BE158016F935C6776C55A913AB40CD /* Support Files */,
 			);
+			name = OptionSelector;
 			path = OptionSelector;
 			sourceTree = "<group>";
 		};
@@ -640,21 +644,12 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
-				TargetAttributes = {
-					5CC9BA49B225EC055B9E8C24D5F43C4C = {
-						LastSwiftMigration = 1020;
-					};
-					C04FB930D26A44F092486CE153686C05 = {
-						LastSwiftMigration = 1020;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
@@ -881,37 +876,6 @@
 			};
 			name = Debug;
 		};
-		20DBDE6CCB0DBD138D97D715EB6471DA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13F03693E8279B6DF1F484BD7FD2BEE7 /* FSCalendar.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FSCalendar/FSCalendar-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FSCalendar/FSCalendar-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FSCalendar/FSCalendar.modulemap";
-				PRODUCT_MODULE_NAME = FSCalendar;
-				PRODUCT_NAME = FSCalendar;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		229074C3DDF0C07E7CE5493104045192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4964633EDEA43270D6FF5F36DE629310 /* SwiftyJSON.xcconfig */;
@@ -967,7 +931,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 5;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1009,7 +973,7 @@
 			};
 			name = Release;
 		};
-		6F2916A1855C3AB489B3BBF1737AB855 /* Debug */ = {
+		7A360232FA3FE1FE9486149F79C61C6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0CC84D977B7D092CCB0C3A2CB439D5CC /* Pantomime.xcconfig */;
 			buildSettings = {
@@ -1040,39 +1004,7 @@
 			};
 			name = Debug;
 		};
-		7C6664A4DFA76D31A985B8E623748C85 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13F03693E8279B6DF1F484BD7FD2BEE7 /* FSCalendar.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FSCalendar/FSCalendar-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FSCalendar/FSCalendar-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FSCalendar/FSCalendar.modulemap";
-				PRODUCT_MODULE_NAME = FSCalendar;
-				PRODUCT_NAME = FSCalendar;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		96DF264BC2B070927306A5C9320F38B3 /* Release */ = {
+		88150DC002C190F1228B1B0FA001DA74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0CC84D977B7D092CCB0C3A2CB439D5CC /* Pantomime.xcconfig */;
 			buildSettings = {
@@ -1157,7 +1089,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -1184,6 +1117,37 @@
 				MODULEMAP_FILE = "Target Support Files/OptionSelector/OptionSelector.modulemap";
 				PRODUCT_MODULE_NAME = OptionSelector;
 				PRODUCT_NAME = OptionSelector;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B06F2F9DEE9298CDC07C71EC6E32D671 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13F03693E8279B6DF1F484BD7FD2BEE7 /* FSCalendar.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FSCalendar/FSCalendar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FSCalendar/FSCalendar-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FSCalendar/FSCalendar.modulemap";
+				PRODUCT_MODULE_NAME = FSCalendar;
+				PRODUCT_NAME = FSCalendar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -1215,6 +1179,38 @@
 				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				PRODUCT_MODULE_NAME = SwiftyJSON;
 				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B960080C0FC1B9CEB392777FA5CF989C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13F03693E8279B6DF1F484BD7FD2BEE7 /* FSCalendar.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FSCalendar/FSCalendar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FSCalendar/FSCalendar-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FSCalendar/FSCalendar.modulemap";
+				PRODUCT_MODULE_NAME = FSCalendar;
+				PRODUCT_NAME = FSCalendar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -1274,8 +1270,8 @@
 		24975954AD11CF9A835C20C7C20D5804 /* Build configuration list for PBXNativeTarget "FSCalendar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				20DBDE6CCB0DBD138D97D715EB6471DA /* Debug */,
-				7C6664A4DFA76D31A985B8E623748C85 /* Release */,
+				B06F2F9DEE9298CDC07C71EC6E32D671 /* Debug */,
+				B960080C0FC1B9CEB392777FA5CF989C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1310,8 +1306,8 @@
 		E0D0DF82CD6D5A3FC7BB4236BD838CA5 /* Build configuration list for PBXNativeTarget "Pantomime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6F2916A1855C3AB489B3BBF1737AB855 /* Debug */,
-				96DF264BC2B070927306A5C9320F38B3 /* Release */,
+				7A360232FA3FE1FE9486149F79C61C6E /* Debug */,
+				88150DC002C190F1228B1B0FA001DA74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
