@@ -22,6 +22,7 @@
 		013CF1F220901A30001A24EC /* GameListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013CF1F120901A30001A24EC /* GameListTableViewController.swift */; };
 		0142C62E22691CDD0060A017 /* Quality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142C62D22691CDD0060A017 /* Quality.swift */; };
 		0142C650226A460A0060A017 /* String+matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142C64F226A460A0060A017 /* String+matches.swift */; };
+		0142C652226A72EE0060A017 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0142C651226A72ED0060A017 /* GoogleService-Info.plist */; };
 		01434A742040D3FF0094E221 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01434A732040D3FF0094E221 /* GameTableViewCell.swift */; };
 		01434A762040DAA70094E221 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01434A752040DAA70094E221 /* GameViewController.swift */; };
 		015F345E2050CFC40005453C /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F345D2050CFC40005453C /* TeamManager.swift */; };
@@ -72,6 +73,7 @@
 		013CF1F120901A30001A24EC /* GameListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTableViewController.swift; sourceTree = "<group>"; };
 		0142C62D22691CDD0060A017 /* Quality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quality.swift; sourceTree = "<group>"; };
 		0142C64F226A460A0060A017 /* String+matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+matches.swift"; sourceTree = "<group>"; };
+		0142C651226A72ED0060A017 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01434A732040D3FF0094E221 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		01434A752040DAA70094E221 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		015F345D2050CFC40005453C /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		01D0F3C42061CBC8008174EC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0142C651226A72ED0060A017 /* GoogleService-Info.plist */,
 				012CB8BC203A3E7C00E76740 /* Info.plist */,
 				012CB8B9203A3E7C00E76740 /* LaunchScreen.storyboard */,
 				012CB8B7203A3E7C00E76740 /* Assets.xcassets */,
@@ -288,6 +291,7 @@
 				01DC7B9A2092A4EA003C311A /* Build Number and Storyboard Labels */,
 				012CB8A9203A3E7C00E76740 /* Resources */,
 				426B6D90171E64CC4320375D /* [CP] Embed Pods Frameworks */,
+				0142C653226A751A0060A017 /* Crashlytics */,
 				01EC4DDD2259410100034D83 /* SwiftLint */,
 			);
 			buildRules = (
@@ -352,6 +356,7 @@
 				012CB8B6203A3E7C00E76740 /* GameList.storyboard in Resources */,
 				010DB56720423DF300DFB4A0 /* Logos.xcassets in Resources */,
 				01344C862061D0EC0040BDE7 /* Game.storyboard in Resources */,
+				0142C652226A72EE0060A017 /* GoogleService-Info.plist in Resources */,
 				0179AEC22076DB5D00539C6D /* nhlschedule2018-04-05.json in Resources */,
 				01DC7BA020940B23003C311A /* Settings.storyboard in Resources */,
 			);
@@ -360,6 +365,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0142C653226A751A0060A017 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
 		01DC7B9A2092A4EA003C311A /* Build Number and Storyboard Labels */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,16 +442,20 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LazyMan-iOS/Pods-LazyMan-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/OptionSelector/OptionSelector.framework",
 				"${BUILT_PRODUCTS_DIR}/Pantomime/Pantomime.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OptionSelector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pantomime.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -637,6 +665,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8SQNZE245D;
 				INFOPLIST_FILE = "$(SRCROOT)/LazyMan-iOS/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -656,6 +685,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8SQNZE245D;
 				INFOPLIST_FILE = "$(SRCROOT)/LazyMan-iOS/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -12,4 +12,7 @@ target 'LazyMan-iOS' do
   pod 'Pantomime', :git => 'https://github.com/inickt/Pantomime.git', :branch => 'master'
 
   pod 'OptionSelector', '~> 0.2'
+  pod 'Firebase/Core'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -34,7 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             }
         }
 
-        // Override point for customization after application launch.
+        // Configure Firebase/Crashlytics
+        FirebaseApp.configure()
+
         return true
     }
 

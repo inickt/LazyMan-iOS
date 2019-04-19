@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>86398242182-dg7mlbd8cnr6adtj9d9ogrreag46o61b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.86398242182-dg7mlbd8cnr6adtj9d9ogrreag46o61b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBK9ixAIPG3qe3m90FnNXAtLDObDPWMwTY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>86398242182</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>dev.nickt.LazyMan-iOS</string>
+	<key>PROJECT_ID</key>
+	<string>lazyman-native</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lazyman-native.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:86398242182:ios:667b845ab7c27610</string>
+	<key>DATABASE_URL</key>
+	<string>https://lazyman-native.firebaseio.com</string>
+</dict>
+</plist>
