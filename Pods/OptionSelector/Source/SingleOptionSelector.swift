@@ -8,18 +8,18 @@
 
 import Foundation
 
-final public class SingleOptionSelector<OptionType: Equatable>: ConstrainedOptionSelector {
+public final class SingleOptionSelector<OptionType: Equatable>: ConstrainedOptionSelector {
 
     public typealias SelectedType = OptionType?
 
-    private(set) public var options: [OptionType]
+    public private(set) var options: [OptionType]
     public var selected: OptionType? {
         guard let selectedIndex = self.selectedIndex else {
             return nil
         }
         return self.options[selectedIndex]
     }
-    private(set) public var selectedIndex: Int?
+    public private(set) var selectedIndex: Int?
     public var callback: ((OptionType?) -> Void)?
 
     public init(_ options: [OptionType], selected: OptionType? = nil, callback: ((OptionType?) -> Void)? = nil) {

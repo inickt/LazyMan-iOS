@@ -8,12 +8,12 @@
 
 import Foundation
 
-final public class SingularOptionSelector<OptionType: Equatable>: ConstrainedOptionSelector {
+public final class SingularOptionSelector<OptionType: Equatable>: ConstrainedOptionSelector {
 
     public typealias SelectedType = OptionType
 
-    private(set) public var options: [OptionType]
-    private(set) public var selectedIndex: Int {
+    public private(set) var options: [OptionType]
+    public private(set) var selectedIndex: Int {
         didSet {
             self.callback?(self.selected)
         }

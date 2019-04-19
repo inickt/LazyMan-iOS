@@ -1,6 +1,6 @@
 PODS:
   - FSCalendar (2.7.9)
-  - OptionSelector (0.2.2)
+  - OptionSelector (0.2.3)
   - Pantomime (0.1.5)
   - SwiftyJSON (4.3.0)
 
@@ -28,7 +28,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
-  OptionSelector: b10703475093270c4ccfe42a1f2f75e383ecd5fe
+  OptionSelector: 2caec96f48686f40eacf73630e472ed774f73fa7
   Pantomime: 2aec2b603b91f6d5a4774ecce9c0ed073d3b4e5d
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 

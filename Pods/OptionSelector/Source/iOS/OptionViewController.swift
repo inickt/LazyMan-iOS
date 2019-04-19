@@ -1,5 +1,5 @@
 //
-//  OptionTableViewController.swift
+//  OptionViewController.swift
 //  OptionSelector
 //
 //  Created by Nick Thompson on 3/31/19.
@@ -13,9 +13,10 @@ open class OptionViewController<OptionType: OptionSelectorCell>: UITableViewCont
     public var selector: AnyOptionSelector<OptionType>
     public var popOnSelection = true
 
-    public convenience init<Selector: OptionSelector>(_ selector: Selector,
+    public init<Selector: OptionSelector>(_ selector: Selector,
                                           style: UITableView.Style = .plain) where Selector.OptionType == OptionType {
-        self.init(selector: AnyOptionSelector(selector), style: style)
+        self.selector = AnyOptionSelector(selector)
+        super.init(style: style)
     }
 
     public init(selector: AnyOptionSelector<OptionType>, style: UITableView.Style = .plain) {
@@ -23,7 +24,7 @@ open class OptionViewController<OptionType: OptionSelectorCell>: UITableViewCont
         super.init(style: style)
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) is not implemented.")
     }
 
