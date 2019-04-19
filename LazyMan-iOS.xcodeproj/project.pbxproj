@@ -640,7 +640,7 @@
 				DEVELOPMENT_TEAM = 8SQNZE245D;
 				INFOPLIST_FILE = "$(SRCROOT)/LazyMan-iOS/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "guru.nickthompson.LazyMan-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.nickt.LazyMan-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -659,7 +659,7 @@
 				DEVELOPMENT_TEAM = 8SQNZE245D;
 				INFOPLIST_FILE = "$(SRCROOT)/LazyMan-iOS/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "guru.nickthompson.LazyMan-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.nickt.LazyMan-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
