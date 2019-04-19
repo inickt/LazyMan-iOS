@@ -52,8 +52,7 @@ final class TeamManager: TeamManagerType {
     }
 
     func getDefaultFeed(game: Game) -> Feed? {
-        // TODO: add french option to settings
-        if ({ false }()), let feed = game.feeds.first(where: { $0.feedType == .french }) {
+        if self.settingsManager.preferFrench, let feed = game.feeds.first(where: { $0.feedType == .french }) {
             return feed
         } else if self.isFavorite(team: game.homeTeam), let feed = game.feeds.first(where: { $0.feedType == .home }) {
             return feed

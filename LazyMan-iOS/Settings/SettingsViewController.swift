@@ -15,6 +15,7 @@ protocol SettingsViewType: AnyObject {
     func showDefault(league: League)
     func showDefault(quality: Quality)
     func showDefault(cdn: CDN)
+    func showPreferFrench(isOn: Bool)
     func showVersionUpdates(isOn: Bool)
     func showBetaUpdates(isOn: Bool, enabled: Bool)
     func open(url: URL)
@@ -35,6 +36,7 @@ class SettingsViewController: UITableViewController, SettingsViewType {
     @IBOutlet private var defaultLeagueControl: UISegmentedControl!
     @IBOutlet private var defaultQualityControl: UISegmentedControl!
     @IBOutlet private var defaultCDNControl: UISegmentedControl!
+    @IBOutlet private var preferFrenchSwitch: UISwitch!
     @IBOutlet private var favoriteNHLTeamLabel: UILabel!
     @IBOutlet private var favoriteMLBTeamLabel: UILabel!
     @IBOutlet private var versionUpdatesSwitch: UISwitch!
@@ -72,6 +74,10 @@ class SettingsViewController: UITableViewController, SettingsViewType {
 
     func showDefault(cdn: CDN) {
         self.defaultCDNControl.selectedSegmentIndex = cdn == .akamai ? 0 : 1
+    }
+
+    func showPreferFrench(isOn: Bool) {
+        self.preferFrenchSwitch.setOn(isOn, animated: true)
     }
 
     func showVersionUpdates(isOn: Bool) {
@@ -165,6 +171,10 @@ class SettingsViewController: UITableViewController, SettingsViewType {
 
     @IBAction private func defaultCDNPressed(_ sender: Any) {
         self.presenter?.setDefault(cdn: self.defaultCDNControl.selectedSegmentIndex == 0 ? .akamai : .level3)
+    }
+
+    @IBAction func preferFrenchPressed(_ sender: Any) {
+        self.presenter?.setPreferFrench(enabled: self.preferFrenchSwitch.isOn)
     }
 
     @IBAction private func versionUpdatesPressed(_ sender: Any) {

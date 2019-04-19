@@ -12,6 +12,7 @@ protocol SettingsManagerType {
     var defaultLeague: League { get set }
     var defaultQuality: Quality { get set }
     var defaultCDN: CDN { get set }
+    var preferFrench: Bool { get set }
     var favoriteNHLTeams: [Team] { get set }
     var favoriteMLBTeams: [Team] { get set }
     var versionUpdates: Bool { get set }
@@ -60,6 +61,16 @@ class SettingsManager: SettingsManagerType {
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: defaultCDNKey)
+        }
+    }
+
+    private let preferFrenchKey = "preferFrench"
+    var preferFrench: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: preferFrenchKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: preferFrenchKey)
         }
     }
 
