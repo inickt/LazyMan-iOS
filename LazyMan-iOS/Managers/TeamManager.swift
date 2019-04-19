@@ -43,7 +43,8 @@ final class TeamManager: TeamManagerType {
     }
 
     func isFavorite(team: Team) -> Bool {
-        return self.settingsManager.favoriteMLBTeams.contains(team) || self.settingsManager.favoriteNHLTeams.contains(team)
+        return self.settingsManager.favoriteMLBTeams.contains(team) ||
+            self.settingsManager.favoriteNHLTeams.contains(team)
     }
 
     func hasFavoriteTeam(game: Game) -> Bool {
@@ -64,7 +65,7 @@ final class TeamManager: TeamManagerType {
     }
 
     func compareGames(lhs: Game, rhs: Game) -> Bool {
-        if self.hasFavoriteTeam(game: lhs) || self.hasFavoriteTeam(game: rhs) {
+        if self.hasFavoriteTeam(game: lhs) != self.hasFavoriteTeam(game: rhs) {
             return self.hasFavoriteTeam(game: lhs)
         } else if (lhs.gameState == .live && rhs.gameState == .live)
             || (lhs.gameState == .preview && rhs.gameState == .preview) {
