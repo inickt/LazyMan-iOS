@@ -26,7 +26,7 @@ final class TeamManager: TeamManagerType {
 
     // MARK: Initialization
 
-    init(settingsManager: SettingsType = SettingsManager.shared) {
+    init(settingsManager: SettingsManagerType = SettingsManager.shared) {
         self.settingsManager = settingsManager
         self.initNHLTeams()
         self.initMLBTeams()
@@ -34,7 +34,7 @@ final class TeamManager: TeamManagerType {
 
     // MARK: - Private Properties
 
-    private let settingsManager: SettingsType
+    private let settingsManager: SettingsManagerType
     var nhlTeams: [String: Team] {
         return self._nhlTeams
     }
@@ -43,7 +43,7 @@ final class TeamManager: TeamManagerType {
     }
 
     func isFavorite(team: Team) -> Bool {
-        return team == self.settingsManager.favoriteMLBTeam || team == self.settingsManager.favoriteNHLTeam
+        return self.settingsManager.favoriteMLBTeams.contains(team) || self.settingsManager.favoriteNHLTeams.contains(team)
     }
 
     func hasFavoriteTeam(game: Game) -> Bool {

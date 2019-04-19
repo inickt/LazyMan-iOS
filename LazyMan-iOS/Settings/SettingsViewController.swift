@@ -7,8 +7,28 @@
 //
 
 import UIKit
+import OptionSelector
 
-class SettingsViewController: UITableViewController {
+protocol SettingsViewType: AnyObject {
+    func showNHLTeams(text: String)
+    func showMLBTeams(text: String)
+    func showDefault(league: League)
+    func showDefault(quality: Quality)
+    func showDefault(cdn: CDN)
+    func showVersionUpdates(isOn: Bool)
+    func showBetaUpdates(isOn: Bool, enabled: Bool)
+    func open(url: URL)
+    func show(message: String)
+}
+
+private let kGameSection = 0
+private let kFavoriteSection = 1
+private let kUpdateSection = 2
+private let kFavoriteNHLIndex = 0
+private let kFavoriteMLBIndex = 1
+private let kCheckUpdateIndex = 2
+
+class SettingsViewController: UITableViewController, SettingsViewType {
 
     // MARK: - IBOutlets
 
@@ -21,107 +41,58 @@ class SettingsViewController: UITableViewController {
     @IBOutlet private var betaUpdatesSwitch: UISwitch!
     @IBOutlet private var betaUpdatesLabel: UILabel!
 
+    // MARK: - Properties
+
+    var presenter: SettingsPresenterType?
+
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.defaultLeagueControl.selectedSegmentIndex = SettingsManager.shared.defaultLeague == .NHL ? 0 : 1
-        self.defaultQualityControl.selectedSegmentIndex = SettingsManager.shared.defaultQuality
-        self.defaultCDNControl.selectedSegmentIndex = SettingsManager.shared.defaultCDN == .akamai ? 0 : 1
-        self.versionUpdatesSwitch.setOn(SettingsManager.shared.versionUpdates, animated: false)
-        self.betaUpdatesSwitch.setOn(SettingsManager.shared.betaUpdates, animated: false)
-        self.betaUpdatesSwitch.isEnabled = SettingsManager.shared.versionUpdates
-        self.betaUpdatesLabel.isEnabled = SettingsManager.shared.versionUpdates
-        self.favoriteNHLTeamLabel.text = SettingsManager.shared.favoriteNHLTeam?.shortName ?? "None"
-        self.favoriteMLBTeamLabel.text = SettingsManager.shared.favoriteMLBTeam?.shortName ?? "None"
+        self.presenter?.showDefaults()
     }
 
-    // MARK: - IBActions
+    // MARK: - SettingsViewType
 
-    @IBAction private func donePressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    func showNHLTeams(text: String) {
+        self.favoriteNHLTeamLabel.text = text
     }
 
-    @IBAction private func githubPressed(_ sender: Any) {
-        self.openURL(url: URL(string: "https://github.com/inickt/LazyMan-iOS/")!)
+    func showMLBTeams(text: String) {
+        self.favoriteMLBTeamLabel.text = text
     }
 
-    @IBAction private func rLazyManPressed(_ sender: Any) {
-        self.openURL(url: URL(string: "https://www.reddit.com/r/LazyMan/")!)
+    func showDefault(league: League) {
+        self.defaultLeagueControl.selectedSegmentIndex = league == .NHL ? 0 : 1
     }
 
-    @IBAction private func defaultLeaguePressed(_ sender: Any) {
-        SettingsManager.shared.defaultLeague = self.defaultLeagueControl.selectedSegmentIndex == 0 ? .NHL : .MLB
+    func showDefault(quality: Quality) {
+        self.defaultQualityControl.selectedSegmentIndex = quality == .auto ? 0 : 1
     }
 
-    @IBAction private func defaultQualityPressed(_ sender: Any) {
-        SettingsManager.shared.defaultQuality = self.defaultQualityControl.selectedSegmentIndex
+    func showDefault(cdn: CDN) {
+        self.defaultCDNControl.selectedSegmentIndex = cdn == .akamai ? 0 : 1
     }
 
-    @IBAction private func defaultCDNPressed(_ sender: Any) {
-        SettingsManager.shared.defaultCDN = self.defaultCDNControl.selectedSegmentIndex == 0 ? .akamai : .level3
+    func showVersionUpdates(isOn: Bool) {
+        self.versionUpdatesSwitch.setOn(isOn, animated: true)
     }
 
-    @IBAction private func versionUpdatesPressed(_ sender: Any) {
-        SettingsManager.shared.versionUpdates = self.versionUpdatesSwitch.isOn
-
-        if !SettingsManager.shared.versionUpdates {
-            SettingsManager.shared.betaUpdates = false
-            self.betaUpdatesSwitch.setOn(false, animated: true)
-        }
-
-        self.betaUpdatesSwitch.isEnabled = SettingsManager.shared.versionUpdates
-        self.betaUpdatesLabel.isEnabled = SettingsManager.shared.versionUpdates
+    func showBetaUpdates(isOn: Bool, enabled: Bool) {
+        self.betaUpdatesSwitch.setOn(isOn, animated: true)
+        self.betaUpdatesSwitch.isEnabled = enabled
+        self.betaUpdatesLabel.isEnabled = enabled
     }
 
-    @IBAction private func betaUpdatesPressed(_ sender: Any) {
-        SettingsManager.shared.betaUpdates = self.betaUpdatesSwitch.isOn
-    }
-
-    // TableView
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-
-        if indexPath.section == 2 && indexPath.row == 2 {
-            // TODO: UpdateManager.checkUpdate(completion: self.showMessage, userPressed: true)
-        }
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "favoriteNHLSegue",
-            let viewController = segue.destination as? SettingsOptionsViewController {
-            // TODO: Bad singleton access?
-            viewController.teams = [nil] + Array(TeamManager.shared.nhlTeams.values).sorted { $0.name < $1.name }
-            viewController.selectedAction = { (team) in
-                self.favoriteNHLTeamLabel.text = team?.shortName ?? "None"
-                SettingsManager.shared.favoriteNHLTeam = team
-            }
-            viewController.isFavorite = { $0?.shortName == SettingsManager.shared.favoriteNHLTeam?.shortName }
-        } else if segue.identifier == "favoriteMLBSegue",
-            let viewController = segue.destination as? SettingsOptionsViewController {
-            // TODO: Bad singleton access?
-            viewController.teams = [nil] + Array(TeamManager.shared.mlbTeams.values).sorted { $0.name < $1.name }
-            viewController.selectedAction = { (team) in
-                self.favoriteMLBTeamLabel.text = team?.shortName ?? "None"
-                SettingsManager.shared.favoriteMLBTeam = team
-            }
-            viewController.isFavorite = { $0?.shortName == SettingsManager.shared.favoriteMLBTeam?.shortName }
-        }
-    }
-
-    // MARK: - Private
-
-    private func openURL(url: URL) {
+    func open(url: URL) {
         if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url,
-                                      options: [:],
-                                      completionHandler: nil)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
             UIApplication.shared.openURL(url)
         }
     }
 
-    private func showMessage(message: String) {
+    func show(message: String) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alert.addAction(okAction)
@@ -132,5 +103,75 @@ class SettingsViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
 
         alert.view.searchVisualEffectsSubview()?.effect = UIBlurEffect(style: .dark)
+    }
+
+    // MARK: - UITableViewDelegate
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        switch indexPath.section {
+        case kGameSection:
+            return
+        case kFavoriteSection:
+            let viewController: DarkOptionViewController<Team>
+            switch indexPath.row {
+            case kFavoriteNHLIndex:
+                guard let selector = self.presenter?.favoriteNHLTeamSelector else {
+                    return
+                }
+                viewController = DarkOptionViewController(selector)
+            case kFavoriteMLBIndex:
+                guard let selector = self.presenter?.favoriteMLBTeamSelector else {
+                    return
+                }
+                viewController = DarkOptionViewController(selector)
+            default:
+                return
+            }
+            viewController.popOnSelection = false
+            viewController.title? = "Favorite Teams"
+            self.navigationController?.pushViewController(viewController, animated: true)
+        case kUpdateSection:
+            if indexPath.row == kCheckUpdateIndex {
+                self.presenter?.updatePressed()
+            }
+        default:
+            return
+        }
+    }
+
+    // MARK: - IBActions
+
+    @IBAction private func donePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction private func githubPressed(_ sender: Any) {
+        self.presenter?.githubPressed()
+    }
+
+    @IBAction private func rLazyManPressed(_ sender: Any) {
+        self.presenter?.rLazyManPressed()
+    }
+
+    @IBAction private func defaultLeaguePressed(_ sender: Any) {
+        self.presenter?.setDefault(league: self.defaultLeagueControl.selectedSegmentIndex == 0 ? .NHL : .MLB)
+    }
+
+    @IBAction private func defaultQualityPressed(_ sender: Any) {
+        self.presenter?.setDefault(quality: self.defaultQualityControl.selectedSegmentIndex == 0 ? .auto : .best)
+    }
+
+    @IBAction private func defaultCDNPressed(_ sender: Any) {
+        self.presenter?.setDefault(cdn: self.defaultCDNControl.selectedSegmentIndex == 0 ? .akamai : .level3)
+    }
+
+    @IBAction private func versionUpdatesPressed(_ sender: Any) {
+        self.presenter?.setVersionUpdates(enabled: self.versionUpdatesSwitch.isOn)
+    }
+
+    @IBAction private func betaUpdatesPressed(_ sender: Any) {
+        self.presenter?.setBetaUpdates(enabled: self.betaUpdatesSwitch.isOn)
     }
 }

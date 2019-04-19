@@ -39,14 +39,14 @@ class GamePresenter: NSObject, GamePresenterType {
         }
     }
 
-    private let settingsManager: SettingsType
+    private let settingsManager: SettingsManagerType
     private let feedManager: FeedManagerType
     private let teamManager: TeamManagerType
 
     // MARK: - Initialization
 
     init?(game: Game,
-          settingsManager: SettingsType = SettingsManager.shared,
+          settingsManager: SettingsManagerType = SettingsManager.shared,
           feedManager: FeedManagerType = FeedManager.shared,
           teamManager: TeamManagerType = TeamManager.shared) {
         self.game = game
@@ -136,8 +136,10 @@ class GamePresenter: NSObject, GamePresenterType {
             self.gameView?.showError(message: error.messgae)
         case .success(let playlists):
             var defaultPlaylist = playlists.first
-            if playlists.count >= 2 {
-                defaultPlaylist = playlists[self.settingsManager.defaultQuality]
+
+            let defaultQuality = self.settingsManager.defaultQuality.rawValue
+            if playlists.count > defaultQuality {
+                defaultPlaylist = playlists[defaultQuality]
             }
             guard !playlists.isEmpty, let selected = defaultPlaylist else {
                 return

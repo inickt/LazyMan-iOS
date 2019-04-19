@@ -77,6 +77,14 @@ class GameListViewController: UIViewController, GameListViewControllerType {
         self.league = self.leagueControl.selectedSegmentIndex == 1 ? .MLB : .NHL
     }
 
+    @IBAction private func settingsButtonPressed(_ sender: Any) {
+        // swiftlint:disable:next force_cast
+        let vc = UIStoryboard(name: "Settings", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        let presenter = SettingsPresenter(settingsView: vc)
+        vc.presenter = presenter
+        let navigationController = UINavigationController(rootViewController: vc)
+        self.present(navigationController, animated: true, completion: nil)
+    }
     // MARK: - Lifecycle
 
     override func loadView() {

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jtN-vB-G3k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jtN-vB-G3k">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -129,7 +127,7 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" image="settings" id="yeq-Yf-Ujh">
                             <connections>
-                                <segue destination="CPc-Vr-Mgc" kind="presentation" modalPresentationStyle="formSheet" id="LZN-ox-hnd"/>
+                                <action selector="settingsButtonPressed:" destination="DiW-Fz-1X3" id="ROD-Qi-tGq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -146,14 +144,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XiW-32-OGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-150" y="-1349"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="mmI-dC-oMT">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Settings" id="CPc-Vr-Mgc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4kV-Rf-QTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="607" y="-1602"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="tJB-XD-td0">
@@ -215,7 +205,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3RD – 20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-5g-fYB">
-                                            <rect key="frame" x="225" y="42" width="90" height="17"/>
+                                            <rect key="frame" x="225" y="41.5" width="90" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="lWI-Yq-XDk"/>
                                             </constraints>

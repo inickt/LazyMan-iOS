@@ -8,17 +8,17 @@
 
 import Foundation
 
-protocol SettingsType {
+protocol SettingsManagerType {
     var defaultLeague: League { get set }
-    var defaultQuality: Int { get set }
+    var defaultQuality: Quality { get set }
     var defaultCDN: CDN { get set }
-    var favoriteNHLTeam: Team? { get set }
-    var favoriteMLBTeam: Team? { get set }
+    var favoriteNHLTeams: [Team] { get set }
+    var favoriteMLBTeams: [Team] { get set }
     var versionUpdates: Bool { get set }
     var betaUpdates: Bool { get set }
 }
 
-class SettingsManager: SettingsType {
+class SettingsManager: SettingsManagerType {
 
     // MARK: - Shared
 
@@ -29,12 +29,11 @@ class SettingsManager: SettingsType {
     private let defaultLeagueKey = "defaultLeague"
     var defaultLeague: League {
         get {
-            if let value = UserDefaults.standard.string(forKey: defaultLeagueKey),
-                let league = League(rawValue: value) {
-                return league
-            } else {
+            guard let value = UserDefaults.standard.string(forKey: defaultLeagueKey),
+                let league = League(rawValue: value) else {
                 return .NHL
             }
+            return league
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: defaultLeagueKey)
@@ -42,66 +41,62 @@ class SettingsManager: SettingsType {
     }
 
     private let defaultQualityKey = "defaultQuality"
-    var defaultQuality: Int {
+    var defaultQuality: Quality {
         get {
-            return UserDefaults.standard.integer(forKey: defaultQualityKey)
+            return Quality(rawValue: UserDefaults.standard.integer(forKey: defaultQualityKey)) ?? .best
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: defaultQualityKey)
+            UserDefaults.standard.set(newValue.rawValue, forKey: defaultQualityKey)
         }
     }
 
     private let defaultCDNKey = "defaultCDN"
     var defaultCDN: CDN {
         get {
-            if let value = UserDefaults.standard.string(forKey: defaultCDNKey),
-                let cdn = CDN(rawValue: value) {
-                return cdn
-            } else {
+            guard let value = UserDefaults.standard.string(forKey: defaultCDNKey), let cdn = CDN(rawValue: value) else {
                 return .akamai
             }
+            return cdn
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: defaultCDNKey)
         }
     }
 
-    private let favoriteNHLTeamKey = "favoriteNHLTeam"
-    var favoriteNHLTeam: Team? {
+    private let favoriteNHLTeamsKey = "favoriteNHLTeams"
+    var favoriteNHLTeams: [Team] {
         get {
-            if let value = UserDefaults.standard.string(forKey: favoriteNHLTeamKey),
-                // TODO: Bad singleton access?
-                let team = TeamManager.shared.nhlTeams[value] {
-                return team
+            if let values = UserDefaults.standard.stringArray(forKey: favoriteNHLTeamsKey) {
+                // TODO: Bad singleton access (but creates circular dep)
+                return values.compactMap { TeamManager.shared.nhlTeams[$0] }
             } else {
-                return nil
+                return []
             }
         }
         set {
-            if let newValue = newValue, newValue.league == .NHL {
-                UserDefaults.standard.set(newValue.shortName, forKey: favoriteNHLTeamKey)
+            if newValue.allSatisfy({ $0.league == .NHL }) {
+                UserDefaults.standard.set(newValue.map { $0.shortName }, forKey: favoriteNHLTeamsKey)
             } else {
-                UserDefaults.standard.removeObject(forKey: favoriteNHLTeamKey)
+                UserDefaults.standard.removeObject(forKey: favoriteNHLTeamsKey)
             }
         }
     }
 
-    private let favoriteMLBTeamKey = "favoriteMLBTeam"
-    var favoriteMLBTeam: Team? {
+    private let favoriteMLBTeamsKey = "favoriteMLBTeams"
+    var favoriteMLBTeams: [Team] {
         get {
-            if let value = UserDefaults.standard.string(forKey: favoriteMLBTeamKey),
-                // TODO: Bad singleton access?
-                let team = TeamManager.shared.mlbTeams[value] {
-                return team
+            if let values = UserDefaults.standard.stringArray(forKey: favoriteMLBTeamsKey) {
+                // TODO: Bad singleton access (but creates circular dep)
+                return values.compactMap { TeamManager.shared.mlbTeams[$0] }
             } else {
-                return nil
+                return []
             }
         }
         set {
-            if let newValue = newValue, newValue.league == .MLB {
-                UserDefaults.standard.set(newValue.shortName, forKey: favoriteMLBTeamKey)
+            if newValue.allSatisfy({ $0.league == .MLB }) {
+                UserDefaults.standard.set(newValue.map { $0.shortName }, forKey: favoriteMLBTeamsKey)
             } else {
-                UserDefaults.standard.removeObject(forKey: favoriteMLBTeamKey)
+                UserDefaults.standard.removeObject(forKey: favoriteMLBTeamsKey)
             }
         }
     }
