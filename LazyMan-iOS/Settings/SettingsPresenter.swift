@@ -32,16 +32,18 @@ class SettingsPresenter: SettingsPresenterType {
     private weak var settingsView: SettingsViewType?
     private var settingsManager: SettingsManagerType
     private var teamManager: TeamManagerType
+    private var updateManager: UpdateManagerType
 
     // MARK: - Initialization
 
     init(settingsView: SettingsViewType,
          settingsManager: SettingsManagerType = SettingsManager.shared,
          teamManager: TeamManagerType = TeamManager.shared,
-         updateManager: UpdateManager = UpdateManager.shared) {
+         updateManager: UpdateManagerType = UpdateManager.shared) {
         self.settingsView = settingsView
         self.settingsManager = settingsManager
         self.teamManager = teamManager
+        self.updateManager = updateManager
     }
 
     // MARK: - SettingsPresenterType
@@ -102,7 +104,19 @@ class SettingsPresenter: SettingsPresenterType {
     }
 
     func updatePressed() {
-        // TODO: UpdateManager.checkUpdate(completion: self.showMessage, userPressed: true)
+        self.updateManager.checkUpdate { [weak self] result in
+            let updateMessage: String
+            switch result {
+            case .available(let newVersion, let isBeta, _, let currentVersion):
+                let versionText = isBeta ? "Beta version" : "version"
+                updateMessage = "\(versionText) \(newVersion) is now avalible. You have \(currentVersion)."
+            case .upToDate:
+                updateMessage = "You are on the latest version."
+            case .error(let message):
+                updateMessage = "Error checking for updates:\n\(message)"
+            }
+            self?.settingsView?.show(message: updateMessage)
+        }
     }
 
     func githubPressed() {

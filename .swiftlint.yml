@@ -22,7 +22,6 @@ opt_in_rules:
   - lower_acl_than_parent
   - modifier_order
   - multiline_arguments
-  - multiline_function_chains
   - multiline_parameters
   - operator_usage_whitespace
   - overridden_super_call
@@ -35,3 +34,6 @@ opt_in_rules:
   - unused_private_declaration
   - vertical_whitespace_closing_braces
   - xct_specific_matcher
+
+nesting:
+  type_level: 3
