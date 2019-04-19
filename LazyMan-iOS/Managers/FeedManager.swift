@@ -125,7 +125,6 @@ class FeedManager: FeedManagerType {
      - returns: A URL of this Feed's master playlist, or nil if it cannot be loaded
      */
     private func getMasterURL(league: League, cdn: CDN, playbackID: Int, date: Date) -> URL? {
-        // TODO: Constant
         // swiftlint:disable:next line_length
         let masterURLSource = "http://nhl.freegamez.ga/getM3U8.php?league=\(league.rawValue)&date=\(DateUtils.convertToYYYYMMDD(from: date))&id=\(playbackID)&cdn=\(cdn.rawValue)"
 

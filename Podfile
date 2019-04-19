@@ -5,7 +5,7 @@ target 'LazyMan-iOS' do
 
   pod 'FSCalendar', '2.7.9', :inhibit_warnings => true
   pod 'SwiftyJSON'
-  pod 'Pantomime', :git => 'https://github.com/inickt/Pantomime.git', :branch => 'master'
+  pod 'Pantomime', :git => 'https://github.com/inickt/Pantomime.git', :branch => 'master', :inhibit_warnings => true
   pod 'OptionSelector', '~> 0.2'
   pod 'Firebase/Core'
   pod 'Fabric'

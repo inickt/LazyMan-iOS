@@ -21,7 +21,6 @@ opt_in_rules:
   - implicit_return
   - lower_acl_than_parent
   - modifier_order
-  - multiline_arguments
   - multiline_parameters
   - operator_usage_whitespace
   - overridden_super_call

@@ -173,7 +173,7 @@ class SettingsViewController: UITableViewController, SettingsViewType {
         self.presenter?.setDefault(cdn: self.defaultCDNControl.selectedSegmentIndex == 0 ? .akamai : .level3)
     }
 
-    @IBAction func preferFrenchPressed(_ sender: Any) {
+    @IBAction private func preferFrenchPressed(_ sender: Any) {
         self.presenter?.setPreferFrench(enabled: self.preferFrenchSwitch.isOn)
     }
 

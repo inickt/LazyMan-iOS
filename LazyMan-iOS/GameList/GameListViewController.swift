@@ -78,11 +78,13 @@ class GameListViewController: UIViewController, GameListViewControllerType {
     }
 
     @IBAction private func settingsButtonPressed(_ sender: Any) {
-        // swiftlint:disable:next force_cast
-        let vc = UIStoryboard(name: "Settings", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
-        let presenter = SettingsPresenter(settingsView: vc)
-        vc.presenter = presenter
-        let navigationController = UINavigationController(rootViewController: vc)
+        guard let settingsViewController = UIStoryboard(name: "Settings", bundle: Bundle.main)
+            .instantiateInitialViewController() as? SettingsViewController else {
+                return
+        }
+        let presenter = SettingsPresenter(settingsView: settingsViewController)
+        settingsViewController.presenter = presenter
+        let navigationController = UINavigationController(rootViewController: settingsViewController)
         self.present(navigationController, animated: true, completion: nil)
     }
     // MARK: - Lifecycle
@@ -105,8 +107,17 @@ class GameListViewController: UIViewController, GameListViewControllerType {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // TODO: - Bad singleton access, need presenter for a lot of this logic
         if SettingsManager.shared.versionUpdates {
-//            UpdateManager.checkUpdate(completion: self.showMessage)
+            UpdateManager.shared.checkUpdate { result in
+                switch result {
+                case .available(let newVersion, let isBeta, _, let currentVersion):
+                    let versionText = isBeta ? "Beta version" : "version"
+                    self.showMessage("\(versionText) \(newVersion) is now avalible. You have \(currentVersion).")
+                default:
+                    return
+                }
+            }
         }
     }
 
@@ -134,7 +145,7 @@ class GameListViewController: UIViewController, GameListViewControllerType {
 
     // MARK: - Private
 
-    private func showMessage(message: String) {
+    private func showMessage(_ message: String) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alert.addAction(okAction)

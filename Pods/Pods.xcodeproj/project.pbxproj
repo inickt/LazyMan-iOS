@@ -68,6 +68,7 @@
 		01D879EED839FAE13BE060638310A23E /* FIRComponentContainerInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = E844D75B3956AC15BF84F1949D6977FB /* FIRComponentContainerInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		03724D5340941DA3B44D81A5FE4DDDA9 /* FSCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD530FDEAB8AA406BFB7367AAB06C67 /* FSCalendar-dummy.m */; };
 		040919CB67E8959A107D9C0A65A07332 /* OptionSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D7C399D86A2A880C8463F4071D38911 /* OptionSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05615ACA32937AEAE7244CDE0BB14F3E /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D5051CB0D181D1EB9DEC5175A596B6 /* StreamReader.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		05F0BE6D01F6317AB56399068AA03408 /* GULNetworkURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E567277FDC29D4BE3D921232341CF74 /* GULNetworkURLSession.m */; };
 		06DE8D644B4500C4F25871F5817E9B30 /* GULUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 5422254DB297EB4DF145FD8EA8BACBAD /* GULUserDefaults.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		088BF218B07C48D03EF2675C5D535264 /* FIRInstanceIDCheckinPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADEF41BBDA4A72C9916E8D45A4F43A9 /* FIRInstanceIDCheckinPreferences.m */; };
@@ -75,7 +76,6 @@
 		0AA1516C53AF76061CBAB2646F3AFFE8 /* pb.h in Headers */ = {isa = PBXBuildFile; fileRef = C55FCB1B4523EDCD12B1D1C60A3E3E01 /* pb.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AC037896BEFDF396CE34B38C51B3558 /* FIRInstanceIDVersionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B3DC8A2821445CD09A72948CB1DEF7EB /* FIRInstanceIDVersionUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0BC0FC0E861D39F1641C01A494372D0F /* FIRInstanceIDCheckinPreferences+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD13E345212B6FE2AA611E897DB28C6 /* FIRInstanceIDCheckinPreferences+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0C5A7DD01821BAEE925C413781A518B8 /* MediaSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1B0FE3B1B4E01903AC1231EB1E965 /* MediaSegment.swift */; };
 		0CF4F4B313999313CC266D57E630F04F /* Pods-LazyMan-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A4F2B765B908B66B6AF47E09274404 /* Pods-LazyMan-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E8FD26603E32451B2761768E0DE433C /* Pantomime-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 48A593FDCD2BFE5F360895D2BCBC818F /* Pantomime-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0F5951B9711FED3E3A7A9747181827F3 /* FSCalendarCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F01F499C9D2C37205DEEC4123E67D7 /* FSCalendarCollectionViewLayout.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -87,6 +87,7 @@
 		167EC0D6E6CA8F0A13B6CB28FCDFB2D3 /* FIRLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 06B5E3E6FEDF09EDED3EB37671C8CFE3 /* FIRLogger.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		17C8EF1758E18D4BC2CDC094579C17AC /* FIRConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C36132D13D0F1C96842E2922980800E /* FIRConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18E6C72522D683D69932491FE81D33A2 /* AnyOptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379B48594FC860E454F67DFA917D9AB /* AnyOptionSelector.swift */; };
+		1940F3BADF6685C7D407339C6092AD74 /* BufferedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D2F5FCE988F7F68E1D14210579550E /* BufferedReader.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		198FCB093A9B9BF1DA57A126F2787358 /* FIRInstanceIDTokenOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 327C7EB4B0D05B4A338896008D5B62B7 /* FIRInstanceIDTokenOperation.m */; };
 		1A0104B522DEFB57D4AA61C477C69E86 /* FIRInstanceIDAuthKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A57209E847A9CC5A8AD40D53C39C55E /* FIRInstanceIDAuthKeyChain.m */; };
 		1B76EA90F9022A327F46E8E13D367B81 /* GULNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 48C41AEDFC508D64FE47947DC123F602 /* GULNetwork.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -107,14 +108,12 @@
 		250394D1E8BA232672EDB0720E269F26 /* GULAppEnvironmentUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 8446174E45907D0955E30E9273D8FCBF /* GULAppEnvironmentUtil.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		258AEEF7175A53A2FCCF475C37CA6BEC /* FSCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 02A014904965FACD987B2D6C07BEB859 /* FSCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25E555E9A6E6171D702AC1C0A1BB005F /* FIRInstanceIDBackupExcludedPlist.h in Headers */ = {isa = PBXBuildFile; fileRef = 35D421ABF22FBD0360F24097AFE091CA /* FIRInstanceIDBackupExcludedPlist.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2769CA75D85D357E91ED84259519BF02 /* Pantomime-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A46830CE49C02A6C127495C57BDABF29 /* Pantomime-dummy.m */; };
 		277DB77F37D146B0CC9543242D46FB87 /* FIRInstanceIDTokenOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 30C7729594B2637433321A345E30BBEC /* FIRInstanceIDTokenOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		29D6BF1387573FF76079F4370615F42F /* FIRDependency.h in Headers */ = {isa = PBXBuildFile; fileRef = 122D24DC28D3ACE59965AAC6595A2B60 /* FIRDependency.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		2ADF07B96AFD642FDDA0273C3FC90A9A /* FIRInstanceIDURLQueryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFADCFCC91A88A476C383991A01CCF /* FIRInstanceIDURLQueryItem.m */; };
 		2BA7F6369FCCC069418F19A85ED08BA9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B089674C0723637BC0E26D3F19F0B2 /* UIKit.framework */; };
 		2E4BF72932067C69FF51DB6AC0790798 /* GULUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 4606C3FF231FD8D9E33C103736C6BCA6 /* GULUserDefaults.m */; };
 		2F4F0E5F03828E47ACDB08F50C32750A /* pb_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 7714BC03D3498A59C3E44E157B85F259 /* pb_common.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		30EEDAB8901F4A6895B82C5ED301F575 /* BufferedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D2F5FCE988F7F68E1D14210579550E /* BufferedReader.swift */; };
 		3114C26A42681313B7F292DEFEA4AB23 /* FIRAnalyticsConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = F736E134A46CFD2AB7A39FEB3011C39D /* FIRAnalyticsConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3186A8F692C6DCA34411EBCED965DA5C /* GULOriginalIMPConvenienceMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 03207B7DCA939717E9F96A265C0323B5 /* GULOriginalIMPConvenienceMacros.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		319C57F799237E5E10948965A2A94843 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D997F9291F19E793268EC85FF89BA46 /* Foundation.framework */; };
@@ -132,9 +131,10 @@
 		429AD317C091CD20175486F78EDAC76A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D997F9291F19E793268EC85FF89BA46 /* Foundation.framework */; };
 		43CBD73B6409385B3BA97C371970F1D2 /* FIRInstanceID+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9E44D164E16832F8A5FAE5B7CE6F49 /* FIRInstanceID+Private.m */; };
 		43E11DA6D060BEADEAD736180B594C36 /* FIRInstanceIDKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BD3F0A2D5629C9C09F39EB03F39B93 /* FIRInstanceIDKeychain.m */; };
+		4563FAC1B18F908BCC78167AD040217A /* ReaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E82CC2B9480D0951AE8BDE0BC88337 /* ReaderBuilder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		493A0EC8D979B285B0671772DB1BACD0 /* FileBufferedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBF55B60771660706C2EEB0520E0D04 /* FileBufferedReader.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		495244777B78A13F4B8EEB0C7C36BCFD /* FIRInstanceIDTokenOperation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = BD272548515BD617E492604C035CB10F /* FIRInstanceIDTokenOperation+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		49EA6B4459F2B9C1CE0E1DCAE261FDEF /* GULNetworkURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BF6BC4166CFE69CF245CA427F6F659 /* GULNetworkURLSession.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		4A35646BC3D70FBF1A6F91B08D5F4C9A /* URLBufferedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B73E6CC5C00A2586C4E9B68E613E1 /* URLBufferedReader.swift */; };
 		4A658826FA3723BE6283014D33BB80C0 /* FIRIMessageCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C6546F6336074092C8ED3428E1B3898 /* FIRIMessageCode.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4AEAF2548FD03171132E796282A5A71A /* FIRBundleUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FEF1C522EBFADAC01FBC3EEAA341BC /* FIRBundleUtil.m */; };
 		4BA3FA7832147EC2B3EE59FD01CC2CAE /* GULReachabilityChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 53511F062288AFE69AA0F99DD880E2EC /* GULReachabilityChecker.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -143,10 +143,9 @@
 		4DB3785D5FF90EE291AD9E6888678568 /* FIRErrorCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 39D6FDA53FC927977BEEECCD913F2D5B /* FIRErrorCode.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4DF83A76C578938051AFFAC51A0E1471 /* pb_common.c in Sources */ = {isa = PBXBuildFile; fileRef = 847BACE5EFD456410F577D0380837A27 /* pb_common.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc -fno-objc-arc -fno-objc-arc"; }; };
 		504720369B5B7575568F79DBB78A65A6 /* FSCalendarExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 733267A0C2C429DC59A635E4FFA84536 /* FSCalendarExtensions.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		504C45578AD70D8FE8070F5EC7FD47CA /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D5051CB0D181D1EB9DEC5175A596B6 /* StreamReader.swift */; };
-		5122F6DFADD8576AB257AF854590A587 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A93202F73BE99468DA11C56B67BA6 /* NSURLExtension.swift */; };
 		52D29BD2F13924F9ADC996BCB38DCD05 /* Pods-LazyMan-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4407322DC533589A404E98C9316AD6 /* Pods-LazyMan-iOS-dummy.m */; };
 		531D80A0B9967E698C050D4621953516 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D997F9291F19E793268EC85FF89BA46 /* Foundation.framework */; };
+		53AC1452C925802C1337C5C7F3C77811 /* MediaSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1B0FE3B1B4E01903AC1231EB1E965 /* MediaSegment.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		5803D830BEAB4B1992945388A716537D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D997F9291F19E793268EC85FF89BA46 /* Foundation.framework */; };
 		58871DFC3955B6EB47349B6BF579C439 /* SingleOptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6757070AD61D41999A7F817A4F2158ED /* SingleOptionSelector.swift */; };
 		599C79E2AC486198363DF63026441579 /* FIRInstanceIDVersionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAFAE450AF77FF6A0143071CF44E0C2 /* FIRInstanceIDVersionUtilities.m */; };
@@ -156,6 +155,7 @@
 		5DB5F2B8A1449D3104957F65CABA4F5C /* FSCalendarHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EA393B3D78E596FCA04A471FD9EFEB6 /* FSCalendarHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E638B27DC537F86FE14FD7E312A350E /* FIRVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD4C4CF54C9133C60979736D7472E7 /* FIRVersion.m */; };
 		5E7C753C74B52E9E8DBFB15EB796F74C /* FSCalendarWeekdayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8BA3E22650C4B2F4B45DBCCC3122D6 /* FSCalendarWeekdayView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		61546431E557C33DA4A8B662BA56E87B /* MediaPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365D269BA38B5256498842772FBF5F64 /* MediaPlaylist.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		6215DCFDC4FE324907C1B97282315030 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD629C33CD1EC1A963FF9370BC53D20 /* SwiftyJSON-dummy.m */; };
 		62D28905E5357811247084EA63BBF4DA /* GULNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BEA58220D017561462049D5001BFDA /* GULNetwork.m */; };
 		634E6BEB1905DC199626E071DC794380 /* FIRInstanceIDTokenStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 65E7F9D25AC2636E52C784E9F8A8D9FA /* FIRInstanceIDTokenStore.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -170,6 +170,7 @@
 		72BDF84A85955FC2E2BE3DBE9395CEC2 /* FIRInstanceIDCheckinService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9982BC69830145CCFF8F3787B9D58000 /* FIRInstanceIDCheckinService.m */; };
 		740AE653523D977EFA875BCBE3FAED04 /* FIRInstanceID.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6DEAF1DE3542B0BDABAF2FDECB374E /* FIRInstanceID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76478F8839B3E900D460C0DE15D21F53 /* FIRErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9383F4C25A22FF68602EB550572EEA /* FIRErrors.m */; };
+		7738FADB73D67A2788330C2186BF5590 /* MasterPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F134CD9828B963BEBAF2ADF94AA98 /* MasterPlaylist.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		7A9B539E7C44F0854B29A72F81535AA7 /* FirebaseInstanceID-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B386C84E22619B59A3364A7E967B7FE8 /* FirebaseInstanceID-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D0636DEA894A3DDE970A3E26496E283 /* OptionSelector-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E7BCD13C4361982527D2919E9BA86 /* OptionSelector-dummy.m */; };
 		7D0FEEC462C260D07B9020311037887A /* FIRInstanceIDKeyPairStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 60445FC307CC31C661059634A979DA17 /* FIRInstanceIDKeyPairStore.m */; };
@@ -191,6 +192,7 @@
 		89CDAEA204DA1341B986C199502BC4F0 /* FIRInstanceID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B57F635A3DE7DF89506FEA2BB9E8F84 /* FIRInstanceID.m */; };
 		8CCBF7BE670A43D9B5C1A5268849745B /* FSCalendarCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B06F2A2141DCFEE03D0BA42515FB51C /* FSCalendarCalculator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8FD0F5925296435D0C5B0EC38F2306D7 /* FIRInstanceIDCheckinService.h in Headers */ = {isa = PBXBuildFile; fileRef = 222808724EB6E6F432EB1DC6F57266FE /* FIRInstanceIDCheckinService.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		90257DCA59186C13A8A9415B7F574573 /* URLBufferedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B73E6CC5C00A2586C4E9B68E613E1 /* URLBufferedReader.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		90BA3209CD339006E7B46A3410F4CD47 /* GULLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 09B4BC6D57F90104FBE35F7CC27D6450 /* GULLogger.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		90FF5AE27672B3705B540430627AAE1A /* FIRApp.h in Headers */ = {isa = PBXBuildFile; fileRef = A233EA34CDB415240C26F16820ABE0DF /* FIRApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		944FF9384860EA20586A25FE9FF6C62E /* FIRInstanceIDCheckinStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 75436E73AE4CC1A4C7A3588EE8699333 /* FIRInstanceIDCheckinStore.m */; };
@@ -201,22 +203,20 @@
 		9A1C90B1E05093DDF8B89EF59A6727AE /* GULSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 176F63C0885F0D1E509DFB4B10866397 /* GULSwizzler.m */; };
 		9A4FFE5D895A9B6B0247339142F7D92B /* FSCalendarCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18B0DB602869F81E13B28DC33E0CD922 /* FSCalendarCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A769586B264EF52D73187A5E49AFAE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D997F9291F19E793268EC85FF89BA46 /* Foundation.framework */; };
-		9C5912896F504D828F8ACBB5C8E636D6 /* StringBufferedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF04B68FAD2AC6B47E6364D165343D /* StringBufferedReader.swift */; };
 		9CB382D049F3DBBFEB176BEF0543DA34 /* FirebaseCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 257F6C39FE09116001BE534995E7EE65 /* FirebaseCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CD948D8F025F11C89BCCE2FB60312E8 /* FSCalendarExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 951F492A1B249B59611EA16FEC0FCE6D /* FSCalendarExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9E1B95C86133B7162A822F044D8A3C76 /* FIRInstanceIDKeyPairUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EE3D05893495B123C0898AFF9B24A1 /* FIRInstanceIDKeyPairUtilities.m */; };
 		9E31E2EBECBBEE07EFC16DF386D6AE4E /* GULNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC07FB661EE47EAB44EB766B6113F10 /* GULNSData+zlib.m */; };
 		9E7A825F51B11847154A12189ADCBB70 /* FIRInstanceIDStore.h in Headers */ = {isa = PBXBuildFile; fileRef = C45A449FA16B9C110FBDED5960F24C3F /* FIRInstanceIDStore.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9EEFFE4F5B6FA066318BDF0BCD0B12BC /* FIRInstanceIDTokenDeleteOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0652211F695143AD0EEDA83A5CBB1ABF /* FIRInstanceIDTokenDeleteOperation.m */; };
-		A10ACAF13F81490F5B19B506EE4B7154 /* ManifestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5494EA5799CEA172BCFE95880CBF4802 /* ManifestBuilder.swift */; };
 		A14D03FFE5AB2DDE88377934063BF951 /* FirebaseCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A564BFB4F07442AE6F066ED9D574206D /* FirebaseCore-dummy.m */; };
 		A153A21620C48D99D47514314348B25B /* FSCalendarTransitionCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 873C88C1C5185995BDE99A2257D8C0B1 /* FSCalendarTransitionCoordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A196C02C3B3FA339D33D46ED6BA072E8 /* FIRInstanceIDUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C927EBDA9E6C8C2D44D80E569FDBDC6E /* FIRInstanceIDUtilities.m */; };
-		A2CB397D79AB297B65CD17C9DD7FB4B2 /* FileBufferedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBF55B60771660706C2EEB0520E0D04 /* FileBufferedReader.swift */; };
 		A348D6AFFBEFD58B282858AD4825E3CE /* FIRInstanceIDURLQueryItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F25AF02B53C9FE6D5D75E054C4779BD /* FIRInstanceIDURLQueryItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A4077CB32B233FA9A612685884A231A5 /* GULAppDelegateSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = 630200D2274B2BCCDF84D9C4040B07AC /* GULAppDelegateSwizzler.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A57A524FEB97C871B281F1740BF53782 /* FSCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16038D222E8B9A673F724640F5E80AF8 /* FSCalendarHeaderView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		A58A61DD2325F81507783E36C7FE4D3D /* FIRInstanceIDTokenFetchOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3379AC8FD237AF11CCCFDB6005D7D447 /* FIRInstanceIDTokenFetchOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A5B7F86E9157588BB708792ACD4F89E5 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A93202F73BE99468DA11C56B67BA6 /* NSURLExtension.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		A60F9ED59335EFB357DB1E30BF0AC661 /* OptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184CEF8950A61094F8C663C2DB43C5F9 /* OptionSelector.swift */; };
 		A7A168A91FAF340409BCB7B0CFC4586D /* FSCalendarDelegationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FF6724DE16D2F3321C47CE34EA473FA /* FSCalendarDelegationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7AB06A086450CD2AC91FD60550E3BE3 /* FSCalendarWeekdayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 60FFAFF0FA8BFEF1120C9A952701F5F3 /* FSCalendarWeekdayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -227,12 +227,10 @@
 		AA969B6FE2ED5EE3ACE1C2AC005701C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D997F9291F19E793268EC85FF89BA46 /* Foundation.framework */; };
 		ABAE93F3575AC071761FC7A7E89A6221 /* FSCalendarScopeHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B225DAE418E28DDB6C76FB36B26138 /* FSCalendarScopeHandle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		ABBA4D1A08A1D18ECF18CFCEC1D683DE /* FIRApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0294A69262357CA182EFBFE8266903 /* FIRApp.m */; };
-		AEC0B840410855B41850A97642AE962D /* MasterPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F134CD9828B963BEBAF2ADF94AA98 /* MasterPlaylist.swift */; };
 		B078F7C21362CC2EC03671646B46739F /* FIRDependency.m in Sources */ = {isa = PBXBuildFile; fileRef = 3296545B873DD1098B4CBB3F4BC13FDD /* FIRDependency.m */; };
 		B0E28F82AC12DAADBCC201F6E686F0D8 /* FIRInstanceIDAuthService.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C87F1D90C76DDDAFD5F5B4A71271FE /* FIRInstanceIDAuthService.m */; };
 		B2559D609F6A861D548BD5AD77773AE8 /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 010965E4B433A715FBEA8E46146065FA /* FSCalendarDelegationProxy.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		B35DE974E56D4EBD1901146BB003143E /* MultiOptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F18DC81BC656AD5F3B7E40ACA55D8C /* MultiOptionSelector.swift */; };
-		B3838CB8C48FE5BA1B035286CBB022FF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88503F01AC7FAFD2DD930FD1A179818 /* StringExtensions.swift */; };
 		B38F70804F3D61BBBA93329CA7ED0FC8 /* pb_decode.c in Sources */ = {isa = PBXBuildFile; fileRef = FCD7CB7F56C9334EAD2B8E7C56D07F03 /* pb_decode.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc -fno-objc-arc"; }; };
 		B56F5B5333BD488F7800C8E9205B29B6 /* FIRInstanceID+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F2886CF6FFBC65A3A9988AFE8BC7C3 /* FIRInstanceID+Testing.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B874D22C452407668077BA2AB7F14F2A /* FirebaseCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B8BFCBB817B78338439B7C99A12F54 /* FirebaseCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -249,11 +247,13 @@
 		C671BADEEDB5FE19662EC4E2D50A9735 /* FSCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B1DA96ECB130F3B1C98E70A547E9DBB /* FSCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6B5DE274F7CDF6004F09D6C905FC09D /* FIRInstanceIDConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF38FDD639A2F3391BC270D8F69EFDB /* FIRInstanceIDConstants.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C6DBB7BDF5CF106D9ED1B72AA73E5874 /* FIRInstanceIDCheckinStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 8306FFA09234FACEA42CE815C0CF8C00 /* FIRInstanceIDCheckinStore.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C7C9BB6783B2F6163DA010AE0B64F46D /* ManifestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5494EA5799CEA172BCFE95880CBF4802 /* ManifestBuilder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C89BB6836DEA8F2EE0B9199A7A78CDDC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637BA4C7241679C17123F7174886DC04 /* SystemConfiguration.framework */; };
 		CA7B0300CF5A38F1622576DE0175E31C /* FSCalendarAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A6617FE5B2C39D39EB35AA01A4C3C7D /* FSCalendarAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC67331A4AE8AC3B99AC6FDCDD868135 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D997F9291F19E793268EC85FF89BA46 /* Foundation.framework */; };
 		CD615CD72DECC08D3F0223C7E23B3093 /* FIRComponentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C035C1915176A39C464E463AD3CFD /* FIRComponentContainer.m */; };
 		CD79008D1F8A28F701291D1C15A00AAD /* FIRInstanceIDStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5EB53DD7224BFB105DC4E75004109C /* FIRInstanceIDStore.m */; };
+		CDE98D888723AB53637D5859A36F2F76 /* StringBufferedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF04B68FAD2AC6B47E6364D165343D /* StringBufferedReader.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		CE5E0F0D8CB24FDBDC79D567FFC4D395 /* FSCalendarCell.h in Headers */ = {isa = PBXBuildFile; fileRef = EAA77624CF833C5B1963C8C424102344 /* FSCalendarCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D09DE4F8CF9819C7BB99A345BBA78339 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7342F0CF524ED9310FF92B12EC0C38AA /* Security.framework */; };
 		D0FE30F9B8D24715714954E61B6B5F36 /* GULLoggerCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = B9260965968DB332FF39D5C3E97AF704 /* GULLoggerCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -262,9 +262,11 @@
 		D8A219829C97AE6AF93A048E09F5680D /* FIRComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6534571D5CDFD2CE8372B1B4ED92D445 /* FIRComponent.m */; };
 		DC1370F458358C5BE438A6A0ED227DA6 /* FIRInstanceIDTokenStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7726B42714A188868CCBE7FF0199EFA5 /* FIRInstanceIDTokenStore.m */; };
 		E056FFC8A72730DA249C8D8A3D888E00 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9297784754238B0271185D262A8CD41 /* SwiftyJSON.swift */; };
+		E17F1A026B7F4C8E79B509DE4FAFF0E2 /* Pantomime-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A46830CE49C02A6C127495C57BDABF29 /* Pantomime-dummy.m */; };
 		E3E85E458EBC1990616546C2A5DCAB82 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01C6453D884CA88BE3FC14469A2A5B1 /* QuartzCore.framework */; };
 		E5D8C91086E97408A4280CE36D002303 /* FirebaseInstanceID-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA7FCBCC6E419E19C51BEEBDA974CCA /* FirebaseInstanceID-dummy.m */; };
 		E6E306527999E035678E03FCFB44F5E6 /* FIROptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB861C0AD692F1B172422FF5E2EF8B3 /* FIROptions.m */; };
+		E89A2DB29CDBCBE6DE41AC45FF97845E /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88503F01AC7FAFD2DD930FD1A179818 /* StringExtensions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E8C0A0E2222FF021FE0174A246F9AD21 /* FIRAppAssociationRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3789A6EEE599ABDB962965D9F263110D /* FIRAppAssociationRegistration.m */; };
 		E987D057B768305534992A2EFBB69B46 /* FSCalendarCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = AA074C4CE513F123242D08779EFFE0AF /* FSCalendarCalculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EAAC31E35767E4527322215E77F500CB /* GULAppDelegateSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 602883124D629C0442883569F7895B79 /* GULAppDelegateSwizzler.m */; };
@@ -276,14 +278,12 @@
 		F214324939EEA0343308B64D185B9042 /* FIRInstanceIDCheckinPreferences+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F9F7AA5C9FBA5719AB0AC017CAF88 /* FIRInstanceIDCheckinPreferences+Internal.m */; };
 		F40206DB1B71EDAB31FE7A4A03B7CAEB /* NSError+FIRInstanceID.m in Sources */ = {isa = PBXBuildFile; fileRef = D70468E0736575221F8B89932B18CBE7 /* NSError+FIRInstanceID.m */; };
 		F581CE131292E434398ADE21C9A0E629 /* FIRInstanceIDDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = B84E7F176088E9739DB554A904009B16 /* FIRInstanceIDDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F629162EB2ADEE62148EF231FD3E1772 /* MediaPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365D269BA38B5256498842772FBF5F64 /* MediaPlaylist.swift */; };
 		F7C126497DE125C880E880EE0431CEFA /* FIRInstanceIDUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BB24B8BCEA3DEE285A7F608F5C5F38B /* FIRInstanceIDUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F9F2828D09A41F9367A8E4D678439DFD /* FIRComponentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8F6D4806261519F03D7779E33F08D0 /* FIRComponentType.m */; };
 		FA4879EE891E4376D1CB122873A0D774 /* FIROptionsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0867529A3448641C7844AB1AEC08AE /* FIROptionsInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FAFBC7632C92F546005D5373E25031EB /* OptionSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE1118C34D590AD965A479EC9985A2 /* OptionSelectorCell.swift */; };
 		FAFCFEADC58CB5BC49874CFEB7AB6508 /* FIRAnalyticsConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B196232152CFF167E40762FED856A94B /* FIRAnalyticsConfiguration.m */; };
 		FBB36F8F7338268B4BCFD63D6CDDBE99 /* GULNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BFF2CCAF9AED84E14168569736E04 /* GULNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FE3CCC69C3FF9C30C0E5C215F095D307 /* ReaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E82CC2B9480D0951AE8BDE0BC88337 /* ReaderBuilder.swift */; };
 		FEE6C35ABEF6006B8D9DF1B6A318DBEF /* FIRInstanceIDCheckinPreferences_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 657ED14BBDA5BD12C04DDB3A4AFDDB11 /* FIRInstanceIDCheckinPreferences_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
@@ -1760,7 +1760,7 @@
 			buildConfigurationList = E0D0DF82CD6D5A3FC7BB4236BD838CA5 /* Build configuration list for PBXNativeTarget "Pantomime" */;
 			buildPhases = (
 				63FABB4B08165CF1D8A5032B3A53D04A /* Headers */,
-				E4CEC9E1C5FA4706CD21983D9126EBC3 /* Sources */,
+				9851F21459F3834930BEE0E9BC28ACA3 /* Sources */,
 				D2CAC238CC3A1E3C83CADC44DCE30A1B /* Frameworks */,
 				4604E0D199F4D8F62F4C1A2A92946BD3 /* Resources */,
 			);
@@ -2094,6 +2094,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9851F21459F3834930BEE0E9BC28ACA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1940F3BADF6685C7D407339C6092AD74 /* BufferedReader.swift in Sources */,
+				493A0EC8D979B285B0671772DB1BACD0 /* FileBufferedReader.swift in Sources */,
+				C7C9BB6783B2F6163DA010AE0B64F46D /* ManifestBuilder.swift in Sources */,
+				7738FADB73D67A2788330C2186BF5590 /* MasterPlaylist.swift in Sources */,
+				61546431E557C33DA4A8B662BA56E87B /* MediaPlaylist.swift in Sources */,
+				53AC1452C925802C1337C5C7F3C77811 /* MediaSegment.swift in Sources */,
+				A5B7F86E9157588BB708792ACD4F89E5 /* NSURLExtension.swift in Sources */,
+				E17F1A026B7F4C8E79B509DE4FAFF0E2 /* Pantomime-dummy.m in Sources */,
+				4563FAC1B18F908BCC78167AD040217A /* ReaderBuilder.swift in Sources */,
+				05615ACA32937AEAE7244CDE0BB14F3E /* StreamReader.swift in Sources */,
+				CDE98D888723AB53637D5859A36F2F76 /* StringBufferedReader.swift in Sources */,
+				E89A2DB29CDBCBE6DE41AC45FF97845E /* StringExtensions.swift in Sources */,
+				90257DCA59186C13A8A9415B7F574573 /* URLBufferedReader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B711D254EF7D5AB491902ABA3454155B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2115,26 +2135,6 @@
 				BEBEB1D35E9E1C577B8D6327B366D74F /* FSCalendarStickyHeader.m in Sources */,
 				1EB02F0B23162C066A8B4D4DB0847500 /* FSCalendarTransitionCoordinator.m in Sources */,
 				5E7C753C74B52E9E8DBFB15EB796F74C /* FSCalendarWeekdayView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4CEC9E1C5FA4706CD21983D9126EBC3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30EEDAB8901F4A6895B82C5ED301F575 /* BufferedReader.swift in Sources */,
-				A2CB397D79AB297B65CD17C9DD7FB4B2 /* FileBufferedReader.swift in Sources */,
-				A10ACAF13F81490F5B19B506EE4B7154 /* ManifestBuilder.swift in Sources */,
-				AEC0B840410855B41850A97642AE962D /* MasterPlaylist.swift in Sources */,
-				F629162EB2ADEE62148EF231FD3E1772 /* MediaPlaylist.swift in Sources */,
-				0C5A7DD01821BAEE925C413781A518B8 /* MediaSegment.swift in Sources */,
-				5122F6DFADD8576AB257AF854590A587 /* NSURLExtension.swift in Sources */,
-				2769CA75D85D357E91ED84259519BF02 /* Pantomime-dummy.m in Sources */,
-				FE3CCC69C3FF9C30C0E5C215F095D307 /* ReaderBuilder.swift in Sources */,
-				504C45578AD70D8FE8070F5EC7FD47CA /* StreamReader.swift in Sources */,
-				9C5912896F504D828F8ACBB5C8E636D6 /* StringBufferedReader.swift in Sources */,
-				B3838CB8C48FE5BA1B035286CBB022FF /* StringExtensions.swift in Sources */,
-				4A35646BC3D70FBF1A6F91B08D5F4C9A /* URLBufferedReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
