@@ -18,6 +18,7 @@ protocol SettingsPresenterType: AnyObject {
     func setDefault(quality: Quality)
     func setDefault(cdn: CDN)
     func setPreferFrench(enabled: Bool)
+    func setShowScores(enabled: Bool)
     func setVersionUpdates(enabled: Bool)
     func setBetaUpdates(enabled: Bool)
     func updatePressed()
@@ -72,6 +73,7 @@ class SettingsPresenter: SettingsPresenterType {
         self.settingsView?.showDefault(quality: self.settingsManager.defaultQuality)
         self.settingsView?.showDefault(cdn: self.settingsManager.defaultCDN)
         self.settingsView?.showPreferFrench(isOn: self.settingsManager.preferFrench)
+        self.settingsView?.showGameScores(isOn: self.settingsManager.showScores)
         self.settingsView?.showVersionUpdates(isOn: self.settingsManager.versionUpdates)
         self.settingsView?.showBetaUpdates(isOn: self.settingsManager.betaUpdates,
                                            enabled: self.settingsManager.versionUpdates)
@@ -91,6 +93,10 @@ class SettingsPresenter: SettingsPresenterType {
 
     func setPreferFrench(enabled: Bool) {
         self.settingsManager.preferFrench = enabled
+    }
+
+    func setShowScores(enabled: Bool) {
+        self.settingsManager.showScores = enabled
     }
 
     func setVersionUpdates(enabled: Bool) {

@@ -48,6 +48,8 @@ class Game {
     let startTime: Date
     let gameState: GameState
     let liveGameState: String
+    let homeTeamScore: Int?
+    let awayTeamScore: Int?
     let feeds: [Feed]
     var gameStateDescription: String {
         switch self.gameState {
@@ -69,7 +71,14 @@ class Game {
 
     // MARK: - Init
 
-    init?(homeTeam: Team, awayTeam: Team, startTime: Date, gameState: GameState, liveGameState: String, feeds: [Feed]) {
+    init?(homeTeam: Team,
+          awayTeam: Team,
+          startTime: Date,
+          gameState: GameState,
+          liveGameState: String,
+          homeTeamScore: Int?,
+          awayTeamScore: Int?,
+          feeds: [Feed]) {
         guard homeTeam.league == awayTeam.league else {
             return nil
         }
@@ -79,6 +88,8 @@ class Game {
         self.startTime = startTime
         self.gameState = gameState
         self.liveGameState = liveGameState
+        self.homeTeamScore = homeTeamScore
+        self.awayTeamScore = awayTeamScore
         self.feeds = feeds
         self.league = homeTeam.league
     }

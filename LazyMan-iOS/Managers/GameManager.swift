@@ -166,11 +166,20 @@ class GameManager: GameManagerType {
                 // swiftlint:disable:next line_length
                 let liveGameState = gameState == .live ? "\(nhlGame["linescore"]["currentPeriodOrdinal"].stringValue) - \(nhlGame["linescore"]["currentPeriodTimeRemaining"].stringValue)" : nhlGame["status"]["detailedState"].stringValue
 
+                var homeTeamScore: Int?
+                var awayTeamScore: Int?
+                if [.live, .final].contains(gameState) {
+                    homeTeamScore = nhlGame["teams"]["home"]["score"].int
+                    awayTeamScore = nhlGame["teams"]["away"]["score"].int
+                }
+
                 newGames.appendOptional(Game(homeTeam: homeTeam,
                                              awayTeam: awayTeam,
                                              startTime: gameDate,
                                              gameState: gameState,
                                              liveGameState: liveGameState,
+                                             homeTeamScore: homeTeamScore,
+                                             awayTeamScore: awayTeamScore,
                                              feeds: gameFeeds))
             }
         }
@@ -206,11 +215,20 @@ class GameManager: GameManagerType {
                 // swiftlint:disable:next line_length
                 let liveGameState = gameState == .live ? "\(mlbGame["linescore"]["currentInningOrdinal"].stringValue) - \(mlbGame["linescore"]["inningHalf"].stringValue)" : mlbGame["status"]["detailedState"].stringValue
 
+                var homeTeamScore: Int?
+                var awayTeamScore: Int?
+                if [.live, .final].contains(gameState) {
+                    homeTeamScore = mlbGame["teams"]["home"]["score"].int
+                    awayTeamScore = mlbGame["teams"]["away"]["score"].int
+                }
+
                 newGames.appendOptional(Game(homeTeam: homeTeam,
                                              awayTeam: awayTeam,
                                              startTime: gameDate,
                                              gameState: gameState,
                                              liveGameState: liveGameState,
+                                             homeTeamScore: homeTeamScore,
+                                             awayTeamScore: awayTeamScore,
                                              feeds: gameFeeds))
             }
         }

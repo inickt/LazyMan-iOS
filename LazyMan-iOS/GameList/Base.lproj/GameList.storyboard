@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -204,7 +203,7 @@
                                                 <constraint firstAttribute="width" constant="1" id="xTq-nR-MCZ"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3RD – 20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-5g-fYB">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="3RD – 20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-5g-fYB">
                                             <rect key="frame" x="225" y="41.5" width="90" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="lWI-Yq-XDk"/>
@@ -213,11 +212,11 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Fcp-f2-OGG" userLabel="Teams">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Fcp-f2-OGG" userLabel="Teams">
                                             <rect key="frame" x="10" y="11" width="194" height="78"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uAS-sl-QoU" userLabel="Away Team">
-                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="39"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uAS-sl-QoU" userLabel="Away Team">
+                                                    <rect key="frame" x="0.0" y="0.0" width="194" height="39"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackhawks" translatesAutoresizingMaskIntoConstraints="NO" id="WUh-dw-YvU" userLabel="Away Team Image">
                                                             <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
@@ -225,16 +224,25 @@
                                                                 <constraint firstAttribute="width" secondItem="WUh-dw-YvU" secondAttribute="height" multiplier="1:1" id="Nh0-Ig-zAM"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicago Blackhawks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u78-Ho-H3X" userLabel="Away Team Label">
-                                                            <rect key="frame" x="47" y="10.5" width="141" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blackhawks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u78-Ho-H3X" userLabel="Away Team Label">
+                                                            <rect key="frame" x="49" y="9.5" width="122" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mtV-zi-elc">
+                                                            <rect key="frame" x="181" y="8" width="13" height="23"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="12" id="doU-n5-E3k"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                            <color key="textColor" white="0.79600099885844744" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Wgv-qX-yIf" userLabel="Home Team">
-                                                    <rect key="frame" x="0.0" y="39" width="187.5" height="39"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wgv-qX-yIf" userLabel="Home Team">
+                                                    <rect key="frame" x="0.0" y="39" width="194" height="39"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="capitals" translatesAutoresizingMaskIntoConstraints="NO" id="NV4-ix-E3g" userLabel="Home Team Image">
                                                             <rect key="frame" x="0.0" y="0.0" width="39" height="39"/>
@@ -242,10 +250,19 @@
                                                                 <constraint firstAttribute="width" secondItem="NV4-ix-E3g" secondAttribute="height" multiplier="1:1" id="6Bf-pn-KxO"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washington Capitals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iZq-1K-8ep" userLabel="Home Team Label">
-                                                            <rect key="frame" x="47" y="10.5" width="140.5" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capitals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iZq-1K-8ep" userLabel="Home Team Label">
+                                                            <rect key="frame" x="49" y="9.5" width="123" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XHB-nJ-2NL">
+                                                            <rect key="frame" x="182" y="8" width="12" height="23"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="12" id="kyc-MH-uPX"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                            <color key="textColor" white="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -270,8 +287,10 @@
                                 <connections>
                                     <outlet property="awayTeamImage" destination="WUh-dw-YvU" id="SQH-ff-AfB"/>
                                     <outlet property="awayTeamLabel" destination="u78-Ho-H3X" id="Mmi-lT-EX9"/>
+                                    <outlet property="awayTeamScoreLabel" destination="mtV-zi-elc" id="fkP-oY-8Zz"/>
                                     <outlet property="homeTeamImage" destination="NV4-ix-E3g" id="G8J-KD-a7Y"/>
                                     <outlet property="homeTeamLabel" destination="iZq-1K-8ep" id="6rJ-Kk-a5G"/>
+                                    <outlet property="homeTeamScoreLabel" destination="XHB-nJ-2NL" id="PFn-0b-Npl"/>
                                     <outlet property="timeLabel" destination="BHa-5g-fYB" id="Iig-DZ-AH6"/>
                                     <segue destination="yLk-dD-8iX" kind="showDetail" identifier="showGame" id="DRp-Nt-8o5"/>
                                 </connections>
@@ -289,7 +308,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXJ-fB-d47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="-730"/>
+            <point key="canvasLocation" x="849.375" y="-730.9859154929577"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kfP-Kn-ah6">

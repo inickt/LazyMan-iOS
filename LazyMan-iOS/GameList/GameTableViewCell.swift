@@ -14,14 +14,26 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet private var homeTeamImage: UIImageView!
     @IBOutlet private var awayTeamLabel: UILabel!
     @IBOutlet private var homeTeamLabel: UILabel!
+    @IBOutlet private var awayTeamScoreLabel: UILabel!
+    @IBOutlet private var homeTeamScoreLabel: UILabel!
     @IBOutlet private var timeLabel: UILabel!
 
     var game: Game? {
         didSet {
             self.awayTeamImage.image = self.game?.awayTeam.logo
             self.homeTeamImage.image = self.game?.homeTeam.logo
-            self.awayTeamLabel.text = self.game?.awayTeam.name
-            self.homeTeamLabel.text = self.game?.homeTeam.name
+            self.awayTeamLabel.text = self.game?.awayTeam.shortName
+            self.homeTeamLabel.text = self.game?.homeTeam.shortName
+            if let awayScore = self.game?.awayTeamScore, SettingsManager.shared.showScores {
+                self.awayTeamScoreLabel.text = "\(awayScore)"
+            } else {
+                self.awayTeamScoreLabel.text = nil
+            }
+            if let homeScore = self.game?.homeTeamScore, SettingsManager.shared.showScores {
+                self.homeTeamScoreLabel.text = "\(homeScore)"
+            } else {
+                self.homeTeamScoreLabel.text = nil
+            }
             self.timeLabel.text = self.game?.gameStateDescription
 
             // TODO: Bad singleton access?

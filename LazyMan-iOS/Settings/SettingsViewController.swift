@@ -16,6 +16,7 @@ protocol SettingsViewType: AnyObject {
     func showDefault(quality: Quality)
     func showDefault(cdn: CDN)
     func showPreferFrench(isOn: Bool)
+    func showGameScores(isOn: Bool)
     func showVersionUpdates(isOn: Bool)
     func showBetaUpdates(isOn: Bool, enabled: Bool)
     func open(url: URL)
@@ -37,6 +38,7 @@ class SettingsViewController: UITableViewController, SettingsViewType {
     @IBOutlet private var defaultQualityControl: UISegmentedControl!
     @IBOutlet private var defaultCDNControl: UISegmentedControl!
     @IBOutlet private var preferFrenchSwitch: UISwitch!
+    @IBOutlet private var showScoreSwitch: UISwitch!
     @IBOutlet private var favoriteNHLTeamLabel: UILabel!
     @IBOutlet private var favoriteMLBTeamLabel: UILabel!
     @IBOutlet private var versionUpdatesSwitch: UISwitch!
@@ -78,6 +80,10 @@ class SettingsViewController: UITableViewController, SettingsViewType {
 
     func showPreferFrench(isOn: Bool) {
         self.preferFrenchSwitch.setOn(isOn, animated: true)
+    }
+
+    func showGameScores(isOn: Bool) {
+        self.showScoreSwitch.setOn(isOn, animated: true)
     }
 
     func showVersionUpdates(isOn: Bool) {
@@ -175,6 +181,10 @@ class SettingsViewController: UITableViewController, SettingsViewType {
 
     @IBAction private func preferFrenchPressed(_ sender: Any) {
         self.presenter?.setPreferFrench(enabled: self.preferFrenchSwitch.isOn)
+    }
+
+    @IBAction private func showScoresPressed(_ sender: Any) {
+        self.presenter?.setShowScores(enabled: self.showScoreSwitch.isOn)
     }
 
     @IBAction private func versionUpdatesPressed(_ sender: Any) {

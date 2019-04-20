@@ -13,6 +13,7 @@ protocol SettingsManagerType {
     var defaultQuality: Quality { get set }
     var defaultCDN: CDN { get set }
     var preferFrench: Bool { get set }
+    var showScores: Bool { get set }
     var favoriteNHLTeams: [Team] { get set }
     var favoriteMLBTeams: [Team] { get set }
     var versionUpdates: Bool { get set }
@@ -71,6 +72,16 @@ class SettingsManager: SettingsManagerType {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: preferFrenchKey)
+        }
+    }
+
+    private let showScoresKey = "showScores"
+    var showScores: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: showScoresKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: showScoresKey)
         }
     }
 

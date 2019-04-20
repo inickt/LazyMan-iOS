@@ -85,6 +85,7 @@ class GameListViewController: UIViewController, GameListViewControllerType {
         let presenter = SettingsPresenter(settingsView: settingsViewController)
         settingsViewController.presenter = presenter
         let navigationController = UINavigationController(rootViewController: settingsViewController)
+        navigationController.modalPresentationStyle = .formSheet
         self.present(navigationController, animated: true, completion: nil)
     }
     // MARK: - Lifecycle
