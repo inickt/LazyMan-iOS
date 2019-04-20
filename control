@@ -1,10 +1,10 @@
 Name: LazyMan-iOS
-Package: guru.nickthompson.LazyMan-iOS
+Package: dev.nickt.LazyMan-iOS
 Version: $VERSION
 Section: Apps
 Description: A simple app that lets you stream every live and archived NHL and MLB game from any of your iOS devices for free.
 Architecture: iphoneos-arm
-Maintainer: Nick Thompson (inickt) <dev@nickthompson.guru>
-Author: Nick Thompson (inickt) <dev@nickthompson.guru>
+Maintainer: Nick Thompson (inickt) <me@nickt.dev>
+Author: Nick Thompson (inickt) <me@nickt.dev>
 Depends: firmware (>= 9.0)
 Icon: file:///Applications/LazyMan-iOS.app/AppIcon60x60@3x.png
