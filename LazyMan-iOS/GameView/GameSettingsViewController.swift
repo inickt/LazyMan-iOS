@@ -7,72 +7,33 @@
 //
 
 import UIKit
+import OptionSelector
 
-protocol GameSettingsViewControllerType: class
-{
-    func setQuality(text: String?)
-    func setFeed(text: String)
-    func setCDN(text: String)
-}
+private let kPlaylistIndex = 0
+private let kFeedIndex = 1
+private let kCDNIndex = 2
 
-class GameSettingsViewController: UITableViewController, GameSettingsViewControllerType
-{
+class GameSettingsViewController: UITableViewController {
+
     // MARK: - IBOutlets
-    
-    @IBOutlet private weak var qualityLabel: UILabel!
-    @IBOutlet private weak var feedLabel: UILabel!
-    @IBOutlet private weak var cdnLabel: UILabel!
-    @IBOutlet private weak var qualityCell: UITableViewCell!
-    
+
+    @IBOutlet private var qualityLabel: UILabel!
+    @IBOutlet private var feedLabel: UILabel!
+    @IBOutlet private var cdnLabel: UILabel!
+    @IBOutlet private var qualityCell: UITableViewCell!
+
     // MARK: - Properties
-    
-    var presenter: GamePresenterType!
-    
-    // MARK: - Navigation
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool
-    {
-        return !(identifier == "gameOptionQuality" && self.presenter.qualitySelector == nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if let id = segue.identifier
-        {
-            let settingsOptions = segue.destination as? GameSettingsOptionsViewController
-            
-            switch id
-            {
-            case "gameOptionCDN":
-                settingsOptions?.title = "CDN"
-                settingsOptions?.opetionSelector = self.presenter.cdnSelector
-                
-            case "gameOptionQuality":
-                settingsOptions?.title = "Quality"
-                settingsOptions?.opetionSelector = self.presenter.qualitySelector
-                
-            case "gameOptionFeed":
-                settingsOptions?.title = "Feed"
-                settingsOptions?.opetionSelector = self.presenter.feedSelector
-                
-            default:
-                return
-            }
-        }
-    }
-    
-    // MARK: - GameSettingsViewControllerType
-    
-    func setQuality(text: String?)
-    {
-        if let text = text
-        {
+
+    var presenter: GamePresenterType?
+
+    // MARK: - Public
+
+    func setQuality(text: String?) {
+        if let text = text {
             self.qualityCell.accessoryView = nil
             self.qualityCell.accessoryType = .disclosureIndicator
             self.qualityLabel.text = text
-        }
-        else
-        {
+        } else {
             self.qualityLabel.text = ""
             self.qualityCell.accessoryType = .none
             let activityIndicator = UIActivityIndicatorView()
@@ -80,21 +41,43 @@ class GameSettingsViewController: UITableViewController, GameSettingsViewControl
             self.qualityCell.accessoryView = activityIndicator
         }
     }
-    
-    func setFeed(text: String)
-    {
+
+    func setFeed(text: String) {
         self.feedLabel.text = text
     }
-    
-    func setCDN(text: String)
-    {
+
+    func setCDN(text: String) {
         self.cdnLabel.text = text
     }
-    
+
     // MARK: - UITableViewDelegate
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let viewController: UIViewController
+        switch indexPath.section {
+        case kPlaylistIndex:
+            guard let selector = presenter?.playlistSelector else {
+                return
+            }
+            viewController = DarkOptionViewController(selector, style: .grouped)
+            viewController.title = "Quality"
+        case kFeedIndex:
+            guard let selector = presenter?.feedSelector else {
+                return
+            }
+            viewController = DarkOptionViewController(selector, style: .grouped)
+            viewController.title = "Feed"
+        case kCDNIndex:
+            guard let selector = presenter?.cdnSelector else {
+                return
+            }
+            viewController = DarkOptionViewController(selector, style: .grouped)
+            viewController.title = "CDN"
+        default:
+            return
+        }
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

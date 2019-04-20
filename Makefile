@@ -7,7 +7,7 @@ NAME = $(TARGET)_$(BUILD_VERSION)-$(BUILD_NUMER)
 all: ipa deb
 
 archive ./build/$(TARGET).xcarchive:
-	xcodebuild clean archive -workspace $(TARGET).xcworkspace/ -scheme "$(TARGET)" -archivePath ./build/$(TARGET).xcarchive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+	xcodebuild clean archive -workspace $(TARGET).xcworkspace/ -scheme "$(TARGET)" -archivePath ./build/$(TARGET).xcarchive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
 app ./build/$(TARGET).app: ./build/$(TARGET).xcarchive
 	ln -sf $(TARGET).xcarchive/Products/Applications/$(TARGET).app ./build/$(TARGET).app

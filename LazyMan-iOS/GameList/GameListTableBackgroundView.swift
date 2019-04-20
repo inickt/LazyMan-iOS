@@ -8,12 +8,25 @@
 
 import UIKit
 
-class GameListTableBackgroundView: UIView
-{
-    @IBOutlet weak var errorLabel: UILabel!
-    
-    static func instanceFromNib() -> GameListTableBackgroundView
-    {
+class GameListTableBackgroundView: UIView {
+
+    // MARK: - IBOutlets
+
+    @IBOutlet private var errorLabel: UILabel!
+
+    // MARK: - Properties
+
+    var errorMessage: String? {
+        set {
+            self.errorLabel.text = newValue
+        }
+        get {
+            return self.errorLabel.text
+        }
+    }
+
+    static func instanceFromNib() -> GameListTableBackgroundView {
+        // swiftlint:disable:next all
         return UINib(nibName: "GameListTableBackgroundView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! GameListTableBackgroundView
     }
 }

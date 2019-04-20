@@ -1,12 +1,85 @@
 PODS:
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
+  - Firebase/Core (5.20.2):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.8.1)
+  - Firebase/CoreOnly (5.20.2):
+    - FirebaseCore (= 5.4.1)
+  - FirebaseAnalytics (5.8.1):
+    - FirebaseCore (~> 5.4)
+    - FirebaseInstanceID (~> 3.8)
+    - GoogleAppMeasurement (= 5.8.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.4.1):
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseInstanceID (3.8.1):
+    - FirebaseCore (~> 5.2)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/UserDefaults (~> 5.2)
   - FSCalendar (2.7.9)
+  - GoogleAppMeasurement (5.8.1):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (5.7.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.7.0)
+  - GoogleUtilities/Logger (5.7.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.7.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.7.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.7.0)"
+  - GoogleUtilities/Reachability (5.7.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (5.7.0):
+    - GoogleUtilities/Logger
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - OptionSelector (0.2.3)
   - Pantomime (0.1.5)
-  - SwiftyJSON (4.1.0)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - FSCalendar
+  - Crashlytics
+  - Fabric
+  - Firebase/Core
+  - FSCalendar (= 2.7.9)
+  - OptionSelector (~> 0.2)
   - Pantomime (from `https://github.com/inickt/Pantomime.git`, branch `master`)
   - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - Fabric
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FSCalendar
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - nanopb
+    - OptionSelector
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   Pantomime:
@@ -15,14 +88,24 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Pantomime:
-    :commit: 47e6f2ddfdab3906c52a36e8fd14d2cc47757fb4
+    :commit: be741c901b3e2f02542a4789777b390023546cd4
     :git: https://github.com/inickt/Pantomime.git
 
 SPEC CHECKSUMS:
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
+  FirebaseAnalytics: ece1aa57a4f43c64d53a648b5a5e05151aae947b
+  FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
+  FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
+  GoogleAppMeasurement: ffe513e90551844a739e7bcbb1d2aca1c28a4338
+  GoogleUtilities: 273e67030e0de313e7304f6dcfa96fc5214f6c23
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  OptionSelector: 2caec96f48686f40eacf73630e472ed774f73fa7
   Pantomime: 2aec2b603b91f6d5a4774ecce9c0ed073d3b4e5d
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: ad0a5ac257de47063d55f5248521f93834284843
+PODFILE CHECKSUM: 89994653265dab07e9673c43b4e781c21075529f
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.1

@@ -5,12 +5,6 @@ Pantomime is a lightweight framework for iOS, OSX and tvOS that can read and par
 
 ## Installation
 
-You can use [Carthage](https://github.com/Carthage/Carthage) to install Pantomime by adding that to your Cartfile:
-
-``` 
-github "thomaschristensen/Pantomime"
-```
-
 #### via CocoaPods
 
 To use [CocoaPods](https://cocoapods.org) just add this to your Podfile:

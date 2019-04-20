@@ -8,12 +8,10 @@
 
 import UIKit
 
-class DatePickerViewController: UIViewController
-{
+class DatePickerViewController: UIViewController {
     var datePicker = UIDatePicker()
 
-    override func loadView()
-    {
+    override func loadView() {
         self.view = datePicker
         self.datePicker.datePickerMode = .date
         self.datePicker.setValue(UIColor.white, forKeyPath: "textColor")
