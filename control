@@ -8,3 +8,4 @@ Maintainer: Nick Thompson (inickt) <me@nickt.dev>
 Author: Nick Thompson (inickt) <me@nickt.dev>
 Depends: firmware (>= 9.0)
 Icon: file:///Applications/LazyMan-iOS.app/AppIcon60x60@3x.png
+Conflicts: guru.nickthompson.LazyMan-iOS
