@@ -73,27 +73,12 @@ class GameManager: GameManagerType {
                   league: League,
                   ignoreCache: Bool,
                   completion: @escaping (Result<[Game], GameManagerError>) -> Void) {
-        if !ignoreCache {
-            switch league {
-            case .NHL:
-                if let games = self.nhlGames[DateUtils.convertToYYYYMMDD(from: date)] {
-                    completion(.success(games))
-                    return
-                }
-            case .MLB:
-                if let games = self.mlbGames[DateUtils.convertToYYYYMMDD(from: date)] {
-                    completion(.success(games))
-                    return
-                }
-            }
-        } else {
-            switch league {
-            case .NHL:
-                self.nhlGames[DateUtils.convertToYYYYMMDD(from: date)] = nil
-            case .MLB:
-                self.mlbGames[DateUtils.convertToYYYYMMDD(from: date)] = nil
-            }
+        if !ignoreCache, let games = self.getGames(date: date, league: league) {
+            completion(.success(games))
+            return
         }
+
+        self.setGames(date: date, league: league, games: nil)
 
         DispatchQueue.global(qos: .userInitiated).async {
             switch self.loadJson(from: league, for: date) {
@@ -102,9 +87,15 @@ class GameManager: GameManagerType {
                     completion(.failure(.jsonError(error)))
                 }
             case .success(let json):
-                let result = self.parseJson(json: json, league: league, date: DateUtils.convertToYYYYMMDD(from: date))
+                let result = self.parseJson(json: json, league: league)
                 DispatchQueue.main.async {
-                    completion(result)
+                    switch result {
+                    case .success(let games):
+                        self.setGames(date: date, league: league, games: games)
+                        fallthrough
+                    default:
+                        completion(result)
+                    }
                 }
             }
         }
@@ -121,7 +112,7 @@ class GameManager: GameManagerType {
         }
     }
 
-    func parseJson(json: JSON, league: League, date: String) -> Result<[Game], GameManagerError> {
+    func parseJson(json: JSON, league: League) -> Result<[Game], GameManagerError> {
 
         switch self.getJSONGames(json: json) {
         case .failure(let error):
@@ -131,10 +122,8 @@ class GameManager: GameManagerType {
             switch league {
             case .NHL:
                 games = self.nhlJSONtoGames(jsonGames: jsonGames).sorted(by: self.teamManager.compareGames)
-                self.nhlGames[date] = games
             case .MLB:
                 games = self.mlbJSONtoGames(jsonGames: jsonGames).sorted(by: self.teamManager.compareGames)
-                self.mlbGames[date] = games
             }
 
             return .success(games)
@@ -248,6 +237,24 @@ class GameManager: GameManagerType {
         }
 
         return .success(games)
+    }
+
+    private func getGames(date: Date, league: League) -> [Game]? {
+        switch league {
+        case .NHL:
+            return self.nhlGames[DateUtils.convertToYYYYMMDD(from: date)]
+        case .MLB:
+            return self.mlbGames[DateUtils.convertToYYYYMMDD(from: date)]
+        }
+    }
+
+    private func setGames(date: Date, league: League, games: [Game]?) {
+        switch league {
+        case .NHL:
+            self.nhlGames[DateUtils.convertToYYYYMMDD(from: date)] = games
+        case .MLB:
+            self.mlbGames[DateUtils.convertToYYYYMMDD(from: date)] = games
+        }
     }
 }
 
