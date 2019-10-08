@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import LazyManCore
 import OptionSelector
 
 protocol GamePresenterType: AVAssetResourceLoaderDelegate {
@@ -76,7 +77,7 @@ class GamePresenter: NSObject, GamePresenterType {
         self.gameView?.setQuality(text: nil)
         self.gameView?.setFeed(text: self.feedSelector.selected.title)
         self.gameView?.setCDN(text: self.cdnSelector.selected.title)
-        self.gameView?.gameTitle = "\(self.game.awayTeam.shortName) at \(self.game.homeTeam.shortName)"
+        self.gameView?.gameTitle = "\(self.game.awayTeam.teamName) at \(self.game.homeTeam.teamName)"
         self.loadPlaylists(reload: false)
     }
 

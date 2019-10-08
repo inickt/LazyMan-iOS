@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import LazyManCore
 import OptionSelector
 
 protocol SettingsPresenterType: AnyObject {
@@ -137,7 +138,7 @@ class SettingsPresenter: SettingsPresenterType {
 
     private func formatTeams(teams: [Team]) -> String {
         let teamText = teams.sorted().reduce("") {
-            "\($0.isEmpty ? "" : "\($0), ")\($1.shortName)"
+            "\($0.isEmpty ? "" : "\($0), ")\($1.teamName)"
         }
         return teamText.isEmpty ? "None" : teamText
     }

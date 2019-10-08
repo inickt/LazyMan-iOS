@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Arizona Diamondbacks</string>
+		<key>teamName</key>
+		<string>D-backs</string>
+		<key>abbreviation</key>
+		<string>ARI</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Atlanta Braves</string>
+		<key>teamName</key>
+		<string>Braves</string>
+		<key>abbreviation</key>
+		<string>ATL</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Baltimore Orioles</string>
+		<key>teamName</key>
+		<string>Orioles</string>
+		<key>abbreviation</key>
+		<string>BAL</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Boston Red Sox</string>
+		<key>teamName</key>
+		<string>Red Sox</string>
+		<key>abbreviation</key>
+		<string>BOS</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Chicago Cubs</string>
+		<key>teamName</key>
+		<string>Cubs</string>
+		<key>abbreviation</key>
+		<string>CHC</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Chicago White Sox</string>
+		<key>teamName</key>
+		<string>White Sox</string>
+		<key>abbreviation</key>
+		<string>CWS</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Cincinnati Reds</string>
+		<key>teamName</key>
+		<string>Reds</string>
+		<key>abbreviation</key>
+		<string>CIN</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Cleveland Indians</string>
+		<key>teamName</key>
+		<string>Indians</string>
+		<key>abbreviation</key>
+		<string>CLE</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Colorado Rockies</string>
+		<key>teamName</key>
+		<string>Rockies</string>
+		<key>abbreviation</key>
+		<string>COL</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Detroit Tigers</string>
+		<key>teamName</key>
+		<string>Tigers</string>
+		<key>abbreviation</key>
+		<string>DET</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Houston Astros</string>
+		<key>teamName</key>
+		<string>Astros</string>
+		<key>abbreviation</key>
+		<string>HOU</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Kansas City Royals</string>
+		<key>teamName</key>
+		<string>Royals</string>
+		<key>abbreviation</key>
+		<string>KC</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Los Angeles Angels</string>
+		<key>teamName</key>
+		<string>Angels</string>
+		<key>abbreviation</key>
+		<string>LAA</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Los Angeles Dodgers</string>
+		<key>teamName</key>
+		<string>Dodgers</string>
+		<key>abbreviation</key>
+		<string>LAD</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Miami Marlins</string>
+		<key>teamName</key>
+		<string>Marlins</string>
+		<key>abbreviation</key>
+		<string>MIA</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Milwaukee Brewers</string>
+		<key>teamName</key>
+		<string>Brewers</string>
+		<key>abbreviation</key>
+		<string>MIL</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Minnesota Twins</string>
+		<key>teamName</key>
+		<string>Twins</string>
+		<key>abbreviation</key>
+		<string>MIN</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>New York Mets</string>
+		<key>teamName</key>
+		<string>Mets</string>
+		<key>abbreviation</key>
+		<string>NYM</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>New York Yankees</string>
+		<key>teamName</key>
+		<string>Yankees</string>
+		<key>abbreviation</key>
+		<string>NYY</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Oakland Athletics</string>
+		<key>teamName</key>
+		<string>Athletics</string>
+		<key>abbreviation</key>
+		<string>OAK</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Philadelphia Phillies</string>
+		<key>teamName</key>
+		<string>Phillies</string>
+		<key>abbreviation</key>
+		<string>PHI</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Pittsburgh Pirates</string>
+		<key>teamName</key>
+		<string>Pirates</string>
+		<key>abbreviation</key>
+		<string>PIT</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>San Diego Padres</string>
+		<key>teamName</key>
+		<string>Padres</string>
+		<key>abbreviation</key>
+		<string>SD</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>San Francisco Giants</string>
+		<key>teamName</key>
+		<string>Giants</string>
+		<key>abbreviation</key>
+		<string>SF</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Seattle Mariners</string>
+		<key>teamName</key>
+		<string>Mariners</string>
+		<key>abbreviation</key>
+		<string>SEA</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>St. Louis Cardinals</string>
+		<key>teamName</key>
+		<string>Cardinals</string>
+		<key>abbreviation</key>
+		<string>STL</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Tampa Bay Rays</string>
+		<key>teamName</key>
+		<string>Rays</string>
+		<key>abbreviation</key>
+		<string>TB</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Texas Rangers</string>
+		<key>teamName</key>
+		<string>Rangers</string>
+		<key>abbreviation</key>
+		<string>TEX</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Toronto Blue Jays</string>
+		<key>teamName</key>
+		<string>Blue Jays</string>
+		<key>abbreviation</key>
+		<string>TOR</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Washington Nationals</string>
+		<key>teamName</key>
+		<string>Nationals</string>
+		<key>abbreviation</key>
+		<string>WSH</string>
+		<key>league</key>
+		<string>MLB</string>
+	</dict>
+</array>
+</plist>

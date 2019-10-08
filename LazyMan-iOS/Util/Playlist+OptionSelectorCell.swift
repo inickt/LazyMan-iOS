@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import LazyManCore
 import OptionSelector
 
 extension Playlist: OptionSelectorCell {
-    var image: UIImage? {
+    public var image: UIImage? {
         return nil
     }
 }

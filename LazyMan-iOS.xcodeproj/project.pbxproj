@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01023DB52256FE5E00E9C34C /* LazyManError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01023DB42256FE5E00E9C34C /* LazyManError.swift */; };
-		0106F1822152F8C0007AD290 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106F1812152F8C0007AD290 /* League.swift */; };
-		010DB56720423DF300DFB4A0 /* Logos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010DB56620423DF300DFB4A0 /* Logos.xcassets */; };
 		010E4584203A6964001EF46C /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010E4583203A6964001EF46C /* GameListViewController.swift */; };
 		010E4586203A6B4A001EF46C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010E4585203A6B4A001EF46C /* Icons.xcassets */; };
 		012CB8AF203A3E7C00E76740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012CB8AE203A3E7C00E76740 /* AppDelegate.swift */; };
@@ -18,49 +15,45 @@
 		012CB8BB203A3E7C00E76740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012CB8B9203A3E7C00E76740 /* LaunchScreen.storyboard */; };
 		01344C862061D0EC0040BDE7 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D0F3CB2061CFB9008174EC /* Game.storyboard */; };
 		01344C8B2061D32E0040BDE7 /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01344C8A2061D32E0040BDE7 /* GamePresenter.swift */; };
-		013959EA207ADF3B00E37E9C /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013959E9207ADF3B00E37E9C /* JSONLoader.swift */; };
 		013CF1F220901A30001A24EC /* GameListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013CF1F120901A30001A24EC /* GameListTableViewController.swift */; };
-		0142C62E22691CDD0060A017 /* Quality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142C62D22691CDD0060A017 /* Quality.swift */; };
-		0142C650226A460A0060A017 /* String+matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142C64F226A460A0060A017 /* String+matches.swift */; };
 		0142C652226A72EE0060A017 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0142C651226A72ED0060A017 /* GoogleService-Info.plist */; };
 		01434A742040D3FF0094E221 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01434A732040D3FF0094E221 /* GameTableViewCell.swift */; };
 		01434A762040DAA70094E221 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01434A752040DAA70094E221 /* GameViewController.swift */; };
-		015F345E2050CFC40005453C /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F345D2050CFC40005453C /* TeamManager.swift */; };
 		015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F345F2055EA960005453C /* GameSettingsViewController.swift */; };
 		0179AEC22076DB5D00539C6D /* nhlschedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC12076DB5D00539C6D /* nhlschedule2018-04-05.json */; };
 		0179AEC42076F84200539C6D /* mlbschedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */; };
 		0186CA43208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */; };
 		019387BD2082C87600D1CDBC /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019387BC2082C87600D1CDBC /* DatePickerViewController.swift */; };
-		019EA59B203E6FF8000149A3 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EA59A203E6FF8000149A3 /* Team.swift */; };
-		01ABFDBC20545C68005D57C5 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ABFDBB20545C68005D57C5 /* Feed.swift */; };
-		01AF56CE20A52E250027DCCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF56CD20A52E250027DCCD /* Constants.swift */; };
-		01B6BC732182623F00822856 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B6BC722182623F00822856 /* DateUtils.swift */; };
-		01BE535B212770AA00F08401 /* CDN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE535A212770AA00F08401 /* CDN.swift */; };
-		01BE535D2127720400F08401 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE535C2127720400F08401 /* FeedManager.swift */; };
-		01D0F3C3205DBA8B008174EC /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0F3C2205DBA8B008174EC /* Playlist.swift */; };
+		0199BCA322FA388E00FA3561 /* LazyManCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0199BCA222FA388E00FA3561 /* LazyManCore.framework */; };
+		0199BCA422FA388E00FA3561 /* LazyManCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0199BCA222FA388E00FA3561 /* LazyManCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01DC7B952092530A003C311A /* GameListTableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7B942092530A003C311A /* GameListTableBackgroundView.swift */; };
 		01DC7B9720925325003C311A /* GameListTableBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */; };
 		01DC7B9F2092BE6B003C311A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7B9E2092BE6B003C311A /* SettingsViewController.swift */; };
 		01DC7BA020940B23003C311A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01DC7BA220940B23003C311A /* Settings.storyboard */; };
-		01DC7BA4209414AC003C311A /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7BA3209414AC003C311A /* SettingsManager.swift */; };
-		01E593CA204B03F800CE338A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E593C9204B03F800CE338A /* GameManager.swift */; };
-		01E593CE204B07E400CE338A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E593CD204B07E400CE338A /* Game.swift */; };
-		01E9A71120A75DA600AB231B /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9A71020A75DA600AB231B /* UpdateManager.swift */; };
-		01EC4DE322595E4200034D83 /* URLSession+synchernousDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC4DE222595E4200034D83 /* URLSession+synchernousDataTask.swift */; };
 		01EC4DE5225AA78300034D83 /* DarkOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC4DE4225AA78300034D83 /* DarkOptionViewController.swift */; };
 		01EC4DE7225AA97500034D83 /* CDN+OptionSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC4DE6225AA97500034D83 /* CDN+OptionSelectorCell.swift */; };
 		01EC4DE9225AA98500034D83 /* Feed+OptionSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC4DE8225AA98500034D83 /* Feed+OptionSelectorCell.swift */; };
 		01EC4DEB225AA99400034D83 /* Playlist+OptionSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC4DEA225AA99400034D83 /* Playlist+OptionSelectorCell.swift */; };
 		01EC4DED225AE11100034D83 /* Team+OptionSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC4DEC225AE11100034D83 /* Team+OptionSelectorCell.swift */; };
 		01EC4DEF225AE1D600034D83 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC4DEE225AE1D600034D83 /* SettingsPresenter.swift */; };
-		01EDB67E208A8DD700E74B52 /* String+replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EDB67D208A8DD700E74B52 /* String+replace.swift */; };
-		2DBB500360049A35282D0F72 /* Pods_LazyMan_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6692BA5DC5F8089A7F24FDEC /* Pods_LazyMan_iOS.framework */; };
+		7690170B2A1C950E628D9680 /* Pods_LazyMan_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6692BA5DC5F8089A7F24FDEC /* Pods_LazyMan_iOS.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0199BCA522FA388E00FA3561 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0199BCA422FA388E00FA3561 /* LazyManCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		01023DB42256FE5E00E9C34C /* LazyManError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyManError.swift; sourceTree = "<group>"; };
-		0106F1812152F8C0007AD290 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
-		010DB56620423DF300DFB4A0 /* Logos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Logos.xcassets; sourceTree = "<group>"; };
 		010E4583203A6964001EF46C /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 		010E4585203A6B4A001EF46C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		012CB8AB203A3E7C00E76740 /* LazyMan-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LazyMan-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,47 +62,37 @@
 		012CB8BA203A3E7C00E76740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		012CB8BC203A3E7C00E76740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01344C8A2061D32E0040BDE7 /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
-		013959E9207ADF3B00E37E9C /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		013CF1F120901A30001A24EC /* GameListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTableViewController.swift; sourceTree = "<group>"; };
-		0142C62D22691CDD0060A017 /* Quality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quality.swift; sourceTree = "<group>"; };
-		0142C64F226A460A0060A017 /* String+matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+matches.swift"; sourceTree = "<group>"; };
 		0142C651226A72ED0060A017 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01434A732040D3FF0094E221 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		01434A752040DAA70094E221 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		015F345D2050CFC40005453C /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
 		015F345F2055EA960005453C /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
 		0179AEC12076DB5D00539C6D /* nhlschedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "nhlschedule2018-04-05.json"; sourceTree = "<group>"; };
 		0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mlbschedule2018-04-05.json"; sourceTree = "<group>"; };
 		0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+searcVisualEffectsSubview.swift"; sourceTree = "<group>"; };
 		019387BC2082C87600D1CDBC /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
-		019EA59A203E6FF8000149A3 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
-		01ABFDBB20545C68005D57C5 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
-		01AF56CD20A52E250027DCCD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		01B6BC722182623F00822856 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
-		01BE535A212770AA00F08401 /* CDN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDN.swift; sourceTree = "<group>"; };
-		01BE535C2127720400F08401 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
-		01D0F3C2205DBA8B008174EC /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		0199BCA222FA388E00FA3561 /* LazyManCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LazyManCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01D0F3C92061CFAA008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameList.storyboard; sourceTree = "<group>"; };
 		01D0F3CA2061CFB9008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game.storyboard; sourceTree = "<group>"; };
 		01DC7B942092530A003C311A /* GameListTableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTableBackgroundView.swift; sourceTree = "<group>"; };
 		01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListTableBackgroundView.xib; sourceTree = "<group>"; };
 		01DC7B9E2092BE6B003C311A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		01DC7BA120940B23003C311A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
-		01DC7BA3209414AC003C311A /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
-		01E593C9204B03F800CE338A /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
-		01E593CD204B07E400CE338A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		01E9A71020A75DA600AB231B /* UpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
-		01EC4DE222595E4200034D83 /* URLSession+synchernousDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+synchernousDataTask.swift"; sourceTree = "<group>"; };
 		01EC4DE4225AA78300034D83 /* DarkOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkOptionViewController.swift; sourceTree = "<group>"; };
 		01EC4DE6225AA97500034D83 /* CDN+OptionSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDN+OptionSelectorCell.swift"; sourceTree = "<group>"; };
 		01EC4DE8225AA98500034D83 /* Feed+OptionSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Feed+OptionSelectorCell.swift"; sourceTree = "<group>"; };
 		01EC4DEA225AA99400034D83 /* Playlist+OptionSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playlist+OptionSelectorCell.swift"; sourceTree = "<group>"; };
 		01EC4DEC225AE11100034D83 /* Team+OptionSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Team+OptionSelectorCell.swift"; sourceTree = "<group>"; };
 		01EC4DEE225AE1D600034D83 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
-		01EDB67D208A8DD700E74B52 /* String+replace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+replace.swift"; sourceTree = "<group>"; };
+		06CB43450473A45F7A926733 /* Pods-core-LazyManCore-iOS-LazyMan-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-LazyManCore-iOS-LazyMan-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-core-LazyManCore-iOS-LazyMan-iOS/Pods-core-LazyManCore-iOS-LazyMan-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		0A94CE25F676E4AC51E9F072 /* Pods-LazyManCore-iOS-LazyMan-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyManCore-iOS-LazyMan-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyManCore-iOS-LazyMan-iOS/Pods-LazyManCore-iOS-LazyMan-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		224D1EEC5A235C7B8EFC1C57 /* Pods-core-LazyManCore-iOS-LazyMan-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-LazyManCore-iOS-LazyMan-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-core-LazyManCore-iOS-LazyMan-iOS/Pods-core-LazyManCore-iOS-LazyMan-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		2FCB26BC3CB344C74054E4AC /* Pods_core_LazyManCore_iOS_LazyMan_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_core_LazyManCore_iOS_LazyMan_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E297137BED04752F5ADE63D /* Pods_LazyManCore_iOS_LazyMan_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyManCore_iOS_LazyMan_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6692BA5DC5F8089A7F24FDEC /* Pods_LazyMan_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyMan_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4E0BF11AC215B0A921B72A /* Pods-LazyMan-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyMan-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyMan-iOS/Pods-LazyMan-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C2466E3CA23A454708E0B525 /* Pods-LazyMan-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyMan-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LazyMan-iOS/Pods-LazyMan-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		EA512965C71BEEA7202C6CBE /* Pods-LazyManCore-iOS-LazyMan-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyManCore-iOS-LazyMan-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LazyManCore-iOS-LazyMan-iOS/Pods-LazyManCore-iOS-LazyMan-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DBB500360049A35282D0F72 /* Pods_LazyMan_iOS.framework in Frameworks */,
+				0199BCA322FA388E00FA3561 /* LazyManCore.framework in Frameworks */,
+				7690170B2A1C950E628D9680 /* Pods_LazyMan_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +111,7 @@
 		012CB8A2203A3E7C00E76740 = {
 			isa = PBXGroup;
 			children = (
+				0199BCA222FA388E00FA3561 /* LazyManCore.framework */,
 				012CB8AD203A3E7C00E76740 /* LazyMan-iOS */,
 				012CB8AC203A3E7C00E76740 /* Products */,
 				1A68C0BF12E806DE05FE9B6A /* Pods */,
@@ -145,9 +130,7 @@
 		012CB8AD203A3E7C00E76740 /* LazyMan-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				01DC7B99209293F1003C311A /* Managers */,
 				01DC7B9B2092BB99003C311A /* Settings */,
-				01DC7B98209293A8003C311A /* Models */,
 				019387BB2081396400D1CDBC /* Example Schedules */,
 				0179AEBE2076BC3600539C6D /* Util */,
 				01344C892061D1200040BDE7 /* GameList */,
@@ -185,15 +168,8 @@
 		0179AEBE2076BC3600539C6D /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				01EDB67D208A8DD700E74B52 /* String+replace.swift */,
-				0142C64F226A460A0060A017 /* String+matches.swift */,
-				013959E9207ADF3B00E37E9C /* JSONLoader.swift */,
 				019387BC2082C87600D1CDBC /* DatePickerViewController.swift */,
 				0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */,
-				01AF56CD20A52E250027DCCD /* Constants.swift */,
-				01B6BC722182623F00822856 /* DateUtils.swift */,
-				01023DB42256FE5E00E9C34C /* LazyManError.swift */,
-				01EC4DE222595E4200034D83 /* URLSession+synchernousDataTask.swift */,
 				01EC4DE4225AA78300034D83 /* DarkOptionViewController.swift */,
 				01EC4DE6225AA97500034D83 /* CDN+OptionSelectorCell.swift */,
 				01EC4DE8225AA98500034D83 /* Feed+OptionSelectorCell.swift */,
@@ -220,35 +196,8 @@
 				012CB8B9203A3E7C00E76740 /* LaunchScreen.storyboard */,
 				012CB8B7203A3E7C00E76740 /* Assets.xcassets */,
 				010E4585203A6B4A001EF46C /* Icons.xcassets */,
-				010DB56620423DF300DFB4A0 /* Logos.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		01DC7B98209293A8003C311A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				01ABFDBB20545C68005D57C5 /* Feed.swift */,
-				01D0F3C2205DBA8B008174EC /* Playlist.swift */,
-				01E593CD204B07E400CE338A /* Game.swift */,
-				019EA59A203E6FF8000149A3 /* Team.swift */,
-				01BE535A212770AA00F08401 /* CDN.swift */,
-				0106F1812152F8C0007AD290 /* League.swift */,
-				0142C62D22691CDD0060A017 /* Quality.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		01DC7B99209293F1003C311A /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				015F345D2050CFC40005453C /* TeamManager.swift */,
-				01E593C9204B03F800CE338A /* GameManager.swift */,
-				01DC7BA3209414AC003C311A /* SettingsManager.swift */,
-				01E9A71020A75DA600AB231B /* UpdateManager.swift */,
-				01BE535C2127720400F08401 /* FeedManager.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		01DC7B9B2092BB99003C311A /* Settings */ = {
@@ -266,6 +215,10 @@
 			children = (
 				C2466E3CA23A454708E0B525 /* Pods-LazyMan-iOS.debug.xcconfig */,
 				AB4E0BF11AC215B0A921B72A /* Pods-LazyMan-iOS.release.xcconfig */,
+				EA512965C71BEEA7202C6CBE /* Pods-LazyManCore-iOS-LazyMan-iOS.debug.xcconfig */,
+				0A94CE25F676E4AC51E9F072 /* Pods-LazyManCore-iOS-LazyMan-iOS.release.xcconfig */,
+				224D1EEC5A235C7B8EFC1C57 /* Pods-core-LazyManCore-iOS-LazyMan-iOS.debug.xcconfig */,
+				06CB43450473A45F7A926733 /* Pods-core-LazyManCore-iOS-LazyMan-iOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -274,6 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				6692BA5DC5F8089A7F24FDEC /* Pods_LazyMan_iOS.framework */,
+				5E297137BED04752F5ADE63D /* Pods_LazyManCore_iOS_LazyMan_iOS.framework */,
+				2FCB26BC3CB344C74054E4AC /* Pods_core_LazyManCore_iOS_LazyMan_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,6 +248,7 @@
 				426B6D90171E64CC4320375D /* [CP] Embed Pods Frameworks */,
 				0142C653226A751A0060A017 /* Crashlytics */,
 				01EC4DDD2259410100034D83 /* SwiftLint */,
+				0199BCA522FA388E00FA3561 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,7 +310,6 @@
 				010E4586203A6B4A001EF46C /* Icons.xcassets in Resources */,
 				01DC7B9720925325003C311A /* GameListTableBackgroundView.xib in Resources */,
 				012CB8B6203A3E7C00E76740 /* GameList.storyboard in Resources */,
-				010DB56720423DF300DFB4A0 /* Logos.xcassets in Resources */,
 				01344C862061D0EC0040BDE7 /* Game.storyboard in Resources */,
 				0142C652226A72EE0060A017 /* GoogleService-Info.plist in Resources */,
 				0179AEC22076DB5D00539C6D /* nhlschedule2018-04-05.json in Resources */,
@@ -444,8 +399,8 @@
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/OptionSelector/OptionSelector.framework",
-				"${BUILT_PRODUCTS_DIR}/Pantomime/Pantomime.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Pantomime-iOS/Pantomime.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -470,40 +425,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				01DC7B952092530A003C311A /* GameListTableBackgroundView.swift in Sources */,
-				01AF56CE20A52E250027DCCD /* Constants.swift in Sources */,
-				0142C650226A460A0060A017 /* String+matches.swift in Sources */,
 				019387BD2082C87600D1CDBC /* DatePickerViewController.swift in Sources */,
 				01EC4DEF225AE1D600034D83 /* SettingsPresenter.swift in Sources */,
-				0106F1822152F8C0007AD290 /* League.swift in Sources */,
-				01EC4DE322595E4200034D83 /* URLSession+synchernousDataTask.swift in Sources */,
 				01434A762040DAA70094E221 /* GameViewController.swift in Sources */,
-				0142C62E22691CDD0060A017 /* Quality.swift in Sources */,
-				01ABFDBC20545C68005D57C5 /* Feed.swift in Sources */,
 				01EC4DE5225AA78300034D83 /* DarkOptionViewController.swift in Sources */,
 				015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */,
-				01023DB52256FE5E00E9C34C /* LazyManError.swift in Sources */,
 				01EC4DE7225AA97500034D83 /* CDN+OptionSelectorCell.swift in Sources */,
-				01B6BC732182623F00822856 /* DateUtils.swift in Sources */,
 				01EC4DEB225AA99400034D83 /* Playlist+OptionSelectorCell.swift in Sources */,
 				013CF1F220901A30001A24EC /* GameListTableViewController.swift in Sources */,
-				01E593CA204B03F800CE338A /* GameManager.swift in Sources */,
-				01E593CE204B07E400CE338A /* Game.swift in Sources */,
 				0186CA43208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift in Sources */,
-				019EA59B203E6FF8000149A3 /* Team.swift in Sources */,
 				01EC4DE9225AA98500034D83 /* Feed+OptionSelectorCell.swift in Sources */,
-				01BE535B212770AA00F08401 /* CDN.swift in Sources */,
 				01EC4DED225AE11100034D83 /* Team+OptionSelectorCell.swift in Sources */,
-				013959EA207ADF3B00E37E9C /* JSONLoader.swift in Sources */,
-				01EDB67E208A8DD700E74B52 /* String+replace.swift in Sources */,
 				01DC7B9F2092BE6B003C311A /* SettingsViewController.swift in Sources */,
 				01344C8B2061D32E0040BDE7 /* GamePresenter.swift in Sources */,
-				01D0F3C3205DBA8B008174EC /* Playlist.swift in Sources */,
 				012CB8AF203A3E7C00E76740 /* AppDelegate.swift in Sources */,
-				01DC7BA4209414AC003C311A /* SettingsManager.swift in Sources */,
 				010E4584203A6964001EF46C /* GameListViewController.swift in Sources */,
-				015F345E2050CFC40005453C /* TeamManager.swift in Sources */,
-				01BE535D2127720400F08401 /* FeedManager.swift in Sources */,
-				01E9A71120A75DA600AB231B /* UpdateManager.swift in Sources */,
 				01434A742040D3FF0094E221 /* GameTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

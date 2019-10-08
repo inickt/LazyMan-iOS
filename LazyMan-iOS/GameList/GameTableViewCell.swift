@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LazyManCore
 
 class GameTableViewCell: UITableViewCell {
 
@@ -22,8 +23,8 @@ class GameTableViewCell: UITableViewCell {
         didSet {
             self.awayTeamImage.image = self.game?.awayTeam.logo
             self.homeTeamImage.image = self.game?.homeTeam.logo
-            self.awayTeamLabel.text = self.game?.awayTeam.shortName
-            self.homeTeamLabel.text = self.game?.homeTeam.shortName
+            self.awayTeamLabel.text = self.game?.awayTeam.teamName
+            self.homeTeamLabel.text = self.game?.homeTeam.teamName
             if let awayScore = self.game?.awayTeamScore, SettingsManager.shared.showScores {
                 self.awayTeamScoreLabel.text = "\(awayScore)"
             } else {

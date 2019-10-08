@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import LazyManCore
 import OptionSelector
 
 extension CDN: OptionSelectorCell {
-    var description: String {
+    public var description: String {
         return ""
     }
 
-    var image: UIImage? {
+    public var image: UIImage? {
         return nil
     }
 }

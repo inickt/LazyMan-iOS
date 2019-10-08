@@ -1,0 +1,1200 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		01B1E0DC22FA1DB800B65B44 /* LazyManCore-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 01B1E0DD22FA1DB800B65B44 /* Build configuration list for PBXAggregateTarget "LazyManCore-Universal" */;
+			buildPhases = (
+			);
+			dependencies = (
+				01B1E0E122FA1DCB00B65B44 /* PBXTargetDependency */,
+				01B1E0E322FA1DCB00B65B44 /* PBXTargetDependency */,
+				01B1E0E522FA1DCB00B65B44 /* PBXTargetDependency */,
+			);
+			name = "LazyManCore-Universal";
+			productName = "LazyManCore-Universal";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		011C77FA22FA06A70068F6FB /* Logos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011C77F922FA06A70068F6FB /* Logos.xcassets */; };
+		011C77FB22FA06A70068F6FB /* Logos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011C77F922FA06A70068F6FB /* Logos.xcassets */; };
+		011C77FC22FA06A70068F6FB /* Logos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011C77F922FA06A70068F6FB /* Logos.xcassets */; };
+		011C77FF22FA12400068F6FB /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77EF22FA06220068F6FB /* Feed.swift */; };
+		011C780022FA12400068F6FB /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F022FA06220068F6FB /* Playlist.swift */; };
+		011C780122FA12400068F6FB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F122FA06220068F6FB /* Game.swift */; };
+		011C780222FA12400068F6FB /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F222FA06220068F6FB /* Team.swift */; };
+		011C780322FA12400068F6FB /* CDN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F322FA06220068F6FB /* CDN.swift */; };
+		011C780422FA12400068F6FB /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F422FA06220068F6FB /* League.swift */; };
+		011C780522FA12400068F6FB /* Quality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F522FA06220068F6FB /* Quality.swift */; };
+		011C780622FA12400068F6FB /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77EF22FA06220068F6FB /* Feed.swift */; };
+		011C780722FA12400068F6FB /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F022FA06220068F6FB /* Playlist.swift */; };
+		011C780822FA12400068F6FB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F122FA06220068F6FB /* Game.swift */; };
+		011C780922FA12400068F6FB /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F222FA06220068F6FB /* Team.swift */; };
+		011C780A22FA12400068F6FB /* CDN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F322FA06220068F6FB /* CDN.swift */; };
+		011C780B22FA12400068F6FB /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F422FA06220068F6FB /* League.swift */; };
+		011C780C22FA12400068F6FB /* Quality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F522FA06220068F6FB /* Quality.swift */; };
+		011C780D22FA12410068F6FB /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77EF22FA06220068F6FB /* Feed.swift */; };
+		011C780E22FA12410068F6FB /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F022FA06220068F6FB /* Playlist.swift */; };
+		011C780F22FA12410068F6FB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F122FA06220068F6FB /* Game.swift */; };
+		011C781022FA12410068F6FB /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F222FA06220068F6FB /* Team.swift */; };
+		011C781122FA12410068F6FB /* CDN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F322FA06220068F6FB /* CDN.swift */; };
+		011C781222FA12410068F6FB /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F422FA06220068F6FB /* League.swift */; };
+		011C781322FA12410068F6FB /* Quality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C77F522FA06220068F6FB /* Quality.swift */; };
+		012EA2D022FA2A41009C6EA4 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0C922FA1D9800B65B44 /* FeedManager.swift */; };
+		012EA2D122FA2A41009C6EA4 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0C922FA1D9800B65B44 /* FeedManager.swift */; };
+		012EA2D222FA2A42009C6EA4 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0C922FA1D9800B65B44 /* FeedManager.swift */; };
+		012EA2D322FA2A45009C6EA4 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0CA22FA1D9800B65B44 /* GameManager.swift */; };
+		012EA2D422FA2A46009C6EA4 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0CA22FA1D9800B65B44 /* GameManager.swift */; };
+		012EA2D522FA2A46009C6EA4 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0CA22FA1D9800B65B44 /* GameManager.swift */; };
+		012EA2D722FA2AAC009C6EA4 /* LazyManError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2D622FA2AAC009C6EA4 /* LazyManError.swift */; };
+		012EA2D822FA2AAE009C6EA4 /* LazyManError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2D622FA2AAC009C6EA4 /* LazyManError.swift */; };
+		012EA2D922FA2AAF009C6EA4 /* LazyManError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2D622FA2AAC009C6EA4 /* LazyManError.swift */; };
+		012EA2DB22FA2B3F009C6EA4 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2DA22FA2B3F009C6EA4 /* JSONLoader.swift */; };
+		012EA2DC22FA2B3F009C6EA4 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2DA22FA2B3F009C6EA4 /* JSONLoader.swift */; };
+		012EA2DD22FA2B3F009C6EA4 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2DA22FA2B3F009C6EA4 /* JSONLoader.swift */; };
+		012EA2DF22FA2B5A009C6EA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2DE22FA2B59009C6EA4 /* Constants.swift */; };
+		012EA2E022FA2B5A009C6EA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2DE22FA2B59009C6EA4 /* Constants.swift */; };
+		012EA2E122FA2B5A009C6EA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2DE22FA2B59009C6EA4 /* Constants.swift */; };
+		012EA2E322FA2B60009C6EA4 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2E222FA2B60009C6EA4 /* DateUtils.swift */; };
+		012EA2E422FA2B60009C6EA4 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2E222FA2B60009C6EA4 /* DateUtils.swift */; };
+		012EA2E522FA2B60009C6EA4 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2E222FA2B60009C6EA4 /* DateUtils.swift */; };
+		012EA2E722FA2B6B009C6EA4 /* URLSession+synchernousDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2E622FA2B6A009C6EA4 /* URLSession+synchernousDataTask.swift */; };
+		012EA2E822FA2B6B009C6EA4 /* URLSession+synchernousDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2E622FA2B6A009C6EA4 /* URLSession+synchernousDataTask.swift */; };
+		012EA2E922FA2B6B009C6EA4 /* URLSession+synchernousDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2E622FA2B6A009C6EA4 /* URLSession+synchernousDataTask.swift */; };
+		0199BCA722FC754C00FA3561 /* NHLTeams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0199BCA622FC754C00FA3561 /* NHLTeams.plist */; };
+		0199BCA822FC754C00FA3561 /* NHLTeams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0199BCA622FC754C00FA3561 /* NHLTeams.plist */; };
+		0199BCA922FC754C00FA3561 /* NHLTeams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0199BCA622FC754C00FA3561 /* NHLTeams.plist */; };
+		0199BCAB22FC86AA00FA3561 /* MLBTeams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0199BCAA22FC755900FA3561 /* MLBTeams.plist */; };
+		0199BCAC22FC86AB00FA3561 /* MLBTeams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0199BCAA22FC755900FA3561 /* MLBTeams.plist */; };
+		0199BCAD22FC86AB00FA3561 /* MLBTeams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0199BCAA22FC755900FA3561 /* MLBTeams.plist */; };
+		01B1E09322FA142E00B65B44 /* String+matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09122FA142E00B65B44 /* String+matches.swift */; };
+		01B1E09422FA142E00B65B44 /* String+replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09222FA142E00B65B44 /* String+replace.swift */; };
+		01B1E09522FA143000B65B44 /* String+matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09122FA142E00B65B44 /* String+matches.swift */; };
+		01B1E09622FA143000B65B44 /* String+replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09222FA142E00B65B44 /* String+replace.swift */; };
+		01B1E09722FA143100B65B44 /* String+matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09122FA142E00B65B44 /* String+matches.swift */; };
+		01B1E09822FA143100B65B44 /* String+replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09222FA142E00B65B44 /* String+replace.swift */; };
+		01B1E09E22FA1BAB00B65B44 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09D22FA1BAB00B65B44 /* Image.swift */; };
+		01B1E09F22FA1BAB00B65B44 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09D22FA1BAB00B65B44 /* Image.swift */; };
+		01B1E0A022FA1BAB00B65B44 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09D22FA1BAB00B65B44 /* Image.swift */; };
+		01B1E0CD22FA1D9800B65B44 /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0C822FA1D9800B65B44 /* UpdateManager.swift */; };
+		01B1E0CE22FA1D9800B65B44 /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0C822FA1D9800B65B44 /* UpdateManager.swift */; };
+		01B1E0CF22FA1D9800B65B44 /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0C822FA1D9800B65B44 /* UpdateManager.swift */; };
+		01B1E0D622FA1D9800B65B44 /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0CB22FA1D9800B65B44 /* TeamManager.swift */; };
+		01B1E0D722FA1D9800B65B44 /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0CB22FA1D9800B65B44 /* TeamManager.swift */; };
+		01B1E0D822FA1D9800B65B44 /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0CB22FA1D9800B65B44 /* TeamManager.swift */; };
+		01B1E0D922FA1D9800B65B44 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0CC22FA1D9800B65B44 /* SettingsManager.swift */; };
+		01B1E0DA22FA1D9800B65B44 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0CC22FA1D9800B65B44 /* SettingsManager.swift */; };
+		01B1E0DB22FA1D9800B65B44 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E0CC22FA1D9800B65B44 /* SettingsManager.swift */; };
+		2998D1C50754227791DF486C /* Pods_core_LazyManCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07318B45A13DF34062250936 /* Pods_core_LazyManCore_tvOS.framework */; };
+		CB439F075314236B75B8A1D4 /* Pods_core_LazyManCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F677F24A61ABC95E272101A /* Pods_core_LazyManCore_iOS.framework */; };
+		FADBFA440BDB8627B3F2CB8A /* Pods_core_LazyManCore_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DB3B6C3D19ED62F8354566 /* Pods_core_LazyManCore_macOS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01B1E0E022FA1DCB00B65B44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 011C77B322FA01CB0068F6FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 011C77BD22FA02270068F6FB;
+			remoteInfo = "LazyManCore-iOS";
+		};
+		01B1E0E222FA1DCB00B65B44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 011C77B322FA01CB0068F6FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 011C77CB22FA02A80068F6FB;
+			remoteInfo = "LazyManCore-tvOS";
+		};
+		01B1E0E422FA1DCB00B65B44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 011C77B322FA01CB0068F6FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 011C77D822FA02EA0068F6FB;
+			remoteInfo = "LazyManCore-macOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		011C77BE22FA02270068F6FB /* LazyManCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LazyManCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		011C77C222FA02270068F6FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		011C77CC22FA02A80068F6FB /* LazyManCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LazyManCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		011C77D922FA02EA0068F6FB /* LazyManCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LazyManCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		011C77EF22FA06220068F6FB /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		011C77F022FA06220068F6FB /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		011C77F122FA06220068F6FB /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		011C77F222FA06220068F6FB /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		011C77F322FA06220068F6FB /* CDN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDN.swift; sourceTree = "<group>"; };
+		011C77F422FA06220068F6FB /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
+		011C77F522FA06220068F6FB /* Quality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quality.swift; sourceTree = "<group>"; };
+		011C77F922FA06A70068F6FB /* Logos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Logos.xcassets; sourceTree = "<group>"; };
+		012EA2D622FA2AAC009C6EA4 /* LazyManError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyManError.swift; sourceTree = "<group>"; };
+		012EA2DA22FA2B3F009C6EA4 /* JSONLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
+		012EA2DE22FA2B59009C6EA4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		012EA2E222FA2B60009C6EA4 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		012EA2E622FA2B6A009C6EA4 /* URLSession+synchernousDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+synchernousDataTask.swift"; sourceTree = "<group>"; };
+		0199BCA622FC754C00FA3561 /* NHLTeams.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NHLTeams.plist; sourceTree = "<group>"; };
+		0199BCAA22FC755900FA3561 /* MLBTeams.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MLBTeams.plist; sourceTree = "<group>"; };
+		01B1E09122FA142E00B65B44 /* String+matches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+matches.swift"; sourceTree = "<group>"; };
+		01B1E09222FA142E00B65B44 /* String+replace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+replace.swift"; sourceTree = "<group>"; };
+		01B1E09D22FA1BAB00B65B44 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		01B1E0C822FA1D9800B65B44 /* UpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
+		01B1E0C922FA1D9800B65B44 /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
+		01B1E0CA22FA1D9800B65B44 /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		01B1E0CB22FA1D9800B65B44 /* TeamManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
+		01B1E0CC22FA1D9800B65B44 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		01E3DBCCD8C5DD758E557E74 /* Pods_LazyManCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyManCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07318B45A13DF34062250936 /* Pods_core_LazyManCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_core_LazyManCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		158574ABC0782FE72B3F2EBF /* Pods_LazyMan_iOS_LazyManCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyMan_iOS_LazyManCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CB6610627B002F5FCF5241D /* Pods-core-LazyManCore-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-LazyManCore-iOS.release.xcconfig"; path = "Target Support Files/Pods-core-LazyManCore-iOS/Pods-core-LazyManCore-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		3E831165397F64D107E94F85 /* Pods-LazyManCore-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyManCore-iOS.debug.xcconfig"; path = "Target Support Files/Pods-LazyManCore-iOS/Pods-LazyManCore-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4A78658A849B7B348C443FA9 /* Pods-core-LazyManCore-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-LazyManCore-iOS.debug.xcconfig"; path = "Target Support Files/Pods-core-LazyManCore-iOS/Pods-core-LazyManCore-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		550B2981450F3BF6241CF520 /* Pods-core-LazyManCore-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-LazyManCore-tvOS.release.xcconfig"; path = "Target Support Files/Pods-core-LazyManCore-tvOS/Pods-core-LazyManCore-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		5D1C554CBC21670592C9B8A9 /* Pods-core-LazyManCore-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-LazyManCore-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-core-LazyManCore-tvOS/Pods-core-LazyManCore-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7F677F24A61ABC95E272101A /* Pods_core_LazyManCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_core_LazyManCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DB3B6C3D19ED62F8354566 /* Pods_core_LazyManCore_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_core_LazyManCore_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AFAEE8B6B857AE779563F52 /* Pods-core-LazyManCore-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-LazyManCore-macOS.release.xcconfig"; path = "Target Support Files/Pods-core-LazyManCore-macOS/Pods-core-LazyManCore-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		9B40C3D7499CBF97E3632D5F /* Pods-LazyManCore-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyManCore-iOS.release.xcconfig"; path = "Target Support Files/Pods-LazyManCore-iOS/Pods-LazyManCore-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		BD8BB725889BEFB221EC036F /* Pods-core-LazyManCore-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-core-LazyManCore-macOS.debug.xcconfig"; path = "Target Support Files/Pods-core-LazyManCore-macOS/Pods-core-LazyManCore-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D1C1E6BE9B28C76CFABC9B55 /* Pods-LazyMan-iOS-LazyManCore-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyMan-iOS-LazyManCore-iOS.debug.xcconfig"; path = "Target Support Files/Pods-LazyMan-iOS-LazyManCore-iOS/Pods-LazyMan-iOS-LazyManCore-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D4407BAA02927BF4E362F217 /* Pods-LazyMan-iOS-LazyManCore-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyMan-iOS-LazyManCore-iOS.release.xcconfig"; path = "Target Support Files/Pods-LazyMan-iOS-LazyManCore-iOS/Pods-LazyMan-iOS-LazyManCore-iOS.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		011C77BB22FA02270068F6FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB439F075314236B75B8A1D4 /* Pods_core_LazyManCore_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011C77C922FA02A80068F6FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2998D1C50754227791DF486C /* Pods_core_LazyManCore_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011C77D622FA02EA0068F6FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FADBFA440BDB8627B3F2CB8A /* Pods_core_LazyManCore_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		011C77B222FA01CB0068F6FB = {
+			isa = PBXGroup;
+			children = (
+				011C77C022FA02270068F6FB /* LazyManCore */,
+				011C77BF22FA02270068F6FB /* Products */,
+				2DFB0A2601DD2C64819AD22A /* Frameworks */,
+				4519E4F8213C8CACCFFA9263 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		011C77BF22FA02270068F6FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				011C77BE22FA02270068F6FB /* LazyManCore.framework */,
+				011C77CC22FA02A80068F6FB /* LazyManCore.framework */,
+				011C77D922FA02EA0068F6FB /* LazyManCore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		011C77C022FA02270068F6FB /* LazyManCore */ = {
+			isa = PBXGroup;
+			children = (
+				011C77F622FA06220068F6FB /* Models */,
+				01B1E0C722FA1D9800B65B44 /* Managers */,
+				011C781722FA13A90068F6FB /* Util */,
+				011C77F822FA069D0068F6FB /* Resources */,
+			);
+			path = LazyManCore;
+			sourceTree = "<group>";
+		};
+		011C77F622FA06220068F6FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				011C77EF22FA06220068F6FB /* Feed.swift */,
+				011C77F022FA06220068F6FB /* Playlist.swift */,
+				011C77F122FA06220068F6FB /* Game.swift */,
+				011C77F222FA06220068F6FB /* Team.swift */,
+				011C77F322FA06220068F6FB /* CDN.swift */,
+				011C77F422FA06220068F6FB /* League.swift */,
+				011C77F522FA06220068F6FB /* Quality.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		011C77F822FA069D0068F6FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				011C77C222FA02270068F6FB /* Info.plist */,
+				011C77F922FA06A70068F6FB /* Logos.xcassets */,
+				0199BCAA22FC755900FA3561 /* MLBTeams.plist */,
+				0199BCA622FC754C00FA3561 /* NHLTeams.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		011C781722FA13A90068F6FB /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				012EA2E622FA2B6A009C6EA4 /* URLSession+synchernousDataTask.swift */,
+				012EA2E222FA2B60009C6EA4 /* DateUtils.swift */,
+				012EA2DE22FA2B59009C6EA4 /* Constants.swift */,
+				012EA2DA22FA2B3F009C6EA4 /* JSONLoader.swift */,
+				012EA2D622FA2AAC009C6EA4 /* LazyManError.swift */,
+				01B1E09122FA142E00B65B44 /* String+matches.swift */,
+				01B1E09222FA142E00B65B44 /* String+replace.swift */,
+				01B1E09D22FA1BAB00B65B44 /* Image.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		01B1E0C722FA1D9800B65B44 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				01B1E0C822FA1D9800B65B44 /* UpdateManager.swift */,
+				01B1E0C922FA1D9800B65B44 /* FeedManager.swift */,
+				01B1E0CA22FA1D9800B65B44 /* GameManager.swift */,
+				01B1E0CB22FA1D9800B65B44 /* TeamManager.swift */,
+				01B1E0CC22FA1D9800B65B44 /* SettingsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		2DFB0A2601DD2C64819AD22A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01E3DBCCD8C5DD758E557E74 /* Pods_LazyManCore_iOS.framework */,
+				158574ABC0782FE72B3F2EBF /* Pods_LazyMan_iOS_LazyManCore_iOS.framework */,
+				7F677F24A61ABC95E272101A /* Pods_core_LazyManCore_iOS.framework */,
+				86DB3B6C3D19ED62F8354566 /* Pods_core_LazyManCore_macOS.framework */,
+				07318B45A13DF34062250936 /* Pods_core_LazyManCore_tvOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4519E4F8213C8CACCFFA9263 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E831165397F64D107E94F85 /* Pods-LazyManCore-iOS.debug.xcconfig */,
+				9B40C3D7499CBF97E3632D5F /* Pods-LazyManCore-iOS.release.xcconfig */,
+				D1C1E6BE9B28C76CFABC9B55 /* Pods-LazyMan-iOS-LazyManCore-iOS.debug.xcconfig */,
+				D4407BAA02927BF4E362F217 /* Pods-LazyMan-iOS-LazyManCore-iOS.release.xcconfig */,
+				4A78658A849B7B348C443FA9 /* Pods-core-LazyManCore-iOS.debug.xcconfig */,
+				3CB6610627B002F5FCF5241D /* Pods-core-LazyManCore-iOS.release.xcconfig */,
+				BD8BB725889BEFB221EC036F /* Pods-core-LazyManCore-macOS.debug.xcconfig */,
+				8AFAEE8B6B857AE779563F52 /* Pods-core-LazyManCore-macOS.release.xcconfig */,
+				5D1C554CBC21670592C9B8A9 /* Pods-core-LazyManCore-tvOS.debug.xcconfig */,
+				550B2981450F3BF6241CF520 /* Pods-core-LazyManCore-tvOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		011C77B922FA02270068F6FB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011C77C722FA02A80068F6FB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011C77D422FA02EA0068F6FB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		011C77BD22FA02270068F6FB /* LazyManCore-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 011C77C422FA02270068F6FB /* Build configuration list for PBXNativeTarget "LazyManCore-iOS" */;
+			buildPhases = (
+				8833EACB25E5A1D4504267E0 /* [CP] Check Pods Manifest.lock */,
+				011C77B922FA02270068F6FB /* Headers */,
+				011C77BA22FA02270068F6FB /* Sources */,
+				011C77BB22FA02270068F6FB /* Frameworks */,
+				011C77BC22FA02270068F6FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LazyManCore-iOS";
+			productName = "LazyMan-Core-iOS";
+			productReference = 011C77BE22FA02270068F6FB /* LazyManCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		011C77CB22FA02A80068F6FB /* LazyManCore-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 011C77D122FA02A80068F6FB /* Build configuration list for PBXNativeTarget "LazyManCore-tvOS" */;
+			buildPhases = (
+				549CAA6780BA2E3D1A8883AA /* [CP] Check Pods Manifest.lock */,
+				011C77C722FA02A80068F6FB /* Headers */,
+				011C77C822FA02A80068F6FB /* Sources */,
+				011C77C922FA02A80068F6FB /* Frameworks */,
+				011C77CA22FA02A80068F6FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LazyManCore-tvOS";
+			productName = "LazyMan-Core-tvOS";
+			productReference = 011C77CC22FA02A80068F6FB /* LazyManCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		011C77D822FA02EA0068F6FB /* LazyManCore-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 011C77DE22FA02EB0068F6FB /* Build configuration list for PBXNativeTarget "LazyManCore-macOS" */;
+			buildPhases = (
+				73A0D1F1B7A8B0FF65C2C15A /* [CP] Check Pods Manifest.lock */,
+				011C77D422FA02EA0068F6FB /* Headers */,
+				011C77D522FA02EA0068F6FB /* Sources */,
+				011C77D622FA02EA0068F6FB /* Frameworks */,
+				011C77D722FA02EA0068F6FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LazyManCore-macOS";
+			productName = "LazyMan-Core-macOS";
+			productReference = 011C77D922FA02EA0068F6FB /* LazyManCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		011C77B322FA01CB0068F6FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1030;
+				TargetAttributes = {
+					011C77BD22FA02270068F6FB = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					011C77CB22FA02A80068F6FB = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					011C77D822FA02EA0068F6FB = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					01B1E0DC22FA1DB800B65B44 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = 011C77B622FA01CB0068F6FB /* Build configuration list for PBXProject "LazyManCore" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 011C77B222FA01CB0068F6FB;
+			productRefGroup = 011C77BF22FA02270068F6FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				011C77BD22FA02270068F6FB /* LazyManCore-iOS */,
+				011C77CB22FA02A80068F6FB /* LazyManCore-tvOS */,
+				011C77D822FA02EA0068F6FB /* LazyManCore-macOS */,
+				01B1E0DC22FA1DB800B65B44 /* LazyManCore-Universal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		011C77BC22FA02270068F6FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0199BCA722FC754C00FA3561 /* NHLTeams.plist in Resources */,
+				011C77FA22FA06A70068F6FB /* Logos.xcassets in Resources */,
+				0199BCAB22FC86AA00FA3561 /* MLBTeams.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011C77CA22FA02A80068F6FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0199BCA822FC754C00FA3561 /* NHLTeams.plist in Resources */,
+				011C77FB22FA06A70068F6FB /* Logos.xcassets in Resources */,
+				0199BCAC22FC86AB00FA3561 /* MLBTeams.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011C77D722FA02EA0068F6FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0199BCA922FC754C00FA3561 /* NHLTeams.plist in Resources */,
+				011C77FC22FA06A70068F6FB /* Logos.xcassets in Resources */,
+				0199BCAD22FC86AB00FA3561 /* MLBTeams.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		549CAA6780BA2E3D1A8883AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-core-LazyManCore-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73A0D1F1B7A8B0FF65C2C15A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-core-LazyManCore-macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8833EACB25E5A1D4504267E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-core-LazyManCore-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		011C77BA22FA02270068F6FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				011C780522FA12400068F6FB /* Quality.swift in Sources */,
+				011C780222FA12400068F6FB /* Team.swift in Sources */,
+				012EA2E322FA2B60009C6EA4 /* DateUtils.swift in Sources */,
+				011C77FF22FA12400068F6FB /* Feed.swift in Sources */,
+				012EA2D722FA2AAC009C6EA4 /* LazyManError.swift in Sources */,
+				011C780122FA12400068F6FB /* Game.swift in Sources */,
+				012EA2D322FA2A45009C6EA4 /* GameManager.swift in Sources */,
+				012EA2E722FA2B6B009C6EA4 /* URLSession+synchernousDataTask.swift in Sources */,
+				01B1E0CD22FA1D9800B65B44 /* UpdateManager.swift in Sources */,
+				011C780322FA12400068F6FB /* CDN.swift in Sources */,
+				011C780422FA12400068F6FB /* League.swift in Sources */,
+				012EA2DB22FA2B3F009C6EA4 /* JSONLoader.swift in Sources */,
+				01B1E09322FA142E00B65B44 /* String+matches.swift in Sources */,
+				011C780022FA12400068F6FB /* Playlist.swift in Sources */,
+				01B1E09422FA142E00B65B44 /* String+replace.swift in Sources */,
+				01B1E0D922FA1D9800B65B44 /* SettingsManager.swift in Sources */,
+				012EA2D022FA2A41009C6EA4 /* FeedManager.swift in Sources */,
+				01B1E09E22FA1BAB00B65B44 /* Image.swift in Sources */,
+				01B1E0D622FA1D9800B65B44 /* TeamManager.swift in Sources */,
+				012EA2DF22FA2B5A009C6EA4 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011C77C822FA02A80068F6FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				011C780C22FA12400068F6FB /* Quality.swift in Sources */,
+				011C780922FA12400068F6FB /* Team.swift in Sources */,
+				012EA2E422FA2B60009C6EA4 /* DateUtils.swift in Sources */,
+				011C780622FA12400068F6FB /* Feed.swift in Sources */,
+				012EA2D822FA2AAE009C6EA4 /* LazyManError.swift in Sources */,
+				011C780822FA12400068F6FB /* Game.swift in Sources */,
+				012EA2D422FA2A46009C6EA4 /* GameManager.swift in Sources */,
+				012EA2E822FA2B6B009C6EA4 /* URLSession+synchernousDataTask.swift in Sources */,
+				01B1E0CE22FA1D9800B65B44 /* UpdateManager.swift in Sources */,
+				011C780A22FA12400068F6FB /* CDN.swift in Sources */,
+				011C780B22FA12400068F6FB /* League.swift in Sources */,
+				012EA2DC22FA2B3F009C6EA4 /* JSONLoader.swift in Sources */,
+				01B1E09522FA143000B65B44 /* String+matches.swift in Sources */,
+				011C780722FA12400068F6FB /* Playlist.swift in Sources */,
+				01B1E09622FA143000B65B44 /* String+replace.swift in Sources */,
+				01B1E0DA22FA1D9800B65B44 /* SettingsManager.swift in Sources */,
+				012EA2D122FA2A41009C6EA4 /* FeedManager.swift in Sources */,
+				01B1E09F22FA1BAB00B65B44 /* Image.swift in Sources */,
+				01B1E0D722FA1D9800B65B44 /* TeamManager.swift in Sources */,
+				012EA2E022FA2B5A009C6EA4 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011C77D522FA02EA0068F6FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				011C781322FA12410068F6FB /* Quality.swift in Sources */,
+				011C781022FA12410068F6FB /* Team.swift in Sources */,
+				012EA2E522FA2B60009C6EA4 /* DateUtils.swift in Sources */,
+				011C780D22FA12410068F6FB /* Feed.swift in Sources */,
+				012EA2D922FA2AAF009C6EA4 /* LazyManError.swift in Sources */,
+				011C780F22FA12410068F6FB /* Game.swift in Sources */,
+				012EA2D522FA2A46009C6EA4 /* GameManager.swift in Sources */,
+				012EA2E922FA2B6B009C6EA4 /* URLSession+synchernousDataTask.swift in Sources */,
+				01B1E0CF22FA1D9800B65B44 /* UpdateManager.swift in Sources */,
+				011C781122FA12410068F6FB /* CDN.swift in Sources */,
+				011C781222FA12410068F6FB /* League.swift in Sources */,
+				012EA2DD22FA2B3F009C6EA4 /* JSONLoader.swift in Sources */,
+				01B1E09722FA143100B65B44 /* String+matches.swift in Sources */,
+				011C780E22FA12410068F6FB /* Playlist.swift in Sources */,
+				01B1E09822FA143100B65B44 /* String+replace.swift in Sources */,
+				01B1E0DB22FA1D9800B65B44 /* SettingsManager.swift in Sources */,
+				012EA2D222FA2A42009C6EA4 /* FeedManager.swift in Sources */,
+				01B1E0A022FA1BAB00B65B44 /* Image.swift in Sources */,
+				01B1E0D822FA1D9800B65B44 /* TeamManager.swift in Sources */,
+				012EA2E122FA2B5A009C6EA4 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01B1E0E122FA1DCB00B65B44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 011C77BD22FA02270068F6FB /* LazyManCore-iOS */;
+			targetProxy = 01B1E0E022FA1DCB00B65B44 /* PBXContainerItemProxy */;
+		};
+		01B1E0E322FA1DCB00B65B44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 011C77CB22FA02A80068F6FB /* LazyManCore-tvOS */;
+			targetProxy = 01B1E0E222FA1DCB00B65B44 /* PBXContainerItemProxy */;
+		};
+		01B1E0E522FA1DCB00B65B44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 011C77D822FA02EA0068F6FB /* LazyManCore-macOS */;
+			targetProxy = 01B1E0E422FA1DCB00B65B44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		011C77B722FA01CB0068F6FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		011C77B822FA01CB0068F6FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		011C77C522FA02270068F6FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A78658A849B7B348C443FA9 /* Pods-core-LazyManCore-iOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = LazyManCore/Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.nickt.LazyManCore;
+				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		011C77C622FA02270068F6FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CB6610627B002F5FCF5241D /* Pods-core-LazyManCore-iOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = LazyManCore/Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.nickt.LazyManCore;
+				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		011C77D222FA02A80068F6FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D1C554CBC21670592C9B8A9 /* Pods-core-LazyManCore-tvOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = LazyManCore/Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.nickt.LazyManCore;
+				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		011C77D322FA02A80068F6FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 550B2981450F3BF6241CF520 /* Pods-core-LazyManCore-tvOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = LazyManCore/Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.nickt.LazyManCore;
+				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		011C77DF22FA02EB0068F6FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD8BB725889BEFB221EC036F /* Pods-core-LazyManCore-macOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = LazyManCore/Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.nickt.LazyManCore;
+				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		011C77E022FA02EB0068F6FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AFAEE8B6B857AE779563F52 /* Pods-core-LazyManCore-macOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = LazyManCore/Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.nickt.LazyManCore;
+				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		01B1E0DE22FA1DB800B65B44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		01B1E0DF22FA1DB800B65B44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		011C77B622FA01CB0068F6FB /* Build configuration list for PBXProject "LazyManCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				011C77B722FA01CB0068F6FB /* Debug */,
+				011C77B822FA01CB0068F6FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		011C77C422FA02270068F6FB /* Build configuration list for PBXNativeTarget "LazyManCore-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				011C77C522FA02270068F6FB /* Debug */,
+				011C77C622FA02270068F6FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		011C77D122FA02A80068F6FB /* Build configuration list for PBXNativeTarget "LazyManCore-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				011C77D222FA02A80068F6FB /* Debug */,
+				011C77D322FA02A80068F6FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		011C77DE22FA02EB0068F6FB /* Build configuration list for PBXNativeTarget "LazyManCore-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				011C77DF22FA02EB0068F6FB /* Debug */,
+				011C77E022FA02EB0068F6FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01B1E0DD22FA1DB800B65B44 /* Build configuration list for PBXAggregateTarget "LazyManCore-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01B1E0DE22FA1DB800B65B44 /* Debug */,
+				01B1E0DF22FA1DB800B65B44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 011C77B322FA01CB0068F6FB /* Project object */;
+}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LazyManCore
 
 class GameListTableViewController: UITableViewController {
 

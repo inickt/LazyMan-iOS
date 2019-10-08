@@ -7,18 +7,19 @@
 //
 
 import Foundation
+import LazyManCore
 import OptionSelector
 
 extension Team: OptionSelectorCell {
-    var title: String {
+    public var title: String {
         return self.name
     }
 
-    var description: String {
+    public var description: String {
         return ""
     }
 
-    var image: UIImage? {
+    public var image: UIImage? {
         return self.logo
     }
 }
