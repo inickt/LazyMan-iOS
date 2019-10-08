@@ -37,5 +37,6 @@ target 'LazyMan-iOS' do
   pod 'Firebase/Core'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'google-cast-sdk'
 end
 
