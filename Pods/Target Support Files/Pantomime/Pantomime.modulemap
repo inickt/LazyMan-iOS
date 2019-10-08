@@ -1,6 +1,0 @@
-framework module Pantomime {
-  umbrella header "Pantomime-umbrella.h"
-
-  export *
-  module * { export * }
-}

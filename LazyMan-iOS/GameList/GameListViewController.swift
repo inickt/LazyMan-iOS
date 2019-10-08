@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LazyManCore
 import FSCalendar
 
 protocol GameListViewControllerType: AnyObject {

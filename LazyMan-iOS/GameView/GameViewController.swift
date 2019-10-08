@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import LazyManCore
 
 protocol GameViewType: AnyObject {
 

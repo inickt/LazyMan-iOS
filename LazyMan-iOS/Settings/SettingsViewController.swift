@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LazyManCore
 import OptionSelector
 
 protocol SettingsViewType: AnyObject {
