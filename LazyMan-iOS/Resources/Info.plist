@@ -27,6 +27,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>LazyMan uses Bluetooth to discover nearby Cast devices.</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>LazyMan uses Bluetooth to discover nearby Cast devices.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>LazyMan uses microphone access to listen for ultrasonic tokens when pairing with nearby Cast devices.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
@@ -68,11 +74,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>LazyMan uses Bluetooth to discover nearby Cast devices.</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>LazyMan uses Bluetooth to discover nearby Cast devices.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>LazyMan uses microphone access to listen for ultrasonic tokens when pairing with nearby Cast devices.</string>
 </dict>
 </plist>

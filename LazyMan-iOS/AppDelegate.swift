@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import LazyManCore
 import Firebase
+import GoogleCast
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GCKLoggerDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication,
@@ -41,6 +43,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Configure Firebase/Crashlytics
         FirebaseApp.configure()
+
+        // Configure ChromeCast
+        let criteria = GCKDiscoveryCriteria(applicationID: chromecastAppID)
+        let options = GCKCastOptions(discoveryCriteria: criteria)
+        options.physicalVolumeButtonsWillControlDeviceVolume = true
+        GCKCastContext.setSharedInstanceWith(options)
+
+        GCKCastContext.sharedInstance().useDefaultExpandedMediaControls = true
+
+        let filter = GCKLoggerFilter()
+        filter.minimumLevel = .error
+        GCKLogger.sharedInstance().filter = filter
+
+        // Enable logger.
+        GCKLogger.sharedInstance().delegate = self
+
+        // Wrap main view in the GCKUICastContainerViewController and display the mini controller.
+        let appStoryboard = UIStoryboard(name: "GameList", bundle: nil)
+        let navigationController = appStoryboard.instantiateInitialViewController()!
+        let castContainerVC = GCKCastContext.sharedInstance().createCastContainerController(for: navigationController)
+        castContainerVC.miniMediaControlsItemEnabled = true
+        // Color the background to match the embedded content
+        castContainerVC.view.backgroundColor = .white
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = castContainerVC
+        window?.makeKeyAndVisible()
 
         return true
     }
@@ -87,5 +116,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIDevice.current.setValue(UIDeviceOrientation.portrait.rawValue, forKey: "orientation")
             return UIInterfaceOrientationMask.portrait
         }
+    }
+
+    // MARK - ChromeCast debug
+
+    func logMessage(_ message: String,
+                    at level: GCKLoggerLevel,
+                    fromFunction function: String,
+                    location: String) {
+        #if DEBUG
+        print(function + " - " + message)
+        #endif
     }
 }

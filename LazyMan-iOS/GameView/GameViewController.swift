@@ -9,6 +9,7 @@
 import UIKit
 import AVKit
 import LazyManCore
+import GoogleCast
 
 protocol GameViewType: AnyObject {
 
@@ -59,6 +60,9 @@ class GameViewController: UIViewController, GameViewType {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.load()
+
+        let castButton = GCKUICastButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: castButton))
     }
 
     override func viewDidAppear(_ animated: Bool) {

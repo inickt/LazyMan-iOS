@@ -10,6 +10,7 @@ import UIKit
 import AVKit
 import LazyManCore
 import OptionSelector
+import GoogleCast
 
 protocol GamePresenterType: AVAssetResourceLoaderDelegate {
 
@@ -25,7 +26,7 @@ protocol GamePresenterType: AVAssetResourceLoaderDelegate {
     func reload()
 }
 
-class GamePresenter: NSObject, GamePresenterType {
+class GamePresenter: NSObject, GamePresenterType, GCKRequestDelegate {
 
     weak var gameView: GameViewType?
 
@@ -117,7 +118,26 @@ class GamePresenter: NSObject, GamePresenterType {
 
     private func didSelectPlaylist(playlist: Playlist) {
         self.gameView?.setQuality(text: playlist.title)
-        self.gameView?.playURL(url: playlist.url)
+
+        // TODO: Clean up Chromecast logic
+        if GCKCastContext.sharedInstance().castState == .connected {
+            let metadata = GCKMediaMetadata()
+            metadata.setString("\(self.game.awayTeam.teamName) at \(self.game.homeTeam.teamName)", forKey: kGCKMetadataKeyTitle)
+            metadata.setString(self.feedSelector.selected.title, forKey: kGCKMetadataKeySubtitle)
+
+            let mediaInfoBuilder = GCKMediaInformationBuilder(contentURL: playlist.url)
+            mediaInfoBuilder.metadata = metadata
+            let mediaInformation = mediaInfoBuilder.build()
+
+            let mediaLoadRequestDataBuilder = GCKMediaLoadRequestDataBuilder()
+            mediaLoadRequestDataBuilder.mediaInformation = mediaInformation
+
+            if let request = GCKCastContext.sharedInstance().sessionManager.currentSession?.remoteMediaClient?.loadMedia(with: mediaLoadRequestDataBuilder.build()) {
+                request.delegate = self
+            }
+        } else {
+            self.gameView?.playURL(url: playlist.url)
+        }
     }
 
     private func loadPlaylists(reload: Bool = false) {
