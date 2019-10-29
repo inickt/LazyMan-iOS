@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication,
@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         if let splitViewController = self.window?.rootViewController as? UISplitViewController {
             splitViewController.preferredDisplayMode = .allVisible
             splitViewController.view.backgroundColor = .black
+
+            splitViewController.delegate = (splitViewController.viewControllers.first as? UINavigationController)?.viewControllers.first as? GameListViewController
+
             if let navigationController = splitViewController.viewControllers.last as? UINavigationController {
                 navigationController.topViewController?.navigationItem.leftBarButtonItem =
                     splitViewController.displayModeButtonItem
