@@ -1,0 +1,61 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    name: Build LazyMan
+    runs-on: macos-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Cache Pods
+      id: cache-pods
+      uses: actions/cache@v1
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
+    - name: Install Pods
+      run: pod install
+    - name: Choose Xcode Version
+      run: sudo xcode-select -switch /Applications/Xcode_11.2.1.app
+    - name: Install dpkg
+      run: brew install dpkg
+    - name: Checkout ldid
+      uses: actions/checkout@v1
+      with:
+        repository: xerub/ldid
+        ref: master
+        submodules: recursive
+    - name: Install ldid2
+      run: |
+        cd $GITHUB_WORKSPACE/../ldid
+        ./mk.sh
+        chmod +x ldid2
+        cp ldid2 /usr/local/bin/ldid2
+    - name: Build App
+      run: make archive
+    - name: Build Assets
+      run: make ipa deb
+    # upload-artifact@v2 should fix this hack
+    - name: Set Artifact Variables
+      id: artifact-variables
+      run: |
+        echo "::set-output name=ipa_name::$(basename $(find build/*.ipa))"
+        echo "::set-output name=ipa_path::$(find build/*.ipa)"
+        echo "::set-output name=deb_name::$(basename $(find build/*.deb))"
+        echo "::set-output name=deb_path::$(find build/*.deb)"
+    - name: Upload Artifact (ipa)
+      uses: actions/upload-artifact@v1
+      with:
+        name: ${{ steps.artifact-variables.outputs.ipa_name }}
+        path: ${{ steps.artifact-variables.outputs.ipa_path }}
+    - name: Upload Artifact (deb)
+      uses: actions/upload-artifact@v1
+      with:
+        name: ${{ steps.artifact-variables.outputs.deb_name }}
+        path: ${{ steps.artifact-variables.outputs.deb_path }}
+
+    
