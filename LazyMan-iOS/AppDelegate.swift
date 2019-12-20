@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             splitViewController.preferredDisplayMode = .allVisible
             splitViewController.view.backgroundColor = .black
 
-            splitViewController.delegate = (splitViewController.viewControllers.first as? UINavigationController)?.viewControllers.first as? GameListViewController
+            splitViewController.delegate = (splitViewController.viewControllers.first as? UINavigationController)?
+                .viewControllers.first as? GameListViewController
 
             if let navigationController = splitViewController.viewControllers.last as? UINavigationController {
                 navigationController.topViewController?.navigationItem.leftBarButtonItem =
