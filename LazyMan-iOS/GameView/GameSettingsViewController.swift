@@ -37,6 +37,7 @@ class GameSettingsViewController: UITableViewController {
             self.qualityLabel.text = ""
             self.qualityCell.accessoryType = .none
             let activityIndicator = UIActivityIndicatorView()
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
             activityIndicator.startAnimating()
             self.qualityCell.accessoryView = activityIndicator
         }
