@@ -243,8 +243,9 @@
 				1A27598C587C0F45B8858311 /* [CP] Check Pods Manifest.lock */,
 				012CB8A7203A3E7C00E76740 /* Sources */,
 				012CB8A8203A3E7C00E76740 /* Frameworks */,
-				01DC7B9A2092A4EA003C311A /* Build Number and Storyboard Labels */,
+				019B740C23AD78F50033DA82 /* Build/Version Number in Storyboard */,
 				012CB8A9203A3E7C00E76740 /* Resources */,
+				01DC7B9A2092A4EA003C311A /* Build/Verison Number */,
 				426B6D90171E64CC4320375D /* [CP] Embed Pods Frameworks */,
 				0142C653226A751A0060A017 /* Crashlytics */,
 				01EC4DDD2259410100034D83 /* SwiftLint */,
@@ -339,19 +340,39 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		01DC7B9A2092A4EA003C311A /* Build Number and Storyboard Labels */ = {
+		019B740C23AD78F50033DA82 /* Build/Version Number in Storyboard */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build/Version Number in Storyboard";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Set build number\nBUILD_NUMBER=${BUILD_NUMBER:-0}\nVERSION_NUMBER=$(git describe --tags --abbrev=0 --match \"v*\" | cut -c 2-)\n\necho \"Build Number: $BUILD_NUMBER\"\necho \"Version Number: $VERSION_NUMBER\"\n\n# Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: $VERSION_NUMBER – Build: $BUILD_NUMBER\\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Resources/Base.lproj/LaunchScreen.storyboard\"\n";
+		};
+		01DC7B9A2092A4EA003C311A /* Build/Verison Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
 			);
-			name = "Build Number and Storyboard Labels";
+			name = "Build/Verison Number";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#   ON/OFF Script Toggle (script ON with #, script OFF without #)\n#exit 0\n\n#   Increment Build Number Bool (Increment ON with true, increment OFF with false)\nshouldIncrement=true\n\n#   App vesion / Build version constants\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\n#   Increment build number\nif [ \"$shouldIncrement\" = true ]; then\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n#   Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: $versionNumber – Build: $buildNumber\\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Resources/Base.lproj/LaunchScreen.storyboard\"\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: $versionNumber – Build: $buildNumber\\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Settings/Base.lproj/Settings.storyboard\"";
+			shellScript = "# Set build number\nBUILD_NUMBER=${BUILD_NUMBER:-0}\nVERSION_NUMBER=$(git describe --tags --abbrev=0 --match \"v*\" | cut -c 2-)\n\necho \"Build Number: $BUILD_NUMBER\"\necho \"Version Number: $VERSION_NUMBER\"\n\n# Set values in Info.plist\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleShortVersionString\" \"${VERSION_NUMBER}\"\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleVersion\" \"${BUILD_NUMBER}\"\n\n# Reset label on LaunchScreen.storyboard for git\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: – Build: \\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Resources/Base.lproj/LaunchScreen.storyboard\"\n";
 		};
 		01EC4DDD2259410100034D83 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;

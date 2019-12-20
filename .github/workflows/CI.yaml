@@ -35,6 +35,10 @@ jobs:
         ./mk.sh
         chmod +x ldid2
         cp ldid2 /usr/local/bin/ldid2
+    - name: Generate build number
+      uses: einaregilsson/build-number@v2
+      with:
+        token: ${{ secrets.github_token }}
     - name: Build App
       run: make archive
     - name: Build Assets

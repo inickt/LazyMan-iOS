@@ -70,13 +70,7 @@ public class UpdateManager: UpdateManagerType {
                 }
                 return
             }
-
-            guard let current = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
-                DispatchQueue.main.async {
-                    completion(.error(message: "Unable to load current version."))
-                }
-                return
-            }
+            let current = Bundle.main.releaseVersionNumber
 
             for release in releases {
                 if release.prerelease && !self.settingsManager.betaUpdates {
