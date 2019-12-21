@@ -25,7 +25,7 @@ protocol GamePresenterType: AVAssetResourceLoaderDelegate {
     func reload()
 }
 
-class GamePresenter: NSObject, GamePresenterType {
+class GamePresenter: NSObject, GamePresenterType, CastDelegate {
 
     weak var gameView: GameViewType?
 
@@ -43,17 +43,20 @@ class GamePresenter: NSObject, GamePresenterType {
     private let settingsManager: SettingsManagerType
     private let feedManager: FeedManagerType
     private let teamManager: TeamManagerType
+    private let castManager: CastManagerType
 
     // MARK: - Initialization
 
     init?(game: Game,
           settingsManager: SettingsManagerType = SettingsManager.shared,
           feedManager: FeedManagerType = FeedManager.shared,
-          teamManager: TeamManagerType = TeamManager.shared) {
+          teamManager: TeamManagerType = TeamManager.shared,
+          castManager: CastManagerType = CastManager.shared) {
         self.game = game
         self.settingsManager = settingsManager
         self.feedManager = feedManager
         self.teamManager = teamManager
+        self.castManager = castManager
 
         guard let defaultFeed = teamManager.getDefaultFeed(game: game),
             let cdnSelector = SingularOptionSelector(CDN.allCases, selected: settingsManager.defaultCDN),
@@ -79,10 +82,23 @@ class GamePresenter: NSObject, GamePresenterType {
         self.gameView?.setCDN(text: self.cdnSelector.selected.title)
         self.gameView?.gameTitle = "\(self.game.awayTeam.teamName) at \(self.game.homeTeam.teamName)"
         self.loadPlaylists(reload: false)
+        self.castManager.delegate = self
     }
 
     func reload() {
         self.loadPlaylists(reload: true)
+    }
+
+    // MARK: - CastDelegate
+
+    func castStateDidChange(newStatus isConnected: Bool) {
+        if let playlist = self.playlistSelector?.selected {
+            if isConnected {
+                self.cast(playlist: playlist)
+            } else {
+                self.gameView?.playURL(url: playlist.url)
+            }
+        }
     }
 
     // MARK: - AVAssetResourceLoaderDelegate
@@ -117,7 +133,12 @@ class GamePresenter: NSObject, GamePresenterType {
 
     private func didSelectPlaylist(playlist: Playlist) {
         self.gameView?.setQuality(text: playlist.title)
-        self.gameView?.playURL(url: playlist.url)
+
+        if self.castManager.isConnected {
+            self.cast(playlist: playlist)
+        } else {
+            self.gameView?.playURL(url: playlist.url)
+        }
     }
 
     private func loadPlaylists(reload: Bool = false) {
@@ -148,5 +169,12 @@ class GamePresenter: NSObject, GamePresenterType {
             self.playlistSelector = SingularOptionSelector(playlists, selected: selected)
             self.didSelectPlaylist(playlist: selected)
         }
+    }
+
+    private func cast(playlist: Playlist) {
+        self.gameView?.stopPlaying()
+        self.castManager.play(title: "\(self.game.awayTeam.teamName) at \(self.game.homeTeam.teamName)",
+            subtitle: self.feedSelector.selected.title,
+            url: playlist.url)
     }
 }

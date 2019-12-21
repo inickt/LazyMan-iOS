@@ -9,6 +9,7 @@
 import UIKit
 import LazyManCore
 import FSCalendar
+import GoogleCast
 
 protocol GameListViewControllerType: AnyObject {
     var collapseDetailViewController: Bool { get set }
@@ -44,6 +45,8 @@ class GameListViewController: UIViewController, GameListViewControllerType {
                                                     completion: nil)
         }
     }
+
+    private var castButton: GCKUICastButton!
 
     // MARK: - IBActions
 
@@ -123,9 +126,27 @@ class GameListViewController: UIViewController, GameListViewControllerType {
         }
     }
 
+    @objc
+    func castDeviceDidChange(notification _: Notification) {
+        if GCKCastContext.sharedInstance().castState != GCKCastState.noDevicesAvailable {
+            // Display the instructions for how to use Google Cast on the first app use.
+            GCKCastContext.sharedInstance().presentCastInstructionsViewControllerOnce(with: castButton)
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.updateToday()
+
+        // TODO: This is a gross hack for Chromecast support
+        if self.castButton == nil {
+            castButton = GCKUICastButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+            navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: castButton))
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(castDeviceDidChange(notification:)),
+                                                   name: NSNotification.Name.gckCastStateDidChange,
+                                                   object: GCKCastContext.sharedInstance())
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
