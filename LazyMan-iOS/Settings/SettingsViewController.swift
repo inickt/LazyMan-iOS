@@ -35,6 +35,7 @@ class SettingsViewController: UITableViewController, SettingsViewType {
 
     // MARK: - IBOutlets
 
+    @IBOutlet private var versionBuildLabel: UILabel!
     @IBOutlet private var defaultLeagueControl: UISegmentedControl!
     @IBOutlet private var defaultQualityControl: UISegmentedControl!
     @IBOutlet private var defaultCDNControl: UISegmentedControl!
@@ -55,6 +56,10 @@ class SettingsViewController: UITableViewController, SettingsViewType {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.showDefaults()
+
+        // Set version and build number
+        let versionString = "Version: \(Bundle.main.releaseVersionNumber) – Build: \(Bundle.main.buildVersionNumber)"
+        self.versionBuildLabel.text = versionString
     }
 
     // MARK: - SettingsViewType
