@@ -12,7 +12,7 @@ import Firebase
 import GoogleCast
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GCKLoggerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication,
@@ -44,20 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GCKLoggerDelegate {
         // Configure Firebase/Crashlytics
         FirebaseApp.configure()
 
-        // Configure ChromeCast
-        let criteria = GCKDiscoveryCriteria(applicationID: chromecastAppID)
-        let options = GCKCastOptions(discoveryCriteria: criteria)
-        options.physicalVolumeButtonsWillControlDeviceVolume = true
-        GCKCastContext.setSharedInstanceWith(options)
-
-        GCKCastContext.sharedInstance().useDefaultExpandedMediaControls = true
-
-        let filter = GCKLoggerFilter()
-        filter.minimumLevel = .error
-        GCKLogger.sharedInstance().filter = filter
-
-        // Enable logger.
-        GCKLogger.sharedInstance().delegate = self
+        // Initialize Chromecast
+        _ = CastManager.shared
 
         // Wrap main view in the GCKUICastContainerViewController and display the mini controller.
         let appStoryboard = UIStoryboard(name: "GameList", bundle: nil)
@@ -116,16 +104,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GCKLoggerDelegate {
             UIDevice.current.setValue(UIDeviceOrientation.portrait.rawValue, forKey: "orientation")
             return UIInterfaceOrientationMask.portrait
         }
-    }
-
-    // MARK - ChromeCast debug
-
-    func logMessage(_ message: String,
-                    at level: GCKLoggerLevel,
-                    fromFunction function: String,
-                    location: String) {
-        #if DEBUG
-        print(function + " - " + message)
-        #endif
     }
 }

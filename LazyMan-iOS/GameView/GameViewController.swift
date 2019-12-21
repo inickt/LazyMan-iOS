@@ -16,6 +16,7 @@ protocol GameViewType: AnyObject {
     var gameTitle: String { get set }
 
     func playURL(url: URL)
+    func stopPlaying()
     func showError(message: String)
     func setQuality(text: String?)
     func setFeed(text: String)
@@ -94,6 +95,10 @@ class GameViewController: UIViewController, GameViewType {
             try? AVAudioSession.sharedInstance().setCategory(.playback)
             player.play()
         }
+    }
+
+    func stopPlaying() {
+        self.playerVC?.player = nil
     }
 
     func showError(message: String) {
