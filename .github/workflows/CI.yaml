@@ -47,10 +47,11 @@ jobs:
     - name: Set Artifact Variables
       id: artifact-variables
       run: |
-        echo "::set-output name=ipa_name::$(basename $(find build/*.ipa))"
+        echo "::set-output name=ipa_name::$(basename $(find build/*.ipa))" >> artifacts
         echo "::set-output name=ipa_path::$(find build/*.ipa)"
-        echo "::set-output name=deb_name::$(basename $(find build/*.deb))"
+        echo "::set-output name=deb_name::$(basename $(find build/*.deb))"  >> artifacts
         echo "::set-output name=deb_path::$(find build/*.deb)"
+        cat artifacts
     - name: Upload Artifact (ipa)
       uses: actions/upload-artifact@v1
       with:
@@ -61,5 +62,61 @@ jobs:
       with:
         name: ${{ steps.artifact-variables.outputs.deb_name }}
         path: ${{ steps.artifact-variables.outputs.deb_path }}
-
-    
+    # A gross hack until we get wildcards for uploading/downloading artifacts
+    - name: Upload Artifact (artifact nanes)
+      uses: actions/upload-artifact@v1
+      with:
+        name: artifacts
+        path: artifacts
+  release:
+    name: Create Release
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+    - name: Download Artifact (names)
+      uses: actions/download-artifact@v1
+      with:
+        name: artifacts
+        path: artifacts
+    - name: Set Artifact Variables
+      id: artifact-variables
+      run: cat artifacts/artifacts
+    - name: Download Artifact (ipa)
+      uses: actions/download-artifact@v1
+      with:
+        name: ${{ steps.artifact-variables.outputs.ipa_name }}
+        path: ${{ steps.artifact-variables.outputs.ipa_name }}
+    - name: Download Artifact (deb)
+      uses: actions/download-artifact@v1
+      with:
+        name: ${{ steps.artifact-variables.outputs.deb_name }}
+        path: ${{ steps.artifact-variables.outputs.deb_name }}
+    - name: Create Release
+      id: create-release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: true
+        prerelease: (contains(github.ref, 'alpha') || contains(github.ref, 'beta'))
+    - name: Upload Release Asset (ipa)
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create-release.outputs.upload_url }} 
+        asset_path: ${{ steps.artifact-variables.outputs.ipa_name }}/${{ steps.artifact-variables.outputs.ipa_name }}
+        asset_name: ${{ steps.artifact-variables.outputs.ipa_name }}
+        asset_content_type: application/octet-stream
+    - name: Upload Release Asset (deb)
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create-release.outputs.upload_url }} 
+        asset_path: ${{ steps.artifact-variables.outputs.deb_name }}/${{ steps.artifact-variables.outputs.deb_name }}
+        asset_name: ${{ steps.artifact-variables.outputs.deb_name }}
+        asset_content_type: application/octet-stream
