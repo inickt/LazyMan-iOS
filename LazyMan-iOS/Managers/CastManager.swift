@@ -58,10 +58,14 @@ public class CastManager: NSObject, CastManagerType, GCKRequestDelegate, GCKLogg
         self.castLogger.filter = filter
         self.castLogger.delegate = self
 
+        // Observe Cast state changes
         notificationCenter.addObserver(self,
                                        selector: #selector(castStateDidChange),
                                        name: NSNotification.Name.gckCastStateDidChange,
                                        object: self.castContext)
+
+        // Style app
+        self.style()
     }
 
     public func play(title: String, subtitle: String, url: URL) {
@@ -82,7 +86,7 @@ public class CastManager: NSObject, CastManagerType, GCKRequestDelegate, GCKLogg
         }
     }
 
-    // MARK: - ChromeCast debug
+    // MARK: - GCKLoggerDelegate
 
     public func logMessage(_ message: String,
                            at level: GCKLoggerLevel,
@@ -93,8 +97,27 @@ public class CastManager: NSObject, CastManagerType, GCKRequestDelegate, GCKLogg
         #endif
     }
 
+    // MARK: - Private
+
     @objc
-    func castStateDidChange(notification: Notification) {
+    private func castStateDidChange(notification: Notification) {
         self.delegate?.castStateDidChange(newStatus: self.isConnected)
+    }
+
+    private func style() {
+        let castStyle = GCKUIStyle.sharedInstance()
+
+        castStyle.castViews.buttonTextColor = .white
+        castStyle.castViews.bodyTextColor = .white
+        castStyle.castViews.headingTextColor = .white
+        castStyle.castViews.captionTextColor = .white
+
+        castStyle.castViews.iconTintColor = .white
+        castStyle.castViews.backgroundColor = .black
+
+        castStyle.castViews.instructions.backgroundColor = UIColor(white: 0.1, alpha: 0.9)
+        castStyle.castViews.instructions.buttonTextColor = .black
+
+        castStyle.apply()
     }
 }

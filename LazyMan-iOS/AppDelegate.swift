@@ -51,9 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appStoryboard = UIStoryboard(name: "GameList", bundle: nil)
         let navigationController = appStoryboard.instantiateInitialViewController()!
         let castContainerVC = GCKCastContext.sharedInstance().createCastContainerController(for: navigationController)
+        castContainerVC.view.backgroundColor = .clear
         castContainerVC.miniMediaControlsItemEnabled = true
-        // Color the background to match the embedded content
-        castContainerVC.view.backgroundColor = .white
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = castContainerVC
