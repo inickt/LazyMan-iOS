@@ -28,8 +28,8 @@ enum DateUtils {
 
     // MARK: - Public Helpers
 
-    // TODO: Make sure correct for timezones/day boundries/etc!!!
-    static func convertToYYYYMMDD(from date: Date) -> String {
+    static func convertToYYYYMMDD(from date: Date, timeZone: TimeZone = TimeZone.current) -> String {
+        yyyymmddFormatter.timeZone = timeZone
         return self.yyyymmddFormatter.string(from: date)
     }
 
