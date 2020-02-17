@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import LazyManCore
 import Firebase
+import GoogleCast
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,6 +43,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Configure Firebase/Crashlytics
         FirebaseApp.configure()
+
+        // Initialize Chromecast
+        _ = CastManager.shared
+
+        // Wrap main view in the GCKUICastContainerViewController and display the mini controller.
+        let appStoryboard = UIStoryboard(name: "GameList", bundle: nil)
+        let navigationController = appStoryboard.instantiateInitialViewController()!
+        let castContainerVC = GCKCastContext.sharedInstance().createCastContainerController(for: navigationController)
+        castContainerVC.view.backgroundColor = .clear
+        castContainerVC.miniMediaControlsItemEnabled = true
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = castContainerVC
+        window?.makeKeyAndVisible()
 
         return true
     }

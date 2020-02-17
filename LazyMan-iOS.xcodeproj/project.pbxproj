@@ -26,6 +26,7 @@
 		019387BD2082C87600D1CDBC /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019387BC2082C87600D1CDBC /* DatePickerViewController.swift */; };
 		0199BCA322FA388E00FA3561 /* LazyManCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0199BCA222FA388E00FA3561 /* LazyManCore.framework */; };
 		0199BCA422FA388E00FA3561 /* LazyManCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0199BCA222FA388E00FA3561 /* LazyManCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		019B740F23ADB9790033DA82 /* CastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B740E23ADB9790033DA82 /* CastManager.swift */; };
 		01DC7B952092530A003C311A /* GameListTableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7B942092530A003C311A /* GameListTableBackgroundView.swift */; };
 		01DC7B9720925325003C311A /* GameListTableBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */; };
 		01DC7B9F2092BE6B003C311A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7B9E2092BE6B003C311A /* SettingsViewController.swift */; };
@@ -72,6 +73,7 @@
 		0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+searcVisualEffectsSubview.swift"; sourceTree = "<group>"; };
 		019387BC2082C87600D1CDBC /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		0199BCA222FA388E00FA3561 /* LazyManCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LazyManCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		019B740E23ADB9790033DA82 /* CastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastManager.swift; sourceTree = "<group>"; };
 		01D0F3C92061CFAA008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameList.storyboard; sourceTree = "<group>"; };
 		01D0F3CA2061CFB9008174EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game.storyboard; sourceTree = "<group>"; };
 		01DC7B942092530A003C311A /* GameListTableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTableBackgroundView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		012CB8AD203A3E7C00E76740 /* LazyMan-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				019B740D23ADB9630033DA82 /* Managers */,
 				01DC7B9B2092BB99003C311A /* Settings */,
 				019387BB2081396400D1CDBC /* Example Schedules */,
 				0179AEBE2076BC3600539C6D /* Util */,
@@ -188,6 +191,14 @@
 			path = "Example Schedules";
 			sourceTree = "<group>";
 		};
+		019B740D23ADB9630033DA82 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				019B740E23ADB9790033DA82 /* CastManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		01D0F3C42061CBC8008174EC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,12 +254,14 @@
 				1A27598C587C0F45B8858311 /* [CP] Check Pods Manifest.lock */,
 				012CB8A7203A3E7C00E76740 /* Sources */,
 				012CB8A8203A3E7C00E76740 /* Frameworks */,
-				01DC7B9A2092A4EA003C311A /* Build Number and Storyboard Labels */,
+				019B740C23AD78F50033DA82 /* Build/Version Number in Storyboard */,
 				012CB8A9203A3E7C00E76740 /* Resources */,
+				01DC7B9A2092A4EA003C311A /* Build/Verison Number */,
 				426B6D90171E64CC4320375D /* [CP] Embed Pods Frameworks */,
 				0142C653226A751A0060A017 /* Crashlytics */,
 				01EC4DDD2259410100034D83 /* SwiftLint */,
 				0199BCA522FA388E00FA3561 /* Embed Frameworks */,
+				97FAAF3128291D1E05A52CF1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -274,6 +287,9 @@
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 0;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -339,19 +355,39 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		01DC7B9A2092A4EA003C311A /* Build Number and Storyboard Labels */ = {
+		019B740C23AD78F50033DA82 /* Build/Version Number in Storyboard */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build/Version Number in Storyboard";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Set build number\nBUILD_NUMBER=${BUILD_NUMBER:-0}\nVERSION_NUMBER=$(git describe --tags --abbrev=0 --match \"v*\" | cut -c 2-)\n\necho \"Build Number: $BUILD_NUMBER\"\necho \"Version Number: $VERSION_NUMBER\"\n\n# Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: $VERSION_NUMBER – Build: $BUILD_NUMBER\\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Resources/Base.lproj/LaunchScreen.storyboard\"\n";
+		};
+		01DC7B9A2092A4EA003C311A /* Build/Verison Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
 			);
-			name = "Build Number and Storyboard Labels";
+			name = "Build/Verison Number";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#   ON/OFF Script Toggle (script ON with #, script OFF without #)\n#exit 0\n\n#   Increment Build Number Bool (Increment ON with true, increment OFF with false)\nshouldIncrement=true\n\n#   App vesion / Build version constants\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\n#   Increment build number\nif [ \"$shouldIncrement\" = true ]; then\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n#   Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: $versionNumber – Build: $buildNumber\\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Resources/Base.lproj/LaunchScreen.storyboard\"\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: $versionNumber – Build: $buildNumber\\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Settings/Base.lproj/Settings.storyboard\"";
+			shellScript = "# Set build number\nBUILD_NUMBER=${BUILD_NUMBER:-0}\nVERSION_NUMBER=$(git describe --tags --abbrev=0 --match \"v*\" | cut -c 2-)\n\necho \"Build Number: $BUILD_NUMBER\"\necho \"Version Number: $VERSION_NUMBER\"\n\n# Set values in Info.plist\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleShortVersionString\" \"${VERSION_NUMBER}\"\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleVersion\" \"${BUILD_NUMBER}\"\n\n# Reset label on LaunchScreen.storyboard for git\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"Version: – Build: \\\"/\" \"$PROJECT_DIR/$PROJECT_NAME/Resources/Base.lproj/LaunchScreen.storyboard\"\n";
 		};
 		01EC4DDD2259410100034D83 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -400,6 +436,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/OptionSelector/OptionSelector.framework",
 				"${BUILT_PRODUCTS_DIR}/Pantomime-iOS/Pantomime.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -409,12 +446,33 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OptionSelector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pantomime.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LazyMan-iOS/Pods-LazyMan-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97FAAF3128291D1E05A52CF1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LazyMan-iOS/Pods-LazyMan-iOS-resources.sh",
+				"${PODS_ROOT}/google-cast-sdk/GoogleCastSDK-ios-4.4.6_static/GoogleCast.framework/GoogleCastCoreResources.bundle",
+				"${PODS_ROOT}/google-cast-sdk/GoogleCastSDK-ios-4.4.6_static/GoogleCast.framework/GoogleCastUIResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleCastCoreResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleCastUIResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LazyMan-iOS/Pods-LazyMan-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -428,6 +486,7 @@
 				019387BD2082C87600D1CDBC /* DatePickerViewController.swift in Sources */,
 				01EC4DEF225AE1D600034D83 /* SettingsPresenter.swift in Sources */,
 				01434A762040DAA70094E221 /* GameViewController.swift in Sources */,
+				019B740F23ADB9790033DA82 /* CastManager.swift in Sources */,
 				01EC4DE5225AA78300034D83 /* DarkOptionViewController.swift in Sources */,
 				015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */,
 				01EC4DE7225AA97500034D83 /* CDN+OptionSelectorCell.swift in Sources */,

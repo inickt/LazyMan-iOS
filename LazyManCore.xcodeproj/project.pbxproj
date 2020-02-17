@@ -74,6 +74,9 @@
 		0199BCAB22FC86AA00FA3561 /* MLBTeams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0199BCAA22FC755900FA3561 /* MLBTeams.plist */; };
 		0199BCAC22FC86AB00FA3561 /* MLBTeams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0199BCAA22FC755900FA3561 /* MLBTeams.plist */; };
 		0199BCAD22FC86AB00FA3561 /* MLBTeams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0199BCAA22FC755900FA3561 /* MLBTeams.plist */; };
+		019B740823AD6F0E0033DA82 /* Bundle+VersionNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B740723AD6F0E0033DA82 /* Bundle+VersionNumber.swift */; };
+		019B740923AD6F0E0033DA82 /* Bundle+VersionNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B740723AD6F0E0033DA82 /* Bundle+VersionNumber.swift */; };
+		019B740A23AD6F0E0033DA82 /* Bundle+VersionNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B740723AD6F0E0033DA82 /* Bundle+VersionNumber.swift */; };
 		01B1E09322FA142E00B65B44 /* String+matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09122FA142E00B65B44 /* String+matches.swift */; };
 		01B1E09422FA142E00B65B44 /* String+replace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09222FA142E00B65B44 /* String+replace.swift */; };
 		01B1E09522FA143000B65B44 /* String+matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E09122FA142E00B65B44 /* String+matches.swift */; };
@@ -141,6 +144,7 @@
 		012EA2E622FA2B6A009C6EA4 /* URLSession+synchernousDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+synchernousDataTask.swift"; sourceTree = "<group>"; };
 		0199BCA622FC754C00FA3561 /* NHLTeams.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NHLTeams.plist; sourceTree = "<group>"; };
 		0199BCAA22FC755900FA3561 /* MLBTeams.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MLBTeams.plist; sourceTree = "<group>"; };
+		019B740723AD6F0E0033DA82 /* Bundle+VersionNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+VersionNumber.swift"; sourceTree = "<group>"; };
 		01B1E09122FA142E00B65B44 /* String+matches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+matches.swift"; sourceTree = "<group>"; };
 		01B1E09222FA142E00B65B44 /* String+replace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+replace.swift"; sourceTree = "<group>"; };
 		01B1E09D22FA1BAB00B65B44 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				01B1E09122FA142E00B65B44 /* String+matches.swift */,
 				01B1E09222FA142E00B65B44 /* String+replace.swift */,
 				01B1E09D22FA1BAB00B65B44 /* Image.swift */,
+				019B740723AD6F0E0033DA82 /* Bundle+VersionNumber.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -551,6 +556,7 @@
 				01B1E0CD22FA1D9800B65B44 /* UpdateManager.swift in Sources */,
 				011C780322FA12400068F6FB /* CDN.swift in Sources */,
 				011C780422FA12400068F6FB /* League.swift in Sources */,
+				019B740823AD6F0E0033DA82 /* Bundle+VersionNumber.swift in Sources */,
 				012EA2DB22FA2B3F009C6EA4 /* JSONLoader.swift in Sources */,
 				01B1E09322FA142E00B65B44 /* String+matches.swift in Sources */,
 				011C780022FA12400068F6FB /* Playlist.swift in Sources */,
@@ -578,6 +584,7 @@
 				01B1E0CE22FA1D9800B65B44 /* UpdateManager.swift in Sources */,
 				011C780A22FA12400068F6FB /* CDN.swift in Sources */,
 				011C780B22FA12400068F6FB /* League.swift in Sources */,
+				019B740923AD6F0E0033DA82 /* Bundle+VersionNumber.swift in Sources */,
 				012EA2DC22FA2B3F009C6EA4 /* JSONLoader.swift in Sources */,
 				01B1E09522FA143000B65B44 /* String+matches.swift in Sources */,
 				011C780722FA12400068F6FB /* Playlist.swift in Sources */,
@@ -605,6 +612,7 @@
 				01B1E0CF22FA1D9800B65B44 /* UpdateManager.swift in Sources */,
 				011C781122FA12410068F6FB /* CDN.swift in Sources */,
 				011C781222FA12410068F6FB /* League.swift in Sources */,
+				019B740A23AD6F0E0033DA82 /* Bundle+VersionNumber.swift in Sources */,
 				012EA2DD22FA2B3F009C6EA4 /* JSONLoader.swift in Sources */,
 				01B1E09722FA143100B65B44 /* String+matches.swift in Sources */,
 				011C780E22FA12410068F6FB /* Playlist.swift in Sources */,

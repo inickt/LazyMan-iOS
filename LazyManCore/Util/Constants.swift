@@ -21,3 +21,6 @@ public let pauseNotification = NSNotification.Name(rawValue: "pause")
 
 // Framework bundle
 internal let frameworkBundle = Bundle(identifier: "dev.nickt.LazyManCore")
+
+// ChromeCast
+public let chromecastAppID = "3FDC7292"

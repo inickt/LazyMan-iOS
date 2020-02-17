@@ -9,12 +9,14 @@
 import UIKit
 import AVKit
 import LazyManCore
+import GoogleCast
 
 protocol GameViewType: AnyObject {
 
     var gameTitle: String { get set }
 
     func playURL(url: URL)
+    func stopPlaying()
     func showError(message: String)
     func setQuality(text: String?)
     func setFeed(text: String)
@@ -59,6 +61,9 @@ class GameViewController: UIViewController, GameViewType {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.load()
+
+        let castButton = GCKUICastButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: castButton))
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -90,6 +95,10 @@ class GameViewController: UIViewController, GameViewType {
             try? AVAudioSession.sharedInstance().setCategory(.playback)
             player.play()
         }
+    }
+
+    func stopPlaying() {
+        self.playerVC?.player = nil
     }
 
     func showError(message: String) {
