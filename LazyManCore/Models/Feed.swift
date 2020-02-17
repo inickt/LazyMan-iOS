@@ -28,6 +28,8 @@ public struct Feed: Hashable {
         }
     }
 
+    public let playlistUrl: URL?
+
     // MARK: - Init
 
     public init(feedType: String, callLetters: String, feedName: String, playbackID: Int, league: League, date: Date) {
@@ -37,6 +39,18 @@ public struct Feed: Hashable {
         self.playbackID = playbackID
         self.league = league
         self.date = date
+        self.playlistUrl = nil
+    }
+
+    // TODO: - This is bad now, refactor
+    public init(highlightName: String, league: League, url: URL) {
+        self.playlistUrl = url
+        self.feedType = FeedType(feedType: highlightName)
+        self.league = league
+        self.feedName = highlightName
+        self.callLetters = ""
+        self.playbackID = 0
+        self.date = Date()
     }
 
     // MARK: - Hashable

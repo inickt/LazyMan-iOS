@@ -148,13 +148,28 @@ public class GameManager: GameManagerType {
 
                 var gameFeeds = [Feed]()
                 if let mediaFeeds = nhlGame["content"]["media"]["epg"].array, !mediaFeeds.isEmpty {
-                    for mediaFeed in mediaFeeds[0]["items"].arrayValue {
-                        gameFeeds.append(Feed(feedType: mediaFeed["mediaFeedType"].stringValue,
-                                              callLetters: mediaFeed["callLetters"].stringValue,
-                                              feedName: mediaFeed["feedName"].stringValue,
-                                              playbackID: mediaFeed["mediaPlaybackId"].intValue,
-                                              league: League.NHL,
-                                              date: gameDate))
+                    for mediaType in mediaFeeds {
+                        if mediaType["title"].stringValue == "NHLTV" {
+                            for mediaFeed in mediaType["items"].arrayValue {
+                                gameFeeds.append(Feed(feedType: mediaFeed["mediaFeedType"].stringValue,
+                                                      callLetters: mediaFeed["callLetters"].stringValue,
+                                                      feedName: mediaFeed["feedName"].stringValue,
+                                                      playbackID: mediaFeed["mediaPlaybackId"].intValue,
+                                                      league: League.NHL,
+                                                      date: gameDate))
+                            }
+                        }
+
+                        if mediaType["title"].stringValue == "Extended Highlights",
+                            let playback = mediaType["items"][0]["playbacks"].arrayValue.first(where: { $0["name"] == "HTTP_CLOUD_TABLET_60"}),
+                            let url = URL(string: playback["url"].stringValue) {
+                            gameFeeds.append(Feed(highlightName: "Extended Highlights", league: .NHL, url: url))
+                        }
+                        if mediaType["title"].stringValue == "Recap",
+                            let playback = mediaType["items"][0]["playbacks"].arrayValue.first(where: { $0["name"] == "HTTP_CLOUD_TABLET_60"}),
+                            let url = URL(string: playback["url"].stringValue) {
+                            gameFeeds.append(Feed(highlightName: "Recap", league: .NHL, url: url))
+                        }
                     }
                 }
 

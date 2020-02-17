@@ -71,17 +71,17 @@ public class FeedManager: FeedManagerType {
     // MARK: - Private
 
     private func buildPlaylists(from feed: Feed, using cdn: CDN) -> Result<[Playlist], FeedManagerError> {
-        guard let masterURL = self.getMasterURL(league: feed.league,
+        guard let masterURL = feed.playlistUrl ?? self.getMasterURL(league: feed.league,
                                                 cdn: cdn,
                                                 playbackID: feed.playbackID,
                                                 date: feed.date) else {
             return .failure(.masterURL)
         }
 
-        guard masterURL.absoluteString.contains("exp"),
+        if masterURL.absoluteString.contains("exp"),
             let exp = try? masterURL.absoluteString.replace("(.*)exp=(\\d+)(.*)", replacement: "$2"),
             let expTime = Double(exp),
-            Date().timeIntervalSince1970 <= expTime + 1000 else {
+            Date().timeIntervalSince1970 > expTime + 1000 {
                 return .failure(.expired)
         }
 
