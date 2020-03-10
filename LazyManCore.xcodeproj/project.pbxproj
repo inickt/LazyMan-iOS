@@ -65,6 +65,9 @@
 		012EA2E722FA2B6B009C6EA4 /* URLSession+synchernousDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2E622FA2B6A009C6EA4 /* URLSession+synchernousDataTask.swift */; };
 		012EA2E822FA2B6B009C6EA4 /* URLSession+synchernousDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2E622FA2B6A009C6EA4 /* URLSession+synchernousDataTask.swift */; };
 		012EA2E922FA2B6B009C6EA4 /* URLSession+synchernousDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012EA2E622FA2B6A009C6EA4 /* URLSession+synchernousDataTask.swift */; };
+		014C9CCC2417253F001155F4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C9CCB2417253F001155F4 /* NotificationManager.swift */; };
+		014C9CCD2417253F001155F4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C9CCB2417253F001155F4 /* NotificationManager.swift */; };
+		014C9CCE2417253F001155F4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C9CCB2417253F001155F4 /* NotificationManager.swift */; };
 		0166077023FB2F750006C344 /* ScheduleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0166076F23FB2F750006C344 /* ScheduleLoader.swift */; };
 		0166077123FB2F750006C344 /* ScheduleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0166076F23FB2F750006C344 /* ScheduleLoader.swift */; };
 		0166077223FB2F750006C344 /* ScheduleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0166076F23FB2F750006C344 /* ScheduleLoader.swift */; };
@@ -171,6 +174,7 @@
 		012EA2DE22FA2B59009C6EA4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		012EA2E222FA2B60009C6EA4 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		012EA2E622FA2B6A009C6EA4 /* URLSession+synchernousDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+synchernousDataTask.swift"; sourceTree = "<group>"; };
+		014C9CCB2417253F001155F4 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		0166076F23FB2F750006C344 /* ScheduleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleLoader.swift; sourceTree = "<group>"; };
 		0199BCA622FC754C00FA3561 /* NHLTeams.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NHLTeams.plist; sourceTree = "<group>"; };
 		0199BCAA22FC755900FA3561 /* MLBTeams.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MLBTeams.plist; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 				01B1E0CA22FA1D9800B65B44 /* GameManager.swift */,
 				01B1E0CB22FA1D9800B65B44 /* TeamManager.swift */,
 				01B1E0CC22FA1D9800B65B44 /* SettingsManager.swift */,
+				014C9CCB2417253F001155F4 /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -625,6 +630,7 @@
 				019B740823AD6F0E0033DA82 /* Bundle+VersionNumber.swift in Sources */,
 				01B1E09322FA142E00B65B44 /* String+matches.swift in Sources */,
 				011C780022FA12400068F6FB /* Playlist.swift in Sources */,
+				014C9CCC2417253F001155F4 /* NotificationManager.swift in Sources */,
 				01B1E09422FA142E00B65B44 /* String+replace.swift in Sources */,
 				01BD2CCF24145F1E00FA4F15 /* NHLScheduleResponse.swift in Sources */,
 				01B1E0D922FA1D9800B65B44 /* SettingsManager.swift in Sources */,
@@ -663,6 +669,7 @@
 				019B740923AD6F0E0033DA82 /* Bundle+VersionNumber.swift in Sources */,
 				01B1E09522FA143000B65B44 /* String+matches.swift in Sources */,
 				011C780722FA12400068F6FB /* Playlist.swift in Sources */,
+				014C9CCD2417253F001155F4 /* NotificationManager.swift in Sources */,
 				01B1E09622FA143000B65B44 /* String+replace.swift in Sources */,
 				01BD2CD024145F1E00FA4F15 /* NHLScheduleResponse.swift in Sources */,
 				01B1E0DA22FA1D9800B65B44 /* SettingsManager.swift in Sources */,
@@ -701,6 +708,7 @@
 				019B740A23AD6F0E0033DA82 /* Bundle+VersionNumber.swift in Sources */,
 				01B1E09722FA143100B65B44 /* String+matches.swift in Sources */,
 				011C780E22FA12410068F6FB /* Playlist.swift in Sources */,
+				014C9CCE2417253F001155F4 /* NotificationManager.swift in Sources */,
 				01B1E09822FA143100B65B44 /* String+replace.swift in Sources */,
 				01BD2CD124145F1E00FA4F15 /* NHLScheduleResponse.swift in Sources */,
 				01B1E0DB22FA1D9800B65B44 /* SettingsManager.swift in Sources */,

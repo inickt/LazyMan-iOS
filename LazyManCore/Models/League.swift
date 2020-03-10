@@ -8,6 +8,6 @@
 
 import Foundation
 
-public enum League: String, Hashable, Codable {
+public enum League: String, Hashable, Codable, CaseIterable {
     case NHL, MLB
 }

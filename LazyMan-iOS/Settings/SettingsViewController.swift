@@ -13,6 +13,7 @@ import OptionSelector
 protocol SettingsViewType: AnyObject {
     func showNHLTeams(text: String)
     func showMLBTeams(text: String)
+    func showNotifications(isOn: Bool)
     func showDefault(league: League)
     func showDefault(quality: Quality)
     func showDefault(cdn: CDN)
@@ -43,6 +44,7 @@ class SettingsViewController: UITableViewController, SettingsViewType {
     @IBOutlet private var showScoreSwitch: UISwitch!
     @IBOutlet private var favoriteNHLTeamLabel: UILabel!
     @IBOutlet private var favoriteMLBTeamLabel: UILabel!
+    @IBOutlet private var notificationsSwitch: UISwitch!
     @IBOutlet private var versionUpdatesSwitch: UISwitch!
     @IBOutlet private var betaUpdatesSwitch: UISwitch!
     @IBOutlet private var betaUpdatesLabel: UILabel!
@@ -70,6 +72,10 @@ class SettingsViewController: UITableViewController, SettingsViewType {
 
     func showMLBTeams(text: String) {
         self.favoriteMLBTeamLabel.text = text
+    }
+
+    func showNotifications(isOn: Bool) {
+        self.notificationsSwitch.setOn(isOn, animated: true)
     }
 
     func showDefault(league: League) {
@@ -171,6 +177,10 @@ class SettingsViewController: UITableViewController, SettingsViewType {
 
     @IBAction private func rLazyManPressed(_ sender: Any) {
         self.presenter?.rLazyManPressed()
+    }
+
+    @IBAction private func notificationsPressed(_ sender: Any) {
+        self.presenter?.setNotifications(enabled: self.notificationsSwitch.isOn)
     }
 
     @IBAction private func defaultLeaguePressed(_ sender: Any) {

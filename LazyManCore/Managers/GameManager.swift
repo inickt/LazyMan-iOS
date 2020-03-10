@@ -91,7 +91,12 @@ public class GameManager: GameManagerType {
                         self.setGames(date: key, league: league, games: value)
                     }
                     DispatchQueue.main.async {
-                        completion(.success(allGames.values.flatMap { $0 }))
+                        let flatAllGames = allGames.values.flatMap { $0 }
+                        if flatAllGames.isEmpty {
+                            completion(.failure(.noGames))
+                        } else {
+                            completion(.success(flatAllGames))
+                        }
                     }
                 } catch let error {
                     print(error.localizedDescription)

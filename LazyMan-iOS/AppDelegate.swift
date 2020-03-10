@@ -58,6 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = castContainerVC
         window?.makeKeyAndVisible()
 
+        // Refresh notifications
+        if #available(iOS 10.0, *) {
+            if SettingsManager.shared.notifications {
+                NotificationManager.shared.updateNotifications()
+            }
+        }
+
         return true
     }
 

@@ -15,6 +15,7 @@ protocol SettingsPresenterType: AnyObject {
     var favoriteMLBTeamSelector: MultiOptionSelector<Team> { get }
 
     func showDefaults()
+    func setNotifications(enabled: Bool)
     func setDefault(league: League)
     func setDefault(quality: Quality)
     func setDefault(cdn: CDN)
@@ -55,6 +56,11 @@ class SettingsPresenter: SettingsPresenterType {
         let selector = MultiOptionSelector<Team>(teams, selected: self.settingsManager.favoriteNHLTeams) { teams in
             self.settingsManager.favoriteNHLTeams = teams
             self.settingsView?.showNHLTeams(text: self.formatTeams(teams: teams))
+            if #available(iOS 10.0, *) {
+                if self.settingsManager.notifications {
+                    NotificationManager.shared.updateNotifications()
+                }
+            }
         }
         return selector
     }()
@@ -63,6 +69,11 @@ class SettingsPresenter: SettingsPresenterType {
         let selector = MultiOptionSelector<Team>(teams, selected: self.settingsManager.favoriteMLBTeams) { teams in
             self.settingsManager.favoriteMLBTeams = teams
             self.settingsView?.showMLBTeams(text: self.formatTeams(teams: teams))
+            if #available(iOS 10.0, *) {
+                if self.settingsManager.notifications {
+                    NotificationManager.shared.updateNotifications()
+                }
+            }
         }
         return selector
     }()
@@ -70,6 +81,7 @@ class SettingsPresenter: SettingsPresenterType {
     func showDefaults() {
         self.settingsView?.showNHLTeams(text: self.formatTeams(teams: self.settingsManager.favoriteNHLTeams))
         self.settingsView?.showMLBTeams(text: self.formatTeams(teams: self.settingsManager.favoriteMLBTeams))
+        self.settingsView?.showNotifications(isOn: self.settingsManager.notifications)
         self.settingsView?.showDefault(league: self.settingsManager.defaultLeague)
         self.settingsView?.showDefault(quality: self.settingsManager.defaultQuality)
         self.settingsView?.showDefault(cdn: self.settingsManager.defaultCDN)
@@ -78,6 +90,20 @@ class SettingsPresenter: SettingsPresenterType {
         self.settingsView?.showVersionUpdates(isOn: self.settingsManager.versionUpdates)
         self.settingsView?.showBetaUpdates(isOn: self.settingsManager.betaUpdates,
                                            enabled: self.settingsManager.versionUpdates)
+    }
+
+    func setNotifications(enabled: Bool) {
+        if #available(iOS 10.0, *) {
+            self.settingsManager.notifications = enabled
+            if enabled {
+                NotificationManager.shared.updateNotifications()
+            } else {
+                NotificationManager.shared.clearNotifications()
+            }
+        } else {
+            self.settingsView?.show(message: "Notifications are only available on iOS 10 or above.")
+            self.settingsView?.showNotifications(isOn: false)
+        }
     }
 
     func setDefault(league: League) {
