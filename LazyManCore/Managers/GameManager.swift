@@ -21,14 +21,14 @@ public protocol GameManagerType {
                   completion: @escaping (Result<[Game], GameManagerError>) -> Void)
 }
 
-//extension GameManagerType {
-//    func getGames(date: Date,
-//                  league: League,
-//                  ignoreCache: Bool,
-//                  completion: @escaping (Result<[Game], GameManagerError>) -> Void) {
-//        self.getGames(from: date, to: date, league: league, ignoreCache: ignoreCache, completion: completion)
-//    }
-//}
+extension GameManagerType {
+    public func getGames(date: Date,
+                  league: League,
+                  ignoreCache: Bool,
+                  completion: @escaping (Result<[Game], GameManagerError>) -> Void) {
+        self.getGames(from: date, to: date, league: league, ignoreCache: ignoreCache, completion: completion)
+    }
+}
 
 public enum GameManagerError: LazyManError {
 
@@ -66,54 +66,17 @@ public class GameManager: GameManagerType {
 
     // MARK: - Public
 
-    public func getGames(date: Date,
-                         league: League,
-                         ignoreCache: Bool,
-                         completion: @escaping (Result<[Game], GameManagerError>) -> Void) {
-        if !ignoreCache, let games = self.getGames(date: date, league: league) {
-            completion(.success(games))
-            return
-        }
-
-        self.setGames(date: date, league: league, games: nil)
-
-        DispatchQueue.global(qos: .userInitiated).async {
-            switch self.scheduleLoader.load(league: league, date: date) {
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    completion(.failure(.loadError(error)))
-                }
-            case .success(let data):
-                // TODO: errors
-                let allGames = try! league.scheduleResponse(for: data).games
-                let stringDate = DateUtils.convertToYYYYMMDD(from: date)
-                
-                DispatchQueue.main.async {
-//                    if let allGames = allGames, let games = allGames[stringDate] {
-                    if let games = allGames[stringDate] {
-                        allGames.forEach { (key: String, value: [Game]) in
-                            self.setGames(date: key, league: league, games: value)
-                        }
-                        completion(.success(games))
-                    } else {
-                        completion(.failure(.invalid("")))
-                    }
-                }
-            }
-        }
-    }
-    
     public func getGames(from startDate: Date,
                          to endDate: Date,
                          league: League,
                          ignoreCache: Bool,
                          completion: @escaping (Result<[Game], GameManagerError>) -> Void) {
-//        if !ignoreCache, let games = self.getGames(date: date, league: league) {
-//            completion(.success(games))
-//            return
-//        }
+        if !ignoreCache, let games = self.getGames(from: startDate, to: endDate, league: league) {
+            completion(.success(games))
+            return
+        }
 
-//        self.setGames(date: date, league: league, games: nil)
+        self.deleteGames(from: startDate, to: endDate, league: league)
 
         DispatchQueue.global(qos: .userInitiated).async {
             switch self.scheduleLoader.load(league: league, from: startDate, to: endDate) {
@@ -122,18 +85,19 @@ public class GameManager: GameManagerType {
                     completion(.failure(.loadError(error)))
                 }
             case .success(let data):
-                // TODO: errors
-                let allGames = try! league.scheduleResponse(for: data).games
-
-                DispatchQueue.main.async {
-//                    if let allGames = allGames {
-                        allGames.forEach { (key: String, value: [Game]) in
-                            self.setGames(date: key, league: league, games: value)
-                        }
+                do {
+                    let allGames = try league.scheduleResponse(for: data).games
+                    allGames.forEach { (key: String, value: [Game]) in
+                        self.setGames(date: key, league: league, games: value)
+                    }
+                    DispatchQueue.main.async {
                         completion(.success(allGames.values.flatMap { $0 }))
-//                    } else {
-//                        completion(.failure(.invalid("")))
-//                    }
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
+                    DispatchQueue.main.async {
+                        completion(.failure(.invalid(error.localizedDescription)))
+                    }
                 }
             }
         }
@@ -146,9 +110,10 @@ public class GameManager: GameManagerType {
         var games = [Game]()
         
         while currentDate <= endDate {
-            if let newGames = self.getGames(date: currentDate, league: league) {
-                games.append(contentsOf: newGames)
+            guard let newGames = self.getGames(date: currentDate, league: league) else {
+                return nil
             }
+            games.append(contentsOf: newGames)
             guard let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) else { break }
             currentDate = nextDate
         }
@@ -175,6 +140,15 @@ public class GameManager: GameManagerType {
             self.nhlGames[date] = games
         case .MLB:
             self.mlbGames[date] = games
+        }
+    }
+
+    private func deleteGames(from startDate: Date, to endDate: Date, league: League) {
+        var currentDate = startDate
+        while currentDate <= endDate {
+            self.setGames(date: currentDate, league: league, games: nil)
+            guard let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) else { break }
+            currentDate = nextDate
         }
     }
 }

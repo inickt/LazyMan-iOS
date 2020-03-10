@@ -20,9 +20,16 @@ extension ScheduleLoader {
 
 public enum ScheduleLoaderError: LazyManError {
     var messgae: String {
-        return ""
+        switch self {
+        case .urlError(let error):
+            return "Unable to create URL for \(error)."
+        case .loadError(let error):
+            return "Failed to load data from URL \(error)."
+        case .unknown:
+            return "An unknown error occured loading the schedule."
+        }
     }
-    
+
     case urlError(String), loadError(String), unknown
 }
 
