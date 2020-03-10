@@ -16,6 +16,7 @@ public protocol SettingsManagerType {
     var showScores: Bool { get set }
     var favoriteNHLTeams: [Team] { get set }
     var favoriteMLBTeams: [Team] { get set }
+    var notifications: Bool { get set }
     var versionUpdates: Bool { get set }
     var betaUpdates: Bool { get set }
 }
@@ -120,6 +121,16 @@ public class SettingsManager: SettingsManagerType {
             } else {
                 UserDefaults.standard.removeObject(forKey: favoriteMLBTeamsKey)
             }
+        }
+    }
+
+    private let notificationsKey = "notifications"
+    public var notifications: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: notificationsKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: notificationsKey)
         }
     }
 
