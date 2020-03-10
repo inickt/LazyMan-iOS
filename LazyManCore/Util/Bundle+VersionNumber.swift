@@ -6,7 +6,7 @@
 //  Copyright © 2019 Nick Thompson. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension Bundle {
     public var releaseVersionNumber: String {

@@ -43,7 +43,7 @@ public struct Feed: Hashable {
     }
 
     // TODO: - This is bad now, refactor
-    public init(highlightName: String, league: League, url: URL) {
+    public init(highlightName: String, league: League, url: URL?) {
         self.playlistUrl = url
         self.feedType = FeedType(feedType: highlightName)
         self.league = league
