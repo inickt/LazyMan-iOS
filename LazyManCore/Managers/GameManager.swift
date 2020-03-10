@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 public protocol GameManagerType {
     func getGames(date: Date,

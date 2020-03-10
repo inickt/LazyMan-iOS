@@ -8,7 +8,6 @@ abstract_target 'core' do
   project 'LazyManCore'
   use_frameworks!
 
-  pod 'SwiftyJSON'
   pod 'Pantomime', :git => 'https://github.com/inickt/Pantomime.git', :branch => 'master', :inhibit_warnings => true
 
   target 'LazyManCore-iOS' do
@@ -31,7 +30,6 @@ target 'LazyMan-iOS' do
   use_frameworks!
 
   pod 'FSCalendar', '2.7.9', :inhibit_warnings => true
-  pod 'SwiftyJSON'
   pod 'Pantomime', :git => 'https://github.com/inickt/Pantomime.git', :branch => 'master', :inhibit_warnings => true
   pod 'OptionSelector', '~> 0.2'
   pod 'Firebase/Core'
