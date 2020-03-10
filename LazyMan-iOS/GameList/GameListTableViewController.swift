@@ -40,7 +40,7 @@ class GameListTableViewController: UITableViewController {
         GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: false) { result in
             switch result {
             case .success(let games):
-                self.games = games
+                self.games = games.sorted(by: TeamManager.shared.compareGames)
             case .failure(let error):
                 self.updateError(message: error.messgae)
             }
@@ -54,7 +54,7 @@ class GameListTableViewController: UITableViewController {
         GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: false) { result in
             switch result {
             case .success(let games):
-                self.games = games
+                self.games = games.sorted(by: TeamManager.shared.compareGames)
             case .failure(let error):
                 if self.games == nil {
                     self.updateError(message: error.messgae)
@@ -74,7 +74,7 @@ class GameListTableViewController: UITableViewController {
         GameManager.manager.getGames(date: self.date, league: self.league, ignoreCache: true) { result in
             switch result {
             case .success(let games):
-                self.games = games
+                self.games = games.sorted(by: TeamManager.shared.compareGames)
                 self.refreshControl?.endRefreshing()
             case .failure(let error):
                 if self.games == nil {

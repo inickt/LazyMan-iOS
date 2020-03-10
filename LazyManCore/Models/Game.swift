@@ -71,18 +71,14 @@ public class Game {
 
     // MARK: - Init
 
-    public init?(homeTeam: Team,
-          awayTeam: Team,
-          startTime: Date,
-          gameState: GameState,
-          liveGameState: String,
-          homeTeamScore: Int?,
-          awayTeamScore: Int?,
-          feeds: [Feed]) {
-        guard homeTeam.league == awayTeam.league else {
-            return nil
-        }
-
+    public init(homeTeam: Team,
+                awayTeam: Team,
+                startTime: Date,
+                gameState: GameState,
+                liveGameState: String,
+                homeTeamScore: Int?,
+                awayTeamScore: Int?,
+                feeds: [Feed]) {
         self.homeTeam = homeTeam
         self.awayTeam = awayTeam
         self.startTime = startTime

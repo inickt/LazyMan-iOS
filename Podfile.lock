@@ -74,7 +74,6 @@ PODS:
   - OptionSelector (0.2.3)
   - Pantomime (0.1.5)
   - Protobuf (3.11.2)
-  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Crashlytics
@@ -84,7 +83,6 @@ DEPENDENCIES:
   - google-cast-sdk
   - OptionSelector (~> 0.2)
   - Pantomime (from `https://github.com/inickt/Pantomime.git`, branch `master`)
-  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
@@ -105,7 +103,6 @@ SPEC REPOS:
     - nanopb
     - OptionSelector
     - Protobuf
-    - SwiftyJSON
 
 EXTERNAL SOURCES:
   Pantomime:
@@ -136,8 +133,7 @@ SPEC CHECKSUMS:
   OptionSelector: 2caec96f48686f40eacf73630e472ed774f73fa7
   Pantomime: 2aec2b603b91f6d5a4774ecce9c0ed073d3b4e5d
   Protobuf: dd1aaea7140debfe4dd0683fb8ef208e527ae153
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 7eaa59dec3a57ee2f7f115afbfde15a793e21b06
+PODFILE CHECKSUM: 3e5f13534e8794b1ff37af951e6f2bdc7ec3bac9
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.9.0

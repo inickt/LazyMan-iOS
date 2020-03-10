@@ -15,6 +15,7 @@ public struct Team: Codable {
     public var abbreviation: String
     public var league: League
     public var logo: Image? {
+        // TODO broken on macOS
         return try? Image(named: "\(self.league)/\(self.teamName.lowercased().replace(" ", replacement: "-"))", in: frameworkBundle, compatibleWith: nil)
     }
 
