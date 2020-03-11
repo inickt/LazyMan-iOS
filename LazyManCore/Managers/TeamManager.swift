@@ -22,17 +22,10 @@ public final class TeamManager: TeamManagerType {
 
     // MARK: - Shared Manager
 
-    public static let shared = TeamManager()
+    public static let shared: TeamManagerType = TeamManager()
 
-    // MARK: Initialization
+    // MARK: - Public Properties
 
-    public init(settingsManager: SettingsManagerType = SettingsManager.shared) {
-        self.settingsManager = settingsManager
-    }
-
-    // MARK: - Private Properties
-
-    private let settingsManager: SettingsManagerType
     public lazy var nhlTeams: [String: Team] = {
         var teams = [String: Team]()
         for team in self.loadTeams(league: .NHL) {
@@ -40,23 +33,26 @@ public final class TeamManager: TeamManagerType {
         }
         return teams
     }()
-    public var mlbTeams: [String: Team] {
+
+    public lazy var mlbTeams: [String: Team] = {
         var teams = [String: Team]()
         for team in self.loadTeams(league: .MLB) {
             teams[team.teamName] = team
         }
         return teams
+    }()
+
+    // MARK: - Private Properties
+
+    private let settingsManager: SettingsManagerType
+
+    // MARK: Init
+
+    public init(settingsManager: SettingsManagerType = SettingsManager.shared) {
+        self.settingsManager = settingsManager
     }
 
-    public var newMlbTeams: [Team] {
-
-        let decoder = PropertyListDecoder()
-        let url = frameworkBundle?.url(forResource: "MLBTeams", withExtension: "plist")
-        let data = try! Data(contentsOf: url!)
-        let teams = try! decoder.decode([Team].self, from: data)
-
-        return teams
-    }
+    // MARK: - Public
 
     public func isFavorite(team: Team) -> Bool {
         return self.settingsManager.favoriteMLBTeams.contains(team) ||
@@ -89,6 +85,8 @@ public final class TeamManager: TeamManagerType {
             return lhs.gameState.rawValue < rhs.gameState.rawValue
         }
     }
+
+    // MARK: - Private
 
     private func loadTeams(league: League) -> [Team] {
         let decoder = PropertyListDecoder()
