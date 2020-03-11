@@ -45,6 +45,8 @@ public class ScheduleWebLoader: ScheduleLoader {
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
         config.urlCache = nil
+        config.httpAdditionalHeaders = config.httpAdditionalHeaders ?? [:]
+        config.httpAdditionalHeaders?["x-platform"] = "ios-phone"
         self.session = URLSession(configuration: config)
     }
 
@@ -58,7 +60,7 @@ public class ScheduleWebLoader: ScheduleLoader {
              return .failure(.urlError("\(startDateString)–\(endDateString) schedule"))
         }
 
-        let (data, _, error) = URLSession.shared.synchronousDataTask(with: url)
+        let (data, _, error) = self.session.synchronousDataTask(with: url)
 
         if let data = data {
             return .success(data)
