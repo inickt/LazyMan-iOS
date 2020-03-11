@@ -21,7 +21,7 @@ private extension MLBScheduleResponse.DateResponse {
 
 private extension MLBScheduleResponse.MediaResponse {
     func asFeeds(for date: Date) -> [Feed] {
-        return epg?.flatMap { $0.asFeeds(for: date) } ?? []
+        return (epg?.flatMap { $0.asFeeds(for: date) } ?? []) + (epgAlternate?.flatMap { $0.asFeeds(for: date) } ?? [])
     }
 }
 
@@ -37,8 +37,17 @@ private extension MLBScheduleResponse.EpgResponse {
                      league: .MLB,
                      date: date)
             }
-        case "Extended Highlights", "Recap":
-            guard let playbackUrlString = items.first?.playbacks?.first(where: { $0.name == "HTTP_CLOUD_TABLET_60" })?.url,
+        default:
+            return []
+        }
+    }
+}
+
+private extension MLBScheduleResponse.EpgAlternateResponse {
+    func asFeeds(for date: Date) -> [Feed] {
+        switch title {
+        case "Extended Highlights", "Daily Recap":
+            guard let playbackUrlString = items.first?.playbacks?.first(where: { $0.name == "HTTP_CLOUD_WIRED_60" })?.url,
                 let playbackUrl = URL(string: playbackUrlString) else {
                     return []
             }
@@ -75,6 +84,6 @@ private extension MLBScheduleResponse.GameResponse {
                     liveGameState: liveGameState,
                     homeTeamScore: homeTeamScore,
                     awayTeamScore: awayTeamScore,
-                    feeds: content.media.asFeeds(for: gameDate))
+                    feeds: content.media?.asFeeds(for: gameDate) ?? [])
     }
 }

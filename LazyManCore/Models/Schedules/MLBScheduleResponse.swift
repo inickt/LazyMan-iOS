@@ -35,11 +35,12 @@ struct MLBScheduleResponse: Codable {
 
     struct ContentResponse: Codable {
         let link: String
-        let media: MediaResponse
+        let media: MediaResponse?
     }
 
     struct MediaResponse: Codable {
         let epg: [EpgResponse]?
+        let epgAlternate: [EpgAlternateResponse]?
     }
 
     struct EpgResponse: Codable {
@@ -47,11 +48,20 @@ struct MLBScheduleResponse: Codable {
         let items: [EpgItemResponse]
     }
 
+    struct EpgAlternateResponse: Codable {
+        let title: String
+        let items: [EpgAlternateItemResponse]
+    }
+
     struct EpgItemResponse: Codable {
         let mediaFeedType: String?
         let callLetters: String?
         let feedName: String?
         let id: Int
+        let playbacks: [PlaybackResponse]?
+    }
+
+    struct EpgAlternateItemResponse: Codable {
         let playbacks: [PlaybackResponse]?
     }
 

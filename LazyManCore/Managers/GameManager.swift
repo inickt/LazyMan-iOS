@@ -37,7 +37,7 @@ public enum GameManagerError: LazyManError {
         case .noGames:
             return "There are no games today."
         case .invalid(let type):
-            return "Error parsing JSON \(type)."
+            return "Error parsing JSON: \(type)"
         case .loadError(let error):
             return error.messgae
         }
@@ -99,7 +99,7 @@ public class GameManager: GameManagerType {
                         }
                     }
                 } catch let error {
-                    print(error.localizedDescription)
+                    print(error)
                     DispatchQueue.main.async {
                         completion(.failure(.invalid(error.localizedDescription)))
                     }
