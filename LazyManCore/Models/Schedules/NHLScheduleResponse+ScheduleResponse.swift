@@ -43,14 +43,23 @@ private extension NHLScheduleResponse.EpgResponse {
                     let url = URL(string: stringURL) else {
                     return nil
                 }
-                return Feed(highlightName: "\($0.callLetters ?? "") (Audio)" , league: .NHL, url: url)
+                return Feed(feedType: $0.mediaFeedType ?? "",
+                            callLetters: "\($0.callLetters ?? "") - Audio",
+                            feedName: $0.feedName ?? "",
+                            league: .NHL,
+                            url: url)
+
             }
         case "Extended Highlights", "Recap":
             guard let stringURL = items.first?.mediaPlaybackURL,
                 let url = URL(string: stringURL) else {
                 return []
             }
-            return [Feed(highlightName: title, league: .NHL, url: url)]
+            return [Feed(feedType: "",
+                         callLetters: "",
+                         feedName: title,
+                         league: .NHL,
+                         url: url)]
         default:
             return []
         }

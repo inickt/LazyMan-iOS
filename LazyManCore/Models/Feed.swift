@@ -43,12 +43,12 @@ public struct Feed: Hashable {
     }
 
     // TODO: - This is bad now, refactor
-    public init(highlightName: String, league: League, url: URL?) {
+    public init(feedType: String, callLetters: String, feedName: String, league: League, url: URL?) {
         self.playlistUrl = url
-        self.feedType = FeedType(feedType: highlightName)
+        self.feedType = FeedType(feedType: feedType)
         self.league = league
-        self.feedName = highlightName
-        self.callLetters = ""
+        self.feedName = feedName
+        self.callLetters = callLetters
         self.playbackID = 0
         self.date = Date()
     }
