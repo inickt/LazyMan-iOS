@@ -48,8 +48,9 @@ struct NHLScheduleResponse: Codable {
     }
 
     struct EpgItemResponse: Codable {
-        let mediaPlaybackId: String
+        let mediaPlaybackId: String?
         let mediaFeedType: String?
+        let mediaPlaybackURL: String?
         let callLetters: String?
         let feedName: String?
         let playbacks: [PlaybackResponse]?

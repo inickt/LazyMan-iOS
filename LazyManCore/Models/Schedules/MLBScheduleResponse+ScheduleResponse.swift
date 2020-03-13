@@ -51,7 +51,11 @@ private extension MLBScheduleResponse.EpgAlternateResponse {
                 let playbackUrl = URL(string: playbackUrlString) else {
                     return []
             }
-            return [Feed(highlightName: title, league: .MLB, url: playbackUrl)]
+            return [Feed(feedType: "",
+                         callLetters: "",
+                         feedName: title,
+                         league: .MLB,
+                         url: playbackUrl)]
         default:
             return []
         }
