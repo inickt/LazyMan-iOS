@@ -126,7 +126,7 @@ public class FeedManager: FeedManagerType {
      */
     private func getMasterURL(league: League, cdn: CDN, playbackID: Int, date: Date) -> URL? {
         let dateString = DateUtils.convertToYYYYMMDD(from: date, timeZone: TimeZone(identifier: "America/Los_Angeles")!)
-        let masterURLSource = "http://nhl.freegamez.ga/getM3U8.php?league=\(league.rawValue)&date=\(dateString)&id=\(playbackID)&cdn=\(cdn.rawValue)"
+        let masterURLSource = "http://freegamez.ga/getM3U8.php?league=\(league.rawValue)&date=\(dateString)&id=\(playbackID)&cdn=\(cdn.rawValue)"
 
         if let contents = try? String(contentsOf: URL(string: masterURLSource)!) {
             return URL(string: contents)
