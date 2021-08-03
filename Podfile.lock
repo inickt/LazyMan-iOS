@@ -115,8 +115,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/inickt/Pantomime.git
 
 SPEC CHECKSUMS:
-  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
+  Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
   Firebase: 0219bb4782eb1406f1b9b0628a2e625484ce910d
   FirebaseAnalytics: f68b9f3f1241385129ae0a83b63627fc420c05e5
   FirebaseCore: 632e05cc5e1199d9147122c16d92305eb04c34bd
@@ -136,4 +136,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3e5f13534e8794b1ff37af951e6f2bdc7ec3bac9
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.10.2
