@@ -3,314 +3,324 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>name</key>
-		<string>Anaheim Ducks</string>
-		<key>teamName</key>
-		<string>Ducks</string>
 		<key>abbreviation</key>
 		<string>ANA</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Anaheim Ducks</string>
+		<key>teamName</key>
+		<string>Ducks</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Arizona Coyotes</string>
-		<key>teamName</key>
-		<string>Coyotes</string>
 		<key>abbreviation</key>
 		<string>ARI</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Arizona Coyotes</string>
+		<key>teamName</key>
+		<string>Coyotes</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Boston Bruins</string>
-		<key>teamName</key>
-		<string>Bruins</string>
 		<key>abbreviation</key>
 		<string>BOS</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Boston Bruins</string>
+		<key>teamName</key>
+		<string>Bruins</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Buffalo Sabres</string>
-		<key>teamName</key>
-		<string>Sabres</string>
 		<key>abbreviation</key>
 		<string>BUF</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Buffalo Sabres</string>
+		<key>teamName</key>
+		<string>Sabres</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Calgary Flames</string>
-		<key>teamName</key>
-		<string>Flames</string>
 		<key>abbreviation</key>
 		<string>CGY</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Calgary Flames</string>
+		<key>teamName</key>
+		<string>Flames</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Carolina Hurricanes</string>
-		<key>teamName</key>
-		<string>Hurricanes</string>
 		<key>abbreviation</key>
 		<string>CAR</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Carolina Hurricanes</string>
+		<key>teamName</key>
+		<string>Hurricanes</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Chicago Blackhawks</string>
-		<key>teamName</key>
-		<string>Blackhawks</string>
 		<key>abbreviation</key>
 		<string>CHI</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Chicago Blackhawks</string>
+		<key>teamName</key>
+		<string>Blackhawks</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Colorado Avalanche</string>
-		<key>teamName</key>
-		<string>Avalanche</string>
 		<key>abbreviation</key>
 		<string>COL</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Colorado Avalanche</string>
+		<key>teamName</key>
+		<string>Avalanche</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Columbus Blue Jackets</string>
-		<key>teamName</key>
-		<string>Blue Jackets</string>
 		<key>abbreviation</key>
 		<string>CBJ</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Columbus Blue Jackets</string>
+		<key>teamName</key>
+		<string>Blue Jackets</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Dallas Stars</string>
-		<key>teamName</key>
-		<string>Stars</string>
 		<key>abbreviation</key>
 		<string>DAL</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Dallas Stars</string>
+		<key>teamName</key>
+		<string>Stars</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Detroit Red Wings</string>
-		<key>teamName</key>
-		<string>Red Wings</string>
 		<key>abbreviation</key>
 		<string>DET</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Detroit Red Wings</string>
+		<key>teamName</key>
+		<string>Red Wings</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Edmonton Oilers</string>
-		<key>teamName</key>
-		<string>Oilers</string>
 		<key>abbreviation</key>
 		<string>EDM</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Edmonton Oilers</string>
+		<key>teamName</key>
+		<string>Oilers</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Florida Panthers</string>
-		<key>teamName</key>
-		<string>Panthers</string>
 		<key>abbreviation</key>
 		<string>FLA</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Florida Panthers</string>
+		<key>teamName</key>
+		<string>Panthers</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Los Angeles Kings</string>
-		<key>teamName</key>
-		<string>Kings</string>
 		<key>abbreviation</key>
 		<string>LAK</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Los Angeles Kings</string>
+		<key>teamName</key>
+		<string>Kings</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Minnesota Wild</string>
-		<key>teamName</key>
-		<string>Wild</string>
 		<key>abbreviation</key>
 		<string>MIN</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Minnesota Wild</string>
+		<key>teamName</key>
+		<string>Wild</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Montréal Canadiens</string>
-		<key>teamName</key>
-		<string>Canadiens</string>
 		<key>abbreviation</key>
 		<string>MTL</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Montréal Canadiens</string>
+		<key>teamName</key>
+		<string>Canadiens</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Nashville Predators</string>
-		<key>teamName</key>
-		<string>Predators</string>
 		<key>abbreviation</key>
 		<string>NSH</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Nashville Predators</string>
+		<key>teamName</key>
+		<string>Predators</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>New Jersey Devils</string>
-		<key>teamName</key>
-		<string>Devils</string>
 		<key>abbreviation</key>
 		<string>NJD</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>New Jersey Devils</string>
+		<key>teamName</key>
+		<string>Devils</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>New York Islanders</string>
-		<key>teamName</key>
-		<string>Islanders</string>
 		<key>abbreviation</key>
 		<string>NYI</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>New York Islanders</string>
+		<key>teamName</key>
+		<string>Islanders</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>New York Rangers</string>
-		<key>teamName</key>
-		<string>Rangers</string>
 		<key>abbreviation</key>
 		<string>NYR</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>New York Rangers</string>
+		<key>teamName</key>
+		<string>Rangers</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Ottawa Senators</string>
-		<key>teamName</key>
-		<string>Senators</string>
 		<key>abbreviation</key>
 		<string>OTT</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Ottawa Senators</string>
+		<key>teamName</key>
+		<string>Senators</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Philadelphia Flyers</string>
-		<key>teamName</key>
-		<string>Flyers</string>
 		<key>abbreviation</key>
 		<string>PHI</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Philadelphia Flyers</string>
+		<key>teamName</key>
+		<string>Flyers</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Pittsburgh Penguins</string>
-		<key>teamName</key>
-		<string>Penguins</string>
 		<key>abbreviation</key>
 		<string>PIT</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Pittsburgh Penguins</string>
+		<key>teamName</key>
+		<string>Penguins</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>San Jose Sharks</string>
-		<key>teamName</key>
-		<string>Sharks</string>
 		<key>abbreviation</key>
 		<string>SJS</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>San Jose Sharks</string>
+		<key>teamName</key>
+		<string>Sharks</string>
 	</dict>
 	<dict>
+		<key>abbreviation</key>
+		<string>SEA</string>
+		<key>league</key>
+		<string>NHL</string>
 		<key>name</key>
-		<string>St. Louis Blues</string>
+		<string>Seattle Kraken</string>
 		<key>teamName</key>
-		<string>Blues</string>
+		<string>Kraken</string>
+	</dict>
+	<dict>
 		<key>abbreviation</key>
 		<string>STL</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>St. Louis Blues</string>
+		<key>teamName</key>
+		<string>Blues</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Tampa Bay Lightning</string>
-		<key>teamName</key>
-		<string>Lightning</string>
 		<key>abbreviation</key>
 		<string>TBL</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Tampa Bay Lightning</string>
+		<key>teamName</key>
+		<string>Lightning</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Toronto Maple Leafs</string>
-		<key>teamName</key>
-		<string>Maple Leafs</string>
 		<key>abbreviation</key>
 		<string>TOR</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Toronto Maple Leafs</string>
+		<key>teamName</key>
+		<string>Maple Leafs</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Vancouver Canucks</string>
-		<key>teamName</key>
-		<string>Canucks</string>
 		<key>abbreviation</key>
 		<string>VAN</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Vancouver Canucks</string>
+		<key>teamName</key>
+		<string>Canucks</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Vegas Golden Knights</string>
-		<key>teamName</key>
-		<string>Golden Knights</string>
 		<key>abbreviation</key>
 		<string>VGK</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Vegas Golden Knights</string>
+		<key>teamName</key>
+		<string>Golden Knights</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Washington Capitals</string>
-		<key>teamName</key>
-		<string>Capitals</string>
 		<key>abbreviation</key>
 		<string>WSH</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Washington Capitals</string>
+		<key>teamName</key>
+		<string>Capitals</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Winnipeg Jets</string>
-		<key>teamName</key>
-		<string>Jets</string>
 		<key>abbreviation</key>
 		<string>WPG</string>
 		<key>league</key>
 		<string>NHL</string>
+		<key>name</key>
+		<string>Winnipeg Jets</string>
+		<key>teamName</key>
+		<string>Jets</string>
 	</dict>
 </array>
 </plist>

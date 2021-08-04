@@ -11,22 +11,22 @@ abstract_target 'core' do
   pod 'Pantomime', :git => 'https://github.com/inickt/Pantomime.git', :branch => 'master', :inhibit_warnings => true
 
   target 'LazyManCore-iOS' do
-		platform :ios, '9.0'
+		platform :ios, '13.0'
 	end
 
 	target 'LazyManCore-tvOS' do
-	  platform :tvos, '9.0'
+	  platform :tvos, '13.0'
 	end
 
 	target 'LazyManCore-macOS' do
-	  platform :macos, '10.12'
+	  platform :macos, '10.15'
 	end
 end
 
 # Pods for LazyMan-iOS
 target 'LazyMan-iOS' do
 	project 'LazyMan-iOS'
-  platform :ios, '9.0'
+  platform :ios, '13.0'
   use_frameworks!
 
   pod 'FSCalendar', '2.7.9', :inhibit_warnings => true
