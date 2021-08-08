@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "devils-light.svg",
+      "filename" : "devils-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "devils-dark.svg",
+      "filename" : "devils-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

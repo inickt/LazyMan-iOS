@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "dodgers-light.svg",
+      "filename" : "dodgers-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "dodgers-dark.svg",
+      "filename" : "dodgers-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

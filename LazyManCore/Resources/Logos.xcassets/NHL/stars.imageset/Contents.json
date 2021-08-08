@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "stars-light.svg",
+      "filename" : "stars-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "stars-dark.svg",
+      "filename" : "stars-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

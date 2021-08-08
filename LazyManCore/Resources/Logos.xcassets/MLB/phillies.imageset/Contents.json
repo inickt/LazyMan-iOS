@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "phillies-light.svg",
+      "filename" : "phillies-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "phillies-dark.svg",
+      "filename" : "phillies-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

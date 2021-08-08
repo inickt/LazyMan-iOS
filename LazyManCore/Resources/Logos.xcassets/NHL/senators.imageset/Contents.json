@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "senators-light.svg",
+      "filename" : "senators-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "senators-dark.svg",
+      "filename" : "senators-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

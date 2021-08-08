@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "rangers-light.svg",
+      "filename" : "rangers-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "rangers-dark.svg",
+      "filename" : "rangers-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

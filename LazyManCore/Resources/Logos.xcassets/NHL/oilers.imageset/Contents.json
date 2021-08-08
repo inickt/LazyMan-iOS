@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "oilers-light.svg",
+      "filename" : "oilers-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "oilers-dark.svg",
+      "filename" : "oilers-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "braves-light.svg",
+      "filename" : "braves-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "braves-dark.svg",
+      "filename" : "braves-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

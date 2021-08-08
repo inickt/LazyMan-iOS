@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "kraken-light.svg",
+      "filename" : "kraken-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "kraken-dark.svg",
+      "filename" : "kraken-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

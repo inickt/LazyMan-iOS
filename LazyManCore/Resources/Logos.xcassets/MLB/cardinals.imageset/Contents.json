@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "cardinals-light.svg",
+      "filename" : "cardinals-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "cardinals-dark.svg",
+      "filename" : "cardinals-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

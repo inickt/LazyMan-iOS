@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "flyers-light.svg",
+      "filename" : "flyers-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "flyers-dark.svg",
+      "filename" : "flyers-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

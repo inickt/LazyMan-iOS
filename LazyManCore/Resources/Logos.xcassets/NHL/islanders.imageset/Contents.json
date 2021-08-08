@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "islanders-light.svg",
+      "filename" : "islanders-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "islanders-dark.svg",
+      "filename" : "islanders-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

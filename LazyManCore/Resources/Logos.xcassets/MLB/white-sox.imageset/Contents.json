@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "white-sox-light.svg",
+      "filename" : "white-sox-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "white-sox-dark.svg",
+      "filename" : "white-sox-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

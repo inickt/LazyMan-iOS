@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "lightning-light.svg",
+      "filename" : "lightning-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "lightning-dark.svg",
+      "filename" : "lightning-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

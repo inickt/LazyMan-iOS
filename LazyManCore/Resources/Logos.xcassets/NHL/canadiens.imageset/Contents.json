@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "canadiens-light.svg",
+      "filename" : "canadiens-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "canadiens-dark.svg",
+      "filename" : "canadiens-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

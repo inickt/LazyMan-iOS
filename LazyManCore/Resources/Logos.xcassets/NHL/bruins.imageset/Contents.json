@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bruins-light.svg",
+      "filename" : "bruins-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "bruins-dark.svg",
+      "filename" : "bruins-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

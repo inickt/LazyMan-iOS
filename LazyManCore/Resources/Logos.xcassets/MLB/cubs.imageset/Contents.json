@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "cubs-light.svg",
+      "filename" : "cubs-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "cubs-dark.svg",
+      "filename" : "cubs-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

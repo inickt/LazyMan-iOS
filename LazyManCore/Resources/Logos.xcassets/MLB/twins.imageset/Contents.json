@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "twins-light.svg",
+      "filename" : "twins-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "twins-dark.svg",
+      "filename" : "twins-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

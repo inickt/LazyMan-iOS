@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "hurricanes-light.svg",
+      "filename" : "hurricanes-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "hurricanes-dark.svg",
+      "filename" : "hurricanes-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

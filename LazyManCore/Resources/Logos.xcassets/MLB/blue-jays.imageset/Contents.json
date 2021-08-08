@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "blue-jays-light.svg",
+      "filename" : "blue-jays-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "blue-jays-dark.svg",
+      "filename" : "blue-jays-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "angels-light.svg",
+      "filename" : "angels-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "angels-dark.svg",
+      "filename" : "angels-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

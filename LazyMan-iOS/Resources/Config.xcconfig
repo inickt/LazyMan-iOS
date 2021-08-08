@@ -1,0 +1,16 @@
+//
+//  Config.xcconfig
+//  LazyMan-iOS
+//
+//  Created by Nick Thompson on 8/8/21.
+//  Copyright © 2021 Nick Thompson. All rights reserved.
+//
+
+// Copy LocalConfig-template.xcconfig to LocalConfig.xcconfig to configure
+
+#include? "LocalConfig.xcconfig"
+
+DEVELOPMENT_TEAM = $(LOCAL_DEVELOPMENT_TEAM)
+PRODUCT_BUNDLE_IDENTIFIER = dev.nickt.LazyMan-iOS$(DEVELOPMENT_TEAM)
+
+#include? "LocalConfig.xcconfig"

@@ -31,6 +31,7 @@
 		01DC7B9720925325003C311A /* GameListTableBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */; };
 		01DC7B9F2092BE6B003C311A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DC7B9E2092BE6B003C311A /* SettingsViewController.swift */; };
 		01DC7BA020940B23003C311A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01DC7BA220940B23003C311A /* Settings.storyboard */; };
+		01DC8E7D26C09A1D003EDA9D /* LocalConfig-template.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 01DC8E7C26C09A1D003EDA9D /* LocalConfig-template.xcconfig */; };
 		01EC4DE5225AA78300034D83 /* DarkOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC4DE4225AA78300034D83 /* DarkOptionViewController.swift */; };
 		01EC4DE7225AA97500034D83 /* CDN+OptionSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC4DE6225AA97500034D83 /* CDN+OptionSelectorCell.swift */; };
 		01EC4DE9225AA98500034D83 /* Feed+OptionSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC4DE8225AA98500034D83 /* Feed+OptionSelectorCell.swift */; };
@@ -80,6 +81,9 @@
 		01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListTableBackgroundView.xib; sourceTree = "<group>"; };
 		01DC7B9E2092BE6B003C311A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		01DC7BA120940B23003C311A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		01DC8E7A26C091EE003EDA9D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		01DC8E7B26C094CB003EDA9D /* LocalConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LocalConfig.xcconfig; sourceTree = "<group>"; };
+		01DC8E7C26C09A1D003EDA9D /* LocalConfig-template.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "LocalConfig-template.xcconfig"; sourceTree = "<group>"; };
 		01EC4DE4225AA78300034D83 /* DarkOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkOptionViewController.swift; sourceTree = "<group>"; };
 		01EC4DE6225AA97500034D83 /* CDN+OptionSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDN+OptionSelectorCell.swift"; sourceTree = "<group>"; };
 		01EC4DE8225AA98500034D83 /* Feed+OptionSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Feed+OptionSelectorCell.swift"; sourceTree = "<group>"; };
@@ -207,6 +211,9 @@
 				012CB8B9203A3E7C00E76740 /* LaunchScreen.storyboard */,
 				012CB8B7203A3E7C00E76740 /* Assets.xcassets */,
 				010E4585203A6B4A001EF46C /* Icons.xcassets */,
+				01DC8E7A26C091EE003EDA9D /* Config.xcconfig */,
+				01DC8E7B26C094CB003EDA9D /* LocalConfig.xcconfig */,
+				01DC8E7C26C09A1D003EDA9D /* LocalConfig-template.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -328,6 +335,7 @@
 				012CB8B6203A3E7C00E76740 /* GameList.storyboard in Resources */,
 				01344C862061D0EC0040BDE7 /* Game.storyboard in Resources */,
 				0142C652226A72EE0060A017 /* GoogleService-Info.plist in Resources */,
+				01DC8E7D26C09A1D003EDA9D /* LocalConfig-template.xcconfig in Resources */,
 				0179AEC22076DB5D00539C6D /* nhlschedule2018-04-05.json in Resources */,
 				01DC7BA020940B23003C311A /* Settings.storyboard in Resources */,
 			);
@@ -541,6 +549,7 @@
 /* Begin XCBuildConfiguration section */
 		012CB8BD203A3E7C00E76740 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01DC8E7A26C091EE003EDA9D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -600,6 +609,7 @@
 		};
 		012CB8BE203A3E7C00E76740 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01DC8E7A26C091EE003EDA9D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -659,11 +669,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/LazyMan-iOS/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.nickt.LazyMan-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -680,11 +688,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/LazyMan-iOS/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.nickt.LazyMan-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

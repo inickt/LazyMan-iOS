@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "sabres-light.svg",
+      "filename" : "sabres-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "sabres-dark.svg",
+      "filename" : "sabres-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

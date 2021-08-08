@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "red-wings-light.svg",
+      "filename" : "red-wings-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "red-wings-dark.svg",
+      "filename" : "red-wings-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

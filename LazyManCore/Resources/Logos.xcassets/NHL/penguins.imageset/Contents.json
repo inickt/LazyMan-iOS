@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "penguins-light.svg",
+      "filename" : "penguins-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "penguins-dark.svg",
+      "filename" : "penguins-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

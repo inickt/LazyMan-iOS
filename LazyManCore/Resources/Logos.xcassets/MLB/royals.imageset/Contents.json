@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "royals-light.svg",
+      "filename" : "royals-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "royals-dark.svg",
+      "filename" : "royals-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

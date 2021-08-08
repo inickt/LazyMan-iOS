@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "flames-light.svg",
+      "filename" : "flames-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "flames-dark.svg",
+      "filename" : "flames-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

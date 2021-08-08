@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "marlins-light.svg",
+      "filename" : "marlins-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "marlins-dark.svg",
+      "filename" : "marlins-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

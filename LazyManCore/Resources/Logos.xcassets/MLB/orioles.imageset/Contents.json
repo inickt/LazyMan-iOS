@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "orioles-light.svg",
+      "filename" : "orioles-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "orioles-dark.svg",
+      "filename" : "orioles-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

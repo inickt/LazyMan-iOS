@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "reds-light.svg",
+      "filename" : "reds-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "reds-dark.svg",
+      "filename" : "reds-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

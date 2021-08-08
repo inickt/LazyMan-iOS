@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "nationals-light.svg",
+      "filename" : "nationals-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "nationals-dark.svg",
+      "filename" : "nationals-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

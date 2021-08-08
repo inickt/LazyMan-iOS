@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "coyotes-light.svg",
+      "filename" : "coyotes-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "coyotes-dark.svg",
+      "filename" : "coyotes-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

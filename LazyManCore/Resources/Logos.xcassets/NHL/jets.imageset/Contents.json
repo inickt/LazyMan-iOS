@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "jets-light.svg",
+      "filename" : "jets-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "jets-dark.svg",
+      "filename" : "jets-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

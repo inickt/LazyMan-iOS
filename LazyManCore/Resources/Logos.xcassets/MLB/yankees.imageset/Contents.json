@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "yankees-light.svg",
+      "filename" : "yankees-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "yankees-dark.svg",
+      "filename" : "yankees-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

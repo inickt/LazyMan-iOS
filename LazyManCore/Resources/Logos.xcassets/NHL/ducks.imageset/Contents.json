@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ducks-light.svg",
+      "filename" : "ducks-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "ducks-dark.svg",
+      "filename" : "ducks-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

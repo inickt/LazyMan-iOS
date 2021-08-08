@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "d-backs-light.svg",
+      "filename" : "d-backs-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "d-backs-dark.svg",
+      "filename" : "d-backs-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

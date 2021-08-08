@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "giants-light.svg",
+      "filename" : "giants-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "giants-dark.svg",
+      "filename" : "giants-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

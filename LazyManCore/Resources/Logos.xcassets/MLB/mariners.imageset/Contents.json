@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "mariners-light.svg",
+      "filename" : "mariners-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "mariners-dark.svg",
+      "filename" : "mariners-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

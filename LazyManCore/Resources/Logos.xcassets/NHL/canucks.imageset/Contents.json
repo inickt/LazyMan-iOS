@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "canucks-light.svg",
+      "filename" : "canucks-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "canucks-dark.svg",
+      "filename" : "canucks-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

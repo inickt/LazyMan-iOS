@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "capitals-light.svg",
+      "filename" : "capitals-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "capitals-dark.svg",
+      "filename" : "capitals-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

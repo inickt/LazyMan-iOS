@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "sharks-light.svg",
+      "filename" : "sharks-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "sharks-dark.svg",
+      "filename" : "sharks-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

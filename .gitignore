@@ -94,3 +94,6 @@ vendor/
 
 # Storyboard version number
 *.storyboardbak
+
+# Local development config
+LocalConfig.xcconfig

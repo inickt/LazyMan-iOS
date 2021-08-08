@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "wild-light.svg",
+      "filename" : "wild-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "wild-dark.svg",
+      "filename" : "wild-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

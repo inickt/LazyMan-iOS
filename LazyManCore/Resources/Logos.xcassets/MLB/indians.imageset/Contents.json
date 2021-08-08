@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "indians-light.svg",
+      "filename" : "indians-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "indians-dark.svg",
+      "filename" : "indians-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

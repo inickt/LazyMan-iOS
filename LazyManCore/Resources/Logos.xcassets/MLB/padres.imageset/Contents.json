@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "padres-light.svg",
+      "filename" : "padres-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "padres-dark.svg",
+      "filename" : "padres-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

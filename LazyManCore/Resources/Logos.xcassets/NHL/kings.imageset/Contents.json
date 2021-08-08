@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "kings-light.svg",
+      "filename" : "kings-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "kings-dark.svg",
+      "filename" : "kings-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "rays-light.svg",
+      "filename" : "rays-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "rays-dark.svg",
+      "filename" : "rays-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

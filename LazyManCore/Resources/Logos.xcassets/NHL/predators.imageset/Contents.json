@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "predators-light.svg",
+      "filename" : "predators-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "predators-dark.svg",
+      "filename" : "predators-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

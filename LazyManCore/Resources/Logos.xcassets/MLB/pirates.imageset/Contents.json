@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "pirates-light.svg",
+      "filename" : "pirates-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "pirates-dark.svg",
+      "filename" : "pirates-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

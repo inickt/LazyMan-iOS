@@ -1,3 +1,4 @@
+import cairosvg
 import requests
 
 from enum import Enum, auto
@@ -68,11 +69,10 @@ def make_imageset(league: League, team):
 
     images = []
     for kind, url in league.logo_variants(id):
-        image_path = imageset_path / (filename_prefix + "-" + kind + ".svg")
+        image_path = imageset_path / (filename_prefix + "-" + kind + ".pdf")
         print(f"  Writing {team_name} {kind} logo to {image_path}")
-        image_response = requests.get(url)
         with open(image_path, "wb") as file:
-            file.write(image_response.content)
+            cairosvg.svg2pdf(url=url, write_to=file)
         images.append(
             {
                 "idiom": "universal",

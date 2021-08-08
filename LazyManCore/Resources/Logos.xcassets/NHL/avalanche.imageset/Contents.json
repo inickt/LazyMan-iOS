@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "avalanche-light.svg",
+      "filename" : "avalanche-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "avalanche-dark.svg",
+      "filename" : "avalanche-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

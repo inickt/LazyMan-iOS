@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "blackhawks-light.svg",
+      "filename" : "blackhawks-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "blackhawks-dark.svg",
+      "filename" : "blackhawks-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

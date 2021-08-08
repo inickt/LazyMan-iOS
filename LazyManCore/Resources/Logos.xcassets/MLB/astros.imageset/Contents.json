@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "astros-light.svg",
+      "filename" : "astros-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "astros-dark.svg",
+      "filename" : "astros-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

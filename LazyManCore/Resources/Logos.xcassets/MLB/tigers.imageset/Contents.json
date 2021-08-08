@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tigers-light.svg",
+      "filename" : "tigers-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "tigers-dark.svg",
+      "filename" : "tigers-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

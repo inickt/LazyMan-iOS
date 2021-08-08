@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "golden-knights-light.svg",
+      "filename" : "golden-knights-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "golden-knights-dark.svg",
+      "filename" : "golden-knights-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

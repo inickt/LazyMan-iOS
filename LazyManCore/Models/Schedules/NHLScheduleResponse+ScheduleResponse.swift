@@ -92,6 +92,6 @@ private extension NHLScheduleResponse.GameResponse {
                     liveGameState: liveGameState,
                     homeTeamScore: homeTeamScore,
                     awayTeamScore: awayTeamScore,
-                    feeds: content.media.asFeeds(for: gameDate))
+                    feeds: content.media?.asFeeds(for: gameDate) ?? [])
     }
 }

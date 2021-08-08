@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "brewers-light.svg",
+      "filename" : "brewers-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "brewers-dark.svg",
+      "filename" : "brewers-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

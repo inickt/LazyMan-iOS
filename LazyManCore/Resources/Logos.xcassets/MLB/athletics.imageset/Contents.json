@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "athletics-light.svg",
+      "filename" : "athletics-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "athletics-dark.svg",
+      "filename" : "athletics-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

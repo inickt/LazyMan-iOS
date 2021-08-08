@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "rockies-light.svg",
+      "filename" : "rockies-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "rockies-dark.svg",
+      "filename" : "rockies-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

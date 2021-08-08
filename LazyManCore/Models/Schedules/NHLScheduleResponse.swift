@@ -35,7 +35,7 @@ struct NHLScheduleResponse: Codable {
 
     struct ContentResponse: Codable {
         let link: String
-        let media: MediaResponse
+        let media: MediaResponse?
     }
 
     struct MediaResponse: Codable {

@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "maple-leafs-light.svg",
+      "filename" : "maple-leafs-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "maple-leafs-dark.svg",
+      "filename" : "maple-leafs-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

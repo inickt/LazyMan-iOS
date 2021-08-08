@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "panthers-light.svg",
+      "filename" : "panthers-light.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "panthers-dark.svg",
+      "filename" : "panthers-dark.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",
