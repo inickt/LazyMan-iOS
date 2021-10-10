@@ -17,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Configure Firebase/Crashlytics
+        FirebaseApp.configure()
+
+        // Initialize Chromecast
+        _ = CastManager.shared
+
         // Configures navigation bar
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().isTranslucent = false
@@ -27,35 +33,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableViewCell.appearance().selectedBackgroundView = selectedView
         UITableViewCell.appearance().backgroundColor = .black
 
-        // Configures split view controller
-        if let splitViewController = self.window?.rootViewController as? UISplitViewController {
-            splitViewController.preferredDisplayMode = .allVisible
-            splitViewController.view.backgroundColor = .black
+        let appStoryboard = UIStoryboard(name: "GameList", bundle: nil)
+        let mainNavigationController = appStoryboard.instantiateViewController(withIdentifier: "MainNavigationController")
+        let noGamesViewController = appStoryboard.instantiateViewController(withIdentifier: "NoGame")
 
-            splitViewController.delegate = (splitViewController.viewControllers.first as? UINavigationController)?
-                .viewControllers.first as? GameListViewController
+        let splitViewController: UISplitViewController
+        if #available(iOS 14.0, *) {
+            splitViewController = PrimarySplitViewController(style: .doubleColumn)
+            splitViewController.preferredSplitBehavior = .tile
 
-            if let navigationController = splitViewController.viewControllers.last as? UINavigationController {
-                navigationController.topViewController?.navigationItem.leftBarButtonItem =
-                    splitViewController.displayModeButtonItem
-            }
+        } else {
+            splitViewController = PrimarySplitViewController()
         }
 
-        // Configure Firebase/Crashlytics
-        FirebaseApp.configure()
-
-        // Initialize Chromecast
-        _ = CastManager.shared
-
         // Wrap main view in the GCKUICastContainerViewController and display the mini controller.
-        let appStoryboard = UIStoryboard(name: "GameList", bundle: nil)
-        let navigationController = appStoryboard.instantiateInitialViewController()!
-        let castContainerVC = GCKCastContext.sharedInstance().createCastContainerController(for: navigationController)
+        let castContainerVC = GCKCastContext.sharedInstance().createCastContainerController(for: splitViewController)
         castContainerVC.view.backgroundColor = .clear
         castContainerVC.miniMediaControlsItemEnabled = true
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = castContainerVC
+        splitViewController.viewControllers = [mainNavigationController, noGamesViewController]
         window?.makeKeyAndVisible()
 
         // Refresh notifications

@@ -28,7 +28,14 @@ class GameListViewController: UIViewController, GameListViewControllerType {
 
     // MARK: - Properties
 
-    internal var collapseDetailViewController = true
+    internal var collapseDetailViewController: Bool {
+        get {
+            (self.splitViewController as? PrimarySplitViewController)?.collapseDetailViewController ?? true
+        }
+        set {
+            (self.splitViewController as? PrimarySplitViewController)?.collapseDetailViewController = newValue
+        }
+    }
     private var weekFormatter = DateFormatter()
     private var date = Date() // Only update with updateDate()
     private var league: League = .NHL {
@@ -100,7 +107,6 @@ class GameListViewController: UIViewController, GameListViewControllerType {
         super.loadView()
         self.league = SettingsManager.shared.defaultLeague
         self.leagueControl.selectedSegmentIndex = SettingsManager.shared.defaultLeague == .NHL ? 0 : 1
-        self.splitViewController?.delegate = self
         self.calendar.scope = .week
         self.weekFormatter.dateFormat = "EEEE  MMMM d, yyyy"
         self.updateDate(date: self.date, wasSwiped: false, firstLoad: true)
@@ -286,13 +292,5 @@ extension GameListViewController: UIPageViewControllerDelegate {
         if completed, let date = (pageViewController.viewControllers?.last as? GameListTableViewController)?.date {
             self.updateDate(date: date, wasSwiped: true, firstLoad: false)
         }
-    }
-}
-
-extension GameListViewController: UISplitViewControllerDelegate {
-    func splitViewController(_ splitViewController: UISplitViewController,
-                             collapseSecondary secondaryViewController: UIViewController,
-                             onto primaryViewController: UIViewController) -> Bool {
-        return self.collapseDetailViewController
     }
 }

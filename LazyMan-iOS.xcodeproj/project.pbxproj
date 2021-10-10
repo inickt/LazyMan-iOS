@@ -20,6 +20,7 @@
 		01434A742040D3FF0094E221 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01434A732040D3FF0094E221 /* GameTableViewCell.swift */; };
 		01434A762040DAA70094E221 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01434A752040DAA70094E221 /* GameViewController.swift */; };
 		015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F345F2055EA960005453C /* GameSettingsViewController.swift */; };
+		017757C82713558E0009C23C /* PrimarySplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017757C72713558E0009C23C /* PrimarySplitViewController.swift */; };
 		0179AEC22076DB5D00539C6D /* nhlschedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC12076DB5D00539C6D /* nhlschedule2018-04-05.json */; };
 		0179AEC42076F84200539C6D /* mlbschedule2018-04-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */; };
 		0186CA43208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */; };
@@ -69,6 +70,7 @@
 		01434A732040D3FF0094E221 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		01434A752040DAA70094E221 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		015F345F2055EA960005453C /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
+		017757C72713558E0009C23C /* PrimarySplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimarySplitViewController.swift; sourceTree = "<group>"; };
 		0179AEC12076DB5D00539C6D /* nhlschedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "nhlschedule2018-04-05.json"; sourceTree = "<group>"; };
 		0179AEC32076F84200539C6D /* mlbschedule2018-04-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mlbschedule2018-04-05.json"; sourceTree = "<group>"; };
 		0186CA42208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+searcVisualEffectsSubview.swift"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				013CF1F120901A30001A24EC /* GameListTableViewController.swift */,
 				01DC7B942092530A003C311A /* GameListTableBackgroundView.swift */,
 				01DC7B9620925325003C311A /* GameListTableBackgroundView.xib */,
+				017757C72713558E0009C23C /* PrimarySplitViewController.swift */,
 			);
 			path = GameList;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				01EC4DE5225AA78300034D83 /* DarkOptionViewController.swift in Sources */,
 				015F34602055EA960005453C /* GameSettingsViewController.swift in Sources */,
 				01EC4DE7225AA97500034D83 /* CDN+OptionSelectorCell.swift in Sources */,
+				017757C82713558E0009C23C /* PrimarySplitViewController.swift in Sources */,
 				01EC4DEB225AA99400034D83 /* Playlist+OptionSelectorCell.swift in Sources */,
 				013CF1F220901A30001A24EC /* GameListTableViewController.swift in Sources */,
 				0186CA43208A7BE800F7907A /* UIView+searcVisualEffectsSubview.swift in Sources */,
