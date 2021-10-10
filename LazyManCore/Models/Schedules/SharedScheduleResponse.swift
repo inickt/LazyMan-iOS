@@ -21,10 +21,8 @@ enum SharedScheduleResponse {
     struct TeamResponse: Codable {
         let id: Int
         let name: String
-        let link: String
         let abbreviation: String
         let teamName: String
-        let shortName: String
     }
 
     struct GameStatusResponse: Codable {

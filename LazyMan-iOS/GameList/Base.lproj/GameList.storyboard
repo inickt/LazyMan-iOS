@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jtN-vB-G3k">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +11,7 @@
         <!--Navigation Controller-->
         <scene sceneID="PrS-cg-ecb">
             <objects>
-                <navigationController id="Nv0-XF-FqB" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationController" id="Nv0-XF-FqB" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Iev-Eo-ffd">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -27,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-1073" y="-1348"/>
         </scene>
-        <!--Delegate-->
+        <!--Main-->
         <scene sceneID="5DF-rd-dG5">
             <objects>
                 <viewController storyboardIdentifier="gameList" title="Main" id="DiW-Fz-1X3" customClass="GameListViewController" customModule="LazyMan_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday  September 30, 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwF-fL-qzp">
-                                        <rect key="frame" x="79.5" y="11" width="255" height="21"/>
+                                        <rect key="frame" x="80.5" y="11" width="253.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -93,6 +91,7 @@
                                 </connections>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rkh-Vy-k3R"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="5ea-6Y-n00" secondAttribute="trailing" id="3yQ-fr-ued"/>
@@ -103,7 +102,6 @@
                             <constraint firstItem="Drg-wo-ri7" firstAttribute="leading" secondItem="Rkh-Vy-k3R" secondAttribute="leading" id="wb6-Ee-iTw"/>
                             <constraint firstItem="Drg-wo-ri7" firstAttribute="trailing" secondItem="Rkh-Vy-k3R" secondAttribute="trailing" id="xMR-aJ-5kq"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Rkh-Vy-k3R"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="XYB-Zb-Jkz" userLabel="Controls">
@@ -114,7 +112,7 @@
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="uAA-1T-MzU">
-                            <rect key="frame" x="146.5" y="7" width="121" height="30"/>
+                            <rect key="frame" x="146.5" y="6" width="121" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="NHL"/>
@@ -144,20 +142,6 @@
             </objects>
             <point key="canvasLocation" x="-150" y="-1349"/>
         </scene>
-        <!--Split View Controller-->
-        <scene sceneID="tJB-XD-td0">
-            <objects>
-                <splitViewController id="jtN-vB-G3k" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <connections>
-                        <segue destination="Nv0-XF-FqB" kind="relationship" relationship="masterViewController" id="hQN-TF-1OZ"/>
-                        <segue destination="deS-gQ-mIX" kind="relationship" relationship="detailViewController" id="nA7-lM-YUf"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ODM-kh-z9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2143" y="-1350"/>
-        </scene>
         <!--Game-->
         <scene sceneID="xZG-IN-lKk">
             <objects>
@@ -185,15 +169,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="dHH-lW-KLa">
-                            <rect key="frame" x="0.0" y="128" width="414" height="0.0"/>
+                            <rect key="frame" x="0.0" y="149.00000034679067" width="414" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="100" id="tW5-qq-sVL" customClass="GameTableViewCell" customModule="LazyMan_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tW5-qq-sVL" id="Zrk-bL-Sm2">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13v-8S-wkF" userLabel="Seperator">
@@ -325,12 +309,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="JAu-GW-ODS"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PKM-hz-hIF" firstAttribute="centerX" secondItem="JAu-GW-ODS" secondAttribute="centerX" id="pP8-kO-cBi"/>
                             <constraint firstItem="PKM-hz-hIF" firstAttribute="centerY" secondItem="m3S-4h-NXo" secondAttribute="centerY" id="y61-RQ-An5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="JAu-GW-ODS"/>
                     </view>
                     <navigationItem key="navigationItem" id="UCs-Dg-4LJ"/>
                 </viewController>
