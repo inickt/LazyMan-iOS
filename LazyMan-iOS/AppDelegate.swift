@@ -27,6 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().isTranslucent = false
 
+        if #available(iOS 13.0, *) {
+            let barAppearance = UINavigationBarAppearance()
+            barAppearance.configureWithOpaqueBackground()
+            barAppearance.backgroundColor = .black
+            UINavigationBar.appearance().standardAppearance = barAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = barAppearance
+        }
+
         // Configures table view selection to be darker
         let selectedView = UIView()
         selectedView.backgroundColor = UIColor.darkGray
@@ -50,6 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let castContainerVC = GCKCastContext.sharedInstance().createCastContainerController(for: splitViewController)
         castContainerVC.view.backgroundColor = .clear
         castContainerVC.miniMediaControlsItemEnabled = true
+        if #available(iOS 13.0, *) {
+            castContainerVC.overrideUserInterfaceStyle = .dark
+        }
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = castContainerVC

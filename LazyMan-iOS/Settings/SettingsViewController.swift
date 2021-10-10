@@ -62,6 +62,10 @@ class SettingsViewController: UITableViewController, SettingsViewType {
         // Set version and build number
         let versionString = "Version: \(Bundle.main.releaseVersionNumber) – Build: \(Bundle.main.buildVersionNumber)"
         self.versionBuildLabel.text = versionString
+
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .dark
+        }
     }
 
     // MARK: - SettingsViewType
