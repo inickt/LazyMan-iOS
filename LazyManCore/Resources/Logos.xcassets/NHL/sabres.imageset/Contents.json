@@ -2,23 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "sabres-light.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ]
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "sabres-dark.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ]
+      "filename" : "sabres-dark.pdf"
     }
   ],
   "info" : {

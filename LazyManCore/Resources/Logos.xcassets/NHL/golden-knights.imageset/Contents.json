@@ -2,23 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "golden-knights-light.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ]
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "golden-knights-dark.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ]
+      "filename" : "golden-knights-dark.pdf"
     }
   ],
   "info" : {

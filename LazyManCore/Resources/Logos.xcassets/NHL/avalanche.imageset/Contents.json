@@ -2,23 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "avalanche-light.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ]
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "avalanche-dark.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ]
+      "filename" : "avalanche-dark.pdf"
     }
   ],
   "info" : {

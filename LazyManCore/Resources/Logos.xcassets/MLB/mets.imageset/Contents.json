@@ -2,23 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "mets-light.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ]
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "mets-dark.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ]
+      "filename" : "mets-dark.pdf"
     }
   ],
   "info" : {

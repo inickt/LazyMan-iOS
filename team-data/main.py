@@ -23,7 +23,8 @@ class League(Enum):
         }[self]
 
     def logo_variants(self, id):
-        return [("light", self.light_logo_url(id)), ("dark", self.dark_logo_url(id))]
+        # return [("light", self.light_logo_url(id)), ("dark", self.dark_logo_url(id))]
+        return [("dark", self.dark_logo_url(id))]
 
     def light_logo_url(self, id):
         return {
@@ -77,7 +78,7 @@ def make_imageset(league: League, team):
             {
                 "idiom": "universal",
                 "filename": image_path.name,
-                "appearances": [{"appearance": "luminosity", "value": kind}],
+                # "appearances": [{"appearance": "luminosity", "value": kind}],
             }
         )
 
