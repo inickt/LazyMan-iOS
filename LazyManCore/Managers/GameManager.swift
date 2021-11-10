@@ -57,6 +57,7 @@ public class GameManager: GameManagerType {
     private var nhlGames = [String : [Game]]()
     private var mlbGames = [String : [Game]]()
     private let scheduleLoader: ScheduleLoader
+    private let queue = DispatchQueue(label: "dev.nickt.LazyManCore.GameManager")
 
     // MARK: - Initialization
 
@@ -127,11 +128,13 @@ public class GameManager: GameManagerType {
     }
 
     private func getGames(date: Date, league: League) -> [Game]? {
-        switch league {
-        case .NHL:
-            return self.nhlGames[DateUtils.convertToYYYYMMDD(from: date)]
-        case .MLB:
-            return self.mlbGames[DateUtils.convertToYYYYMMDD(from: date)]
+        return queue.sync {
+            switch league {
+            case .NHL:
+                return self.nhlGames[DateUtils.convertToYYYYMMDD(from: date)]
+            case .MLB:
+                return self.mlbGames[DateUtils.convertToYYYYMMDD(from: date)]
+            }
         }
     }
 
@@ -140,11 +143,13 @@ public class GameManager: GameManagerType {
     }
     
     private func setGames(date: String, league: League, games: [Game]?) {
-        switch league {
-        case .NHL:
-            self.nhlGames[date] = games
-        case .MLB:
-            self.mlbGames[date] = games
+        queue.sync {
+            switch league {
+            case .NHL:
+                self.nhlGames[date] = games
+            case .MLB:
+                self.mlbGames[date] = games
+            }
         }
     }
 
