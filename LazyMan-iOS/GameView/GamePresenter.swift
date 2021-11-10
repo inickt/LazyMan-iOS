@@ -106,9 +106,11 @@ class GamePresenter: NSObject, GamePresenterType, CastDelegate {
     func resourceLoader(_ resourceLoader: AVAssetResourceLoader,
                         shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
         if let url = loadingRequest.request.url {
+            var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+            components?.scheme = "http"
+            components?.host = settingsManager.serverHostname ?? defaultServerAddress
             for host in allHosts {
-                if url.absoluteString.contains(host),
-                    let redirect = URL(string: url.absoluteString.replacingOccurrences(of: host, with: serverAddress)) {
+                if url.absoluteString.contains(host), let redirect = components?.url {
                     try? loadingRequest.dataRequest?.respond(with: Data(contentsOf: redirect))
                     loadingRequest.finishLoading()
                     return true

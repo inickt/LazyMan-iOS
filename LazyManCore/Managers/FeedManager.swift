@@ -39,6 +39,13 @@ public class FeedManager: FeedManagerType {
     // MARK: - Private Properties
 
     private var cachedPlaylists = [Feed: [CDN: [Playlist]]]()
+    private var settingsManager: SettingsManagerType
+
+    // MARK: - Init
+
+    public init(settingsManager: SettingsManagerType = SettingsManager.shared) {
+        self.settingsManager = settingsManager
+    }
 
     // MARK: - FeedManagerType
 
@@ -126,12 +133,19 @@ public class FeedManager: FeedManagerType {
      */
     private func getMasterURL(league: League, cdn: CDN, playbackID: Int, date: Date) -> URL? {
         let dateString = DateUtils.convertToYYYYMMDD(from: date, timeZone: TimeZone(identifier: "America/Los_Angeles")!)
-        let masterURLSource = "https://freegamez.ga/getM3U8.php?league=\(league.rawValue)&date=\(dateString)&id=\(playbackID)&cdn=\(cdn.rawValue)"
-
-        if let contents = try? String(contentsOf: URL(string: masterURLSource)!) {
-            return URL(string: contents)
-        } else {
+        var components = URLComponents()
+        components.scheme = "http"
+        components.host = settingsManager.serverHostname ?? defaultServerAddress
+        components.path = "/getM3U8.php"
+        components.queryItems = [
+            .init(name: "league", value: league.rawValue),
+            .init(name: "date", value: dateString),
+            .init(name: "id", value: String(playbackID)),
+            .init(name: "cdn", value: cdn.rawValue)
+        ]
+        guard let url = components.url, let contents = try? String(contentsOf: url) else {
             return nil
         }
+        return URL(string: contents)
     }
 }

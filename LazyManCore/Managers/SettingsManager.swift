@@ -16,6 +16,7 @@ public protocol SettingsManagerType {
     var showScores: Bool { get set }
     var favoriteNHLTeams: [Team] { get set }
     var favoriteMLBTeams: [Team] { get set }
+    var serverHostname: String? { get set }
     var notifications: Bool { get set }
     var versionUpdates: Bool { get set }
     var betaUpdates: Bool { get set }
@@ -121,6 +122,16 @@ public class SettingsManager: SettingsManagerType {
             } else {
                 UserDefaults.standard.removeObject(forKey: favoriteMLBTeamsKey)
             }
+        }
+    }
+
+    private let serverHostnameKey = "serverHostname"
+    public var serverHostname: String? {
+        get {
+            return UserDefaults.standard.string(forKey: serverHostnameKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: serverHostnameKey)
         }
     }
 

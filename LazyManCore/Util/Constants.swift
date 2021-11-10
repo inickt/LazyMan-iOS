@@ -14,7 +14,7 @@ public let mlbHosts = ["mlb-ws-mf.media.mlb.com", "playback.svcs.mlb.com"]
 public let allHosts = nhlHosts + mlbHosts
 
 // Server address
-public let serverAddress = "freegamez.ga"
+public let defaultServerAddress = "freesports.ddns.net"
 
 // Notification for pausing when back to game list on iPhone
 public let pauseNotification = NSNotification.Name(rawValue: "pause")
