@@ -23,20 +23,8 @@ jobs:
       uses: maxim-lobanov/setup-xcode@v1
       with:
         xcode-version: '12.5.1'
-    - name: Install dpkg
-      run: brew install dpkg
-    - name: Checkout ldid
-      uses: actions/checkout@v1
-      with:
-        repository: xerub/ldid
-        ref: master
-        submodules: recursive
-    - name: Install ldid2
-      run: |
-        cd $GITHUB_WORKSPACE/../ldid
-        ./mk.sh
-        chmod +x ldid2
-        cp ldid2 /usr/local/bin/ldid2
+    - name: Install dpkg/ldid
+      run: brew install dpkg ldid
     - name: Generate build number
       uses: einaregilsson/build-number@v3
       with:

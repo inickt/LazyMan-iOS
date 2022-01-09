@@ -10,8 +10,9 @@ archive ./build/$(TARGET).xcarchive:
 	xcodebuild clean archive -workspace LazyMan.xcworkspace/ -scheme "$(TARGET)" -archivePath ./build/$(TARGET).xcarchive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
 app ./build/$(TARGET).app: ./build/$(TARGET).xcarchive
-	ln -sf $(TARGET).xcarchive/Products/Applications/$(TARGET).app ./build/$(TARGET).app
-	find . -perm +111 -type f ! -name *.dylib -exec ldid2 -S {} ';'
+	cp -r ./build/$(TARGET).xcarchive/Products/Applications/$(TARGET).app ./build/
+	ldid -S ./build/$(TARGET).app/$(TARGET)
+	find ./build/$(TARGET).app/Frameworks -perm +111 -type f -exec ldid -S {} ';'
 
 ipa ./build/$(TARGET).ipa: app
 	rm -rf ./build/Payload/ ./build/$(NAME).ipa
